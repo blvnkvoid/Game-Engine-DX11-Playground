@@ -15,6 +15,7 @@ x64/
 *.mp3
 *.wav
 *.txt
+*.fbx
 
 # Bullet Physics Binaries (if they are in your project folder)
 *.lib
@@ -31,6 +32,6 @@ Project1/Tracks/AutumnRing/alpine_dds_img
 /Project1/Tracks/SpaFrancorshamps
 /Project1/Tracks/TestCourse
 /Project1/Tracks/TrialMountain
-/Project1/Tracks/
 C:\Users\Void\Documents\GitHub\Game-Engine\Project1\UI\Music
 C:\Users\Void\Documents\GitHub\Game-Engine\Project1\UI\Sounds
+Project1/Tracks/Motorland/trees2.png.old
