@@ -1,0 +1,36 @@
+# Visual Studio files
+.vs/
+[Dd]ebug/
+[Rr]elease/
+x64/
+*.user
+*.aps
+*.pdb
+*.obj
+*.exe
+*.log
+*.dds
+*.png
+*.jpg
+*.mp3
+*.wav
+*.txt
+
+# Bullet Physics Binaries (if they are in your project folder)
+*.lib
+*.dll
+Project1/Tracks/AutumnRing/alpine_dds_img
+/Project1/Tracks/AutumnRing
+/Project1/Tracks/ElCapitan
+/Project1/Tracks/GrandValleySpeedway
+/Project1/Tracks/HighSpeedRing
+/Project1/Tracks/MidfieldRaceway
+/Project1/Tracks/Nurburgring
+/Project1/Tracks/RoadAtlanta
+/Project1/Tracks/RouteX
+/Project1/Tracks/SpaFrancorshamps
+/Project1/Tracks/TestCourse
+/Project1/Tracks/TrialMountain
+/Project1/Tracks/
+C:\Users\Void\Documents\GitHub\Game-Engine\Project1\UI\Music
+C:\Users\Void\Documents\GitHub\Game-Engine\Project1\UI\Sounds

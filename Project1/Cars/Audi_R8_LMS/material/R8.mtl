@@ -1,0 +1,566 @@
+newmtl AudiLogoChrome
+Ka 0.05 0.05 0.05
+Kd 0.1 0.1 0.1
+Ks 0.05 0.05 0.05
+Ns 5.0
+illum 2
+
+newmtl LightBackHighlight
+Ka 0.1 0.0 0.0
+Kd 0.8 0.0 0.0
+Ks 1.0 1.0 1.0
+Ns 100.0
+illum 2
+
+newmtl WindscreenGlassGrey
+Ka 0.0 0.0 0.0
+Kd 0.1 0.1 0.1
+Ks 1.0 1.0 1.0
+Ns 200.0
+illum 4
+
+newmtl BlackGlossy
+Ka 0.02 0.02 0.02
+Kd 0.05 0.05 0.05
+Ks 0.6 0.6 0.6
+Ns 100.0
+illum 2
+
+newmtl HoneyComb
+Ka 0.01 0.01 0.01
+Kd 0.05 0.05 0.05
+Ks 0.1 0.1 0.1
+Ns 10.0
+illum 2
+
+newmtl HoneyComb
+Ka 0.01 0.01 0.01
+Kd 0.05 0.05 0.05
+Ks 0.1 0.1 0.1
+Ns 10.0
+illum 2
+
+newmtl HoneyComb
+Ka 0.01 0.01 0.01
+Kd 0.05 0.05 0.05
+Ks 0.1 0.1 0.1
+Ns 10.0
+illum 2
+
+newmtl AirBackOutput
+Ka 0.1 0.1 0.1
+Kd 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 20.0
+illum 2
+
+newmtl CarbonFibre
+Ka 0.02 0.02 0.02
+Kd 0.08 0.08 0.08
+Ks 0.15 0.15 0.15
+Ns 25.0
+illum 2
+
+newmtl WindscreenGlassGrey
+Ka 0.0 0.0 0.0
+Kd 0.1 0.1 0.1
+Ks 1.0 1.0 1.0
+Ns 200.0
+illum 4
+
+newmtl WindscreenGlassBlack
+Ka 0.0 0.0 0.0
+Kd 0.05 0.05 0.05
+Ks 1.0 1.0 1.0
+Ns 200.0
+illum 4
+
+newmtl WindscreenGlassGrey
+Ka 0.0 0.0 0.0
+Kd 0.1 0.1 0.1
+Ks 1.0 1.0 1.0
+Ns 200.0
+illum 4
+
+newmtl RoofCanvas
+Ka 0.05 0.05 0.05
+Kd 0.05 0.05 0.05
+Ks 0.05 0.05 0.05
+Ns 5.0
+illum 2
+
+newmtl MirrorsLightSouces
+Ka 0.1 0.1 0.1
+Kd 0.9 0.9 0.9
+Ks 1.0 1.0 1.0
+Ns 100.0
+illum 2
+
+newmtl GlassFrontHighlight
+Ka 0.0 0.0 0.0
+Kd 0.1 0.1 0.1
+Ks 1.0 1.0 1.0
+Ns 200.0
+illum 4
+
+newmtl Mirrors
+Ka 0.03 0.18 0.45
+Kd 0.03 0.18 0.45
+Ks 0.8 0.8 0.8
+Ns 150.0
+illum 2
+
+newmtl CarbonFibre
+Ka 0.02 0.02 0.02
+Kd 0.08 0.08 0.08
+Ks 0.15 0.15 0.15
+Ns 25.0
+illum 2
+
+newmtl AudiLogoChrome
+Ka 0.05 0.05 0.05
+Kd 0.1 0.1 0.1
+Ks 0.05 0.05 0.05
+Ns 5.0
+illum 2
+
+newmtl GlassBackHighlight
+Ka 0.0 0.0 0.0
+Kd 0.1 0.1 0.1
+Ks 1.0 1.0 1.0
+Ns 200.0
+illum 4
+
+newmtl InteriorFrontHighlight
+Ka 0.05 0.05 0.05
+Kd 0.2 0.2 0.2
+Ks 0.3 0.3 0.3
+Ns 30.0
+illum 2
+
+newmtl CarbonFibre
+Ka 0.02 0.02 0.02
+Kd 0.08 0.08 0.08
+Ks 0.15 0.15 0.15
+Ns 25.0
+illum 2
+
+newmtl CarbonFibre
+Ka 0.02 0.02 0.02
+Kd 0.08 0.08 0.08
+Ks 0.15 0.15 0.15
+Ns 25.0
+illum 2
+
+newmtl CarbonFibre
+Ka 0.02 0.02 0.02
+Kd 0.08 0.08 0.08
+Ks 0.15 0.15 0.15
+Ns 25.0
+illum 2
+
+newmtl FarLight
+Ka 0.1 0.1 0.1
+Kd 0.9 0.9 0.9
+Ks 1.0 1.0 1.0
+Ns 150.0
+illum 2
+
+newmtl LightFrontHighlight
+Ka 0.1 0.1 0.1
+Kd 0.9 0.9 0.9
+Ks 1.0 1.0 1.0
+Ns 100.0
+illum 2
+
+newmtl GlassFrontHighlight
+Ka 0.0 0.0 0.0
+Kd 0.1 0.1 0.1
+Ks 1.0 1.0 1.0
+Ns 200.0
+illum 4
+
+newmtl FrontHighlightChrome
+Ka 0.2 0.2 0.2
+Kd 0.9 0.9 0.9
+Ks 1.0 1.0 1.0
+Ns 512.0
+illum 3
+
+newmtl InteriorFrontHighlight
+Ka 0.05 0.05 0.05
+Kd 0.2 0.2 0.2
+Ks 0.3 0.3 0.3
+Ns 30.0
+illum 2
+
+newmtl GlassFrontHighlight
+Ka 0.0 0.0 0.0
+Kd 0.1 0.1 0.1
+Ks 1.0 1.0 1.0
+Ns 200.0
+illum 4
+
+newmtl InteriorFrontHighlight
+Ka 0.05 0.05 0.05
+Kd 0.2 0.2 0.2
+Ks 0.3 0.3 0.3
+Ns 30.0
+illum 2
+
+newmtl HoneyComb
+Ka 0.01 0.01 0.01
+Kd 0.05 0.05 0.05
+Ks 0.1 0.1 0.1
+Ns 10.0
+illum 2
+
+newmtl HoneyComb
+Ka 0.01 0.01 0.01
+Kd 0.05 0.05 0.05
+Ks 0.1 0.1 0.1
+Ns 10.0
+illum 2
+
+newmtl HoneyComb
+Ka 0.01 0.01 0.01
+Kd 0.05 0.05 0.05
+Ks 0.1 0.1 0.1
+Ns 10.0
+illum 2
+
+newmtl NumbrePlateAudiR8
+Ka 0.05 0.05 0.05
+Kd 0.1 0.1 0.1
+Ks 0.05 0.05 0.05
+Ns 5.0
+illum 2
+
+newmtl AudiLogoChrome
+Ka 0.05 0.05 0.05
+Kd 0.1 0.1 0.1
+Ks 0.05 0.05 0.05
+Ns 5.0
+illum 2
+
+newmtl HoneyComb
+Ka 0.01 0.01 0.01
+Kd 0.05 0.05 0.05
+Ks 0.1 0.1 0.1
+Ns 10.0
+illum 2
+
+newmtl BodyMaterials
+Ka 0.00 0.05 0.20
+Kd 0.00 0.15 0.85
+Ks 0.90 0.95 1.00
+Ns 180.0
+illum 2
+
+newmtl BlackGlossy
+Ka 0.02 0.02 0.02
+Kd 0.05 0.05 0.05
+Ks 0.6 0.6 0.6
+Ns 100.0
+illum 2
+
+newmtl NumbrePlateAudiR8
+Ka 0.05 0.05 0.05
+Kd 0.1 0.1 0.1
+Ks 0.05 0.05 0.05
+Ns 5.0
+illum 2
+
+newmtl CarbonFibre
+Ka 0.02 0.02 0.02
+Kd 0.08 0.08 0.08
+Ks 0.15 0.15 0.15
+Ns 25.0
+illum 2
+
+newmtl BodyMaterials
+Ka 0.00 0.05 0.20
+Kd 0.00 0.15 0.85
+Ks 0.90 0.95 1.00
+Ns 180.0
+illum 2
+
+newmtl undercarriage
+Ka 0.01 0.01 0.01
+Kd 0.05 0.05 0.05
+Ks 0.05 0.05 0.05
+Ns 5.0
+illum 2
+
+newmtl NumberPlateLight
+Ka 0.05 0.05 0.05
+Kd 0.1 0.1 0.1
+Ks 0.05 0.05 0.05
+Ns 5.0
+illum 2
+
+newmtl BlackGlossy
+Ka 0.02 0.02 0.02
+Kd 0.05 0.05 0.05
+Ks 0.6 0.6 0.6
+Ns 100.0
+illum 2
+
+newmtl AirBackOutput
+Ka 0.1 0.1 0.1
+Kd 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 20.0
+illum 2
+
+newmtl Tyre
+Ka 0.05 0.05 0.05
+Kd 0.1 0.1 0.1
+Ks 0.05 0.05 0.05
+Ns 5.0
+illum 2
+
+newmtl WheelsChrome
+Ka 0.2 0.2 0.2
+Kd 0.9 0.9 0.9
+Ks 1.0 1.0 1.0
+Ns 512.0
+illum 3
+
+newmtl Bolt
+Ka 0.1 0.1 0.1
+Kd 0.2 0.2 0.2
+Ks 0.5 0.5 0.5
+Ns 60.0
+illum 2
+
+newmtl Centre
+Ka 0.1 0.1 0.1
+Kd 0.1 0.1 0.1
+Ks 0.8 0.8 0.8
+Ns 100.0
+illum 2
+
+newmtl Ring
+Ka 0.2 0.2 0.2
+Kd 0.9 0.9 0.9
+Ks 1.0 1.0 1.0
+Ns 200.0
+illum 2
+
+newmtl AudiLogoChrome
+Ka 0.05 0.05 0.05
+Kd 0.1 0.1 0.1
+Ks 0.05 0.05 0.05
+Ns 5.0
+illum 2
+
+newmtl BrakeDisc
+Ka 0.1 0.1 0.1
+Kd 0.4 0.4 0.4
+Ks 0.7 0.7 0.7
+Ns 50.0
+illum 2
+
+newmtl Axe
+Ka 0.1 0.1 0.1
+Kd 0.3 0.3 0.3
+Ks 0.5 0.5 0.5
+Ns 40.0
+illum 2
+
+newmtl Brake
+Ka 0.1 0.0 0.0
+Kd 0.7 0.0 0.0
+Ks 0.5 0.5 0.5
+Ns 60.0
+illum 2
+
+newmtl Brake
+Ka 0.1 0.0 0.0
+Kd 0.7 0.0 0.0
+Ks 0.5 0.5 0.5
+Ns 60.0
+illum 2
+
+newmtl BrakeDisc
+Ka 0.1 0.1 0.1
+Kd 0.4 0.4 0.4
+Ks 0.7 0.7 0.7
+Ns 50.0
+illum 2
+
+newmtl Axe
+Ka 0.1 0.1 0.1
+Kd 0.3 0.3 0.3
+Ks 0.5 0.5 0.5
+Ns 40.0
+illum 2
+
+newmtl AudiLogoChrome
+Ka 0.05 0.05 0.05
+Kd 0.1 0.1 0.1
+Ks 0.05 0.05 0.05
+Ns 5.0
+illum 2
+
+newmtl Centre
+Ka 0.1 0.1 0.1
+Kd 0.1 0.1 0.1
+Ks 0.8 0.8 0.8
+Ns 100.0
+illum 2
+
+newmtl Ring
+Ka 0.2 0.2 0.2
+Kd 0.9 0.9 0.9
+Ks 1.0 1.0 1.0
+Ns 200.0
+illum 2
+
+newmtl Bolt
+Ka 0.1 0.1 0.1
+Kd 0.2 0.2 0.2
+Ks 0.5 0.5 0.5
+Ns 60.0
+illum 2
+
+newmtl WheelsChrome
+Ka 0.2 0.2 0.2
+Kd 0.9 0.9 0.9
+Ks 1.0 1.0 1.0
+Ns 512.0
+illum 3
+
+newmtl Tyre
+Ka 0.05 0.05 0.05
+Kd 0.1 0.1 0.1
+Ks 0.05 0.05 0.05
+Ns 5.0
+illum 2
+
+newmtl Tyre
+Ka 0.05 0.05 0.05
+Kd 0.1 0.1 0.1
+Ks 0.05 0.05 0.05
+Ns 5.0
+illum 2
+
+newmtl WheelsChrome
+Ka 0.2 0.2 0.2
+Kd 0.9 0.9 0.9
+Ks 1.0 1.0 1.0
+Ns 512.0
+illum 3
+
+newmtl Bolt
+Ka 0.1 0.1 0.1
+Kd 0.2 0.2 0.2
+Ks 0.5 0.5 0.5
+Ns 60.0
+illum 2
+
+newmtl Centre
+Ka 0.1 0.1 0.1
+Kd 0.1 0.1 0.1
+Ks 0.8 0.8 0.8
+Ns 100.0
+illum 2
+
+newmtl Ring
+Ka 0.2 0.2 0.2
+Kd 0.9 0.9 0.9
+Ks 1.0 1.0 1.0
+Ns 200.0
+illum 2
+
+newmtl AudiLogoChrome
+Ka 0.05 0.05 0.05
+Kd 0.1 0.1 0.1
+Ks 0.05 0.05 0.05
+Ns 5.0
+illum 2
+
+newmtl BrakeDisc
+Ka 0.1 0.1 0.1
+Kd 0.4 0.4 0.4
+Ks 0.7 0.7 0.7
+Ns 50.0
+illum 2
+
+newmtl Axe
+Ka 0.1 0.1 0.1
+Kd 0.3 0.3 0.3
+Ks 0.5 0.5 0.5
+Ns 40.0
+illum 2
+
+newmtl Brake
+Ka 0.1 0.0 0.0
+Kd 0.7 0.0 0.0
+Ks 0.5 0.5 0.5
+Ns 60.0
+illum 2
+
+newmtl Brake
+Ka 0.1 0.0 0.0
+Kd 0.7 0.0 0.0
+Ks 0.5 0.5 0.5
+Ns 60.0
+illum 2
+
+newmtl BrakeDisc
+Ka 0.1 0.1 0.1
+Kd 0.4 0.4 0.4
+Ks 0.7 0.7 0.7
+Ns 50.0
+illum 2
+
+newmtl Axe
+Ka 0.1 0.1 0.1
+Kd 0.3 0.3 0.3
+Ks 0.5 0.5 0.5
+Ns 40.0
+illum 2
+
+newmtl AudiLogoChrome
+Ka 0.05 0.05 0.05
+Kd 0.1 0.1 0.1
+Ks 0.05 0.05 0.05
+Ns 5.0
+illum 2
+
+newmtl Centre
+Ka 0.1 0.1 0.1
+Kd 0.1 0.1 0.1
+Ks 0.8 0.8 0.8
+Ns 100.0
+illum 2
+
+newmtl Ring
+Ka 0.2 0.2 0.2
+Kd 0.9 0.9 0.9
+Ks 1.0 1.0 1.0
+Ns 200.0
+illum 2
+
+newmtl Bolt
+Ka 0.1 0.1 0.1
+Kd 0.2 0.2 0.2
+Ks 0.5 0.5 0.5
+Ns 60.0
+illum 2
+
+newmtl Tyre
+Ka 0.05 0.05 0.05
+Kd 0.1 0.1 0.1
+Ks 0.05 0.05 0.05
+Ns 5.0
+illum 2
+
+newmtl WheelsChrome
+Ka 0.05 0.05 0.05
+Kd 0.1 0.1 0.1
+Ks 0.05 0.05 0.05
+Ns 5.0
+illum 2

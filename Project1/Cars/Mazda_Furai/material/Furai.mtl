@@ -1,0 +1,352 @@
+# Blender 5.1.1 MTL File: 'None'
+# www.blender.org
+
+newmtl Mazda_Furai_2008Grille1A_Material
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/Mazda_Furai_2008_Grille1A_DiffuseAOSO.png
+
+newmtl Mazda_Furai_2008Grille2A_Material
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/Mazda_Furai_2008_Grille2A_DiffuseAOSO.png
+
+newmtl Mazda_Furai_2008Grille4A_Material
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/Mazda_Furai_2008_Grille4A_DiffuseAOSO.png
+
+newmtl Mazda_Furai_2008Grille5A_Material
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/Mazda_Furai_2008_Grille5A_DiffuseAOSO.png
+
+newmtl extralivery
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/live_spos.png
+
+newmtl extralivery2
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/live_spot.png
+
+newmtl mat_ext_cal_f
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/tex_ext_cal_f.png
+
+newmtl mat_ext_cal_r
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/tex_ext_cal_r.png
+
+newmtl mat_ext_disc
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/tex_ext_dis.png
+
+newmtl mat_ext_rotor
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/tex_ext_dis.png
+
+newmtl mate_exte_carb
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/text_exte_cafi.png
+
+newmtl mate_exte_glas_blac
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/text_exte_stic.png
+
+newmtl mate_exte_leds
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/text_exte_ligh.png
+
+newmtl mate_exte_ligh
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/text_exte_ligh.png
+
+newmtl mate_exte_live
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/text_exte_stic.png
+
+newmtl mate_exte_mirr
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+
+newmtl mate_exte_misc
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/text_exte_cafi.png
+
+newmtl mate_exte_null
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/livery.png
+
+newmtl mate_exte_numf
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/text_exte_stic.png
+
+newmtl mate_exte_numl
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/text_exte_stic.png
+
+newmtl mate_exte_numr
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/text_exte_stic.png
+
+newmtl mate_exte_pain
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/livery.png
+
+newmtl mate_exte_plas
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/text_exte_cafi.png
+
+newmtl mate_inte_carb
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/leather2.dds
+
+newmtl mate_inte_misc
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/text_inte_misc.dds
+
+newmtl mate_inte_scre
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/Mazda_Furai_2008_InteriorA_Emissive.png
+
+newmtl mate_inte_stee_alum
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/amoc_inte_stee.dds
+
+newmtl mate_inte_stee_carb
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/amoc_inte_stee.dds
+
+newmtl mate_inte_stee_plas
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/amoc_inte_stee.dds
+
+newmtl mate_inte_stee_rpml
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/Mazda_Furai_2008_InteriorA_DiffuseAOSO.png
+
+newmtl mate_inte_stee_sued
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/amoc_inte_stee.dds
+
+newmtl mate_inte_sued_prim
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/leather2.dds
+
+newmtl mate_inte_sued_seco
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/leather2.dds
+
+newmtl rims
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/text_exte_glas.png
+
+newmtl tire
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Mazda_Furai/textures/Mazda_Furai_2008_Wheel1A_DiffuseAOSO.png

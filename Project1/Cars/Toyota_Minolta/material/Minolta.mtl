@@ -1,0 +1,632 @@
+# Blender 5.1.1 MTL File: 'None'
+# www.blender.org
+
+newmtl 2
+Ns 600.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/wao.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/wao.dds
+
+newmtl EXT_Caliper
+Ns 10.000005
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/caliper.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/caliper.dds
+
+newmtl EXT_Engine_bulltes
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/engineparts.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/engineparts.dds
+
+newmtl EXT_body_plastic
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/SKIN_00.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/SKIN_00.dds
+
+newmtl EXT_brakedisk
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/Disk_D.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/Disk_D.dds
+
+newmtl EXT_exhaust
+Ns 10.000005
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/exhaust_d.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/exhaust_d.dds
+
+newmtl EXT_gearbox
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/gearboxskin_d.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/gearboxskin_d.dds
+
+newmtl EXT_nuts_bolts
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/Bolts_D.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/Bolts_D.dds
+
+newmtl EXT_parts_A
+Ns 650.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/exterior_parts.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/exterior_parts.dds
+
+newmtl EXT_sus_metal
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/susp_D.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/susp_D.dds
+
+newmtl EXT_susp_paint
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/susp_D.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/susp_D.dds
+
+newmtl EXT_tyre
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/tyre_d.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/tyre_d.dds
+
+newmtl EXT_under_black
+Ns 10.000005
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/bottom_d.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/bottom_d.dds
+
+newmtl EXT_under_carbon
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/bottom_D.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/bottom_D.dds
+
+newmtl EXT_under_composit
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/bottom_D.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/bottom_D.dds
+
+newmtl INT_Parts
+Ns 600.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/interior_parts.dds
+
+newmtl INT_RollBar
+Ns 399.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/int_occ.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/int_occ.dds
+
+newmtl INT_metal_nuts_bolts
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/Bolts_D.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/Bolts_D.dds
+
+newmtl INT_metal_sw
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/Steer_D.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/Steer_D.dds
+
+newmtl INT_plastic_stitching
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/AlfaRomeo_4X_Cuci.png
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/AlfaRomeo_4X_Cuci.png
+
+newmtl INT_plastic_sw_buttons
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/Steer_D.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/Steer_D.dds
+
+newmtl INT_plastic_sw_textile
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/Steer_D.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/Steer_D.dds
+
+newmtl Material_#359
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/Mirror.DDS
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/Mirror.DDS
+
+newmtl Material_#360
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/16ao.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/16ao.dds
+
+newmtl Material_#361
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/bottomao.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/bottomao.dds
+
+newmtl Material_#362
+Ns 399.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/00608730.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/00608730.dds
+
+newmtl Material_#377
+Ns 399.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/detailsmiscparts.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/detailsmiscparts.dds
+
+newmtl Material_#381
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/36ao.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/36ao.dds
+
+newmtl Material_#382
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/wingao.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/wingao.dds
+
+newmtl Material_#410
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/seatao.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/seatao.dds
+
+newmtl Material_#411
+Ns 399.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/interior_seatbelt_diff.dds
+
+newmtl Material_#412
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/reflector_glass.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/reflector_glass.dds
+
+newmtl Material_#414
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/lights_d.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/lights_d.dds
+
+newmtl Material_#426
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/glass_d.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/glass_d.dds
+
+newmtl Material_#428
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/10.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/10.dds
+
+newmtl Material_#429
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/101.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/101.dds
+
+newmtl Material_#430
+Ns 399.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/wao.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/wao.dds
+
+newmtl Material_#457
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/tailao.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/tailao.dds
+
+newmtl Material_#458
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/13.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/13.dds
+
+newmtl Material_#472
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/planeao.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/planeao.dds
+
+newmtl Material_#473
+Ns 600.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/n2.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/n2.dds
+
+newmtl Material_#539
+Ns 50.000011
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/t1.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/t1.dds
+
+newmtl Material_#541
+Ns 499.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/engineparts.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/engineparts.dds
+
+newmtl Material_#543
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/cockpit.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/cockpit.dds
+
+newmtl Material_#567
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/12.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/12.dds
+
+newmtl Material_#568
+Ns 499.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/cockpit.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/cockpit.dds
+
+newmtl Material_#569
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/24.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/24.dds
+
+newmtl Material__41
+Ns 600.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/Body_G.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/Body_G.dds
+
+newmtl black
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/black.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/black.dds
+
+newmtl blur
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/rims_blur.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/rims_blur.dds
+
+newmtl body
+Ns 600.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/skin.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/skin.dds
+
+newmtl body2
+Ns 600.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/skinw.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/skinw.dds
+
+newmtl hlsao
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/hlsao.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/hlsao.dds
+
+newmtl metal
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/damage_glass_color.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/damage_glass_color.dds
+
+newmtl metalint
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/Grey.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/Grey.dds
+
+newmtl plastic
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/black.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/black.dds
+
+newmtl plastic_MGL
+Ns 10.000005
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/rgbaffffffff.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/rgbaffffffff.dds
+
+newmtl plasticint
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/darkgrey.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/darkgrey.dds
+
+newmtl rim
+Ns 750.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/rim.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/rim.dds
+
+newmtl rim_blur_alpha
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/rims_blur.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/rims_blur.dds
+
+newmtl rivetPainted_007
+Ns 10.000005
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/rgba020202ff.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/rgba020202ff.dds
+
+newmtl window
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/gray.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/gray.dds
+
+newmtl wint
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/INTERNAL_glass.dds
+map_d F:/SteamLibrary/steamapps/common/assettocorsa/content/cars/ddm_minolta_toyota_88c-v_lm/unp_minolta_toyota_88c-v.kn5/texture/INTERNAL_glass.dds

@@ -1,0 +1,153 @@
+{
+  "01Miata_bodypaint": {
+    "complex": false,
+    "reflection": 1.0,
+    "gloss": 1.0,
+    "specular": 1.0,
+    "color": "#FF000A66",
+    "flakes": 0.777,
+    "enabled": false
+  },
+  "02Miata_hardtoppaint": {
+    "complex": false,
+    "reflection": 1.0,
+    "gloss": 1.0,
+    "specular": 1.0,
+    "color": "#FF000A66",
+    "flakes": 0.777,
+    "enabled": true
+  },
+  "03Rims": {
+    "enabled": false,
+    "colors": [
+      "#FFFFFF"
+    ]
+  },
+  "04Calipers": {
+    "enabled": true,
+    "colors": [
+      "#000A66"
+    ]
+  },
+  "05Windows": {
+    "alpha": 0.65,
+    "enabled": true,
+    "colors": [
+      "#050505"
+    ]
+  },
+  "06Headlights": {
+    "alpha": 0.0,
+    "enabled": false,
+    "colors": [
+      "#293437"
+    ]
+  },
+  "07Headlights_halos": {
+    "enabled": true,
+    "colors": [
+      "#000A66"
+    ]
+  },
+  "08Taillights": {
+    "alpha": 0.8,
+    "enabled": true,
+    "colors": [
+      "#0A0000"
+    ]
+  },
+  "09Intercooler_logo": {
+    "enabled": true,
+    "colors": [
+      "#01006B"
+    ]
+  },
+  "10LeatherTopDash": {
+    "enabled": false,
+    "colors": [
+      "#FFFFFF"
+    ]
+  },
+  "11LeatherBottomDash": {
+    "enabled": false,
+    "colors": [
+      "#FFFFFF"
+    ]
+  },
+  "12StWheel": {
+    "enabled": false,
+    "colors": [
+      "#FFFFFF"
+    ]
+  },
+  "13LeatherDoorPanels": {
+    "enabled": false,
+    "colors": [
+      "#FFFFFF"
+    ]
+  },
+  "14LeatherDoorPanels1": {
+    "enabled": false,
+    "colors": [
+      "#FFFFFF"
+    ]
+  },
+  "15LeatherSeats": {
+    "enabled": false,
+    "colors": [
+      "#FFFFFF"
+    ]
+  },
+  "16LeatherSeatsCenter": {
+    "enabled": true,
+    "colors": [
+      "#014700"
+    ]
+  },
+  "17CenterSeats": {
+    "enabled": false,
+    "value": "fabricGucci"
+  },
+  "18Stitching": {
+    "enabled": true,
+    "colors": [
+      "#014700"
+    ]
+  },
+  "19RecaroLogo": {
+    "enabled": false,
+    "colors": [
+      "#FFFFFF"
+    ]
+  },
+  "20FloorCarpet": {
+    "enabled": false,
+    "colors": [
+      "#FFFFFF"
+    ]
+  },
+  "21RoofFabric": {
+    "enabled": false,
+    "colors": [
+      "#FFFFFF"
+    ]
+  },
+  "22RpmNeedle": {
+    "enabled": true,
+    "colors": [
+      "#9E0700"
+    ]
+  },
+  "23Needles": {
+    "enabled": true,
+    "colors": [
+      "#000459"
+    ]
+  },
+  "24TurboGaugeFace": {
+    "enabled": true,
+    "colors": [
+      "#000CFF"
+    ]
+  }
+}

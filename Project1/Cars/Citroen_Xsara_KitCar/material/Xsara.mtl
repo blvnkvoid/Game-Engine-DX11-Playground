@@ -1,0 +1,442 @@
+# Blender 5.1.1 MTL File: 'None'
+# www.blender.org
+
+newmtl 08_-_Default
+Ns 700.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/pacenotes.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/pacenotes.dds
+
+newmtl Material_#3
+Ns 700.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/black.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/black.dds
+
+newmtl Motec_LEDS
+Ns 700.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/Motec_LCD.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/Motec_LCD.dds
+
+newmtl Motec_Trasp
+Ns 700.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/Motec_LCD.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/Motec_LCD.dds
+
+newmtl caliper
+Ns 700.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/disk.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/disk.dds
+
+newmtl chrome_rim
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/wheel_lod0.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/wheel_lod0.dds
+
+newmtl correa
+Ns 700.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/Tex_0510_2.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/Tex_0510_2.dds
+
+newmtl disk
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/disk.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/disk.dds
+
+newmtl engine
+Ns 700.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/Tex_0489_2.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/Tex_0489_2.dds
+
+newmtl front_glasslight
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/headlight.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/headlight.dds
+
+newmtl generic_alcantara_black
+Ns 79.999985
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/alcantara_black.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/alcantara_black.dds
+
+newmtl inner_rim
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/wheel_lod0.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/wheel_lod0.dds
+
+newmtl int_body
+Ns 79.999985
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/int_body.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/int_body.dds
+
+newmtl interior_cockpit
+Ns 79.999985
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/int_cockpit.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/int_cockpit.dds
+
+newmtl lcd
+Ns 700.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/gt3_motecbg.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/gt3_motecbg.dds
+
+newmtl light_rear
+Ns 700.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/rearlight.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/rearlight.dds
+
+newmtl lightfront
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/Tex_0756_2.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/Tex_0756_2.dds
+
+newmtl mirror
+Ns 700.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/MIRROR_PLACEMENT.PNG
+
+newmtl outer_rim
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/wheel_lod0.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/wheel_lod0.dds
+
+newmtl podlight
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/Tex_0756_2.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/Tex_0756_2.dds
+
+newmtl rear_light_glass
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/rw_citroen_xsara_kitcar_window.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/rw_citroen_xsara_kitcar_window.dds
+
+newmtl ren_clio_cup14_cockpit
+Ns 79.999985
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/seat.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/seat.dds
+
+newmtl ren_clio_cup14_cockpit_2
+Ns 79.999985
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/sabelt.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/sabelt.dds
+
+newmtl ren_clio_cup14_cockpit_metal
+Ns 800.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/seat.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/seat.dds
+
+newmtl rim
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/wheel_lod0.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/wheel_lod0.dds
+
+newmtl rt_driver_face
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/DRIVER_Face.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/DRIVER_Face.dds
+
+newmtl rt_driversuit
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/DRIVER_Suit.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/DRIVER_Suit.dds
+
+newmtl rt_gloves
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/DRIVER_Gloves - Copia.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/DRIVER_Gloves - Copia.dds
+
+newmtl rt_helemt
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/HELMET_2012.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/HELMET_2012.dds
+
+newmtl rt_helemt_traspa
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/HELMET_2012.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/HELMET_2012.dds
+
+newmtl rt_helmet_glass
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/Helmet_2012_Glass.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/Helmet_2012_Glass.dds
+
+newmtl rt_helmet_strip
+Ns 700.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/Helmet_2012_Glass.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/Helmet_2012_Glass.dds
+
+newmtl rw_xsara_kitcar_body
+Ns 549.999939
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/rw_citroen_xsara_kitcar_body.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/rw_citroen_xsara_kitcar_body.dds
+
+newmtl rw_xsara_kitcar_body.001
+Ns 549.999939
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5/texture/int_body.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/rw_citroen_xsara_kitcar_body.dds
+
+newmtl rw_xsara_kitcar_body.002
+Ns 549.999939
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5/texture/int_body.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/rw_citroen_xsara_kitcar_body.dds
+
+newmtl rw_xsara_kitcar_body.003
+Ns 549.999939
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5/texture/int_body.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/rw_citroen_xsara_kitcar_body.dds
+
+newmtl rw_xsara_kitcar_body.004
+Ns 549.999939
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5/texture/int_body.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/rw_citroen_xsara_kitcar_body.dds
+
+newmtl rw_xsara_kitcar_body.005
+Ns 549.999939
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5/texture/int_body.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/rw_citroen_xsara_kitcar_body.dds
+
+newmtl rw_xsara_kitcar_body.007
+Ns 549.999939
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5/texture/int_body.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/rw_citroen_xsara_kitcar_body.dds
+
+newmtl rw_xsara_kitcar_body.008
+Ns 549.999939
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5/texture/int_body.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/rw_citroen_xsara_kitcar_body.dds
+
+newmtl steer
+Ns 79.999985
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/int_body.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/int_body.dds
+
+newmtl tire
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/tire.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/tire.dds
+
+newmtl wheel_black
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/wheel_lod0.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/wheel_lod0.dds
+
+newmtl wheel_emblem
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/wheel_lod0.dds
+map_d C:/Users/Void/Downloads/asw-citroen-xsara-kit-car-2/rw_citroen_xsara_kitcar/unp_rw_citroen_xsara_kitcar.kn5-1/texture/wheel_lod0.dds

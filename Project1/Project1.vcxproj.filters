@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Cars">
+      <UniqueIdentifier>{a21b3239-c699-41af-8e6a-61a2985a54d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Physics">
+      <UniqueIdentifier>{2ee7998d-1128-4b42-9b4f-be196a877837}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UI">
+      <UniqueIdentifier>{8e339efd-8013-4097-9f47-9dfd36006d10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Input">
+      <UniqueIdentifier>{00bc16b4-00c1-4e55-a6db-1ed8521572ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Audio">
+      <UniqueIdentifier>{13e2ac67-8860-422e-ae5d-d8da5f7e28a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Graphics">
+      <UniqueIdentifier>{80d8bfdb-82f4-4799-8f5b-4fe4d65587dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scene">
+      <UniqueIdentifier>{b14b0944-75e7-4a5a-be1d-75fef5b6c996}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UI\ImGUI">
+      <UniqueIdentifier>{bdf9a09c-8030-49a2-8393-8114c7dc5a43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tracks">
+      <UniqueIdentifier>{e95b192b-3301-426e-a8cf-c147bcb91a57}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Imgui\imgui.cpp">
+      <Filter>Source Files\UI\ImGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Imgui\imgui_demo.cpp">
+      <Filter>Source Files\UI\ImGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Imgui\imgui_draw.cpp">
+      <Filter>Source Files\UI\ImGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Imgui\imgui_impl_dx11.cpp">
+      <Filter>Source Files\UI\ImGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Imgui\imgui_impl_win32.cpp">
+      <Filter>Source Files\UI\ImGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Imgui\imgui_tables.cpp">
+      <Filter>Source Files\UI\ImGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Imgui\imgui_widgets.cpp">
+      <Filter>Source Files\UI\ImGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Cars\Audi_R8_LMS\AudiR8.cpp">
+      <Filter>Source Files\Cars</Filter>
+    </ClCompile>
+    <ClCompile Include="Cars\Bugatti_Chiron\BugattiChiron.cpp">
+      <Filter>Source Files\Cars</Filter>
+    </ClCompile>
+    <ClCompile Include="Cars\Honda_Civic_EG6\Civic.cpp">
+      <Filter>Source Files\Cars</Filter>
+    </ClCompile>
+    <ClCompile Include="Cars\Porsche_911_Carrera_S\Porsche911.cpp">
+      <Filter>Source Files\Cars</Filter>
+    </ClCompile>
+    <ClCompile Include="Cars\Toyota_Minolta\Minolta.cpp">
+      <Filter>Source Files\Cars</Filter>
+    </ClCompile>
+    <ClCompile Include="Cars\CarSetup.cpp">
+      <Filter>Source Files\Cars</Filter>
+    </ClCompile>
+    <ClCompile Include="Cars\CarUpgrades.cpp">
+      <Filter>Source Files\Cars</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\Handling.cpp">
+      <Filter>Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\PhysicsEngine.cpp">
+      <Filter>Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\Spawner.cpp">
+      <Filter>Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\TorqueManager.cpp">
+      <Filter>Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\Tyres.cpp">
+      <Filter>Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\VehicleTelemetry.cpp">
+      <Filter>Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\GraphicsEngine.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\MapLoader.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\MaterialLoader.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Model.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\TextureManager.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Audio\FmodManager.cpp">
+      <Filter>Source Files\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\LapTimer.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\RacingHUD.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Input\Input.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\Camera.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\GameObject.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Cars\VehicleRegistry.cpp">
+      <Filter>Source Files\Cars</Filter>
+    </ClCompile>
+    <ClCompile Include="Tracks\TrackTable.cpp">
+      <Filter>Source Files\Tracks</Filter>
+    </ClCompile>
+    <ClCompile Include="Cars\Honda_NSX_Concept-GT_GT-500_2016\Honda_NSX_Concept-GT_GT-500_2016.cpp">
+      <Filter>Source Files\Cars</Filter>
+    </ClCompile>
+    <ClCompile Include="Cars\Mazda_Furai\Mazda_Furai.cpp">
+      <Filter>Source Files\Cars</Filter>
+    </ClCompile>
+    <ClCompile Include="Cars\Mazda_MX5\Mazda_MX5.cpp">
+      <Filter>Source Files\Cars</Filter>
+    </ClCompile>
+    <ClCompile Include="Cars\Audi_R10\AudiR10.cpp">
+      <Filter>Source Files\Cars</Filter>
+    </ClCompile>
+    <ClCompile Include="Cars\Citroen_Xsara_KitCar\Xsara_KitCar.cpp">
+      <Filter>Source Files\Cars</Filter>
+    </ClCompile>
+    <ClCompile Include="Cars\Daihatsu_Copen\Copen.cpp">
+      <Filter>Source Files\Cars</Filter>
+    </ClCompile>
+    <ClCompile Include="Cars\Toyota_Supra_JGTC_2000\Toyota_Supra_JGTC_2000.cpp">
+      <Filter>Source Files\Cars</Filter>
+    </ClCompile>
+    <ClCompile Include="Cars\Honda_NSX_JGTC_2000\Honda_NSX_JGTC_2000.cpp">
+      <Filter>Source Files\Cars</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SharedTypes.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SharedVehicleTypes.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Imgui\imstb_truetype.h">
+      <Filter>Source Files\UI\ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Imgui\imconfig.h">
+      <Filter>Source Files\UI\ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Imgui\imgui.h">
+      <Filter>Source Files\UI\ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Imgui\imgui_impl_dx11.h">
+      <Filter>Source Files\UI\ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Imgui\imgui_impl_win32.h">
+      <Filter>Source Files\UI\ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Imgui\imgui_internal.h">
+      <Filter>Source Files\UI\ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Imgui\imstb_rectpack.h">
+      <Filter>Source Files\UI\ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Imgui\imstb_textedit.h">
+      <Filter>Source Files\UI\ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Cars\Audi_R8_LMS\AudiR8.h">
+      <Filter>Source Files\Cars</Filter>
+    </ClInclude>
+    <ClInclude Include="Cars\Bugatti_Chiron\BugattiChiron.h">
+      <Filter>Source Files\Cars</Filter>
+    </ClInclude>
+    <ClInclude Include="Cars\Honda_Civic_EG6\Civic.h">
+      <Filter>Source Files\Cars</Filter>
+    </ClInclude>
+    <ClInclude Include="Cars\Porsche_911_Carrera_S\Porsche911.h">
+      <Filter>Source Files\Cars</Filter>
+    </ClInclude>
+    <ClInclude Include="Cars\Toyota_Minolta\Minolta.h">
+      <Filter>Source Files\Cars</Filter>
+    </ClInclude>
+    <ClInclude Include="Cars\CarSetup.h">
+      <Filter>Source Files\Cars</Filter>
+    </ClInclude>
+    <ClInclude Include="Cars\CarUpgrades.h">
+      <Filter>Source Files\Cars</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\Handling.h">
+      <Filter>Source Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\PhysicsEngine.h">
+      <Filter>Source Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\Spawner.h">
+      <Filter>Source Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\TorqueManager.h">
+      <Filter>Source Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\Tyres.h">
+      <Filter>Source Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\VehicleTelemetry.h">
+      <Filter>Source Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\GraphicsEngine.h">
+      <Filter>Source Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\MapLoader.h">
+      <Filter>Source Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\MaterialLoader.h">
+      <Filter>Source Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Model.h">
+      <Filter>Source Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\TextureManager.h">
+      <Filter>Source Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Audio\FmodManager.h">
+      <Filter>Source Files\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\LapTimer.h">
+      <Filter>Source Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\RacingHUD.h">
+      <Filter>Source Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Input\Input.h">
+      <Filter>Source Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\Camera.h">
+      <Filter>Source Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\GameObject.h">
+      <Filter>Source Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\Scene.h">
+      <Filter>Source Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="LogitechSteeringWheelLib.h">
+      <Filter>Source Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Cars\VehicleAsset.h">
+      <Filter>Source Files\Cars</Filter>
+    </ClInclude>
+    <ClInclude Include="Cars\VehicleRegistry.h">
+      <Filter>Source Files\Cars</Filter>
+    </ClInclude>
+    <ClInclude Include="Cars\VehicleRegistryEntry.h">
+      <Filter>Source Files\Cars</Filter>
+    </ClInclude>
+    <ClInclude Include="Tracks\TrackTable.h">
+      <Filter>Source Files\Tracks</Filter>
+    </ClInclude>
+    <ClInclude Include="Cars\Honda_NSX_Concept-GT_GT-500_2016\Honda_NSX_Concept-GT_GT-500_2016.h">
+      <Filter>Source Files\Cars</Filter>
+    </ClInclude>
+    <ClInclude Include="Cars\Mazda_Furai\Mazda_Furai.h">
+      <Filter>Source Files\Cars</Filter>
+    </ClInclude>
+    <ClInclude Include="Cars\Mazda_MX5\Mazda_MX5.h">
+      <Filter>Source Files\Cars</Filter>
+    </ClInclude>
+    <ClInclude Include="Cars\Audi_R10\AudiR10.h">
+      <Filter>Source Files\Cars</Filter>
+    </ClInclude>
+    <ClInclude Include="Cars\Citroen_Xsara_KitCar\Xsara_KitCar.h">
+      <Filter>Source Files\Cars</Filter>
+    </ClInclude>
+    <ClInclude Include="Cars\Daihatsu_Copen\Copen.h">
+      <Filter>Source Files\Cars</Filter>
+    </ClInclude>
+    <ClInclude Include="Cars\Toyota_Supra_JGTC_2000\Toyota_Supra_JGTC_2000.h">
+      <Filter>Source Files\Cars</Filter>
+    </ClInclude>
+    <ClInclude Include="Cars\Honda_NSX_JGTC_2000\Honda_NSX_JGTC_2000.h">
+      <Filter>Source Files\Cars</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Shaders.hlsl">
+      <Filter>Source Files</Filter>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Setup Template.txt">
+      <Filter>Source Files\Cars</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

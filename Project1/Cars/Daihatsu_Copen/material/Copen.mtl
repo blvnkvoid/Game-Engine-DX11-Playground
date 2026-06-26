@@ -1,0 +1,782 @@
+# Blender 5.1.1 MTL File: 'None'
+# www.blender.org
+
+newmtl EXT_Disc
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/ext_disc.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/ext_disc.dds
+
+newmtl Material_#309
+Ns 499.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/2E_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/2E_0_0.dds
+
+newmtl Material_#310
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/1E_0_1.png
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/1E_0_1.png
+
+newmtl Material_#313
+Ns 399.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/darkgrey.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/darkgrey.dds
+
+newmtl Material_#319
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/34_0_1.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/34_0_1.dds
+
+newmtl Material_#328
+Ns 399.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/1B_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/1B_0_0.dds
+
+newmtl Material_#334
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/1A_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/1A_0_0.dds
+
+newmtl Material_#339
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/24_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/24_0_0.dds
+
+newmtl Material_#341
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/chrome.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/chrome.dds
+
+newmtl Material_#354
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/2F_0_1.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/2F_0_1.dds
+
+newmtl Material_#357
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/35_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/35_0_0.dds
+
+newmtl Material_#358
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/18_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/18_0_0.dds
+
+newmtl Material_#366
+Ns 499.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/19_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/19_0_0.dds
+
+newmtl Material_#368
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/15_0_1.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/15_0_1.dds
+
+newmtl Material_#378
+Ns 399.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/0F_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/0F_0_0.dds
+
+newmtl Material_#379
+Ns 399.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/0E_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/0E_0_0.dds
+
+newmtl Material_#390
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10_0_0.dds
+
+newmtl Material_#394
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/glass.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/glass.dds
+
+newmtl Material_#396
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/2B_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/2B_0_0.dds
+
+newmtl Material_#412
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/frontd.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/frontd.dds
+
+newmtl Material_#446
+Ns 499.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/2A_0_1.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/2A_0_1.dds
+
+newmtl Material_#462
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/28_0_1.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/28_0_1.dds
+
+newmtl Material_#499
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/glass.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/glass.dds
+
+newmtl Material_#550
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/carao.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/carao.dds
+
+newmtl Material_#552
+Ns 499.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/mirror.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/mirror.dds
+
+newmtl Material_#556
+Ns 499.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/14_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/14_0_0.dds
+
+newmtl Material_#559
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/reard.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/reard.dds
+
+newmtl Material_#573
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/taild.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/taild.dds
+
+newmtl Material_#574
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/27_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/27_0_0.dds
+
+newmtl Material_#587
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/heado.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/heado.dds
+
+newmtl Material_#590
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/seatao.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/seatao.dds
+
+newmtl Material_#591
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/carpao.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/carpao.dds
+
+newmtl Material_#630
+Ns 399.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/rao.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/rao.dds
+
+newmtl Material_#670
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/darkgrey.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/darkgrey.dds
+
+newmtl Material_#671
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/INTERNAL_glass.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/INTERNAL_glass.dds
+
+newmtl Material_#672
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/glass.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/INTERNAL_glass.dds
+
+newmtl Material_#721
+Ns 449.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/rimao.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/rimao.dds
+
+newmtl Material_#722
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/lao.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/lao.dds
+
+newmtl Material_#723
+Ns 399.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/plateao.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/plateao.dds
+
+newmtl Material_#832
+Ns 499.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/int_dao.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/int_dao.dds
+
+newmtl Material_#834
+Ns 399.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/cockpit_belt.png
+
+newmtl Material_#846
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/int_l.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/int_l.dds
+
+newmtl Material_#848
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/darkgrey.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/darkgrey.dds
+
+newmtl Material_#869
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/131.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/131.dds
+
+newmtl Material_#870
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/13a.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/13a.dds
+
+newmtl Material_#874
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10i.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10i.dds
+
+newmtl Material_#879
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/12.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/12.dds
+
+newmtl Material_#880
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10.dds
+
+newmtl Material_#882
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10_2.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10_2.dds
+
+newmtl Material_#884
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10r.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10r.dds
+
+newmtl Material_#885
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10_1.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10_1.dds
+
+newmtl Material_#887
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/26_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/26_0_0.dds
+
+newmtl Material_#889
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/32_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/32_0_0.dds
+
+newmtl Material_#890
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/20_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/20_0_0.dds
+
+newmtl Material_#891
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/1A_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/1A_0_0.dds
+
+newmtl Material_#892
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/chrad.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/chrad.dds
+
+newmtl Material_#915
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/rblur.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/rblur.dds
+
+newmtl Material__1382
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/h38HFbdolw.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/h38HFbdolw.dds
+
+newmtl Material__1395
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/qKlXlqLaLGI.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/qKlXlqLaLGI.dds
+
+newmtl Material__28
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/bbs-centercap-black-gold-ci-r.png
+
+newmtl Material__3
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/wood_04.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/wood_04.dds
+
+newmtl Material__4
+Ns 399.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/1.png
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/1.png
+
+newmtl black
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/black.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/black.dds
+
+newmtl body.001
+Ns 499.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/skins/04_silver_metallic/livery.png
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/body.dds
+
+newmtl body.002
+Ns 499.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/skins/04_silver_metallic/livery.png
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/body.dds
+
+newmtl body.003
+Ns 499.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/skins/04_silver_metallic/livery.png
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/body.dds
+
+newmtl body.004
+Ns 499.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/skins/04_silver_metallic/livery.png
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/body.dds
+
+newmtl cal
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/alf.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/alf.dds
+
+newmtl calb
+Ns 499.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/darkgrey.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/darkgrey.dds
+
+newmtl chr
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/chrad.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/chrad.dds
+
+newmtl exh
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/exh.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/exh.dds
+
+newmtl glass
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/glass.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/glass.dds
+
+newmtl glassint
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/INTERNAL_glass.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/INTERNAL_glass.dds
+
+newmtl metal
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/metalao.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/metalao.dds
+
+newmtl plastic
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/plao.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/plao.dds
+
+newmtl plasticintes
+Ns 150.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/pliao.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/pliao.dds
+
+newmtl rubber
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/rubao.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/rubao.dds
+
+newmtl rubber.001
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/skins/04_silver_metallic/livery.png
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/rubao.dds
