@@ -10,6 +10,8 @@
 #include "../SharedTypes.h"
 #include "TextureManager.h"
 
+
+
 class MapLoader {
 public:
     MapLoader();
@@ -47,6 +49,7 @@ public:
         for (const auto& subset : m_subsets)
         {
             sceneData.material = subset.material;
+                
 
             D3D11_MAPPED_SUBRESOURCE mapped{};
             context->Map(cbb, 0, D3D11_MAP_WRITE_DISCARD, 0, &mapped);
@@ -61,12 +64,8 @@ public:
                 srv = m_materialSRVs[subset.materialIndex];
             }
 
-            // DEBUG GUARD (important for FBX)
             if (!srv)
             {
-                OutputDebugStringA("WARNING: NULL SRV BOUND (fallback used)\n");    
-
-                // optional fallback: first valid texture or just skip binding
                 if (!m_materialSRVs.empty())
                     srv = m_materialSRVs[0];
             }
@@ -139,7 +138,10 @@ public:
             {
                 std::string textureName = texPath.C_Str();
                 std::string file = textureName.substr(textureName.find_last_of("/\\") + 1);
+               
+    
 
+       
 
                 OutputDebugStringA(
                     ("Material " + std::to_string(i) +
@@ -170,9 +172,23 @@ public:
             subset.startIndex = (UINT)m_allIndices.size();
             subset.indexCount = 0;
             subset.materialIndex = mesh->mMaterialIndex;
+            
 
-
+        
             std::string meshName = mesh->mName.C_Str();
+
+            std::string n = meshName;
+            std::transform(n.begin(), n.end(), n.begin(), ::tolower);
+
+            if (n.find("road") != std::string::npos ||
+                n.find("asphalt") != std::string::npos)
+            {
+                OutputDebugStringA(("Asphalt: " + meshName + "\n").c_str());
+                subset.material.materialType = static_cast<float>(MaterialType::MATERIAL_ASPHALT);
+            }
+
+
+ 
 
             OutputDebugStringA(
                 ("Mesh " + std::to_string(i) +

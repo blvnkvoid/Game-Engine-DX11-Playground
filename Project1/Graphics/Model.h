@@ -25,7 +25,8 @@ struct MeshSubset {
 class Model {
 public:
     Model();
-    void BindAndDraw(ID3D11DeviceContext* context, UINT stride, DirectX::XMMATRIX world, DirectX::XMMATRIX view, DirectX::XMMATRIX projection, Camera* cam);
+    void BindAndDraw(ID3D11DeviceContext* context, UINT stride, DirectX::XMMATRIX world, DirectX::XMMATRIX view, DirectX::XMMATRIX projection, Camera* cam, float brakeAmount, ID3D11DepthStencilState* depthWriteOn,
+        ID3D11DepthStencilState* depthWriteOff, float time);
     void BindTexture(ID3D11DeviceContext* context);
     void SetModelPosition(float x, float y, float z) { modelposition = { x, y, z }; }
     void SetModelRotation(DirectX::XMMATRIX rotation) { m_rotationMatrix = rotation; }
@@ -44,6 +45,7 @@ public:
     Microsoft::WRL::ComPtr<ID3D11Buffer> index_buffer;        
     std::map<std::string, MaterialData> m_materialLib;
     void ResolveMaterialTextures(TextureManager* textureManager, ID3D11DeviceContext* context, const std::wstring& textureFolder);
+    float DetectMaterialType(const std::string& matName, const MaterialData& mat);
 
 private:
     UINT index_count;

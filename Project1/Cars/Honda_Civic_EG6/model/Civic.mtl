@@ -2,631 +2,631 @@
 # www.blender.org
 
 newmtl Belt
-Ns 0.000000
+Ns 150.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/Cockpit_Belt.png
 
 newmtl Body
-Ns 0.000000
+Ns 800.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/BODY.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/BODY.dds
+
+newmtl Body.001
+Ns 800.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/BODY.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/BODY.dds
 
 newmtl Body_boot
-Ns 0.000000
+Ns 800.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/BODY.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/BODY.dds
 
 newmtl Body_hood
-Ns 0.000000
+Ns 800.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/BODY.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/BODY.dds
 
 newmtl Body_mat
-Ns 0.000000
+Ns 800.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/BODY.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/BODY.dds
 
 newmtl Body_mirror
-Ns 0.000000
+Ns 800.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/BODY.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/BODY.dds
 
 newmtl Body_molding
-Ns 0.000000
+Ns 800.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/BODY.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/BODY.dds
 
 newmtl Body_wing
-Ns 0.000000
+Ns 800.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/BODY.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/BODY.dds
+
+newmtl Brake_light
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/glass_light.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/glass_light.dds
 
 newmtl Disk
-Ns 0.000000
+Ns 600.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/Disk_D.dds
 
 newmtl EXT_brakes
-Ns 0.000000
+Ns 600.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/brakes.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/brakes.dds
 
 newmtl EXT_calipers
-Ns 0.000000
+Ns 600.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/details_st185.dds
 
 newmtl EXT_glass
-Ns 0.000000
+Ns 1000.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl EXT_glass_lights
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/glass.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/glass.dds
 
 newmtl EXT_plastik
-Ns 0.000000
+Ns 600.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/NULL.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/NULL.dds
 
 newmtl EXT_tyre
-Ns 0.000000
+Ns 79.999985
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/Exterior_tyre_diff.dds
 
 newmtl Honda_chrome
-Ns 0.000000
+Ns 1000.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/NULL.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/NULL.dds
 
 newmtl INT_belts
-Ns 0.000000
+Ns 150.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/Cockpit_Belt.png
 
 newmtl INT_chassis
-Ns 0.000000
+Ns 100.000015
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/interiors_objects.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/interiors_objects.dds
 
 newmtl INT_decals
-Ns 0.000000
+Ns 200.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/decals.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/decals.dds
 
 newmtl INT_details_PLASTIC
-Ns 0.000000
+Ns 800.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/interiors_details.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/interiors_details.dds
 
 newmtl INT_details_SW_metal
-Ns 0.000000
+Ns 449.999969
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/interiors_details.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/interiors_details.dds
 
 newmtl INT_interiors_carbon
-Ns 0.000000
+Ns 800.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/interiors_ao_st185.dds
 
 newmtl INT_interiors_seat
-Ns 0.000000
+Ns 100.000015
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/interiors_ao_st185.dds
 
 newmtl INT_leather_SW
-Ns 0.000000
+Ns 250.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/interiors_ao.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/interiors_ao.dds
 
 newmtl INT_metal
-Ns 0.000000
+Ns 250.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/gradients.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/gradients.dds
 
 newmtl INT_plastic
-Ns 0.000000
+Ns 200.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/gradients.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/gradients.dds
 
 newmtl INT_seam
-Ns 0.000000
+Ns 750.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/seam.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/seam.dds
 
 newmtl Interior
-Ns 0.000000
+Ns 1000.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/interior.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/interior.dds
 
 newmtl Interior_metall
-Ns 0.000000
+Ns 449.999969
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/NULL.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/NULL.dds
 
 newmtl Interior_stick
-Ns 0.000000
+Ns 100.000015
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/interior_lod0.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/interior_lod0.dds
 
 newmtl LED_FUEL
-Ns 0.000000
+Ns 100.000015
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
+Ke 50.000000 30.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/interior.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/interior.dds
 
 newmtl Lights_int
-Ns 0.000000
+Ns 1000.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/lights_lod0.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/lights_lod0.dds
 
 newmtl Lights_steklo_nm
-Ns 0.000000
+Ns 1000.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/lights_lod0.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/lights_lod0.dds
 
 newmtl Lights_steklo_refl
-Ns 0.000000
+Ns 1000.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/fr_lights.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/fr_lights.dds
 
 newmtl MIRROR
-Ns 0.000000
+Ns 499.999969
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Material_#2282
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/mirror.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/mirror.dds
 
 newmtl Plastik_black
-Ns 0.000000
+Ns 800.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/Plastic1.png
 
 newmtl Plastik_grey
-Ns 0.000000
+Ns 800.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/Plastic1.png
 
 newmtl SUSP_black
-Ns 0.000000
+Ns 600.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/SUSP_black.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/SUSP_black.dds
 
 newmtl SUSP_green
-Ns 0.000000
+Ns 600.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/SUSP_green.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/SUSP_green.dds
 
 newmtl SUSP_grey
-Ns 0.000000
+Ns 600.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/SUSP_grey.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/SUSP_grey.dds
 
 newmtl advan_bolts
-Ns 0.000000
+Ns 399.999969
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/advan.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/advan.dds
 
 newmtl advan_nip
-Ns 0.000000
+Ns 399.999969
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/advan.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/advan.dds
 
 newmtl advan_obod
-Ns 0.000000
+Ns 399.999969
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/advan.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/advan.dds
 
 newmtl advan_rim
-Ns 0.000000
+Ns 399.999969
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/advan.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/advan.dds
 
 newmtl advan_shild
-Ns 0.000000
+Ns 399.999969
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/advan.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/advan.dds
 
 newmtl bamper_frame
-Ns 0.000000
+Ns 200.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/forza_chassi.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/forza_chassi.dds
 
 newmtl black_solid
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/NULL.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/NULL.dds
 
 newmtl cargrace
-Ns 0.000000
+Ns 100.000015
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/NULL.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/NULL.dds
 
 newmtl carp
-Ns 0.000000
+Ns 100.000015
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
-
-newmtl glass_lights
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/carp1.dds
 
 newmtl glass_mask
-Ns 0.000000
+Ns 1000.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/NULL.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/NULL.dds
+
+newmtl head_light
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/glass_light.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/glass_light.dds
 
 newmtl int_glass
-Ns 0.000000
+Ns 1000.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/INTERNAL_glass.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/INTERNAL_glass.dds
 
 newmtl leither
-Ns 0.000000
+Ns 200.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/leather.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/leather.dds
 
 newmtl leither_white
-Ns 0.000000
+Ns 200.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/leather_white.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/leather_white.dds
 
 newmtl pedal
-Ns 0.000000
+Ns 449.999969
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/pedal.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/pedal.dds
 
 newmtl plate_1
-Ns 0.000000
+Ns 949.999939
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/plate.png
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/plate.png
 
 newmtl plate_holder
-Ns 0.000000
+Ns 800.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/EXT_holder.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/EXT_holder.dds
 
 newmtl plate_light_number
-Ns 0.000000
+Ns 949.999939
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/number_light.png
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/number_light.png
 
 newmtl plate_number
-Ns 0.000000
+Ns 949.999939
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/number.png
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/number.png
 
 newmtl supra_exterior_metal
-Ns 0.000000
+Ns 1000.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/exterior_drift2_metal_diffuse.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/exterior_drift2_metal_diffuse.dds
 
 newmtl teplinka
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/nodamage_lod0.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/nodamage_lod0.dds
 
 newmtl tkan
-Ns 0.000000
+Ns 200.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
-illum 1
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/Djinsa1.dds
+map_d C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/Djinsa1.dds

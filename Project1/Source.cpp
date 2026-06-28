@@ -134,10 +134,13 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
         }
         else {
             // DELTA TIME
-            LARGE_INTEGER timeCur;
-            QueryPerformanceCounter(&timeCur);
-            float deltaTime = (float)(timeCur.QuadPart - timeStart.QuadPart) / (float)frequency.QuadPart;
-            timeStart = timeCur;
+            static float totalTime = 0.0f;
+                LARGE_INTEGER timeCur;
+                QueryPerformanceCounter(&timeCur);
+                float deltaTime = (float)(timeCur.QuadPart - timeStart.QuadPart) / (float)frequency.QuadPart;
+                timeStart = timeCur;
+
+                totalTime += deltaTime;
 
             // MOUSE & CAMERA
             if (!io.WantCaptureMouse) {
@@ -170,6 +173,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
             ImGuiIO& io = ImGui::GetIO();
 
             Input::GetControllerState();
+
+
+            engine->SetBrakeAmount(Input::GetBrake());
+            engine->SetTime(totalTime);
 
 
             ImGui_ImplDX11_NewFrame();
@@ -331,12 +338,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                 // RENDER OBJECTS
                 engine->RenderObject(playerObject, camera);
                 if (m_mapTrack) {
-                    SharedSceneData trackSD = {};
+                    SharedSceneData trackSD = engine->BuildSceneData(camera, playerObject, XMMatrixIdentity());
                     trackSD.view = XMMatrixTranspose(camera->viewMatrix);
                     trackSD.projection = XMMatrixTranspose(camera->projectionMatrix);
                     trackSD.world = XMMatrixTranspose(XMMatrixIdentity());
-                    engine->GetContext()->UpdateSubresource(cb, 0, nullptr, &trackSD, 0, 0);
-                    m_mapTrack->Draw(engine->GetContext(), cb, trackSD);
+                    m_mapTrack->Draw(engine->GetContext(), cb, trackSD);     
                 }
             }
 
@@ -348,7 +354,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
             // Title Bar Telemetry
             char titleBuf[256];
-            sprintf_s(titleBuf, "911_LAB >> Speed: %f | RPM: %f | GEAR: %d | FPS: %f | Y Normal: %f | Driving Force: %f", g_DebugTelemetry.speed, g_DebugTelemetry.rpm, g_DebugTelemetry.gear, io.Framerate, g_DebugTelemetry.yNormal, g_DebugTelemetry.drivingForce);
+            sprintf_s(titleBuf, "DX11_LAB >> Speed: %f | RPM: %f | GEAR: %d | FPS: %f | Y Normal: %f | Driving Force: %f", g_DebugTelemetry.speed, g_DebugTelemetry.rpm, g_DebugTelemetry.gear, io.Framerate, g_DebugTelemetry.yNormal, g_DebugTelemetry.drivingForce);
             SetWindowTextA(hWnd, titleBuf);
         }
     }

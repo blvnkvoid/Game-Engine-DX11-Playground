@@ -717,6 +717,7 @@ Ka 1.000000 1.000000 1.000000
 Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
+d 0.000000
 illum 3
 map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/glass.dds
 map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/glass.dds

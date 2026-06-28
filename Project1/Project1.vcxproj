@@ -162,6 +162,7 @@
     <ClCompile Include="Cars\Honda_NSX_JGTC_2000\Honda_NSX_JGTC_2000.cpp" />
     <ClCompile Include="Cars\Mazda_Furai\Mazda_Furai.cpp" />
     <ClCompile Include="Cars\Mazda_MX5\Mazda_MX5.cpp" />
+    <ClCompile Include="Cars\Mercedes_SLS_PACE_CAR\SLS_Pacecar.cpp" />
     <ClCompile Include="Cars\Porsche_911_Carrera_S\Porsche911.cpp" />
     <ClCompile Include="Cars\Toyota_Minolta\Minolta.cpp" />
     <ClCompile Include="Cars\Toyota_Supra_JGTC_2000\Toyota_Supra_JGTC_2000.cpp" />
@@ -206,6 +207,7 @@
     <ClInclude Include="Cars\Honda_NSX_JGTC_2000\Honda_NSX_JGTC_2000.h" />
     <ClInclude Include="Cars\Mazda_Furai\Mazda_Furai.h" />
     <ClInclude Include="Cars\Mazda_MX5\Mazda_MX5.h" />
+    <ClInclude Include="Cars\Mercedes_SLS_PACE_CAR\SLS_Pacecar.h" />
     <ClInclude Include="Cars\Porsche_911_Carrera_S\Porsche911.h" />
     <ClInclude Include="Cars\Toyota_Minolta\Minolta.h" />
     <ClInclude Include="Cars\Toyota_Supra_JGTC_2000\Toyota_Supra_JGTC_2000.h" />
@@ -214,6 +216,7 @@
     <ClInclude Include="Cars\VehicleRegistryEntry.h" />
     <ClInclude Include="Graphics\GraphicsEngine.h" />
     <ClInclude Include="Graphics\MapLoader.h" />
+    <ClInclude Include="Graphics\MaterialClassifier.h" />
     <ClInclude Include="Graphics\MaterialLoader.h" />
     <ClInclude Include="Graphics\Model.h" />
     <ClInclude Include="Graphics\TextureManager.h" />

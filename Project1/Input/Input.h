@@ -31,6 +31,7 @@ public:
     static bool IsMenuDownPressed();
     static bool IsMenuUpPressed();
     static bool IsMenuBPressed();
+    static float GetBrake();
 
 private:
     static std::string GetButtonName(int id);

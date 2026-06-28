@@ -177,7 +177,7 @@ void FMODManager::PlayRandomTrack()
         &musicChannel);
 
     if (musicChannel)
-        musicChannel->setVolume(0.6f);
+        musicChannel->setVolume(0.2f);
 }
 
 

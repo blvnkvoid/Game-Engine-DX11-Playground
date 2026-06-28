@@ -7,7 +7,7 @@
 #include "TextureManager.h"
 #include <DirectXMath.h>    // Added this for XMFLOAT types
 #include <DDSTextureLoader.h>
-
+#include "MaterialClassifier.h"
 
 Model::Model() {
     index_count = 0;
@@ -100,27 +100,18 @@ bool Model::LoadOBJ(const std::string& mtlFile, const std::string& objFile, ID3D
                         L"Cars/" + std::wstring(
                             mat.diffuseTextureName.begin(),
                             mat.diffuseTextureName.end());
-
-                    OutputDebugStringA(
-                        ("Material: " + matName +
-                            " Texture: " +
-                            (mat.diffuseTextureName.empty() ? "<none>" : mat.diffuseTextureName) +
-                            "\n").c_str());
-
-                    //newSubset.diffuseTexture = textureManager->GetTexture(texPath, context);
                 }
             }
             else
             {
-                OutputDebugStringA(("Missing material: " + matName + "\n").c_str());
-
                 newSubset.material.diffuseColor = XMFLOAT3(1.0f, 1.0f, 1.0f);
                 newSubset.material.ambientColor = XMFLOAT3(0.3f, 0.3f, 0.3f);
                 newSubset.material.specularColor = XMFLOAT3(0.1f, 0.1f, 0.1f);
                 newSubset.material.specularPower = 32.0f;
                 newSubset.material.d = 1.0f;
             }
-
+            newSubset.material.materialType =
+                static_cast<float>(MaterialClassifier::Classify(matName));    
             m_subsets.push_back(newSubset);
         }
         // 2. GEOMETRY DATA
@@ -206,18 +197,6 @@ bool Model::LoadOBJ(const std::string& mtlFile, const std::string& objFile, ID3D
         maxPos.x = max(maxPos.x, v.pos.x); maxPos.y = max(maxPos.y, v.pos.y); maxPos.z = max(maxPos.z, v.pos.z);
     }
 
-  /**  XMFLOAT3 center = {(minPos.x + maxPos.x) / 2.0f, (minPos.y + maxPos.y) / 2.0f, (minPos.z + maxPos.z) / 2.0f};
-    float maxDimension = max(maxPos.x - minPos.x, max(maxPos.y - minPos.y, maxPos.z - minPos.z));
-
-    if (maxDimension < 0.0001f) maxDimension = 1.0f;
-
-
-    for (auto& v : vertices) {
-        v.pos.x = (v.pos.x - center.x) / maxDimension;
-        v.pos.y = (v.pos.y - center.y) / maxDimension;
-        v.pos.z = (v.pos.z - center.z) / maxDimension;
-    }
-    */
     // --- CREATE BUFFERS (Using final, scaled data) ---
     D3D11_BUFFER_DESC vbd = {};
     vbd.Usage = D3D11_USAGE_DEFAULT;
@@ -241,14 +220,11 @@ bool Model::LoadOBJ(const std::string& mtlFile, const std::string& objFile, ID3D
 
     device->CreateBuffer(&cbd, nullptr, m_constantBuffer.GetAddressOf());
 
-    this->index_count = (UINT)indices.size();
-
-
-
-
-    
+    this->index_count = (UINT)indices.size();    
     return true;
 }
+
+
 
 void Model::ResolveMaterialTextures(TextureManager* textureManager, ID3D11DeviceContext* context,const std::wstring& textureFolder)
 {
@@ -267,8 +243,6 @@ void Model::ResolveMaterialTextures(TextureManager* textureManager, ID3D11Device
         subset.diffuseTexture =
             textureManager->GetTexture(fullPath, context);
 
-        OutputDebugStringW(
-            (L"Resolved texture: " + fullPath + L"\n").c_str());
     }
 }
 
@@ -287,8 +261,6 @@ bool Model::LoadTexture(ID3D11Device* device, std::wstring filename) {
             0, D3D11_RESOURCE_MISC_GENERATE_MIPS, DirectX::WIC_LOADER_DEFAULT, nullptr, m_textureRV.GetAddressOf()
         );
     }
-
-    //std::cout << "SUCCESS: Texture loaded at " << m_textureRV.Get() << std::endl;
     return true;
 }
 
@@ -306,7 +278,11 @@ void Model::BindAndDraw(
     DirectX::XMMATRIX world,
     DirectX::XMMATRIX view,
     DirectX::XMMATRIX projection,
-    Camera* cam)
+    Camera* cam,
+    float brakeAmount,
+    ID3D11DepthStencilState* depthWriteOn,
+    ID3D11DepthStencilState* depthWriteOff,
+    float time)
 {
     UINT offset = 0;
 
@@ -326,6 +302,8 @@ void Model::BindAndDraw(
         SharedSceneData sceneData = {};
 
         sceneData.material = subset.material;
+        sceneData.brakeAmount = brakeAmount;
+        sceneData.time = time;
 
         sceneData.world = XMMatrixTranspose(world);
         sceneData.view = XMMatrixTranspose(view);
@@ -333,6 +311,14 @@ void Model::BindAndDraw(
 
         sceneData.lightDirection = XMFLOAT4(0.5f, -1.0f, 0.5f, 0.0f);
         sceneData.lightColor = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
+
+        bool isGlass =
+            (int)subset.material.materialType ==
+            (int)MaterialType::MATERIAL_GLASS;
+
+        context->OMSetDepthStencilState(
+            isGlass ? depthWriteOff : depthWriteOn,
+            0);
 
         DirectX::XMFLOAT3 pos = cam->GetPosition();
         XMVECTOR posVec = XMLoadFloat3(&pos);
@@ -347,6 +333,8 @@ void Model::BindAndDraw(
             D3D11_MAP_WRITE_DISCARD,
             0,
             &mappedResource);
+
+
 
         if (SUCCEEDED(hr))
         {
@@ -379,5 +367,7 @@ void Model::BindAndDraw(
             subset.indexCount,
             subset.startIndex,
             0);
+    
     }
+    context->OMSetDepthStencilState(depthWriteOn, 0);
 }

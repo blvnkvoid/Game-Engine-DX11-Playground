@@ -13,16 +13,16 @@
 #include "../Cars/Daihatsu_Copen/Copen.h"
 #include "../Cars/Toyota_Supra_JGTC_2000/Toyota_Supra_JGTC_2000.h"
 #include "../Cars/Honda_NSX_JGTC_2000/Honda_NSX_JGTC_2000.h"
+#include "../Cars/Mercedes_SLS_PACE_CAR/SLS_Pacecar.h"
 #include "VehicleRegistryEntry.h"
 
 
 static const std::vector<VehicleRegistryEntry> vehicleTable =
 {
-    { VehicleSelection::PORSCHE_911,    "Cars/Porsche_911_Carrera_S/", "911_Carrera_S" },
-    { VehicleSelection::BUGATTI_CHIRON, "Cars/Bugatti_Chiron/",        "Bugatti" },
+    /*{ VehicleSelection::PORSCHE_911,    "Cars/Porsche_911_Carrera_S/", "911_Carrera_S"},
+    { VehicleSelection::BUGATTI_CHIRON, "Cars/Bugatti_Chiron/",        "Bugatti"},
     { VehicleSelection::AUDI_R8,        "Cars/Audi_R8_LMS/",           "R8" },
     { VehicleSelection::CIVIC,          "Cars/Honda_Civic_EG6/",       "Civic" },
-    { VehicleSelection::MINOLTA,        "Cars/Toyota_Minolta/",        "Minolta" },
     { VehicleSelection::GT500,        "Cars/Honda_NSX_Concept-GT_GT-500_2016/",        "NSX_GT500" },
     { VehicleSelection::FURAI,        "Cars/Mazda_Furai/",        "Furai" },
     { VehicleSelection::MX5,        "Cars/Mazda_MX5/",        "Miata" },
@@ -30,7 +30,9 @@ static const std::vector<VehicleRegistryEntry> vehicleTable =
     { VehicleSelection::XSARA,        "Cars/Citroen_Xsara_KitCar/",        "Xsara" },
     { VehicleSelection::COPEN,        "Cars/Daihatsu_Copen/",        "Copen" },
     { VehicleSelection::JGTCSUPRA2000,        "Cars/Toyota_Supra_JGTC_2000/",        "JGTCSUPRA2000" },
-    { VehicleSelection::JGTCNSX2000,        "Cars/Honda_NSX_JGTC_2000/",        "JGTCNSX2000" }
+    { VehicleSelection::JGTCNSX2000,        "Cars/Honda_NSX_JGTC_2000/",        "JGTCNSX2000" },*/
+    { VehicleSelection::SLS_PACECAR,        "Cars/Mercedes_SLS_PACE_CAR/",        "SLS_Pacecar" },
+    { VehicleSelection::MINOLTA,        "Cars/Toyota_Minolta/",        "Minolta" }
 };  
 
 VehicleAsset& VehicleRegistry::GetVehicle(VehicleSelection selection)

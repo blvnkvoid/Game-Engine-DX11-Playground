@@ -1,0 +1,41 @@
+{
+  "calipers": {
+    "enabled": true,
+    "colors": [
+      "#BF5200"
+    ]
+  },
+  "carPaint": {
+    "complex": false,
+    "reflection": 1.0,
+    "gloss": 1.0,
+    "specular": 1.0,
+    "color": "#FF898C93",
+    "flakes": 0.0,
+    "enabled": true
+  },
+  "carpet": {
+    "enabled": false,
+    "colors": [
+      "#FFFFFF"
+    ]
+  },
+  "interior": {
+    "enabled": false,
+    "colors": [
+      "#FFFFFF"
+    ]
+  },
+  "leather": {
+    "enabled": false,
+    "colors": [
+      "#FFFFFF"
+    ]
+  },
+  "stitches": {
+    "enabled": false,
+    "colors": [
+      "#FF0000"
+    ]
+  }
+}

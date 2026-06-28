@@ -111,6 +111,11 @@ void Input::Update(Camera* cam)
     m_prevPOV = currentPOV;
 }
 
+float Input::GetBrake()
+{
+    return Current.brake;
+}
+
 void Input::GetControllerState()
 {
     XINPUT_STATE state;

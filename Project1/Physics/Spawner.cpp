@@ -2,7 +2,7 @@
 #include "../SharedTypes.h"
 #include <bullet/btBulletDynamicsCommon.h>
 
-TrackSelection GameConfig::activeTrack = TrackSelection::Motorland;
+TrackSelection GameConfig::activeTrack = TrackSelection::TestCourse;
 Spawner::Spawner()
 {
 

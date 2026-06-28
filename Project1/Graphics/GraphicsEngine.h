@@ -6,6 +6,7 @@
 
 class Scene; // Forward declaration (keeps the header light!)
 class Camera;
+class Input;
 
 
 
@@ -43,8 +44,15 @@ public:
     bool m_ShowTyresUpgrades = false;
     bool m_ShowCarSetup = false;
     bool m_StartSimulationTriggered = false;
+    void SetBrakeAmount(float amount);
+    void SetTime(float time);
+    SharedSceneData BuildSceneData(Camera* cam, GameObject* player, XMMATRIX world);
+    void UpdateEnvironment(float time,
+        SharedSceneData& scene,
+        float(&clearColor)[4]);
 private:
     SharedSceneData m_sceneData;
+    SharedSceneData cb; // [cite: 2026-01-03]
     Camera* activeCamera = nullptr;
     Scene* m_activeScene = nullptr;
     Microsoft::WRL::ComPtr<ID3D11Device>  device;
@@ -68,6 +76,8 @@ private:
     Microsoft::WRL::ComPtr<ID3D11SamplerState> m_samplerLinear;
     Microsoft::WRL::ComPtr<ID3D11BlendState> m_alphaBlendState;
     Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_defaultSRV;
+    Microsoft::WRL::ComPtr<ID3D11DepthStencilState> m_depthWriteOnState;
+    Microsoft::WRL::ComPtr<ID3D11DepthStencilState> m_depthWriteOffState;
     DirectX::XMMATRIX mView;
     DirectX::XMMATRIX mProj;
     DirectX::XMFLOAT4 m_lightDir = { 0.0f, -1.0f, 1.0f, 0.0f }; // Directional light

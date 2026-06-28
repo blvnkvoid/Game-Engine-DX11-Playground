@@ -13,19 +13,19 @@ struct SharedVertex {
 };
 static_assert(sizeof(SharedVertex) % 16 == 0, "DANGER!");
 
-struct SharedMaterial {
-    DirectX::XMFLOAT3 diffuseColor;     // 12 bytes
-    float padding1;                     // 4 bytes (Alignment!)
+    struct SharedMaterial {
+        DirectX::XMFLOAT3 diffuseColor;     // 12 bytes
+        float materialType;                     // 4 bytes (Alignment!)
 
-    DirectX::XMFLOAT3 specularColor;    // 12 bytes
-    float specularPower;                // 4 bytes (The 'Ns' from your .mtl)
+        DirectX::XMFLOAT3 specularColor;    // 12 bytes
+        float specularPower;                // 4 bytes (The 'Ns' from your .mtl)
 
-    DirectX::XMFLOAT3 ambientColor;     // 12 bytes
-    float d; // Change whatever was here to 'd' [cite: 2026-01-03]// 4 bytes (Final Alignment!)
+        DirectX::XMFLOAT3 ambientColor;     // 12 bytes
+        float d; // Change whatever was here to 'd' [cite: 2026-01-03]// 4 bytes (Final Alignment!)
 
-};
+    };
 
-static_assert(sizeof(SharedMaterial) % 16 == 0, "DANGER!");
+    static_assert(sizeof(SharedMaterial) % 16 == 0, "DANGER!");
 
 struct MaterialData
 {
@@ -33,16 +33,25 @@ struct MaterialData
     std::string diffuseTextureName;
 };
 
-// Constant Buffer for the GPU (The "Passport")
-struct SharedSceneData {
+struct SharedSceneData
+{
     DirectX::XMMATRIX world;
     DirectX::XMMATRIX view;
     DirectX::XMMATRIX projection;
+
     DirectX::XMFLOAT4 lightDirection;
     DirectX::XMFLOAT4 lightColor;
     DirectX::XMFLOAT4 cameraPosition;
-    DirectX::XMFLOAT4 cameraDirection; // <--- Add this! (16-byte aligned)
+    DirectX::XMFLOAT4 cameraDirection;
+
+    DirectX::XMFLOAT4 carPosition;
+    DirectX::XMFLOAT4 carForward;
+
     SharedMaterial material;
+
+    float brakeAmount;
+    float time;
+    DirectX::XMFLOAT2 padding;
 };
 
 static_assert(sizeof(SharedSceneData) % 16 == 0, "DANGER!");
@@ -85,8 +94,28 @@ enum class VehicleSelection {
     XSARA,
     COPEN,
     JGTCSUPRA2000,
-    JGTCNSX2000
+    JGTCNSX2000,
+    SLS_PACECAR
 };
+
+enum MaterialType
+{
+    MATERIAL_DEFAULT = 0,
+    MATERIAL_CAR_PAINT,
+    MATERIAL_GLASS,
+    MATERIAL_RUBBER,
+    MATERIAL_ASPHALT,
+    MATERIAL_GRASS,
+    MATERIAL_KERB,
+    MATERIAL_BRAKE_LIGHT,
+    MATERIAL_HEAD_LIGHT,
+    MATERIAL_PACE_LIGHT,
+    MATERIAL_SOLID_PAINT,
+    MATERIAL_LIVERY,
+    MATERIAL_ALCANTARA,
+    MATERIAL_DECAL_TEXT
+};
+
 
 enum class EngineUpgradeSelection
 {

@@ -1,0 +1,672 @@
+# Blender 5.1.1 MTL File: 'None'
+# www.blender.org
+
+newmtl Brake_Disk.002
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Brake_Disc_DIF.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Brake_Disc_DIF.dds
+
+newmtl Chrome
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Glass_Clear_D.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Glass_Clear_D.dds
+
+newmtl Dash_warning_lights
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.100000 0.100000 0.100000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/dash_warning_lights.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/dash_warning_lights.dds
+
+newmtl Details
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Details_D.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Details_D.dds
+
+newmtl EXT_Microluci
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Microluci.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Microluci.dds
+
+newmtl EXT_PLATE
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Plate_D.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Plate_D.dds
+
+newmtl Glass_Clear
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/glass.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/glass.dds
+
+newmtl Grid1
+Ns 499.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Grid1_D.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Grid1_D.dds
+
+newmtl Grid2
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Grid2_D.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Grid2_D.dds
+
+newmtl INT_Alcantara
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+
+newmtl INT_Alu
+Ns 20.000006
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+
+newmtl INT_Carbon
+Ns 700.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+
+newmtl INT_Carpaint
+Ns 700.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+
+newmtl INT_Cintura
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Cockpit_Belt.dds
+
+newmtl INT_Cromato
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+
+newmtl INT_Cuciture
+Ns 399.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/cuciture.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/cuciture.dds
+
+newmtl INT_Decals_Alu
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Decals.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Decals.dds
+
+newmtl INT_Decals_Alu_ALFA
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Decals.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Decals.dds
+
+newmtl INT_Decals_Dials
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Decals.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Decals.dds
+
+newmtl INT_Decals_LEDS
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 2.000000 2.000000 2.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Decals.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Decals.dds
+
+newmtl INT_Decals_alfa_NM
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Decals.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Decals.dds
+
+newmtl INT_Decals_glossy
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Decals.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Decals.dds
+
+newmtl INT_Decals_glossy.002
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Decals.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Decals.dds
+
+newmtl INT_Griglia_REF
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Grid_REF.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Grid_REF.dds
+
+newmtl INT_Griglia_fine
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Grid_A.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Grid_A.dds
+
+newmtl INT_Guarnizioni_gomma
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+
+newmtl INT_Nero
+Ns 10.000005
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Glass_Clear_D.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Glass_Clear_D.dds
+
+newmtl INT_Pedali
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/pedali.dds
+
+newmtl INT_Plastica_Bianca
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+
+newmtl INT_Plastica_Grigia
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+
+newmtl INT_Plastica_Grigia_blue
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+
+newmtl INT_Plastica_Grigia_green
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+
+newmtl INT_Plastica_Grigia_orange
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+
+newmtl INT_Plastica_Grigia_red
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+
+newmtl INT_Plastica_Grigia_white
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+
+newmtl INT_Plastica_rossa
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+
+newmtl INT_Rete
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Rete.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Rete.dds
+
+newmtl INT_Skin
+Ns 20.000006
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+
+newmtl INT_Skin_volante
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+
+newmtl INT_Vetro_Display
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Decals.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Decals.dds
+
+newmtl INT_carpet
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Occlusion_3.dds
+
+newmtl LCD
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/hamilton-w04.jpg
+
+newmtl Lights_Front
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Headlight_D.dds
+
+newmtl Lights_Rear
+Ns 399.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Tail_Light_D.dds
+
+newmtl Mechanics
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Mechanics_D.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Mechanics_D.dds
+
+newmtl Mirror
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Mirror.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Mirror.dds
+
+newmtl Plastic
+Ns 399.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Plastic_D.dds
+
+newmtl RIM
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/rim_AO.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/rim_AO.dds
+
+newmtl Rim_Blurred_Solid
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Rim_Blurred_D.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Rim_Blurred_D.dds
+
+newmtl Rim_Blurred_Spokes
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Rim_Spokes_Blurred_D.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Rim_Spokes_Blurred_D.dds
+
+newmtl brake_light
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/DAMAGE_GLASS_color.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/DAMAGE_GLASS_color.dds
+
+newmtl brakes_amg_yellow
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/metal_detail_caliper.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/metal_detail_caliper.dds
+
+newmtl decal
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/scbody2011.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/scbody2011.dds
+
+newmtl decal.001
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Glass_Windows_D.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Glass_Windows_D.dds
+
+newmtl ext_carbon
+Ns 700.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/CarPaint_D.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/CarPaint_D.dds
+
+newmtl ext_carbon2
+Ns 700.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/EXT_MISC.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/EXT_MISC.dds
+
+newmtl ext_chrome
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/EXT_MISC.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/EXT_MISC.dds
+
+newmtl ext_plastic_rough
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/EXT_MISC.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/EXT_MISC.dds
+
+newmtl ext_plastic_smooth
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/EXT_MISC.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/EXT_MISC.dds
+
+newmtl glass_Windows
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Glass_Windows_D2.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Glass_Windows_D2.dds
+
+newmtl head_light
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/DAMAGE_GLASS_color.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/DAMAGE_GLASS_color.dds
+
+newmtl livery
+Ns 499.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/skins/2011/CarPaint_D.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/CarPaint_D.dds
+
+newmtl pace_light
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Grid_REF.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/INT_Grid_REF.dds
+
+newmtl pace_light.001
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/barlight.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/barlight.dds
+
+newmtl safety_glass
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Glass_Clear_D.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Glass_Clear_D.dds
+
+newmtl safety_glass_yellow
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/glass_yellow.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/glass_yellow.dds
+
+newmtl tyre
+Ns 119.999992
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/wheel_b.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/wheel_b.dds

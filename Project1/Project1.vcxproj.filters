@@ -168,6 +168,9 @@
     <ClCompile Include="Cars\Honda_NSX_JGTC_2000\Honda_NSX_JGTC_2000.cpp">
       <Filter>Source Files\Cars</Filter>
     </ClCompile>
+    <ClCompile Include="Cars\Mercedes_SLS_PACE_CAR\SLS_Pacecar.cpp">
+      <Filter>Source Files\Cars</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SharedTypes.h">
@@ -313,6 +316,12 @@
     </ClInclude>
     <ClInclude Include="Cars\Honda_NSX_JGTC_2000\Honda_NSX_JGTC_2000.h">
       <Filter>Source Files\Cars</Filter>
+    </ClInclude>
+    <ClInclude Include="Cars\Mercedes_SLS_PACE_CAR\SLS_Pacecar.h">
+      <Filter>Source Files\Cars</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\MaterialClassifier.h">
+      <Filter>Source Files\Graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

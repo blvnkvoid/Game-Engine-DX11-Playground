@@ -12,6 +12,7 @@
 #include "../Imgui/imgui.h"
 #include "../Imgui/imgui_impl_win32.h"
 #include "../Imgui/imgui_impl_dx11.h"
+#include "../Input/Input.h"
 #pragma warning(pop)
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "d3dcompiler.lib")
@@ -113,6 +114,19 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     blendDesc.RenderTarget[0].RenderTargetWriteMask = D3D11_COLOR_WRITE_ENABLE_ALL;
 
 
+    D3D11_DEPTH_STENCIL_DESC depthOn = {};
+    depthOn.DepthEnable = TRUE;
+    depthOn.DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ALL;
+    depthOn.DepthFunc = D3D11_COMPARISON_LESS_EQUAL;
+
+
+    D3D11_DEPTH_STENCIL_DESC depthOff = {};
+    depthOff.DepthEnable = TRUE;
+    depthOff.DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ZERO; // key part
+    depthOff.DepthFunc = D3D11_COMPARISON_LESS_EQUAL;
+
+
+
 
 
     hr = D3D11CreateDeviceAndSwapChain(nullptr, D3D_DRIVER_TYPE_HARDWARE, nullptr, 0, featureLevels, 2,
@@ -148,6 +162,10 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     hr = device->CreateBlendState(&blendDesc, &m_alphaBlendState);
     if (FAILED(hr)) return false;
     hr = device->CreateBuffer(&matDesc, nullptr, &materialConstantBuffer);
+    if (FAILED(hr)) return false;
+    hr = device->CreateDepthStencilState(&depthOff, m_depthWriteOffState.GetAddressOf());
+    if (FAILED(hr)) return false;
+    hr = device->CreateDepthStencilState(&depthOn, m_depthWriteOnState.GetAddressOf());
     if (FAILED(hr)) return false;
   
     IMGUI_CHECKVERSION();
@@ -286,6 +304,11 @@ void GraphicsEngine::MainMenu(FMODManager& audio)
         if (ImGui::Selectable("Honda NSX Raybrig JGTC 2000", m_PreviewSelection == VehicleSelection::JGTCNSX2000)) {
              
             m_PreviewSelection = VehicleSelection::JGTCNSX2000;
+        }    
+        
+        if (ImGui::Selectable("Mercedes Benz SLS Pacecar '11", m_PreviewSelection == VehicleSelection::SLS_PACECAR)) {
+             
+            m_PreviewSelection = VehicleSelection::SLS_PACECAR;
         }
 
         ImGui::End();
@@ -310,7 +333,7 @@ void GraphicsEngine::MainMenu(FMODManager& audio)
                 m_EngineUpgradeSelection = EngineUpgradeSelection::Turbo;
             }   
            
-
+                
             ImGui::End();
         }        
         
@@ -518,42 +541,139 @@ void GraphicsEngine::MainMenu(FMODManager& audio)
     ImGui::PopStyleColor();
 }
 
-void GraphicsEngine::BeginFrame(HWND hWnd,DirectX::XMMATRIX view, DirectX::XMMATRIX projection)
-{   
+void GraphicsEngine::SetBrakeAmount(float amount)
+{
+    m_sceneData.brakeAmount = amount;
+    OutputDebugStringA(std::to_string(amount).c_str());
+}
 
+void GraphicsEngine::SetTime(float time)
+{
+    m_sceneData.time = time;
+    OutputDebugStringA("time: ");
+    OutputDebugStringA(std::to_string(time).c_str());
+}
+
+SharedSceneData GraphicsEngine::BuildSceneData(Camera* cam, GameObject* player, XMMATRIX world)
+{
+    SharedSceneData sd = {};
+
+    sd.world = XMMatrixTranspose(world);
+    sd.view = XMMatrixTranspose(cam->GetViewMatrix());
+    sd.projection = XMMatrixTranspose(cam->GetProjectionMatrix());
+
+    sd.lightDirection = m_lightDir;
+    sd.lightColor = m_lightColor;
+
+    XMFLOAT3 camPos = cam->GetPosition();
+    sd.cameraPosition = XMFLOAT4(camPos.x, camPos.y, camPos.z, 1.0f);
+
+    XMVECTOR camForward = XMVector3Normalize(cam->GetForwardVector());
+    XMStoreFloat4(&sd.cameraDirection, camForward);
+    sd.cameraDirection.w = 0.0f;
+
+    sd.brakeAmount = m_sceneData.brakeAmount;
+    sd.time = m_sceneData.time;
+
+    if (player)
+    {
+        XMMATRIX carWorld = player->GetWorldMatrix();
+
+        // Your current test says car nose is local +X.
+        XMVECTOR localForward = XMVectorSet(0.0f, 0.0f, 1.0f, 0.0f);
+
+        XMVECTOR worldForward = XMVector3TransformNormal(localForward, carWorld);
+        worldForward = XMVector3Normalize(worldForward);
+
+        XMStoreFloat4(&sd.carForward, worldForward);
+        sd.carForward.w = 0.0f;
+
+        // Headlight origin: slightly forward, slightly above.
+        // Since forward is local +X, offset forward on X, not Z.
+        XMVECTOR localHeadlightPos = XMVectorSet(0.0f, 0.0f, 0.0f, 1.0f); 
+
+        XMVECTOR worldHeadlightPos = XMVector3TransformCoord(localHeadlightPos, carWorld);
+
+        XMStoreFloat4(&sd.carPosition, worldHeadlightPos);
+        sd.carPosition.w = 1.0f;
+    }
+
+    return sd;
+}
+
+void GraphicsEngine::UpdateEnvironment(float time, SharedSceneData& scene, float(&clearColor)[4])
+{
+    float nightStart = 60.0f;
+
+    if (m_sceneData.time > nightStart)
+    {
+        clearColor[0] = 0.02f;
+        clearColor[1] = 0.025f;
+        clearColor[2] = 0.04f;
+        clearColor[3] = 1.0f;
+
+        m_sceneData.lightDirection = { 0.5f, -1.0f, 0.5f, 0.0f };
+        m_sceneData.lightColor = { 0.22f, 0.24f, 0.28f, 1.0f };
+    }
+    else
+    {
+        clearColor[0] = 0.65f;
+        clearColor[1] = 0.75f;
+        clearColor[2] = 1.0f;
+        clearColor[3] = 1.0f;
+
+        m_sceneData.lightDirection = { 0.5f, -1.0f, 0.5f, 0.0f };
+        m_sceneData.lightColor = { 1.0f, 1.0f, 1.0f, 1.0f };
+
+    }
+
+}
+
+
+
+void GraphicsEngine::BeginFrame(HWND hWnd, DirectX::XMMATRIX view, DirectX::XMMATRIX projection)
+{
     bool gIsDown = GetAsyncKeyState('G') & 0x8000;
 
-    if (gIsDown && !m_gWasPressed) {
-        m_isWireframe = !m_isWireframe; // Flip the switch
-    }
-    m_gWasPressed = GetAsyncKeyState('G') & 0x8000;
+    if (gIsDown && !m_gWasPressed)
+        m_isWireframe = !m_isWireframe;
+
+    m_gWasPressed = gIsDown;
 
     m_sceneData.view = XMMatrixTranspose(view);
     m_sceneData.projection = XMMatrixTranspose(projection);
 
-    float clearColor[] = { 0.65f, 0.75f, 1.0f, 1.0f };
-    float blendFactor[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
+
+
+
+    float clearColor[4];
+
+    UpdateEnvironment(m_sceneData.time, m_sceneData, clearColor);
+
+
+
+
+    //float clearColor[] = { 0.65f, 0.75f, 1.0f, 1.0f };
+    float blendFactor[4] = { 0, 0, 0, 0 };
 
     context->OMSetBlendState(m_alphaBlendState.Get(), blendFactor, 0xffffffff);
 
-    context->VSSetConstantBuffers(0, 1, constantBuffer.GetAddressOf());
     context->ClearRenderTargetView(renderTargetView.Get(), clearColor);
     context->ClearDepthStencilView(depthStencilView.Get(), D3D11_CLEAR_DEPTH, 1.0f, 0);
     context->OMSetRenderTargets(1, renderTargetView.GetAddressOf(), depthStencilView.Get());
 
-    if (m_isWireframe) {
-        context->RSSetState(rasterStateWireframe.Get());
-    }
-    else {
-        context->RSSetState(rasterState.Get());
-    }
+    context->RSSetState(m_isWireframe ? rasterStateWireframe.Get() : rasterState.Get());
 
     RECT rc;
     GetClientRect(hWnd, &rc);
-    float width = (float)(rc.right - rc.left);  
-    float height = (float)(rc.bottom - rc.top);
 
-    D3D11_VIEWPORT vp = { 0.0f, 0.0f, width, height, 0.0f, 1.0f };
+    D3D11_VIEWPORT vp = {
+        0.0f, 0.0f,
+        float(rc.right - rc.left),
+        float(rc.bottom - rc.top),
+        0.0f, 1.0f
+    };
+
     context->RSSetViewports(1, &vp);
     context->IASetInputLayout(inputLayout.Get());
     context->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
@@ -564,103 +684,39 @@ void GraphicsEngine::BeginFrame(HWND hWnd,DirectX::XMMATRIX view, DirectX::XMMAT
 
 
 
-void GraphicsEngine::RenderObject(GameObject* obj, Camera* cam) {
-    SharedSceneData cb; // [cite: 2026-01-03]
+void GraphicsEngine::RenderObject(GameObject* obj, Camera* cam)
+{
+    if (!obj)
+        return;
 
-    // 1. SET GLOBAL STATE (Same for everything)
-    cb.lightDirection = this->m_lightDir;
-    cb.lightColor = this->m_lightColor;
-    DirectX::XMFLOAT3 pos = cam->GetPosition();
-    cb.cameraPosition.x = pos.x;
-    cb.cameraPosition.y = pos.y;
-    cb.cameraPosition.z = pos.z;
-    
+    Model* model = obj->GetModel();
 
-    XMVECTOR forward = cam->GetForwardVector();
-    XMStoreFloat4(&cb.cameraDirection, forward);
-    cb.cameraDirection.w = 0.0f;
+    if (!model)
+    {
+        OutputDebugStringA("ERROR: RenderObject called with no Model\n");
+        return;
+    }
 
-    // 2. BIND TEXTURES (Same for everything)
     ID3D11ShaderResourceView* objectTextureRV = obj->GetTexture();
     context->PSSetShaderResources(0, 1, &objectTextureRV);
     context->PSSetSamplers(0, 1, m_samplerLinear.GetAddressOf());
 
+    XMMATRIX world = obj->GetWorldMatrix();
+    XMMATRIX view = cam->GetViewMatrix();
+    XMMATRIX projection = cam->GetProjectionMatrix();
 
-
-    Model* model = obj->GetModel();
-
-    if (model) {
-
-
-        OutputDebugStringA("MODEL BRANCH\n");
-
-        // --- MODEL BRANCH ---
-        // Let the model handle its own specialized plumbing internally
-        XMMATRIX world = obj->GetWorldMatrix();
-        XMMATRIX view = cam->GetViewMatrix();
-        XMMATRIX projection = cam->GetProjectionMatrix();
-
-        XMFLOAT4X4 m;
-        XMStoreFloat4x4(&m, world);
-
-        float modelX = m._41; // X is row 4, column 1
-        float modelY = m._42; // Y is row 4, column 2
-        float modelZ = m._43; // Z is row 4, column 3
-
-        // 3. THE RAW CONSOLE LOG
-        // We'll use a frame-counter to prevent flooding the console
-        model->GetModelWorldMatrix();
-        model->GetModelPosition();
-
-        model->BindAndDraw(context.Get(), sizeof(SharedVertex), world,  view, projection, cam);
-    }
-    else {
-        OutputDebugStringA("FLOOR BRANCH\n");
-        // --- FLOOR BRANCH ---
-        // 1. Get Material and populate the SHARED struct [cite: 2026-01-03]
-        SharedSceneData floorSceneData = {}; // Use a fresh struct to avoid garbage [cite: 2026-01-03]
-        floorSceneData.material = obj->GetMaterial();
-        
-        floorSceneData.material.diffuseColor = XMFLOAT3(1, 1, 1);
-        floorSceneData.material.ambientColor = XMFLOAT3(0.5f, 0.5f, 0.5f);
-        floorSceneData.material.specularColor = XMFLOAT3(0.2f, 0.2f, 0.2f);
-        floorSceneData.material.specularPower = 32.0f;
-        floorSceneData.material.d = 1.0f;
-
-        // 2. Transpose ALL matrices (Models do this, so the Floor must too!) [cite: 2026-01-03]
-        floorSceneData.world = XMMatrixTranspose(obj->GetWorldMatrix());
-        floorSceneData.view = XMMatrixTranspose(cam->GetViewMatrix());
-        floorSceneData.projection = XMMatrixTranspose(cam->GetProjectionMatrix());
-
-        // 3. Set Global Lighting [cite: 2026-01-03]
-        floorSceneData.lightDirection = XMFLOAT4(0.5f, -1.0f, 0.5f, 0.0f);
-        floorSceneData.lightColor = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
-
-        // 4. Set Camera Position (Crucial for the Jump math!) [cite: 2026-01-03]
-        DirectX::XMFLOAT3 pos = cam->GetPosition();
-        XMVECTOR posVec = XMLoadFloat3(&pos);
-        XMStoreFloat4(&floorSceneData.cameraPosition, posVec);
-        XMStoreFloat4(&floorSceneData.cameraDirection, cam->GetForwardVector());
-
-        // 5. Force the Update and Re-Bind to Slot 0 [cite: 2026-01-03]
-        // This 'steals' the slot back from whatever the Model bound last!
-        context->UpdateSubresource(constantBuffer.Get(), 0, nullptr, &floorSceneData, 0, 0);
-        context->VSSetConstantBuffers(0, 1, constantBuffer.GetAddressOf());
-        context->PSSetConstantBuffers(0, 1, constantBuffer.GetAddressOf());
-
-
-        // 6. Bind Floor-specific Geometry [cite: 2026-01-03]
-        UINT stride = sizeof(SharedVertex);
-        UINT offset = 0;
-        auto vb = obj->GetVertexBuffer();
-        context->IASetVertexBuffers(0, 1, vb.GetAddressOf(), &stride, &offset);
-        context->IASetIndexBuffer(obj->GetIndexBuffer().Get(), DXGI_FORMAT_R32_UINT, 0);
-        context->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
-
-        // 7. FINAL DRAW
-        context->DrawIndexed(obj->GetIndexCount(), 0, 0);
-    }
-
+    model->BindAndDraw(
+        context.Get(),
+        sizeof(SharedVertex),
+        world,
+        view,
+        projection,
+        cam,
+        m_sceneData.brakeAmount,
+        m_depthWriteOnState.Get(),
+        m_depthWriteOffState.Get(),
+        m_sceneData.time
+    );
 }
 
 
