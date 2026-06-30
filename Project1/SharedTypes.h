@@ -52,6 +52,11 @@ struct SharedSceneData
     float brakeAmount;
     float time;
     DirectX::XMFLOAT2 padding;
+
+    float ambientIntensity;
+    float headlightIntensity;
+    
+    DirectX::XMFLOAT2 environmentPadding;
 };
 
 static_assert(sizeof(SharedSceneData) % 16 == 0, "DANGER!");
@@ -113,7 +118,9 @@ enum MaterialType
     MATERIAL_SOLID_PAINT,
     MATERIAL_LIVERY,
     MATERIAL_ALCANTARA,
-    MATERIAL_DECAL_TEXT
+    MATERIAL_DECAL_TEXT,
+    MATERIAL_TREE,
+    MATERIAL_LAMP
 };
 
 
@@ -158,7 +165,8 @@ enum class TyresUpgradeSelection
         Motorland,
         Tsukuba,
         LeMans,
-        DeepForest
+        DeepForest,
+        SSR5
     };
 
     struct GameConfig {

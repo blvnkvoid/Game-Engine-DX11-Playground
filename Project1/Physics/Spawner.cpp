@@ -73,6 +73,10 @@ btTransform Spawner::PutCar()
 	
 	case TrackSelection::DeepForest:
 		startPos.setOrigin(btVector3(21.0f, 35.0f, 100.0f));
+		break;	
+	
+	case TrackSelection::SSR5:
+		startPos.setOrigin(btVector3(-2.0f, 1.0f, 0.0f));
 		break;
 	default:
 		startPos.setOrigin(btVector3(0.0f, 0.0f, 0.0f)); // Spawamy w powietrzu!
@@ -97,7 +101,7 @@ btTransform Spawner::ResetPos()
 		break;	
 	case TrackSelection::Spa:
 		startPos.setOrigin(btVector3(-314.0f, 24.0f, 730.0f)); // Spawamy w powietrzu!	
-		break;
+		break;	
 	case TrackSelection::GrandValley:
 		startPos.setOrigin(btVector3(-283.0f, -20.0f, 50.0f));
 		break;
@@ -136,6 +140,11 @@ btTransform Spawner::ResetPos()
 	case TrackSelection::DeepForest:
 		startPos.setOrigin(btVector3(21.0f, 35.0f, 100.0f));
 		break;
+
+	case TrackSelection::SSR5:
+		startPos.setOrigin(btVector3(-2.0f, 1.0f, 0.0f));
+		break;
+
 	default:
 		startPos.setOrigin(btVector3(0.0f, 0.0f, 0.0f));
 

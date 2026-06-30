@@ -2,11 +2,13 @@
 #include "../Scene/GameObject.h"
 #include "../Cars/CarSetup.h"
 #include "../Audio/FmodManager.h"
+#include "../Environment/Timecycle.h"
 
 
 class Scene; // Forward declaration (keeps the header light!)
 class Camera;
 class Input;
+
 
 
 
@@ -83,5 +85,7 @@ private:
     DirectX::XMFLOAT4 m_lightDir = { 0.0f, -1.0f, 1.0f, 0.0f }; // Directional light
     std::unique_ptr<TextureManager> m_textureManager;
     DirectX::XMFLOAT4 m_lightColor = { 1.0f, 1.0f, 1.0f, 1.0f }; // White light
-
+    TimeCycle m_timeCycle;
+    EnvironmentState env;
+    UINT quality = 0;
 };

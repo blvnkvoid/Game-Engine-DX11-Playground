@@ -167,7 +167,9 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     if (FAILED(hr)) return false;
     hr = device->CreateDepthStencilState(&depthOn, m_depthWriteOnState.GetAddressOf());
     if (FAILED(hr)) return false;
-  
+
+
+
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
     ImGuiStyle& style = ImGui::GetStyle();
@@ -529,6 +531,11 @@ void GraphicsEngine::MainMenu(FMODManager& audio)
         if (ImGui::Selectable("Deep Forest Raceway", GameConfig::activeTrack == TrackSelection::DeepForest)) {
              
             GameConfig::activeTrack = TrackSelection::DeepForest;
+        }        
+        
+        if (ImGui::Selectable("Special Stage Route 5", GameConfig::activeTrack == TrackSelection::SSR5)) {
+             
+            GameConfig::activeTrack = TrackSelection::SSR5;
         }
 
         ImGui::End();
@@ -565,6 +572,9 @@ SharedSceneData GraphicsEngine::BuildSceneData(Camera* cam, GameObject* player, 
     sd.lightDirection = m_lightDir;
     sd.lightColor = m_lightColor;
 
+    sd.ambientIntensity = m_sceneData.ambientIntensity;
+    sd.headlightIntensity = m_sceneData.headlightIntensity;
+
     XMFLOAT3 camPos = cam->GetPosition();
     sd.cameraPosition = XMFLOAT4(camPos.x, camPos.y, camPos.z, 1.0f);
 
@@ -588,8 +598,6 @@ SharedSceneData GraphicsEngine::BuildSceneData(Camera* cam, GameObject* player, 
         XMStoreFloat4(&sd.carForward, worldForward);
         sd.carForward.w = 0.0f;
 
-        // Headlight origin: slightly forward, slightly above.
-        // Since forward is local +X, offset forward on X, not Z.
         XMVECTOR localHeadlightPos = XMVectorSet(0.0f, 0.0f, 0.0f, 1.0f); 
 
         XMVECTOR worldHeadlightPos = XMVector3TransformCoord(localHeadlightPos, carWorld);
@@ -601,33 +609,6 @@ SharedSceneData GraphicsEngine::BuildSceneData(Camera* cam, GameObject* player, 
     return sd;
 }
 
-void GraphicsEngine::UpdateEnvironment(float time, SharedSceneData& scene, float(&clearColor)[4])
-{
-    float nightStart = 60.0f;
-
-    if (m_sceneData.time > nightStart)
-    {
-        clearColor[0] = 0.02f;
-        clearColor[1] = 0.025f;
-        clearColor[2] = 0.04f;
-        clearColor[3] = 1.0f;
-
-        m_sceneData.lightDirection = { 0.5f, -1.0f, 0.5f, 0.0f };
-        m_sceneData.lightColor = { 0.22f, 0.24f, 0.28f, 1.0f };
-    }
-    else
-    {
-        clearColor[0] = 0.65f;
-        clearColor[1] = 0.75f;
-        clearColor[2] = 1.0f;
-        clearColor[3] = 1.0f;
-
-        m_sceneData.lightDirection = { 0.5f, -1.0f, 0.5f, 0.0f };
-        m_sceneData.lightColor = { 1.0f, 1.0f, 1.0f, 1.0f };
-
-    }
-
-}
 
 
 
@@ -640,25 +621,30 @@ void GraphicsEngine::BeginFrame(HWND hWnd, DirectX::XMMATRIX view, DirectX::XMMA
 
     m_gWasPressed = gIsDown;
 
+    m_timeCycle.Update(m_sceneData.time, env);
+
     m_sceneData.view = XMMatrixTranspose(view);
     m_sceneData.projection = XMMatrixTranspose(projection);
+    m_sceneData.lightDirection = env.lightDirection;
+    m_sceneData.lightColor = env.lightColor;
+    m_sceneData.ambientIntensity = env.ambientIntensity;
+    m_sceneData.headlightIntensity = env.headlightIntensity;
 
 
+    
+
+    m_sceneData.time = std::fmod(m_sceneData.time, m_timeCycle.GetCycleLength());
+
+    if (m_sceneData.time < 0.0f)
+        m_sceneData.time += m_timeCycle.GetCycleLength();
 
 
-    float clearColor[4];
-
-    UpdateEnvironment(m_sceneData.time, m_sceneData, clearColor);
-
-
-
-
-    //float clearColor[] = { 0.65f, 0.75f, 1.0f, 1.0f };
     float blendFactor[4] = { 0, 0, 0, 0 };
 
     context->OMSetBlendState(m_alphaBlendState.Get(), blendFactor, 0xffffffff);
 
-    context->ClearRenderTargetView(renderTargetView.Get(), clearColor);
+
+    context->ClearRenderTargetView(renderTargetView.Get(), env.clearColor);
     context->ClearDepthStencilView(depthStencilView.Get(), D3D11_CLEAR_DEPTH, 1.0f, 0);
     context->OMSetRenderTargets(1, renderTargetView.GetAddressOf(), depthStencilView.Get());
 

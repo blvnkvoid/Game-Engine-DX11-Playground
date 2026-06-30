@@ -15,7 +15,9 @@
 #define MATERIAL_SOLID_PAINT 10
 #define MATERIAL_LIVERY      11
 #define MATERIAL_ALCANTARA   12
-#define MATERIAL_DECAL_TEXT  13  
+#define MATERIAL_DECAL_TEXT  13
+#define MATERIAL_TREE        14
+#define MATERIAL_LAMP        15
 
 struct SharedMaterial {
     float3 diffuseColor;
@@ -45,6 +47,11 @@ cbuffer SharedSceneData : register(b0)
     float brakeAmount;
     float time;
     float2 padding;
+
+    float ambientIntensity;
+    float headlightIntensity;
+
+    float2 environmentPadding;
 };
 
 // Hardcoded light constants to bypass buffer synchronization issues
@@ -306,16 +313,17 @@ float PaceLightMask(float3 worldPos)
     return range;
 }
 
-float4 ShadeAsphalt(float4 texColor, float3 N, float3 L, float3 worldPos)
+float4 ShadeAsphalt(float4 texColor, float3 N, float3 L, float3 worldPos, float ambient, float headlightIntensity)
 {
+
     float ndotl = saturate(dot(N, L));
     float brakeSpill = BrakeLightMask(worldPos);
-    float3 base = texColor.rgb * (ndotl * 0.18f + 0.035f);
+    float3 base = texColor.rgb * (ndotl * 0.55f + ambient);
 
-    float headlight = HeadlightMask(worldPos);
+    float headlight = HeadlightMask(worldPos) ;
 
     float3 beamColor = float3(1.0f, 0.92f, 0.72f); 
-    float3 finalColor = base + beamColor * headlight * 0.5f;
+    float3 finalColor = base + beamColor * headlight * 0.5f * headlightIntensity;
     finalColor += float3(1.0f, 0.05f, 0.02f) * brakeSpill * 0.5f;
 
 
@@ -350,6 +358,26 @@ float4 ShadeDecalText(float4 texColor, float3 N, float3 L)
     float light = ndotl * 0.75f + 0.25f;
 
     return float4(texColor.rgb * light, 1.0f);
+}
+
+
+float4 ShadeLampGlow(float4 texColor, float2 uv)
+{
+    // keep original texture
+    float3 base = texColor.rgb;
+
+    // fake glow mask from UV center
+    float2 center = uv - float2(0.5f, 0.5f);
+    float dist = length(center);
+
+    float glow = saturate(1.0f - dist * 2.2f);
+    glow = glow * glow;
+
+    float3 glowColor = float3(1.0f, 0.82f, 0.45f);
+
+    float3 finalColor = base + glowColor * glow * 0.8f;
+
+    return float4(finalColor, texColor.a);
 }
 
 
@@ -397,7 +425,7 @@ float4 PS(PS_INPUT input) : SV_Target{
         return ShadeRubber(texColor, N, L);
 
     if (matType == MATERIAL_ASPHALT)
-        return ShadeAsphalt(texColor, N, L, input.worldPos);
+        return ShadeAsphalt(texColor, N, L, input.worldPos,ambientIntensity, headlightIntensity);
 
     if (matType == MATERIAL_LIVERY)
         return ShadeCarLivery(texColor, N, L, V, H, R);
@@ -408,6 +436,13 @@ float4 PS(PS_INPUT input) : SV_Target{
     if (matType == MATERIAL_DECAL_TEXT)
         return ShadeDecalText(texColor, N, L);
 
+    if (matType == MATERIAL_TREE)
+    {
+        clip(texColor.a - 0.3f);
+    }
+
+    if (matType == MATERIAL_LAMP)
+        return ShadeLampGlow(texColor, input.texCoord);
 
 
     if (length(material.diffuseColor) < 0.01f)

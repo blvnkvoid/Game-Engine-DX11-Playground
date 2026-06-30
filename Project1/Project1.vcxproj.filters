@@ -40,6 +40,9 @@
     <Filter Include="Source Files\Tracks">
       <UniqueIdentifier>{e95b192b-3301-426e-a8cf-c147bcb91a57}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Environment">
+      <UniqueIdentifier>{8986857c-f680-4205-b332-f80044f3f0e5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -170,6 +173,9 @@
     </ClCompile>
     <ClCompile Include="Cars\Mercedes_SLS_PACE_CAR\SLS_Pacecar.cpp">
       <Filter>Source Files\Cars</Filter>
+    </ClCompile>
+    <ClCompile Include="Environment\Timecycle.cpp">
+      <Filter>Source Files\Environment</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -322,6 +328,9 @@
     </ClInclude>
     <ClInclude Include="Graphics\MaterialClassifier.h">
       <Filter>Source Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Environment\Timecycle.h">
+      <Filter>Source Files\Environment</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

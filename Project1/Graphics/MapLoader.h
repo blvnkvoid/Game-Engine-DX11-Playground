@@ -102,12 +102,22 @@ public:
     {
         Assimp::Importer importer;
 
-        const aiScene* scene = importer.ReadFile(
+        /*const aiScene* scene = importer.ReadFile(
             filename,
             aiProcess_Triangulate |
             aiProcess_JoinIdenticalVertices |
             aiProcess_FlipUVs |
             aiProcess_PreTransformVertices |
+            aiProcess_MakeLeftHanded |
+            aiProcess_GenNormals
+        );*/       
+        
+        
+        const aiScene* scene = importer.ReadFile(
+            filename,
+            aiProcess_Triangulate |
+            aiProcess_JoinIdenticalVertices |
+            aiProcess_FlipUVs |
             aiProcess_MakeLeftHanded |
             aiProcess_GenNormals
         );
@@ -185,8 +195,19 @@ public:
             {
                 OutputDebugStringA(("Asphalt: " + meshName + "\n").c_str());
                 subset.material.materialType = static_cast<float>(MaterialType::MATERIAL_ASPHALT);
-            }
+            }       
+            
+            /*if (n.find("tree") != std::string::npos || meshName.find("KSTREE") != std::string::npos)
+            {
+                OutputDebugStringA(("Tree: " + meshName + "\n").c_str());
+                subset.material.materialType = static_cast<float>(MaterialType::MATERIAL_TREE);
+            }*/
 
+            if (n.find("bulb") != std::string::npos || n.find("tunnel_lamps") != std::string::npos || n.find("lightemitter") != std::string::npos|| n.find("streetlamp_sub1") != std::string::npos)
+            {
+                OutputDebugStringA(("Lamp: " + meshName + "\n").c_str());
+                subset.material.materialType = static_cast<float>(MaterialType::MATERIAL_LAMP);
+            }
 
  
 

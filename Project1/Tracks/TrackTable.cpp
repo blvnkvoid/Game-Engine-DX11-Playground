@@ -17,5 +17,6 @@ const std::vector<TrackEntry> g_TrackTable =
     { TrackSelection::Motorland,   "Tracks/Motorland/Motorland.fbx" },
     { TrackSelection::Tsukuba,   "Tracks/Tsukuba/Tsukuba.fbx" },
     { TrackSelection::LeMans,   "Tracks/LeMans/LeMans.fbx" },
-    { TrackSelection::DeepForest,   "Tracks/DeepForestRaceway/DeepForestRaceway.fbx" }
+    { TrackSelection::DeepForest,   "Tracks/DeepForestRaceway/DeepForestRaceway.fbx" },
+    { TrackSelection::SSR5,   "Tracks/SpecialStageRoute5/SSR5.fbx" }
 };
