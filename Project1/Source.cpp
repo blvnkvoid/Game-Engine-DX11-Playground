@@ -133,14 +133,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
             DispatchMessage(&msg);
         }
         else {
-            // DELTA TIME
-            static float totalTime = 0.0f;
+
                 LARGE_INTEGER timeCur;
                 QueryPerformanceCounter(&timeCur);
                 float deltaTime = (float)(timeCur.QuadPart - timeStart.QuadPart) / (float)frequency.QuadPart;
                 timeStart = timeCur;
-
-                totalTime += deltaTime;
 
             // MOUSE & CAMERA
             if (!io.WantCaptureMouse) {
@@ -162,7 +159,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
             }
 
             Input::Update(camera);
-            engine->BeginFrame(hWnd, camera->viewMatrix, camera->projectionMatrix);
+            engine->BeginFrame(hWnd, camera->viewMatrix, camera->projectionMatrix, deltaTime);
 
             // UI TOGGLE
             if (Input::IsTelemetryTogglePressed())
@@ -176,8 +173,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 
             engine->SetBrakeAmount(Input::GetBrake());
-            engine->SetTime(totalTime);
-
 
             ImGui_ImplDX11_NewFrame();
             ImGui_ImplWin32_NewFrame();

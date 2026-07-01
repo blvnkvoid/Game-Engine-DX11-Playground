@@ -191,17 +191,18 @@ public:
             std::transform(n.begin(), n.end(), n.begin(), ::tolower);
 
             if (n.find("road") != std::string::npos ||
-                n.find("asphalt") != std::string::npos)
+                n.find("asphalt") != std::string::npos ||
+                n.find("grass") != std::string::npos)
             {
                 OutputDebugStringA(("Asphalt: " + meshName + "\n").c_str());
                 subset.material.materialType = static_cast<float>(MaterialType::MATERIAL_ASPHALT);
             }       
             
-            /*if (n.find("tree") != std::string::npos || meshName.find("KSTREE") != std::string::npos)
+            if (n.find("tree") != std::string::npos || meshName.find("KSTREE") != std::string::npos)
             {
                 OutputDebugStringA(("Tree: " + meshName + "\n").c_str());
                 subset.material.materialType = static_cast<float>(MaterialType::MATERIAL_TREE);
-            }*/
+            }
 
             if (n.find("bulb") != std::string::npos || n.find("tunnel_lamps") != std::string::npos || n.find("lightemitter") != std::string::npos|| n.find("streetlamp_sub1") != std::string::npos)
             {

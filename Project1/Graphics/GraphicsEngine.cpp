@@ -13,6 +13,7 @@
 #include "../Imgui/imgui_impl_win32.h"
 #include "../Imgui/imgui_impl_dx11.h"
 #include "../Input/Input.h"
+#include "../Environment/Time.h"
 #pragma warning(pop)
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "d3dcompiler.lib")
@@ -556,7 +557,7 @@ void GraphicsEngine::SetBrakeAmount(float amount)
 
 void GraphicsEngine::SetTime(float time)
 {
-    m_sceneData.time = time;
+    m_sceneData.time = m_time.GetTime();
     OutputDebugStringA("time: ");
     OutputDebugStringA(std::to_string(time).c_str());
 }
@@ -612,7 +613,7 @@ SharedSceneData GraphicsEngine::BuildSceneData(Camera* cam, GameObject* player, 
 
 
 
-void GraphicsEngine::BeginFrame(HWND hWnd, DirectX::XMMATRIX view, DirectX::XMMATRIX projection)
+void GraphicsEngine::BeginFrame(HWND hWnd, DirectX::XMMATRIX view, DirectX::XMMATRIX projection, float deltaTime)
 {
     bool gIsDown = GetAsyncKeyState('G') & 0x8000;
 
@@ -621,7 +622,7 @@ void GraphicsEngine::BeginFrame(HWND hWnd, DirectX::XMMATRIX view, DirectX::XMMA
 
     m_gWasPressed = gIsDown;
 
-    m_timeCycle.Update(m_sceneData.time, env);
+    m_time.Update(deltaTime);
 
     m_sceneData.view = XMMatrixTranspose(view);
     m_sceneData.projection = XMMatrixTranspose(projection);
@@ -633,10 +634,13 @@ void GraphicsEngine::BeginFrame(HWND hWnd, DirectX::XMMATRIX view, DirectX::XMMA
 
     
 
-    m_sceneData.time = std::fmod(m_sceneData.time, m_timeCycle.GetCycleLength());
+    float envTime = std::fmod(m_time.GetTime(), m_timeCycle.GetCycleLength());
 
-    if (m_sceneData.time < 0.0f)
-        m_sceneData.time += m_timeCycle.GetCycleLength();
+
+    if (envTime < 0.0f)
+        envTime += m_timeCycle.GetCycleLength();
+
+    m_timeCycle.Update(envTime, env);
 
 
     float blendFactor[4] = { 0, 0, 0, 0 };

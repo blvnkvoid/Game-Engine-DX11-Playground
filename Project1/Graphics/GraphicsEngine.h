@@ -3,6 +3,7 @@
 #include "../Cars/CarSetup.h"
 #include "../Audio/FmodManager.h"
 #include "../Environment/Timecycle.h"
+#include "../Environment/Time.h"
 
 
 class Scene; // Forward declaration (keeps the header light!)
@@ -17,7 +18,7 @@ public:
     GraphicsEngine();
     ~GraphicsEngine();
     void MainMenu(FMODManager& audio);
-    void BeginFrame(HWND hWnd,DirectX::XMMATRIX view, DirectX::XMMATRIX projection);
+    void BeginFrame(HWND hWnd,DirectX::XMMATRIX view, DirectX::XMMATRIX projection, float deltaTime);
     void RenderObject(GameObject* obj, Camera* cam);
     void EndFrame();
     void SetActiveCamera(Camera* camera) { activeCamera = camera; }
@@ -87,5 +88,6 @@ private:
     DirectX::XMFLOAT4 m_lightColor = { 1.0f, 1.0f, 1.0f, 1.0f }; // White light
     TimeCycle m_timeCycle;
     EnvironmentState env;
+    Time m_time;
     UINT quality = 0;
 };

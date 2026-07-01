@@ -1,5 +1,7 @@
 #pragma once
 #include "../SharedTypes.h"
+#include "../Environment/Time.h"
+
 
 struct EnvironmentState
 {
@@ -62,17 +64,16 @@ public:
 
     float GetCycleLength() const
     {
-        return 240.0f * timeMultiplier;
+        return 240.0f;
     }
 
-    const float timeMultiplier = 1.0f;
 
 
 private:
-    float m_sunrise = 0.0f * timeMultiplier;
-    float m_noon = 60.0f * timeMultiplier;
-    float m_sunset = 120.0f * timeMultiplier;
-    float m_night = 180.0f * timeMultiplier;
-    float m_midnight = 210.0f * timeMultiplier;
-    float m_cycleEnd = 240.0f * timeMultiplier;
+    float m_sunrise = 0.0f;
+    float m_noon = 60.0f;
+    float m_sunset = 120.0f;
+    float m_night = 180.0f;
+    float m_midnight = 210.0f;
+    float m_cycleEnd = 240.0f;
 };

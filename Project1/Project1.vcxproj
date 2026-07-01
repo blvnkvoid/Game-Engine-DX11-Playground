@@ -167,6 +167,7 @@
     <ClCompile Include="Cars\Toyota_Minolta\Minolta.cpp" />
     <ClCompile Include="Cars\Toyota_Supra_JGTC_2000\Toyota_Supra_JGTC_2000.cpp" />
     <ClCompile Include="Cars\VehicleRegistry.cpp" />
+    <ClCompile Include="Environment\Time.cpp" />
     <ClCompile Include="Environment\Timecycle.cpp" />
     <ClCompile Include="Graphics\GraphicsEngine.cpp" />
     <ClCompile Include="Graphics\MapLoader.cpp" />
@@ -215,6 +216,7 @@
     <ClInclude Include="Cars\VehicleAsset.h" />
     <ClInclude Include="Cars\VehicleRegistry.h" />
     <ClInclude Include="Cars\VehicleRegistryEntry.h" />
+    <ClInclude Include="Environment\Time.h" />
     <ClInclude Include="Environment\Timecycle.h" />
     <ClInclude Include="Graphics\GraphicsEngine.h" />
     <ClInclude Include="Graphics\MapLoader.h" />

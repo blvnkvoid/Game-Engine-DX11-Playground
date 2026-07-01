@@ -177,6 +177,9 @@
     <ClCompile Include="Environment\Timecycle.cpp">
       <Filter>Source Files\Environment</Filter>
     </ClCompile>
+    <ClCompile Include="Environment\Time.cpp">
+      <Filter>Source Files\Environment</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SharedTypes.h">
@@ -330,6 +333,9 @@
       <Filter>Source Files\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Environment\Timecycle.h">
+      <Filter>Source Files\Environment</Filter>
+    </ClInclude>
+    <ClInclude Include="Environment\Time.h">
       <Filter>Source Files\Environment</Filter>
     </ClInclude>
   </ItemGroup>
