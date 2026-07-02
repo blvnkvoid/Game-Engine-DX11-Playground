@@ -114,20 +114,15 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     blendDesc.RenderTarget[0].BlendOpAlpha = D3D11_BLEND_OP_ADD;
     blendDesc.RenderTarget[0].RenderTargetWriteMask = D3D11_COLOR_WRITE_ENABLE_ALL;
 
-
     D3D11_DEPTH_STENCIL_DESC depthOn = {};
     depthOn.DepthEnable = TRUE;
     depthOn.DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ALL;
     depthOn.DepthFunc = D3D11_COMPARISON_LESS_EQUAL;
 
-
     D3D11_DEPTH_STENCIL_DESC depthOff = {};
     depthOff.DepthEnable = TRUE;
     depthOff.DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ZERO; // key part
     depthOff.DepthFunc = D3D11_COMPARISON_LESS_EQUAL;
-
-
-
 
 
     hr = D3D11CreateDeviceAndSwapChain(nullptr, D3D_DRIVER_TYPE_HARDWARE, nullptr, 0, featureLevels, 2,
@@ -169,8 +164,6 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     hr = device->CreateDepthStencilState(&depthOn, m_depthWriteOnState.GetAddressOf());
     if (FAILED(hr)) return false;
 
-
-
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
     ImGuiStyle& style = ImGui::GetStyle();
@@ -188,8 +181,6 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     return true;
 
 }
-
-
 
 void GraphicsEngine::SetBrakeAmount(float amount)
 {
@@ -286,29 +277,21 @@ void GraphicsEngine::BeginFrame(HWND hWnd, DirectX::XMMATRIX view, DirectX::XMMA
     m_sceneData.lightDirection = env.lightDirection;
     m_sceneData.lightColor = env.lightColor;
     m_sceneData.ambientIntensity = env.ambientIntensity;
-    m_sceneData.headlightIntensity = env.headlightIntensity;
-
-
-    
+    m_sceneData.headlightIntensity = env.headlightIntensity;    
 
     float envTime = std::fmod(m_time.GetTime(), m_timeCycle.GetCycleLength());
-
 
     if (envTime < 0.0f)
         envTime += m_timeCycle.GetCycleLength();
 
     m_timeCycle.Update(envTime, env);
 
-
     float blendFactor[4] = { 0, 0, 0, 0 };
 
     context->OMSetBlendState(m_alphaBlendState.Get(), blendFactor, 0xffffffff);
-
-
     context->ClearRenderTargetView(renderTargetView.Get(), env.clearColor);
     context->ClearDepthStencilView(depthStencilView.Get(), D3D11_CLEAR_DEPTH, 1.0f, 0);
     context->OMSetRenderTargets(1, renderTargetView.GetAddressOf(), depthStencilView.Get());
-
     context->RSSetState(m_isWireframe ? rasterStateWireframe.Get() : rasterState.Get());
 
     RECT rc;
@@ -327,9 +310,6 @@ void GraphicsEngine::BeginFrame(HWND hWnd, DirectX::XMMATRIX view, DirectX::XMMA
     context->VSSetShader(vertexShader.Get(), nullptr, 0);
     context->PSSetShader(pixelShader.Get(), nullptr, 0);
 }
-
-
-
 
 void GraphicsEngine::RenderObject(GameObject* obj, Camera* cam)
 {
@@ -365,8 +345,6 @@ void GraphicsEngine::RenderObject(GameObject* obj, Camera* cam)
         m_sceneData.time
     );
 }
-
-
 
 void GraphicsEngine::EndFrame()
 {

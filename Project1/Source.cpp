@@ -44,6 +44,9 @@
 #include "Tracks/TrackTable.h"		
 #include "UI/MainMenu.h"
 #include "Environment/EnvironmentDefinition.h"
+#include "UI/TrackMenu.h"
+#include "UI/Garage.h"
+#include "UI/CarSetupMenu.h"
 using namespace DirectX;
 
 // --- GLOBALS ---
@@ -57,6 +60,11 @@ FMODManager audio;
 GraphicsEngine* engine = new GraphicsEngine();
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 MainMenu menu;
+TrackMenu trackmenu;
+Garage& garage = menu.GetGarage();
+Upgrades& upgrades = menu.GetUpgrades();
+CarSetupMenu& carsetup = menu.GetCarSetup();
+
 
 // --- WNDPROC ---
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
@@ -227,12 +235,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                 {
                     OutputDebugStringA("B CLICK\n");
                     audio.PlayMenuCancel();
-                    menu.m_ShowGarage = false;
-                    menu.m_ShowCarSetup = false;
-                    menu.m_ShowTyresUpgrades = false;
-                    menu.m_ShowEngineUpgrades = false;
-                    menu.m_ShowWeightReductionUpgrades = false;
-                    menu.m_TrackSelection = false;
+                    garage.m_ShowGarage = false;
+                    carsetup.m_ShowCarSetup = false;
+                    upgrades.m_ShowTyresUpgrades = false;
+                    upgrades.m_ShowEngineUpgrades = false;
+                    upgrades.m_ShowWeightReductionUpgrades = false;
+                    trackmenu.m_TrackSelection = false;
                 }
 
                 bWasDown = bDown;
@@ -280,18 +288,18 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                         engine->GetTextureManager());
 
                     VehicleAsset& vehicle =
-                        vehicleRegistry.GetVehicle(menu.m_PreviewSelection);
+                        vehicleRegistry.GetVehicle(garage.m_PreviewSelection);
                     playerModel = vehicle.model.get();
                     playerObject = vehicle.object.get();
                     VehicleDefinition car =
-                        vehicleRegistry.CreateDefinition(menu.m_PreviewSelection);
+                        vehicleRegistry.CreateDefinition(garage.m_PreviewSelection);
 
-                    CameraDefinition cam = vehicleRegistry.CreateCameraDefinition(menu.m_PreviewSelection);
+                    CameraDefinition cam = vehicleRegistry.CreateCameraDefinition(garage.m_PreviewSelection);
 
-                    ApplyEngineUpgrade(car, GetEngineUpgrade(menu.m_EngineUpgradeSelection));
-                    ApplyWeightReductionUpgrade(car, GetWeightReductionUpgrade(menu.m_WeightReductionSelection));
-                    ApplyTyresUpgrade(car, GetTyresUpgrade(menu.m_TyresUpgradeSelection));
-                    ApplySetup(car, menu.m_CarSetupState);
+                    ApplyEngineUpgrade(car, GetEngineUpgrade(upgrades.m_EngineUpgradeSelection));
+                    ApplyWeightReductionUpgrade(car, GetWeightReductionUpgrade(upgrades.m_WeightReductionSelection));
+                    ApplyTyresUpgrade(car, GetTyresUpgrade(upgrades.m_TyresUpgradeSelection));
+                    ApplySetup(car, carsetup.m_CarSetupState);
 
                     audio.SetVehicleAudioDefinition(car.audio);
                     camera->SetVehicleCameraDefinition(cam);

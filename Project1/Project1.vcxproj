@@ -192,9 +192,13 @@
     <ClCompile Include="Scene\GameObject.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Tracks\TrackTable.cpp" />
+    <ClCompile Include="UI\CarSetupMenu.cpp" />
+    <ClCompile Include="UI\Garage.cpp" />
     <ClCompile Include="UI\LapTimer.cpp" />
     <ClCompile Include="UI\MainMenu.cpp" />
     <ClCompile Include="UI\RacingHUD.cpp" />
+    <ClCompile Include="UI\TrackMenu.cpp" />
+    <ClCompile Include="UI\Upgrades.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Audio\FmodManager.h" />
@@ -248,9 +252,13 @@
     <ClInclude Include="SharedTypes.h" />
     <ClInclude Include="SharedVehicleTypes.h" />
     <ClInclude Include="Tracks\TrackTable.h" />
+    <ClInclude Include="UI\CarSetupMenu.h" />
+    <ClInclude Include="UI\Garage.h" />
     <ClInclude Include="UI\LapTimer.h" />
     <ClInclude Include="UI\MainMenu.h" />
     <ClInclude Include="UI\RacingHUD.h" />
+    <ClInclude Include="UI\TrackMenu.h" />
+    <ClInclude Include="UI\Upgrades.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
