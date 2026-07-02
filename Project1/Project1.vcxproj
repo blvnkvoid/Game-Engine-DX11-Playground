@@ -216,6 +216,7 @@
     <ClInclude Include="Cars\VehicleAsset.h" />
     <ClInclude Include="Cars\VehicleRegistry.h" />
     <ClInclude Include="Cars\VehicleRegistryEntry.h" />
+    <ClInclude Include="Environment\EnvironmentDefinition.h" />
     <ClInclude Include="Environment\Time.h" />
     <ClInclude Include="Environment\Timecycle.h" />
     <ClInclude Include="Graphics\GraphicsEngine.h" />

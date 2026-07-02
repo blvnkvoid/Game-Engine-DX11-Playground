@@ -4,11 +4,12 @@
 #include "../Audio/FmodManager.h"
 #include "../Environment/Timecycle.h"
 #include "../Environment/Time.h"
-
+#include "../Environment/EnvironmentDefinition.h"
 
 class Scene; // Forward declaration (keeps the header light!)
 class Camera;
 class Input;
+
 
 
 
@@ -53,6 +54,10 @@ public:
     void UpdateEnvironment(float time,
         SharedSceneData& scene,
         float(&clearColor)[4]);
+
+    void ApplyEnvironmentDefinition(const EnvironmentDefinition& def);
+
+    EnvironmentDefinition DefaultEnvironment();
 private:
     SharedSceneData m_sceneData;
     SharedSceneData cb; // [cite: 2026-01-03]
@@ -90,4 +95,5 @@ private:
     EnvironmentState env;
     Time m_time;
     UINT quality = 0;
+    EnvironmentDefinition def;
 };

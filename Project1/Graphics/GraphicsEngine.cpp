@@ -610,6 +610,21 @@ SharedSceneData GraphicsEngine::BuildSceneData(Camera* cam, GameObject* player, 
     return sd;
 }
 
+void GraphicsEngine::ApplyEnvironmentDefinition(const EnvironmentDefinition& def)
+{
+    m_time.SetTime(def.startTime);
+    m_time.SetTimeScale(def.timeScale);
+    m_time.PauseTime(def.dynamicTime);
+}
+
+EnvironmentDefinition GraphicsEngine::DefaultEnvironment()
+{
+    EnvironmentDefinition defenv;
+    defenv.startTime = 0.0f;
+    defenv.timeScale = 1.0f;
+    defenv.dynamicTime = true;
+    return defenv;
+}
 
 
 

@@ -42,6 +42,7 @@
 #include "Cars/VehicleAsset.h"
 #include "Cars/VehicleRegistry.h"
 #include "Tracks/TrackTable.h"		
+#include "Environment/EnvironmentDefinition.h"
 using namespace DirectX;
 
 // --- GLOBALS ---
@@ -111,6 +112,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     bool assetsLoaded = false;
     Model* playerModel = nullptr;
     GameObject* playerObject = nullptr;
+    
+
+    
 
     ID3D11Buffer* cb = engine->GetConstantBuffer();
     camera->CycleCameraMode();
@@ -159,6 +163,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
             }
 
             Input::Update(camera);
+            engine->ApplyEnvironmentDefinition(engine->DefaultEnvironment());
             engine->BeginFrame(hWnd, camera->viewMatrix, camera->projectionMatrix, deltaTime);
 
             // UI TOGGLE

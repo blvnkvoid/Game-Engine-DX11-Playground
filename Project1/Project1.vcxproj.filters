@@ -338,6 +338,9 @@
     <ClInclude Include="Environment\Time.h">
       <Filter>Source Files\Environment</Filter>
     </ClInclude>
+    <ClInclude Include="Environment\EnvironmentDefinition.h">
+      <Filter>Source Files\Environment</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
