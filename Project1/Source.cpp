@@ -42,6 +42,7 @@
 #include "Cars/VehicleAsset.h"
 #include "Cars/VehicleRegistry.h"
 #include "Tracks/TrackTable.h"		
+#include "UI/MainMenu.h"
 #include "Environment/EnvironmentDefinition.h"
 using namespace DirectX;
 
@@ -55,6 +56,7 @@ Spawner spawn;
 FMODManager audio;
 GraphicsEngine* engine = new GraphicsEngine();
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
+MainMenu menu;
 
 // --- WNDPROC ---
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
@@ -64,7 +66,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 
     if (message == WM_KEYDOWN) {
         if (wParam == VK_ESCAPE) {
-            if (engine->g_CurrentState == EngineState::GAMEPLAY) engine->g_CurrentState = EngineState::MAIN_MENU;
+            if (menu.g_CurrentState == EngineState::GAMEPLAY) menu.g_CurrentState = EngineState::MAIN_MENU;
         }
     }
     return DefWindowProc(hWnd, message, wParam, lParam);
@@ -191,7 +193,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
     
             // --- GAMEPLAY LOGIC ---
-            if (engine->g_CurrentState == EngineState::MAIN_MENU) {
+            if (menu.g_CurrentState == EngineState::MAIN_MENU) {
                 if (assetsLoaded) {
                     mainScene->Clear();        
                     camera->SetFollowTarget(nullptr);
@@ -201,17 +203,18 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                     assetsLoaded = false;
                 }
 
-                engine->m_StartSimulationTriggered = false;
-                engine->MainMenu(audio);
+                menu.Draw(*engine, audio);
+                menu.m_StartSimulationTriggered = false;
+                
 
                 static bool aWasDown = false;
                 bool aDown = Input::IsPadButtonDown(XINPUT_GAMEPAD_A);
 
-                if (aDown && !aWasDown && engine->m_StartSimulationTriggered)
+                if (aDown && !aWasDown && menu.m_StartSimulationTriggered)
                 {
                     audio.PlayMenuStart();
                 }                    
-                else if (aDown && !aWasDown && !engine->m_StartSimulationTriggered)
+                else if (aDown && !aWasDown && !menu.m_StartSimulationTriggered)
                 {
                     audio.PlayMenuConfirm();
                 }
@@ -224,12 +227,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                 {
                     OutputDebugStringA("B CLICK\n");
                     audio.PlayMenuCancel();
-                    engine->m_ShowGarage = false;
-                    engine->m_ShowCarSetup = false;
-                    engine->m_ShowTyresUpgrades = false;
-                    engine->m_ShowEngineUpgrades = false;
-                    engine->m_ShowWeightReductionUpgrades = false;
-                    engine->m_TrackSelection = false;
+                    menu.m_ShowGarage = false;
+                    menu.m_ShowCarSetup = false;
+                    menu.m_ShowTyresUpgrades = false;
+                    menu.m_ShowEngineUpgrades = false;
+                    menu.m_ShowWeightReductionUpgrades = false;
+                    menu.m_TrackSelection = false;
                 }
 
                 bWasDown = bDown;
@@ -242,7 +245,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                 audio.PlayMenuMusic();
    
             }
-            else if (engine->g_CurrentState == EngineState::GAMEPLAY) {
+            else if (menu.g_CurrentState == EngineState::GAMEPLAY) {
                 if (deltaTime > 0.033f) deltaTime = 0.033f;
 
                 g_LapTimer.DrawUI();
@@ -277,18 +280,18 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                         engine->GetTextureManager());
 
                     VehicleAsset& vehicle =
-                        vehicleRegistry.GetVehicle(engine->m_PreviewSelection);
+                        vehicleRegistry.GetVehicle(menu.m_PreviewSelection);
                     playerModel = vehicle.model.get();
                     playerObject = vehicle.object.get();
                     VehicleDefinition car =
-                        vehicleRegistry.CreateDefinition(engine->m_PreviewSelection);
+                        vehicleRegistry.CreateDefinition(menu.m_PreviewSelection);
 
-                    CameraDefinition cam = vehicleRegistry.CreateCameraDefinition(engine->m_PreviewSelection);
+                    CameraDefinition cam = vehicleRegistry.CreateCameraDefinition(menu.m_PreviewSelection);
 
-                    ApplyEngineUpgrade(car, GetEngineUpgrade(engine->m_EngineUpgradeSelection));
-                    ApplyWeightReductionUpgrade(car, GetWeightReductionUpgrade(engine->m_WeightReductionSelection));
-                    ApplyTyresUpgrade(car, GetTyresUpgrade(engine->m_TyresUpgradeSelection));
-                    ApplySetup(car, engine->m_CarSetupState);
+                    ApplyEngineUpgrade(car, GetEngineUpgrade(menu.m_EngineUpgradeSelection));
+                    ApplyWeightReductionUpgrade(car, GetWeightReductionUpgrade(menu.m_WeightReductionSelection));
+                    ApplyTyresUpgrade(car, GetTyresUpgrade(menu.m_TyresUpgradeSelection));
+                    ApplySetup(car, menu.m_CarSetupState);
 
                     audio.SetVehicleAudioDefinition(car.audio);
                     camera->SetVehicleCameraDefinition(cam);
@@ -346,7 +349,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                 }
             }
 
-            audio.Update(engine->g_CurrentState, g_DebugTelemetry.rpm, g_DebugTelemetry.throttle, g_DebugTelemetry.speed, g_DebugTelemetry.avgSlipRatio, g_DebugTelemetry.avgSlipAngle);
+            audio.Update(menu.g_CurrentState, g_DebugTelemetry.rpm, g_DebugTelemetry.throttle, g_DebugTelemetry.speed, g_DebugTelemetry.avgSlipRatio, g_DebugTelemetry.avgSlipAngle);
             ImGui::Render();
             ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
 

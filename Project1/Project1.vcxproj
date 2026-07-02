@@ -193,6 +193,7 @@
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Tracks\TrackTable.cpp" />
     <ClCompile Include="UI\LapTimer.cpp" />
+    <ClCompile Include="UI\MainMenu.cpp" />
     <ClCompile Include="UI\RacingHUD.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -248,6 +249,7 @@
     <ClInclude Include="SharedVehicleTypes.h" />
     <ClInclude Include="Tracks\TrackTable.h" />
     <ClInclude Include="UI\LapTimer.h" />
+    <ClInclude Include="UI\MainMenu.h" />
     <ClInclude Include="UI\RacingHUD.h" />
   </ItemGroup>
   <ItemGroup>

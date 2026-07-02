@@ -5,6 +5,7 @@
 #include "../Environment/Timecycle.h"
 #include "../Environment/Time.h"
 #include "../Environment/EnvironmentDefinition.h"
+#include "../UI/MainMenu.h"
 
 class Scene; // Forward declaration (keeps the header light!)
 class Camera;
@@ -18,7 +19,6 @@ class GraphicsEngine {
 public:
     GraphicsEngine();
     ~GraphicsEngine();
-    void MainMenu(FMODManager& audio);
     void BeginFrame(HWND hWnd,DirectX::XMMATRIX view, DirectX::XMMATRIX projection, float deltaTime);
     void RenderObject(GameObject* obj, Camera* cam);
     void EndFrame();
@@ -33,31 +33,16 @@ public:
     SharedSceneData& GetSharedSceneData() { return m_sceneData; }
     DirectX::XMMATRIX GetView() { return activeCamera ? activeCamera->GetViewMatrix() : DirectX::XMMatrixIdentity(); }
     DirectX::XMMATRIX GetProj() { return mProj; }
-    EngineState g_CurrentState = EngineState::MAIN_MENU;
-    VehicleSelection m_PreviewSelection = VehicleSelection::PORSCHE_911;
-    TrackSelection TrackSelection = TrackSelection::Spa;
-    EngineUpgradeSelection   m_EngineUpgradeSelection = EngineUpgradeSelection::StockEngine;
-    WeightReductionSelection m_WeightReductionSelection = WeightReductionSelection::StockWeight;
-    TyresUpgradeSelection     m_TyresUpgradeSelection = TyresUpgradeSelection::StockTyres;
-    CarSetupState m_CarSetupState;
-    bool m_ShowGarage = false; // Persistent state
-    bool m_TrackSelection = false;
     TextureManager* GetTextureManager() { return m_textureManager.get(); }
-    bool m_ShowEngineUpgrades = false;
-    bool m_ShowWeightReductionUpgrades = false;
-    bool m_ShowTyresUpgrades = false;
-    bool m_ShowCarSetup = false;
-    bool m_StartSimulationTriggered = false;
     void SetBrakeAmount(float amount);
     void SetTime(float time);
     SharedSceneData BuildSceneData(Camera* cam, GameObject* player, XMMATRIX world);
     void UpdateEnvironment(float time,
         SharedSceneData& scene,
         float(&clearColor)[4]);
-
     void ApplyEnvironmentDefinition(const EnvironmentDefinition& def);
-
     EnvironmentDefinition DefaultEnvironment();
+
 private:
     SharedSceneData m_sceneData;
     SharedSceneData cb; // [cite: 2026-01-03]
@@ -96,4 +81,5 @@ private:
     Time m_time;
     UINT quality = 0;
     EnvironmentDefinition def;
+
 };

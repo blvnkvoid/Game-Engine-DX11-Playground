@@ -180,6 +180,9 @@
     <ClCompile Include="Environment\Time.cpp">
       <Filter>Source Files\Environment</Filter>
     </ClCompile>
+    <ClCompile Include="UI\MainMenu.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SharedTypes.h">
@@ -340,6 +343,9 @@
     </ClInclude>
     <ClInclude Include="Environment\EnvironmentDefinition.h">
       <Filter>Source Files\Environment</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\MainMenu.h">
+      <Filter>Source Files\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
