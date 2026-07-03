@@ -7,7 +7,6 @@
 
 void MainMenu::Draw(GraphicsEngine& engine, FMODManager& audio)
 {
-    OutputDebugStringA("MainMenu::Draw\n");
     ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0, 0, 0, 0));
     ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
     ImGui::SetNextWindowPos(ImVec2(50, 100));

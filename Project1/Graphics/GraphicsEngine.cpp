@@ -185,15 +185,14 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
 void GraphicsEngine::SetBrakeAmount(float amount)
 {
     m_sceneData.brakeAmount = amount;
-    OutputDebugStringA(std::to_string(amount).c_str());
 }
 
-void GraphicsEngine::SetTime(float time)
+/*void GraphicsEngine::SetTime(float time)
 {
-    m_sceneData.time = m_time.GetTime();
+
     OutputDebugStringA("time: ");
-    OutputDebugStringA(std::to_string(time).c_str());
-}
+    //OutputDebugStringA(std::to_string(time).c_str());
+}*/
 
 SharedSceneData GraphicsEngine::BuildSceneData(Camera* cam, GameObject* player, XMMATRIX world)
 {
@@ -247,14 +246,18 @@ void GraphicsEngine::ApplyEnvironmentDefinition(const EnvironmentDefinition& def
 {
     m_time.SetTime(def.startTime);
     m_time.SetTimeScale(def.timeScale);
-    m_time.PauseTime(def.dynamicTime);
+    m_time.SetShaderTime(def.shaderTime);
+    m_time.SetShaderTimeScale(def.shaderTimeScale);
+    m_time.PauseTime(!def.dynamicTime);
 }
 
 EnvironmentDefinition GraphicsEngine::DefaultEnvironment()
 {
     EnvironmentDefinition defenv;
-    defenv.startTime = 0.0f;
-    defenv.timeScale = 1.0f;
+    defenv.startTime = 180.0f;
+    defenv.timeScale = 5.0f;
+    defenv.shaderTime = 0.0f;
+    defenv.shaderTimeScale = 1.0f;
     defenv.dynamicTime = true;
     return defenv;
 }
@@ -272,12 +275,20 @@ void GraphicsEngine::BeginFrame(HWND hWnd, DirectX::XMMATRIX view, DirectX::XMMA
 
     m_time.Update(deltaTime);
 
+   
+
+    m_sceneData.time = m_time.GetShaderTime();
+
     m_sceneData.view = XMMatrixTranspose(view);
     m_sceneData.projection = XMMatrixTranspose(projection);
     m_sceneData.lightDirection = env.lightDirection;
     m_sceneData.lightColor = env.lightColor;
     m_sceneData.ambientIntensity = env.ambientIntensity;
     m_sceneData.headlightIntensity = env.headlightIntensity;    
+
+    OutputDebugStringA("time: ");
+    OutputDebugStringA(std::to_string(m_sceneData.time).c_str());
+
 
     float envTime = std::fmod(m_time.GetTime(), m_timeCycle.GetCycleLength());
 

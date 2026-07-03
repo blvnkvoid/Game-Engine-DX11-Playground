@@ -173,7 +173,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
             }
 
             Input::Update(camera);
-            engine->ApplyEnvironmentDefinition(engine->DefaultEnvironment());
             engine->BeginFrame(hWnd, camera->viewMatrix, camera->projectionMatrix, deltaTime);
 
             // UI TOGGLE
@@ -188,6 +187,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 
             engine->SetBrakeAmount(Input::GetBrake());
+            //engine->SetTime()
 
             ImGui_ImplDX11_NewFrame();
             ImGui_ImplWin32_NewFrame();
@@ -211,9 +211,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                     assetsLoaded = false;
                 }
 
-                menu.Draw(*engine, audio);
+   
                 menu.m_StartSimulationTriggered = false;
-                
+                menu.Draw(*engine, audio);
 
                 static bool aWasDown = false;
                 bool aDown = Input::IsPadButtonDown(XINPUT_GAMEPAD_A);
@@ -279,6 +279,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                             break;
                         }
                     }
+
+
+                    engine->ApplyEnvironmentDefinition(engine->DefaultEnvironment());
 
                     handling->SetPhysicsPointers(physics->GetCarBody());
                         
