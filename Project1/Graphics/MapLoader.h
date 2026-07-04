@@ -153,10 +153,10 @@ public:
 
        
 
-                OutputDebugStringA(
-                    ("Material " + std::to_string(i) +
-                        " texture=" + file +
-                        "\n").c_str());
+               // OutputDebugStringA(
+               //     ("Material " + std::to_string(i) +
+                //        " texture=" + file +
+                //        "\n").c_str());
 
 
                 std::wstring wpath(directory.begin(), directory.end());
@@ -194,29 +194,29 @@ public:
                 n.find("asphalt") != std::string::npos ||
                 n.find("grass") != std::string::npos)
             {
-                OutputDebugStringA(("Asphalt: " + meshName + "\n").c_str());
+               // OutputDebugStringA(("Asphalt: " + meshName + "\n").c_str());
                 subset.material.materialType = static_cast<float>(MaterialType::MATERIAL_ASPHALT);
             }       
             
             if (n.find("tree") != std::string::npos || meshName.find("KSTREE") != std::string::npos)
             {
-                OutputDebugStringA(("Tree: " + meshName + "\n").c_str());
+             //   OutputDebugStringA(("Tree: " + meshName + "\n").c_str());
                 subset.material.materialType = static_cast<float>(MaterialType::MATERIAL_TREE);
             }
 
             if (n.find("bulb") != std::string::npos || n.find("tunnel_lamps") != std::string::npos || n.find("lightemitter") != std::string::npos|| n.find("streetlamp_sub1") != std::string::npos)
             {
-                OutputDebugStringA(("Lamp: " + meshName + "\n").c_str());
+              //  OutputDebugStringA(("Lamp: " + meshName + "\n").c_str());
                 subset.material.materialType = static_cast<float>(MaterialType::MATERIAL_LAMP);
             }
 
  
 
-            OutputDebugStringA(
-                ("Mesh " + std::to_string(i) +
-                    " name=" + meshName +
-                    " mat=" + std::to_string(mesh->mMaterialIndex) +
-                    "\n").c_str());
+            //OutputDebugStringA(
+             //   ("Mesh " + std::to_string(i) +
+            //        " name=" + meshName +
+              //      " mat=" + std::to_string(mesh->mMaterialIndex) +
+             //       "\n").c_str());
 
       
             // default safe material (FIX for grey/black map issue)

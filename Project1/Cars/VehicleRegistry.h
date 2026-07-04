@@ -9,6 +9,7 @@
     #include "../SharedTypes.h"
     #include "../SharedVehicleTypes.h"
     #include "../Graphics/TextureManager.h"
+#include "VehicleRegistryEntry.h"
 
     struct VehicleSelectionHash
     {
@@ -22,6 +23,13 @@
     {
     public:
         VehicleAsset& GetVehicle(VehicleSelection selection);
+
+        VehicleAsset& GetOrLoadVehicle(
+            VehicleSelection selection,
+            ID3D11Device* device,
+            ID3D11DeviceContext* context,
+            TextureManager* textureManager);
+        
 
         void RegisterAllVehicles(
             ID3D11Device* device,
@@ -50,4 +58,5 @@
 
     private:
         std::unordered_map<VehicleSelection, VehicleAsset, VehicleSelectionHash> vehicles;
+        const VehicleRegistryEntry& FindVehicleEntry(VehicleSelection selection);
     };

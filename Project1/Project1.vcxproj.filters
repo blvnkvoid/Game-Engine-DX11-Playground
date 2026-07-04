@@ -43,6 +43,12 @@
     <Filter Include="Source Files\Environment">
       <UniqueIdentifier>{8986857c-f680-4205-b332-f80044f3f0e5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\DevConsole">
+      <UniqueIdentifier>{9ee0060b-c0de-4f49-bd97-dad3b105982d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Events">
+      <UniqueIdentifier>{688cb2e6-ee9c-4a28-93b6-fae5c4a02c88}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -194,6 +200,15 @@
     </ClCompile>
     <ClCompile Include="UI\CarSetupMenu.cpp">
       <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="DevConsole\DevConsole.cpp">
+      <Filter>Source Files\DevConsole</Filter>
+    </ClCompile>
+    <ClCompile Include="Events\EventRegistry.cpp">
+      <Filter>Source Files\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="Events\EventDefinition.cpp">
+      <Filter>Source Files\Events</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -370,6 +385,18 @@
     </ClInclude>
     <ClInclude Include="UI\CarSetupMenu.h">
       <Filter>Source Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="DevConsole\DevConsole.h">
+      <Filter>Source Files\DevConsole</Filter>
+    </ClInclude>
+    <ClInclude Include="Events\EventCarEntry.h">
+      <Filter>Source Files\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Events\EventDefinition.h">
+      <Filter>Source Files\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Events\EventRegistry.h">
+      <Filter>Source Files\Events</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

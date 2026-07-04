@@ -47,6 +47,10 @@
 #include "UI/TrackMenu.h"
 #include "UI/Garage.h"
 #include "UI/CarSetupMenu.h"
+#include "DevConsole/DevConsole.h"
+#include "Events/EventCarEntry.h"
+#include "Events/EventDefinition.h"
+#include "Events/EventRegistry.h"
 using namespace DirectX;
 
 // --- GLOBALS ---
@@ -64,6 +68,7 @@ TrackMenu trackmenu;
 Garage& garage = menu.GetGarage();
 Upgrades& upgrades = menu.GetUpgrades();
 CarSetupMenu& carsetup = menu.GetCarSetup();
+DevConsole devConsole;
 
 
 // --- WNDPROC ---
@@ -233,7 +238,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
                 if (bDown && !bWasDown)
                 {
-                    OutputDebugStringA("B CLICK\n");
+                    //OutputDebugStringA("B CLICK\n");
                     audio.PlayMenuCancel();
                     garage.m_ShowGarage = false;
                     carsetup.m_ShowCarSetup = false;
@@ -283,15 +288,20 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
                     engine->ApplyEnvironmentDefinition(engine->DefaultEnvironment());
 
+
                     handling->SetPhysicsPointers(physics->GetCarBody());
                         
-                    vehicleRegistry.RegisterAllVehicles(
-                        engine->GetDevice(),
-                        engine->GetContext(),
-                        engine->GetTextureManager());
+                 //   vehicleRegistry.RegisterAllVehicles(
+                  //      engine->GetDevice(),
+                    //    engine->GetContext(),
+                      //  engine->GetTextureManager());
 
-                    VehicleAsset& vehicle =
-                        vehicleRegistry.GetVehicle(garage.m_PreviewSelection);
+                   // VehicleAsset& vehicle =
+                     //   vehicleRegistry.GetVehicle(garage.m_PreviewSelection);
+
+                    vehicleRegistry.GetOrLoadVehicle(garage.m_PreviewSelection, engine->GetDevice(), engine->GetContext(), engine->GetTextureManager());
+
+                    VehicleAsset& vehicle = vehicleRegistry.GetVehicle(garage.m_PreviewSelection);
                     playerModel = vehicle.model.get();
                     playerObject = vehicle.object.get();
                     VehicleDefinition car =
@@ -348,6 +358,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                     playerModel->SetModelRotation(physicsWorld);
                 }
                 camera->Update(deltaTime); 
+
+
+                devConsole.Draw();
+                devConsole.ExecuteCommand(*engine, *physics);
 
                 // RENDER OBJECTS
                 engine->RenderObject(playerObject, camera);

@@ -2,6 +2,8 @@
 #include "../SharedVehicleTypes.h"
 #include "TorqueManager.h"
 #include "Tyres.h"
+#include <bullet/btBulletDynamicsCommon.h>
+
 
 class Handling {
 public:

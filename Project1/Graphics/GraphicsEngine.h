@@ -43,6 +43,8 @@ public:
     void ApplyEnvironmentDefinition(const EnvironmentDefinition& def);
     EnvironmentDefinition DefaultEnvironment();
 
+    Time& GetTime();
+
 private:
     SharedSceneData m_sceneData;
     SharedSceneData cb; // [cite: 2026-01-03]

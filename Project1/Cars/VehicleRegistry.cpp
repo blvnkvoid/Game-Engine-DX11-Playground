@@ -14,12 +14,12 @@
 #include "../Cars/Toyota_Supra_JGTC_2000/Toyota_Supra_JGTC_2000.h"
 #include "../Cars/Honda_NSX_JGTC_2000/Honda_NSX_JGTC_2000.h"
 #include "../Cars/Mercedes_SLS_PACE_CAR/SLS_Pacecar.h"
-#include "VehicleRegistryEntry.h"
+
 
 
 static const std::vector<VehicleRegistryEntry> vehicleTable =
 {
-    /*{ VehicleSelection::PORSCHE_911,    "Cars/Porsche_911_Carrera_S/", "911_Carrera_S"},
+    { VehicleSelection::PORSCHE_911,    "Cars/Porsche_911_Carrera_S/", "911_Carrera_S"},
     { VehicleSelection::BUGATTI_CHIRON, "Cars/Bugatti_Chiron/",        "Bugatti"},
     { VehicleSelection::AUDI_R8,        "Cars/Audi_R8_LMS/",           "R8" },
     { VehicleSelection::CIVIC,          "Cars/Honda_Civic_EG6/",       "Civic" },
@@ -30,7 +30,7 @@ static const std::vector<VehicleRegistryEntry> vehicleTable =
     { VehicleSelection::XSARA,        "Cars/Citroen_Xsara_KitCar/",        "Xsara" },
     { VehicleSelection::COPEN,        "Cars/Daihatsu_Copen/",        "Copen" },
     { VehicleSelection::JGTCSUPRA2000,        "Cars/Toyota_Supra_JGTC_2000/",        "JGTCSUPRA2000" },
-    { VehicleSelection::JGTCNSX2000,        "Cars/Honda_NSX_JGTC_2000/",        "JGTCNSX2000" },*/
+    { VehicleSelection::JGTCNSX2000,        "Cars/Honda_NSX_JGTC_2000/",        "JGTCNSX2000" },
     { VehicleSelection::SLS_PACECAR,        "Cars/Mercedes_SLS_PACE_CAR/",        "SLS_Pacecar" },
     { VehicleSelection::MINOLTA,        "Cars/Toyota_Minolta/",        "Minolta" }
 };  
@@ -45,6 +45,43 @@ VehicleAsset& VehicleRegistry::GetVehicle(VehicleSelection selection)
     }
 
     return it->second;
+}
+
+VehicleAsset& VehicleRegistry::GetOrLoadVehicle(
+    VehicleSelection selection,
+    ID3D11Device* device,
+    ID3D11DeviceContext* context,
+    TextureManager* textureManager)
+{
+    auto it = vehicles.find(selection);
+
+    if (it == vehicles.end())
+    {
+        const VehicleRegistryEntry& entry = FindVehicleEntry(selection);
+
+        RegisterVehicle(
+            entry.selection,
+            entry.folder,
+            entry.fileName,
+            device,
+            context,
+            textureManager);
+
+        it = vehicles.find(selection);
+    }
+
+    return it->second;
+}
+
+const VehicleRegistryEntry& VehicleRegistry::FindVehicleEntry(VehicleSelection selection)
+{
+    for (const auto& vehicle : vehicleTable)
+    {
+        if (vehicle.selection == selection)
+            return vehicle;
+    }
+
+    throw std::runtime_error("Vehicle not found in registry table.");
 }
 
 VehicleDefinition VehicleRegistry::CreateDefinition(VehicleSelection selection)
@@ -116,7 +153,6 @@ CameraDefinition VehicleRegistry::CreateCameraDefinition(VehicleSelection select
 
     case VehicleSelection::GT500:
         return NSX_GT500::CreateCameraDefinition();
-
 
     case VehicleSelection::FURAI:
         return Furai::CreateCameraDefinition();

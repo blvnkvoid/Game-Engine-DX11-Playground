@@ -138,6 +138,7 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
       <AdditionalIncludeDirectories>C:\Dev\FMOD\FMOD Studio API Windows\api\studio\inc;C:\Dev\FMOD\FMOD Studio API Windows\api\core\inc;C:\Dev\LogitechSteeringWheelSDK_8.75.30\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -167,8 +168,11 @@
     <ClCompile Include="Cars\Toyota_Minolta\Minolta.cpp" />
     <ClCompile Include="Cars\Toyota_Supra_JGTC_2000\Toyota_Supra_JGTC_2000.cpp" />
     <ClCompile Include="Cars\VehicleRegistry.cpp" />
+    <ClCompile Include="DevConsole\DevConsole.cpp" />
     <ClCompile Include="Environment\Time.cpp" />
     <ClCompile Include="Environment\Timecycle.cpp" />
+    <ClCompile Include="Events\EventDefinition.cpp" />
+    <ClCompile Include="Events\EventRegistry.cpp" />
     <ClCompile Include="Graphics\GraphicsEngine.cpp" />
     <ClCompile Include="Graphics\MapLoader.cpp" />
     <ClCompile Include="Graphics\MaterialLoader.cpp" />
@@ -221,9 +225,13 @@
     <ClInclude Include="Cars\VehicleAsset.h" />
     <ClInclude Include="Cars\VehicleRegistry.h" />
     <ClInclude Include="Cars\VehicleRegistryEntry.h" />
+    <ClInclude Include="DevConsole\DevConsole.h" />
     <ClInclude Include="Environment\EnvironmentDefinition.h" />
     <ClInclude Include="Environment\Time.h" />
     <ClInclude Include="Environment\Timecycle.h" />
+    <ClInclude Include="Events\EventCarEntry.h" />
+    <ClInclude Include="Events\EventDefinition.h" />
+    <ClInclude Include="Events\EventRegistry.h" />
     <ClInclude Include="Graphics\GraphicsEngine.h" />
     <ClInclude Include="Graphics\MapLoader.h" />
     <ClInclude Include="Graphics\MaterialClassifier.h" />

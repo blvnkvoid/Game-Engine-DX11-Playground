@@ -3,6 +3,7 @@
 #include "../Cars/Audi_R8_LMS/AudiR8.h"
 #include "../Cars/Porsche_911_Carrera_S/Porsche911.h"
 #include "../Cars/Honda_Civic_EG6/Civic.h"
+#include <bullet/btBulletDynamicsCommon.h>
 #include <bullet/BulletCollision/CollisionDispatch/btInternalEdgeUtility.h>
 
 #pragma warning(push)
@@ -13,12 +14,6 @@
 #pragma warning(disable : 4244)  // Conversion from 'double' to 'btScalar', possible loss of data
 #pragma warning(disable : 26439) // This kind of function may not throw. Declare it 'noexcept'
 
-class btDefaultCollisionConfiguration;
-class btCollisionDispatcher;
-class btBroadphaseInterface;
-class btSequentialImpulseConstraintSolver;
-class btDiscreteDynamicsWorld;
-class btRigidBody;
 
 #pragma warning(pop)
 
@@ -58,6 +53,7 @@ public:
 
     void SetVehicleDefinition(const VehicleDefinition& definition);
     void SetHandling(Handling* handling);
+    void TeleportCar(float x, float y, float z);
     private:
     btDefaultCollisionConfiguration* m_collisionConfig;
     btCollisionDispatcher* m_dispatcher;

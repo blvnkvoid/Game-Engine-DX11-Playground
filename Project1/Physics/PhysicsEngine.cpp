@@ -48,6 +48,21 @@ void PhysicsEngine::SetHandling(Handling* handling)
     m_handling = handling;
 }
 
+void PhysicsEngine::TeleportCar(float x, float y, float z)
+{
+    btTransform t;
+    t.setIdentity();
+    t.setOrigin(btVector3(x, y, z));
+
+    m_carBody->setWorldTransform(t);
+
+    if (m_carBody->getMotionState())
+        m_carBody->getMotionState()->setWorldTransform(t);
+
+    m_carBody->setLinearVelocity(btVector3(0, 0, 0));
+    m_carBody->setAngularVelocity(btVector3(0, 0, 0));
+    m_carBody->activate(true);
+}
 
 void PhysicsEngine::CreatePhysicsWorld() {
     

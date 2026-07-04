@@ -85,7 +85,6 @@ btTransform Spawner::PutCar()
 	return startPos;
 }
 
-
 btTransform Spawner::ResetPos()
 {
 	btTransform startPos;

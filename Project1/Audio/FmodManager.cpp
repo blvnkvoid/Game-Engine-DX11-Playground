@@ -3,7 +3,9 @@
 #include "../Input/Input.h"  
 #include "../SharedTypes.h"
 #include <cmath>
+#include <filesystem>
 
+namespace fs = std::filesystem;
 
 std::string FMODManager::MakePath(const std::string& file) const
 {
@@ -29,12 +31,12 @@ void FMODManager::InitAudio()
     FMOD_RESULT result;
 
     result = FMOD::System_Create(&system);
-    OutputDebugStringA(FMOD_ErrorString(result));
-    OutputDebugStringA("\n");
+    //OutputDebugStringA(FMOD_ErrorString(result));
+    //OutputDebugStringA("\n");
 
     result = system->init(512, FMOD_INIT_NORMAL, nullptr);
-    OutputDebugStringA(FMOD_ErrorString(result));
-    OutputDebugStringA("\n");
+    //OutputDebugStringA(FMOD_ErrorString(result));
+    //OutputDebugStringA("\n");
 
 }
 
@@ -56,7 +58,7 @@ void FMODManager::LoadMenuSounds()
         nullptr,
         &menuClick);
 
-    OutputDebugStringA(("Menu click: " + std::string(FMOD_ErrorString(result)) + "\n").c_str());
+    //OutputDebugStringA(("Menu click: " + std::string(FMOD_ErrorString(result)) + "\n").c_str());
 
     result = system->createSound(
         "UI/Sounds/Menu_confirm.wav",
@@ -64,7 +66,7 @@ void FMODManager::LoadMenuSounds()
         nullptr,
         &menuConfirm);
 
-    OutputDebugStringA(("Menu confirm: " + std::string(FMOD_ErrorString(result)) + "\n").c_str());    
+   // OutputDebugStringA(("Menu confirm: " + std::string(FMOD_ErrorString(result)) + "\n").c_str());    
     
     result = system->createSound(
         "UI/Sounds/Menu_cancel.wav",
@@ -72,7 +74,7 @@ void FMODManager::LoadMenuSounds()
         nullptr,
         &menuCancel);
 
-    OutputDebugStringA(("Menu cancel: " + std::string(FMOD_ErrorString(result)) + "\n").c_str());    
+   // OutputDebugStringA(("Menu cancel: " + std::string(FMOD_ErrorString(result)) + "\n").c_str());    
     
     result = system->createSound(
         "UI/Sounds/Menu_start.wav",
@@ -80,7 +82,7 @@ void FMODManager::LoadMenuSounds()
         nullptr,
         &menuStart);
 
-    OutputDebugStringA(("Menu cancel: " + std::string(FMOD_ErrorString(result)) + "\n").c_str());    
+   // OutputDebugStringA(("Menu cancel: " + std::string(FMOD_ErrorString(result)) + "\n").c_str());    
     
     result = system->createSound(
         "UI/Sounds/Home.mp3",
@@ -88,7 +90,7 @@ void FMODManager::LoadMenuSounds()
         nullptr,
         &menuMusic);
 
-    OutputDebugStringA(("Home: " + std::string(FMOD_ErrorString(result)) + "\n").c_str());
+   // OutputDebugStringA(("Home: " + std::string(FMOD_ErrorString(result)) + "\n").c_str());
 }
 
 void FMODManager::PlayMenuClick()
@@ -104,24 +106,24 @@ void FMODManager::PlayMenuClick()
 
 void FMODManager::PlayMenuConfirm()
 {
-    OutputDebugStringA("PLAY MENU CONFIRM\n");
+  //  OutputDebugStringA("PLAY MENU CONFIRM\n");
 
     if (!system)
     {
-        OutputDebugStringA("system NULL\n");
+     //   OutputDebugStringA("system NULL\n");
         return;
     }
 
     if (!menuConfirm)
     {
-        OutputDebugStringA("menuConfirm NULL\n");
+       // OutputDebugStringA("menuConfirm NULL\n");
         return;
     }
 
     FMOD_RESULT result =
         system->playSound(menuConfirm, nullptr, false, &menuConfirmChannel);
 
-    OutputDebugStringA(("playSound: " + std::string(FMOD_ErrorString(result)) + "\n").c_str());
+  //  OutputDebugStringA(("playSound: " + std::string(FMOD_ErrorString(result)) + "\n").c_str());
 
     if (menuConfirmChannel)
     {
@@ -133,18 +135,30 @@ void FMODManager::PlayMenuConfirm()
     system->update();
 }
 
+
 void FMODManager::LoadJukebox()
 {
     m_rng.seed(std::random_device{}());
 
-    m_jukeboxTracks =
+    m_jukeboxTracks.clear();
+
+    const fs::path musicFolder = "UI/Music";
+
+    for (const auto& entry : fs::directory_iterator(musicFolder))
     {
-        "UI/Music/track1.mp3",
-        "UI/Music/track2.mp3",
-        "UI/Music/track3.mp3",
-        "UI/Music/track4.mp3",
-        "UI/Music/track5.mp3",
-    };
+        if (!entry.is_regular_file())
+            continue;
+
+        auto ext = entry.path().extension().string();
+
+        if (ext == ".mp3" ||
+            ext == ".wav" ||
+            ext == ".ogg" ||
+            ext == ".flac")
+        {
+            m_jukeboxTracks.push_back(entry.path().string());
+        }
+    }
 }
 
 void FMODManager::PlayRandomTrack()
@@ -203,24 +217,24 @@ void FMODManager::UpdateJukebox()
 
 void FMODManager::PlayMenuStart()
 {
-    OutputDebugStringA("PLAY MENU Start\n");
+   // OutputDebugStringA("PLAY MENU Start\n");
 
     if (!system)
     {
-        OutputDebugStringA("system NULL\n");
+    //    OutputDebugStringA("system NULL\n");
         return;
     }
 
     if (!menuStart)
     {
-        OutputDebugStringA("menuConfirm NULL\n");
+    //    OutputDebugStringA("menuConfirm NULL\n");
         return;
     }
 
     FMOD_RESULT result =
         system->playSound(menuStart, nullptr, false, &menuStartChannel);
 
-    OutputDebugStringA(("playSound: " + std::string(FMOD_ErrorString(result)) + "\n").c_str());
+   // OutputDebugStringA(("playSound: " + std::string(FMOD_ErrorString(result)) + "\n").c_str());
 
     if (menuStartChannel)
     {
@@ -248,7 +262,7 @@ void FMODManager::PlayMenuMusic()
     FMOD_RESULT result =
         system->playSound(menuMusic, nullptr, false, &menuMusicChannel);
 
-    OutputDebugStringA(("playSound: " + std::string(FMOD_ErrorString(result)) + "\n").c_str());
+   // OutputDebugStringA(("playSound: " + std::string(FMOD_ErrorString(result)) + "\n").c_str());
 
     if (menuMusicChannel)
     {
@@ -271,24 +285,24 @@ void FMODManager::StopMenuMusic()
 
 void FMODManager::PlayMenuCancel()
 {
-    OutputDebugStringA("PLAY MENU CONFIRM\n");
+  //  OutputDebugStringA("PLAY MENU CONFIRM\n");
 
     if (!system)
     {
-        OutputDebugStringA("system NULL\n");
+      //  OutputDebugStringA("system NULL\n");
         return;
     }
 
     if (!menuCancel)
     {
-        OutputDebugStringA("menuConfirm NULL\n");
+    //    OutputDebugStringA("menuConfirm NULL\n");
         return;
     }
 
     FMOD_RESULT result =
         system->playSound(menuCancel, nullptr, false, &menuCancelChannel);
 
-    OutputDebugStringA(("playSound: " + std::string(FMOD_ErrorString(result)) + "\n").c_str());
+   // OutputDebugStringA(("playSound: " + std::string(FMOD_ErrorString(result)) + "\n").c_str());
 
     if (menuCancelChannel)
     {
@@ -311,25 +325,25 @@ void FMODManager::EngineSounds()
     std::string topPath = MakePath(m_audio.topFull);
     std::string limiterPath = MakePath(m_audio.limiter);
 
-    OutputDebugStringA(("Idle path: " + idlePath + "\n").c_str());
+   // OutputDebugStringA(("Idle path: " + idlePath + "\n").c_str());
 
     result = system->createSound(idlePath.c_str(), FMOD_LOOP_NORMAL, nullptr, &idleIn);
-    OutputDebugStringA(FMOD_ErrorString(result)); OutputDebugStringA("\n");
+   // OutputDebugStringA(FMOD_ErrorString(result)); OutputDebugStringA("\n");
 
     result = system->createSound(lowPath.c_str(), FMOD_LOOP_NORMAL, nullptr, &lowOnIn);
-    OutputDebugStringA(FMOD_ErrorString(result)); OutputDebugStringA("\n");
+  //  OutputDebugStringA(FMOD_ErrorString(result)); OutputDebugStringA("\n");
 
     result = system->createSound(midPath.c_str(), FMOD_LOOP_NORMAL, nullptr, &midOnIn);
-    OutputDebugStringA(FMOD_ErrorString(result)); OutputDebugStringA("\n");
+  //  OutputDebugStringA(FMOD_ErrorString(result)); OutputDebugStringA("\n");
 
     result = system->createSound(highPath.c_str(), FMOD_LOOP_NORMAL, nullptr, &highOnIn);
-    OutputDebugStringA(FMOD_ErrorString(result)); OutputDebugStringA("\n");
+   // OutputDebugStringA(FMOD_ErrorString(result)); OutputDebugStringA("\n");
 
     result = system->createSound(topPath.c_str(), FMOD_LOOP_NORMAL, nullptr, &topFullIn);
-    OutputDebugStringA(FMOD_ErrorString(result)); OutputDebugStringA("\n");
+  //  OutputDebugStringA(FMOD_ErrorString(result)); OutputDebugStringA("\n");
 
     result = system->createSound(limiterPath.c_str(), FMOD_LOOP_NORMAL, nullptr, &limiterIn);
-    OutputDebugStringA(FMOD_ErrorString(result)); OutputDebugStringA("\n");
+   // OutputDebugStringA(FMOD_ErrorString(result)); OutputDebugStringA("\n");
 
     system->playSound(idleIn, nullptr, true, &idleChannel);
     system->playSound(lowOnIn, nullptr, true, &lowChannel);

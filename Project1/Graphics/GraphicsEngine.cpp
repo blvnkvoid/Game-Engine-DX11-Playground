@@ -194,6 +194,12 @@ void GraphicsEngine::SetBrakeAmount(float amount)
     //OutputDebugStringA(std::to_string(time).c_str());
 }*/
 
+
+Time& GraphicsEngine::GetTime()
+{
+    return m_time;
+}
+
 SharedSceneData GraphicsEngine::BuildSceneData(Camera* cam, GameObject* player, XMMATRIX world)
 {
     SharedSceneData sd = {};
@@ -254,8 +260,8 @@ void GraphicsEngine::ApplyEnvironmentDefinition(const EnvironmentDefinition& def
 EnvironmentDefinition GraphicsEngine::DefaultEnvironment()
 {
     EnvironmentDefinition defenv;
-    defenv.startTime = 180.0f;
-    defenv.timeScale = 5.0f;
+    defenv.startTime = 60.0f;
+    defenv.timeScale = 0.0f;
     defenv.shaderTime = 0.0f;
     defenv.shaderTimeScale = 1.0f;
     defenv.dynamicTime = true;
@@ -286,8 +292,8 @@ void GraphicsEngine::BeginFrame(HWND hWnd, DirectX::XMMATRIX view, DirectX::XMMA
     m_sceneData.ambientIntensity = env.ambientIntensity;
     m_sceneData.headlightIntensity = env.headlightIntensity;    
 
-    OutputDebugStringA("time: ");
-    OutputDebugStringA(std::to_string(m_sceneData.time).c_str());
+   // OutputDebugStringA("time: ");
+   // OutputDebugStringA(std::to_string(m_sceneData.time).c_str());
 
 
     float envTime = std::fmod(m_time.GetTime(), m_timeCycle.GetCycleLength());
