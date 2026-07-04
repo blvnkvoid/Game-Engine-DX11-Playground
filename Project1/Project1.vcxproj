@@ -138,7 +138,7 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
       <AdditionalIncludeDirectories>C:\Dev\FMOD\FMOD Studio API Windows\api\studio\inc;C:\Dev\FMOD\FMOD Studio API Windows\api\core\inc;C:\Dev\LogitechSteeringWheelSDK_8.75.30\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -172,6 +172,7 @@
     <ClCompile Include="Environment\Time.cpp" />
     <ClCompile Include="Environment\Timecycle.cpp" />
     <ClCompile Include="Events\EventDefinition.cpp" />
+    <ClCompile Include="Events\EventList.cpp" />
     <ClCompile Include="Events\EventRegistry.cpp" />
     <ClCompile Include="Graphics\GraphicsEngine.cpp" />
     <ClCompile Include="Graphics\MapLoader.cpp" />
@@ -197,6 +198,7 @@
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Tracks\TrackTable.cpp" />
     <ClCompile Include="UI\CarSetupMenu.cpp" />
+    <ClCompile Include="UI\EventMenu.cpp" />
     <ClCompile Include="UI\Garage.cpp" />
     <ClCompile Include="UI\LapTimer.cpp" />
     <ClCompile Include="UI\MainMenu.cpp" />
@@ -231,6 +233,7 @@
     <ClInclude Include="Environment\Timecycle.h" />
     <ClInclude Include="Events\EventCarEntry.h" />
     <ClInclude Include="Events\EventDefinition.h" />
+    <ClInclude Include="Events\EventList.h" />
     <ClInclude Include="Events\EventRegistry.h" />
     <ClInclude Include="Graphics\GraphicsEngine.h" />
     <ClInclude Include="Graphics\MapLoader.h" />
@@ -261,6 +264,7 @@
     <ClInclude Include="SharedVehicleTypes.h" />
     <ClInclude Include="Tracks\TrackTable.h" />
     <ClInclude Include="UI\CarSetupMenu.h" />
+    <ClInclude Include="UI\EventMenu.h" />
     <ClInclude Include="UI\Garage.h" />
     <ClInclude Include="UI\LapTimer.h" />
     <ClInclude Include="UI\MainMenu.h" />

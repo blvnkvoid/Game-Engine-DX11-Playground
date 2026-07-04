@@ -6,7 +6,10 @@
 
 struct EventDefinition
 {
-    TrackSelection track = TrackSelection::Tsukuba;
+    TrackSelection track;
     EnvironmentDefinition environment;
     std::vector<EventCarEntry> cars;
 };
+
+EventDefinition CreateSundayCup_Tsukuba();
+EventDefinition CreateSundayCup_Spa();

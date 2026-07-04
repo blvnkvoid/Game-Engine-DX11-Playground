@@ -22,6 +22,7 @@
     class VehicleRegistry
     {
     public:
+        static const std::vector<VehicleRegistryEntry>& GetVehicleTable();
         VehicleAsset& GetVehicle(VehicleSelection selection);
 
         VehicleAsset& GetOrLoadVehicle(

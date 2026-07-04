@@ -8,4 +8,5 @@ struct VehicleRegistryEntry
     VehicleSelection selection;
     std::string folder;
     std::string fileName;
+    const char* displayName;
 };

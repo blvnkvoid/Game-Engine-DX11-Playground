@@ -19,6 +19,7 @@ void MainMenu::Draw(GraphicsEngine& engine, FMODManager& audio)
     m_upgrades.Draw();
     m_carsetup.Draw();
     m_trackmenu.Draw();
+    m_eventmenu.Draw();
 
     if (ImGui::Button("EXIT", ImVec2(300, 50))) {
         PostQuitMessage(0);

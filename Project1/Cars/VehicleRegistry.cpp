@@ -19,21 +19,26 @@
 
 static const std::vector<VehicleRegistryEntry> vehicleTable =
 {
-    { VehicleSelection::PORSCHE_911,    "Cars/Porsche_911_Carrera_S/", "911_Carrera_S"},
-    { VehicleSelection::BUGATTI_CHIRON, "Cars/Bugatti_Chiron/",        "Bugatti"},
-    { VehicleSelection::AUDI_R8,        "Cars/Audi_R8_LMS/",           "R8" },
-    { VehicleSelection::CIVIC,          "Cars/Honda_Civic_EG6/",       "Civic" },
-    { VehicleSelection::GT500,        "Cars/Honda_NSX_Concept-GT_GT-500_2016/",        "NSX_GT500" },
-    { VehicleSelection::FURAI,        "Cars/Mazda_Furai/",        "Furai" },
-    { VehicleSelection::MX5,        "Cars/Mazda_MX5/",        "Miata" },
-    { VehicleSelection::AUDI_R10,        "Cars/Audi_R10/",        "R10" },
-    { VehicleSelection::XSARA,        "Cars/Citroen_Xsara_KitCar/",        "Xsara" },
-    { VehicleSelection::COPEN,        "Cars/Daihatsu_Copen/",        "Copen" },
-    { VehicleSelection::JGTCSUPRA2000,        "Cars/Toyota_Supra_JGTC_2000/",        "JGTCSUPRA2000" },
-    { VehicleSelection::JGTCNSX2000,        "Cars/Honda_NSX_JGTC_2000/",        "JGTCNSX2000" },
-    { VehicleSelection::SLS_PACECAR,        "Cars/Mercedes_SLS_PACE_CAR/",        "SLS_Pacecar" },
-    { VehicleSelection::MINOLTA,        "Cars/Toyota_Minolta/",        "Minolta" }
+    { VehicleSelection::PORSCHE_911,    "Cars/Porsche_911_Carrera_S/", "911_Carrera_S", "Porsche 911 Carrera S"},
+    { VehicleSelection::BUGATTI_CHIRON, "Cars/Bugatti_Chiron/",        "Bugatti", "Bugatti Chiron"},
+    { VehicleSelection::AUDI_R8,        "Cars/Audi_R8_LMS/",           "R8", "Audi R8"},
+    { VehicleSelection::CIVIC,          "Cars/Honda_Civic_EG6/",       "Civic", "Honda Civic SIR-II '91"},
+    { VehicleSelection::GT500,        "Cars/Honda_NSX_Concept-GT_GT-500_2016/",        "NSX_GT500", "Honda NSX_Concept-GT GT-500 '16"},
+    { VehicleSelection::FURAI,        "Cars/Mazda_Furai/",        "Furai", "Mazda Furai"},
+    { VehicleSelection::MX5,        "Cars/Mazda_MX5/",        "Miata", "Mazda MX5"},
+    { VehicleSelection::AUDI_R10,        "Cars/Audi_R10/",        "R10", "Audi R10"},
+    { VehicleSelection::XSARA,        "Cars/Citroen_Xsara_KitCar/",        "Xsara", "Citroen Xsara Rally Car '99"},
+    { VehicleSelection::COPEN,        "Cars/Daihatsu_Copen/",        "Copen", "Daihatsu Copen"},
+    { VehicleSelection::JGTCSUPRA2000,        "Cars/Toyota_Supra_JGTC_2000/",        "JGTCSUPRA2000", "Toyota Castrol Supra JGTC '00"},
+    { VehicleSelection::JGTCNSX2000,        "Cars/Honda_NSX_JGTC_2000/",        "JGTCNSX2000", "Honda Raybrig NSX JGTC '00"},
+    { VehicleSelection::SLS_PACECAR,        "Cars/Mercedes_SLS_PACE_CAR/",        "SLS_Pacecar", "Mercedes-Benz SLS Pace Car '11"},
+    { VehicleSelection::MINOLTA,        "Cars/Toyota_Minolta/",        "Minolta", "Toyota Minolta 88C-V '89"}
 };  
+
+ const std::vector<VehicleRegistryEntry>& VehicleRegistry::GetVehicleTable()
+{
+    return vehicleTable;
+}
 
 VehicleAsset& VehicleRegistry::GetVehicle(VehicleSelection selection)
 {

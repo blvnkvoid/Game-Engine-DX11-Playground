@@ -8,6 +8,7 @@
 #include "../UI/Garage.h"
 #include "../UI/Upgrades.h"
 #include "../UI/CarSetupMenu.h"
+#include "../UI/EventMenu.h"
 
 class GraphicsEngine;
 class FMODManager;
@@ -28,5 +29,6 @@ public:
     Garage m_garage;
     Upgrades m_upgrades;
     CarSetupMenu m_carsetup;
+    EventMenu m_eventmenu;
 
 };

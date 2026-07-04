@@ -187,13 +187,6 @@ void GraphicsEngine::SetBrakeAmount(float amount)
     m_sceneData.brakeAmount = amount;
 }
 
-/*void GraphicsEngine::SetTime(float time)
-{
-
-    OutputDebugStringA("time: ");
-    //OutputDebugStringA(std::to_string(time).c_str());
-}*/
-
 
 Time& GraphicsEngine::GetTime()
 {
@@ -250,6 +243,8 @@ SharedSceneData GraphicsEngine::BuildSceneData(Camera* cam, GameObject* player, 
 
 void GraphicsEngine::ApplyEnvironmentDefinition(const EnvironmentDefinition& def)
 {
+
+    OutputDebugStringA(("Applying time: " + std::to_string(def.startTime) + "\n").c_str());
     m_time.SetTime(def.startTime);
     m_time.SetTimeScale(def.timeScale);
     m_time.SetShaderTime(def.shaderTime);
@@ -257,7 +252,7 @@ void GraphicsEngine::ApplyEnvironmentDefinition(const EnvironmentDefinition& def
     m_time.PauseTime(!def.dynamicTime);
 }
 
-EnvironmentDefinition GraphicsEngine::DefaultEnvironment()
+/*EnvironmentDefinition GraphicsEngine::DefaultEnvironment()
 {
     EnvironmentDefinition defenv;
     defenv.startTime = 60.0f;
@@ -266,7 +261,7 @@ EnvironmentDefinition GraphicsEngine::DefaultEnvironment()
     defenv.shaderTimeScale = 1.0f;
     defenv.dynamicTime = true;
     return defenv;
-}
+}*/
 
 
 

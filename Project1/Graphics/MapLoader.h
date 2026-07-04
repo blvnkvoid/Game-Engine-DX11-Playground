@@ -29,9 +29,6 @@ public:
         return m_allIndices;
     }
 
-    // =========================================================
-    // DRAW
-    // =========================================================
     void Draw(ID3D11DeviceContext* context,
         ID3D11Buffer* cbb,
         const SharedSceneData& engineSceneData)
@@ -83,9 +80,6 @@ public:
         }
     }
 
-    // =========================================================
-    // LOAD ENTRY
-    // =========================================================
     bool OpenAndLoad(const std::string& filename,
         ID3D11Device* device,
         ID3D11DeviceContext* context)
@@ -93,25 +87,11 @@ public:
         return LoadWorld(filename, device, context);
     }
 
-    // =========================================================
-    // ASSIMP WORLD LOADER
-    // =========================================================
     bool LoadWorld(const std::string& filename,
         ID3D11Device* device,
         ID3D11DeviceContext* context)
     {
         Assimp::Importer importer;
-
-        /*const aiScene* scene = importer.ReadFile(
-            filename,
-            aiProcess_Triangulate |
-            aiProcess_JoinIdenticalVertices |
-            aiProcess_FlipUVs |
-            aiProcess_PreTransformVertices |
-            aiProcess_MakeLeftHanded |
-            aiProcess_GenNormals
-        );*/       
-        
         
         const aiScene* scene = importer.ReadFile(
             filename,
@@ -125,7 +105,6 @@ public:
         if (!scene || !scene->HasMeshes())
             return false;
 
-        // reset state (IMPORTANT FIX: prevents garbage grey maps)
         m_allVertices.clear();
         m_allIndices.clear();
         m_subsets.clear();
@@ -136,9 +115,6 @@ public:
             (lastSlash != std::string::npos) ?
             filename.substr(0, lastSlash + 1) : "";
 
-        // =====================================================
-        // MATERIAL LOADING (SAFE DEFAULT HANDLING)
-        // =====================================================
         for (unsigned int i = 0; i < scene->mNumMaterials; i++)
         {
             aiString texPath;
@@ -147,12 +123,8 @@ public:
             if (scene->mMaterials[i]->GetTexture(aiTextureType_DIFFUSE, 0, &texPath) == AI_SUCCESS)
             {
                 std::string textureName = texPath.C_Str();
-                std::string file = textureName.substr(textureName.find_last_of("/\\") + 1);
-               
-    
-
-       
-
+                std::string file = textureName.substr(textureName.find_last_of("/\\") + 1);          
+        
                // OutputDebugStringA(
                //     ("Material " + std::to_string(i) +
                 //        " texture=" + file +
@@ -169,9 +141,6 @@ public:
             m_materialSRVs.push_back(srv);
         }
 
-        // =====================================================
-        // PROCESS MESHES
-        // =====================================================
         for (unsigned int i = 0; i < scene->mNumMeshes; i++)
         {
             aiMesh* mesh = scene->mMeshes[i];
@@ -231,11 +200,8 @@ public:
                 for (unsigned int v = 0; v < mesh->mNumVertices; v++)
                 {
                     SharedVertex vert{};
-
                     aiVector3D p = mesh->mVertices[v];
-                    vert.pos = { p.x, p.y, p.z };
-
-              
+                    vert.pos = { p.x, p.y, p.z };            
 
                     if (mesh->HasNormals())
                     {
@@ -251,24 +217,13 @@ public:
                     else
                         vert.texCoord = { 0,0 };
 
-                   vert.color = { 1,1,1,1 };
-
-           
-                   m_allVertices.push_back(vert);
-
-
-         
+                   vert.color = { 1,1,1,1 };           
+                   m_allVertices.push_back(vert);         
                 }
-
-
             }
 
             for (unsigned int f = 0; f < mesh->mNumFaces; f++)
-            {
-
-              
-               
-
+            {      
                 const aiFace& face = mesh->mFaces[f];
                 if (face.mNumIndices != 3) continue;
 
@@ -284,9 +239,6 @@ public:
 
         index_count = (UINT)m_allIndices.size();
 
-        // =====================================================
-        // GPU BUFFERS
-        // =====================================================
         if (m_allVertices.empty() || m_allIndices.empty())
             return false;
 
@@ -319,9 +271,6 @@ public:
         return true;
     }
 
-    // =========================================================
-    // DATA
-    // =========================================================
     TextureManager* m_texMgr = nullptr;
 
     UINT index_count = 0;
