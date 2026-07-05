@@ -5,6 +5,7 @@
 #include "../Cars/Honda_Civic_EG6/Civic.h"
 #include <bullet/btBulletDynamicsCommon.h>
 #include <bullet/BulletCollision/CollisionDispatch/btInternalEdgeUtility.h>
+#include "../UI/TrackTiming.h"
 
 #pragma warning(push)
 #pragma warning(disable : 26451) // Arithmetic overflow (the one you just found)
@@ -54,6 +55,7 @@ public:
     void SetVehicleDefinition(const VehicleDefinition& definition);
     void SetHandling(Handling* handling);
     void TeleportCar(float x, float y, float z);
+    void SetTrackTiming(const TrackTimingEntry& timing);
     private:
     btDefaultCollisionConfiguration* m_collisionConfig;
     btCollisionDispatcher* m_dispatcher;
@@ -71,5 +73,6 @@ public:
     bool m_passedSector1 = false;
     bool m_passedSector2 = false;
     VehicleDefinition m_vehicle;
+    TrackTimingEntry m_timing;
 
 };

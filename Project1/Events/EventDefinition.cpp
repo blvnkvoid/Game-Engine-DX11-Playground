@@ -7,7 +7,7 @@ EventDefinition CreateSundayCup_Tsukuba()
     event.track = TrackSelection::Tsukuba;
     event.environment.startTime = 60.0f;
     event.environment.dynamicTime = true;
-
+    event.totalLaps = 1;
     event.cars =
     {
         { VehicleSelection::CIVIC, true },

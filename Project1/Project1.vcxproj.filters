@@ -216,6 +216,12 @@
     <ClCompile Include="Events\EventList.cpp">
       <Filter>Source Files\Events</Filter>
     </ClCompile>
+    <ClCompile Include="UI\TrackTiming.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Events\ChampionshipDefinition.cpp">
+      <Filter>Source Files\Events</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SharedTypes.h">
@@ -408,6 +414,15 @@
       <Filter>Source Files\UI</Filter>
     </ClInclude>
     <ClInclude Include="Events\EventList.h">
+      <Filter>Source Files\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\TrackTiming.h">
+      <Filter>Source Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Events\ChampionshipDefinition.h">
+      <Filter>Source Files\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Events\EventSession.h">
       <Filter>Source Files\Events</Filter>
     </ClInclude>
   </ItemGroup>

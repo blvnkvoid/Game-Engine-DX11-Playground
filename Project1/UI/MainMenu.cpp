@@ -28,3 +28,46 @@ void MainMenu::Draw(GraphicsEngine& engine, FMODManager& audio)
     ImGui::PopStyleVar();
     ImGui::PopStyleColor();
 }
+
+
+void MainMenu::HandleInput(FMODManager& audio)
+{
+    static bool aWasDown = false;
+    static bool bWasDown = false;
+
+    bool aDown = Input::IsPadButtonDown(XINPUT_GAMEPAD_A);
+    bool bDown = Input::IsPadButtonDown(XINPUT_GAMEPAD_B);
+
+    if (aDown && !aWasDown)
+    {
+        if (m_StartSimulationTriggered)
+            audio.PlayMenuStart();
+        else
+            audio.PlayMenuConfirm();
+    }
+
+    if (bDown && !bWasDown)
+    {
+        audio.PlayMenuCancel();
+
+        m_garage.m_ShowGarage = false;
+        m_carsetup.m_ShowCarSetup = false;
+
+        m_upgrades.m_ShowTyresUpgrades = false;
+        m_upgrades.m_ShowEngineUpgrades = false;
+        m_upgrades.m_ShowWeightReductionUpgrades = false;
+
+        m_trackmenu.m_TrackSelection = false;
+        m_eventmenu.m_ShowEventMenu = false;
+    }
+
+    if (Input::IsMenuDownPressed() || Input::IsMenuUpPressed())
+    {
+        audio.PlayMenuClick();
+    }
+
+    audio.PlayMenuMusic();
+
+    aWasDown = aDown;
+    bWasDown = bDown;
+}

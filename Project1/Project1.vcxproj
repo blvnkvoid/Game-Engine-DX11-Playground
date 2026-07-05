@@ -139,6 +139,7 @@
       <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
       <AdditionalIncludeDirectories>C:\Dev\FMOD\FMOD Studio API Windows\api\studio\inc;C:\Dev\FMOD\FMOD Studio API Windows\api\core\inc;C:\Dev\LogitechSteeringWheelSDK_8.75.30\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -171,6 +172,7 @@
     <ClCompile Include="DevConsole\DevConsole.cpp" />
     <ClCompile Include="Environment\Time.cpp" />
     <ClCompile Include="Environment\Timecycle.cpp" />
+    <ClCompile Include="Events\ChampionshipDefinition.cpp" />
     <ClCompile Include="Events\EventDefinition.cpp" />
     <ClCompile Include="Events\EventList.cpp" />
     <ClCompile Include="Events\EventRegistry.cpp" />
@@ -204,6 +206,7 @@
     <ClCompile Include="UI\MainMenu.cpp" />
     <ClCompile Include="UI\RacingHUD.cpp" />
     <ClCompile Include="UI\TrackMenu.cpp" />
+    <ClCompile Include="UI\TrackTiming.cpp" />
     <ClCompile Include="UI\Upgrades.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -231,10 +234,12 @@
     <ClInclude Include="Environment\EnvironmentDefinition.h" />
     <ClInclude Include="Environment\Time.h" />
     <ClInclude Include="Environment\Timecycle.h" />
+    <ClInclude Include="Events\ChampionshipDefinition.h" />
     <ClInclude Include="Events\EventCarEntry.h" />
     <ClInclude Include="Events\EventDefinition.h" />
     <ClInclude Include="Events\EventList.h" />
     <ClInclude Include="Events\EventRegistry.h" />
+    <ClInclude Include="Events\EventSession.h" />
     <ClInclude Include="Graphics\GraphicsEngine.h" />
     <ClInclude Include="Graphics\MapLoader.h" />
     <ClInclude Include="Graphics\MaterialClassifier.h" />
@@ -270,6 +275,7 @@
     <ClInclude Include="UI\MainMenu.h" />
     <ClInclude Include="UI\RacingHUD.h" />
     <ClInclude Include="UI\TrackMenu.h" />
+    <ClInclude Include="UI\TrackTiming.h" />
     <ClInclude Include="UI\Upgrades.h" />
   </ItemGroup>
   <ItemGroup>

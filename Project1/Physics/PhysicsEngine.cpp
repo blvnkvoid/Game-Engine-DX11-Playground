@@ -43,6 +43,12 @@ void PhysicsEngine::SetVehicleDefinition(
     m_vehicle = definition;
 }
 
+
+void PhysicsEngine::SetTrackTiming(const TrackTimingEntry& timing)
+{
+    m_timing = timing;
+}
+
 void PhysicsEngine::SetHandling(Handling* handling)
 {
     m_handling = handling;
@@ -208,8 +214,38 @@ void PhysicsEngine::Update(float deltaTime, SharedVehicleInputs inputs) {
 
     btTransform tr;
     m_carBody->getMotionState()->getWorldTransform(tr);
+    static float triggerCooldown = 0.0f;
+
+    if (triggerCooldown > 0.0f)
+        triggerCooldown -= deltaTime;
+
+    btVector3 carPos = tr.getOrigin();
+
+    if (triggerCooldown <= 0.0f)
+    {
+        if (carPos.distance(m_timing.startFinish) < m_timing.radius)
+        {
+            m_passedStartMeta = true;
+            triggerCooldown = 5.0f;
+        }
+        else if (carPos.distance(m_timing.sector1) < m_timing.radius)
+        {
+            m_passedSector1 = true;
+            triggerCooldown = 5.0f;
+        }
+        else if (carPos.distance(m_timing.sector2) < m_timing.radius)
+        {
+            m_passedSector2 = true;
+            triggerCooldown = 5.0f;
+        }
+    }
+
+
+
     btVector3 currentVel = m_carBody->getLinearVelocity();
     float speedKmh = currentVel.length() * 3.6f;
+
+
 
     g_DebugTelemetry.speed = speedKmh;
     g_DebugTelemetry.carY = tr.getOrigin().y();
@@ -339,8 +375,8 @@ void PhysicsEngine::Update(float deltaTime, SharedVehicleInputs inputs) {
         btVector3 rearPos = tr.getBasis() * btVector3(0, 0, -1.60f);
 
 
-        m_carBody->applyForce(downDir* frontDownforce, frontPos);
-        m_carBody->applyForce(downDir* rearDownforce, rearPos); 
+        m_carBody->applyForce(downDir * frontDownforce, frontPos);
+        m_carBody->applyForce(downDir * rearDownforce, rearPos);
 
         g_DebugTelemetry.frontDownforce = frontDownforce;
         g_DebugTelemetry.rearDownforce = rearDownforce;
@@ -350,34 +386,6 @@ void PhysicsEngine::Update(float deltaTime, SharedVehicleInputs inputs) {
 
     if (m_dynamicsWorld) {
         m_dynamicsWorld->stepSimulation(deltaTime, 10, 1.0f / 300.0f);
-    }
-    static float triggerCooldown = 0.0f;
-    if (triggerCooldown > 0.0f) {
-        triggerCooldown -= deltaTime;
-    }
-    btVector3 carPos = tr.getOrigin();
-
-    btVector3 metaPos(-153.0f, 15.0f, 170.0f); // Tsukuba
-    //btVector3 metaPos(-573.0f, 150.0F, -2305.0f); // Nords
-    //btVector3 metaPos(-314.0f, 24.0f, 730.0f); // SPA
-    btVector3 s1Pos(120.0f, 60.0f, -200.0f);
-    btVector3 s2Pos(800.0f, 40.0f, 500.0f);
-
-    float triggerRadius = 15.0f;
-
-    if (triggerCooldown <= 0.0f) {
-        if (carPos.distance(metaPos) < triggerRadius) {
-            m_passedStartMeta = true;
-            triggerCooldown = 5.0f;
-        }
-        else if (carPos.distance(s1Pos) < triggerRadius) {
-            m_passedSector1 = true;
-            triggerCooldown = 5.0f;
-        }
-        else if (carPos.distance(s2Pos) < triggerRadius) {
-            m_passedSector2 = true;
-            triggerCooldown = 5.0f;
-        }
     }
 }
 

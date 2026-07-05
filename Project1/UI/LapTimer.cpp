@@ -26,7 +26,7 @@ void LapTimer::DrawUI() {
             ImGui::TextColored(ImVec4(0.0f, 1.0f, 0.0f, 1.0f), "!! NEW BEST LAP !!");
         }
         else {
-            ImGui::Text("SPA-FRANCORCHAMPS Debug HUD");
+            ImGui::Text("Timer");
         }
 
         ImGui::Separator();
@@ -34,7 +34,7 @@ void LapTimer::DrawUI() {
         ImGui::TextColored(ImVec4(1.0f, 0.8f, 0.0f, 1.0f), "BEST   : %s", FormatTime(m_bestLapTime).c_str());
         ImGui::Text("LAST   : %s", FormatTime(m_lastLapTime).c_str());
         ImGui::Text("SECTOR : %d", m_currentSector + 1);
-
+        ImGui::Text("LAP    : %d / %d", m_currentLap, m_totalLaps);
         ImGui::End();
     }
 }
@@ -44,6 +44,7 @@ void LapTimer::TriggerStartMeta() {
         m_timerRunning = true;
         m_currentLapTime = 0.0f;
         m_currentSector = 0;
+        m_currentLap = 1;
         return;
     }
 
@@ -54,6 +55,7 @@ void LapTimer::TriggerStartMeta() {
             m_isNewBestLap = true;
             m_bestFlashTimer = 3.0f; // Błyskaj na zielono przez 3 sekundy
         }
+        m_currentLap++;
     }
     m_currentLapTime = 0.0f;
     m_currentSector = 0;
@@ -70,4 +72,17 @@ std::string LapTimer::FormatTime(float timeInSeconds) {
     char buffer[32];
     snprintf(buffer, sizeof(buffer), "%02d:%02d.%03d", minutes, seconds, milliseconds);
     return std::string(buffer);
+}
+
+void LapTimer::Reset()
+{   
+    m_currentLapTime = 0.0f;
+    m_bestLapTime = 0.0f;
+    m_lastLapTime = 0.0f;
+    m_currentSector = 0;
+    m_currentLap = 0;
+    m_timerRunning = false;
+    m_isNewBestLap = false;
+    m_bestFlashTimer = 0.0f;
+    m_raceFinished = false;
 }

@@ -6,5 +6,6 @@ class EventMenu
 public:
 	bool m_ShowEventMenu = false;
 	void Draw();
-	EventSelection m_SelectedEvent;
+	EventSelection m_SelectedEvent = EventSelection::SundayCupTsukuba;
+	EventLaunchType m_LaunchType = EventLaunchType::SingleEvent;
 };

@@ -51,14 +51,15 @@
 #include "Events/EventCarEntry.h"
 #include "Events/EventDefinition.h"
 #include "Events/EventRegistry.h"
+#include "Events/ChampionshipDefinition.h"
+#include "Events/EventSession.h"
+
 using namespace DirectX;
 
 XMVECTOR g_CameraPos = XMVectorSet(0.0f, 3.0f, -7.0f, 0.0f);
 XMVECTOR currentUp = XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);
 TelemetryData g_DebugTelemetry = { 0 };
-
 Spawner spawn;
-
 FMODManager audio;
 GraphicsEngine* engine = new GraphicsEngine();
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
@@ -68,9 +69,8 @@ Garage& garage = menu.GetGarage();
 Upgrades& upgrades = menu.GetUpgrades();
 CarSetupMenu& carsetup = menu.GetCarSetup();
 DevConsole devConsole;
-TrackEntry entry;
 EventRegistry eventRegistry;
-
+EventSession eventSession;
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
     if (message == WM_DESTROY) { PostQuitMessage(0); return 0; }
@@ -93,7 +93,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
     CoInitializeEx(nullptr, COINIT_APARTMENTTHREADED);
     ShowWindow(hWnd, nCmdShow);
-    //ShowCursor(FALSE);
 
     engine->Init(hWnd, 1920, 1080);
     audio.InitAudio();
@@ -120,8 +119,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     VehicleRegistry vehicleRegistry;
     bool assetsLoaded = false;
     Model* playerModel = nullptr;
-    GameObject* playerObject = nullptr; 
-        
+    GameObject* playerObject = nullptr;         
 
     ID3D11Buffer* cb = engine->GetConstantBuffer();
     camera->CycleCameraMode();
@@ -142,7 +140,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
             DispatchMessage(&msg);
         }
         else {
-
                 LARGE_INTEGER timeCur;
                 QueryPerformanceCounter(&timeCur);
                 float deltaTime = (float)(timeCur.QuadPart - timeStart.QuadPart) / (float)frequency.QuadPart;
@@ -180,10 +177,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
             ImGui_ImplDX11_NewFrame();
             ImGui_ImplWin32_NewFrame();
-
             Input::FeedImGuiGamepadNavigation();
             ImGui::NewFrame();
-
 
             telemetryUI.Draw(&g_ShowDebugUI, camera, playerModel);
             racingHUD.Draw(g_DebugTelemetry);
@@ -198,51 +193,13 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
    
                 menu.m_StartSimulationTriggered = false;
                 menu.Draw(*engine, audio);
-
-                static bool aWasDown = false;
-                bool aDown = Input::IsPadButtonDown(XINPUT_GAMEPAD_A);
-
-                if (aDown && !aWasDown && menu.m_StartSimulationTriggered)
-                {
-                    audio.PlayMenuStart();
-                }                    
-                else if (aDown && !aWasDown && !menu.m_StartSimulationTriggered)
-                {
-                    audio.PlayMenuConfirm();
-                }
-                aWasDown = aDown;
-
-                static bool bWasDown = false;
-                bool bDown = Input::IsPadButtonDown(XINPUT_GAMEPAD_B);
-
-                if (bDown && !bWasDown)
-                {
-                    audio.PlayMenuCancel();
-                    garage.m_ShowGarage = false;
-                    carsetup.m_ShowCarSetup = false;
-                    upgrades.m_ShowTyresUpgrades = false;
-                    upgrades.m_ShowEngineUpgrades = false;
-                    upgrades.m_ShowWeightReductionUpgrades = false;
-                    trackmenu.m_TrackSelection = false;
-                }
-
-                bWasDown = bDown;
-
-                if (Input::IsMenuDownPressed() || Input::IsMenuUpPressed())
-                {
-                    audio.PlayMenuClick();
-                }
-
-                audio.PlayMenuMusic();
-   
+                menu.HandleInput(audio);
             }
             else if (menu.g_CurrentState == EngineState::GAMEPLAY) {
                 if (deltaTime > 0.033f) deltaTime = 0.033f;
 
                 g_LapTimer.DrawUI();
-
                 audio.StopMenuMusic();
-
                 audio.UpdateJukebox();
            
                 if (!assetsLoaded) {
@@ -250,8 +207,13 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                     physics->SetHandling(handling);
                     LogiSteeringInitialize(true);
 
+                    if (!eventSession.IsActive())
+                    {
+                        eventSession = eventRegistry.CreateSession(menu.m_eventmenu.m_LaunchType, menu.m_eventmenu.m_SelectedEvent);
+                    }
+
                     EventDefinition event =
-                        eventRegistry.Create(menu.m_eventmenu.m_SelectedEvent);
+                        eventRegistry.Create(eventSession.GetCurrentEvent());
 
                     m_mapTrack = new MapLoader();
                     m_mapTrack->m_texMgr = texMgr;
@@ -266,15 +228,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                         }
                     }    
 
-
                     GameConfig::activeTrack = event.track;
-
                     engine->ApplyEnvironmentDefinition(event.environment);
-
                     handling->SetPhysicsPointers(physics->GetCarBody());
 
-
-                    VehicleSelection playerSelection = garage.m_PreviewSelection; // fallback
+                    VehicleSelection playerSelection = garage.m_PreviewSelection;
                     for (const auto& carEntry : event.cars)
                     {
                         if (carEntry.isPlayer)
@@ -301,7 +259,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                     camera->SetVehicleCameraDefinition(cam);
                     racingHUD.SetVehicleDefinition(car);
                     handling->SetVehicleDefinition(car);
-                    physics->SetVehicleDefinition(car);                                                  
+                    physics->SetVehicleDefinition(car); 
                     physics->Initialize();
                     physics->CreatePhysicsWorld();
 
@@ -313,17 +271,35 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                     engine->SetScene(mainScene);
                     camera->SetFollowTarget(playerModel);
 
+                    for (const auto& timing : g_TrackTimingTable)
+                    {
+                        if (timing.track == event.track)
+                        {
+                            physics->SetTrackTiming(timing);
+                            break;
+                        }
+                    }
+
+                    g_LapTimer.Reset();
+                    g_LapTimer.SetTotalLaps(event.totalLaps);       
                     assetsLoaded = true;
                 }
-                // PHYSICS & TRANSFORMS
+
                 physics->Update(deltaTime, Input::GetCurrentInputs());
                 g_LapTimer.Update(deltaTime);
-
 
                 if (physics->CheckAndResetPassedStartMeta()) g_LapTimer.TriggerStartMeta();
                 if (physics->CheckAndResetPassedSector1())   g_LapTimer.TriggerSector1();
                 if (physics->CheckAndResetPassedSector2())   g_LapTimer.TriggerSector2();
 
+
+                if (g_LapTimer.HasFinishedRace())
+                {
+                    if (eventSession.Advance())
+                        assetsLoaded = false;
+                    else
+                        menu.g_CurrentState = EngineState::MAIN_MENU;
+                }
 
                 btTransform trans;
                 physics->GetCarTransform(trans);
@@ -337,10 +313,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                 }
                 camera->Update(deltaTime); 
 
-
                 devConsole.Draw();
                 devConsole.ExecuteCommand(*engine, *physics);
-
 
                 engine->RenderObject(playerObject, camera);
                 if (m_mapTrack) {
@@ -357,10 +331,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
             ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
 
             engine->EndFrame();
-
-            char titleBuf[256];
-            sprintf_s(titleBuf, "DX11_LAB >> Speed: %f | RPM: %f | GEAR: %d | FPS: %f | Y Normal: %f | Driving Force: %f", g_DebugTelemetry.speed, g_DebugTelemetry.rpm, g_DebugTelemetry.gear, io.Framerate, g_DebugTelemetry.yNormal, g_DebugTelemetry.drivingForce);
-            SetWindowTextA(hWnd, titleBuf);
         }
     }
 

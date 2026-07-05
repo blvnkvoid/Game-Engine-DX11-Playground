@@ -8,6 +8,8 @@ struct EventDefinition
 {
     TrackSelection track;
     EnvironmentDefinition environment;
+
+    int totalLaps;
     std::vector<EventCarEntry> cars;
 };
 

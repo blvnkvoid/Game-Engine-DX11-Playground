@@ -15,3 +15,31 @@ EventDefinition EventRegistry::Create(EventSelection selection)
     throw std::runtime_error("Unknown event.");
 }   
 
+EventSession EventRegistry::CreateSession(
+    EventLaunchType launchType,
+    EventSelection selectedEvent)
+{
+    EventSession session;
+
+    if (launchType == EventLaunchType::SingleEvent)
+    {
+        session.StartSingleEvent(selectedEvent);
+        return session;
+    }
+
+    if (launchType == EventLaunchType::Championship)
+    {
+        // For now, only one championship exists.
+        // Later this becomes a table.
+        session.StartChampionship(
+            {
+               EventSelection::SundayCupSpa,
+               EventSelection::SundayCupTsukuba
+            });
+
+        return session;
+    }
+
+    session.StartSingleEvent(selectedEvent);
+    return session;
+}

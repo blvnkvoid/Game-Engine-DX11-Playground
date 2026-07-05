@@ -169,6 +169,8 @@ enum class TyresUpgradeSelection
         SSR5
     };
 
+
+
     struct GameConfig {
         static TrackSelection activeTrack;
     };

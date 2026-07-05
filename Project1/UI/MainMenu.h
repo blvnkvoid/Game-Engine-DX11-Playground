@@ -9,6 +9,8 @@
 #include "../UI/Upgrades.h"
 #include "../UI/CarSetupMenu.h"
 #include "../UI/EventMenu.h"
+#include "../Input/Input.h"
+#include <Xinput.h>
 
 class GraphicsEngine;
 class FMODManager;
@@ -16,7 +18,7 @@ class MainMenu
 {
 public:
     void Draw(GraphicsEngine& engine, FMODManager& audio);
-
+    void HandleInput(FMODManager& audio);
 
     bool m_StartSimulationTriggered = false;
     Garage& GetGarage() { return m_garage; }
