@@ -176,6 +176,7 @@
     <ClCompile Include="Events\EventDefinition.cpp" />
     <ClCompile Include="Events\EventList.cpp" />
     <ClCompile Include="Events\EventRegistry.cpp" />
+    <ClCompile Include="Events\RaceGrid.cpp" />
     <ClCompile Include="Graphics\GraphicsEngine.cpp" />
     <ClCompile Include="Graphics\MapLoader.cpp" />
     <ClCompile Include="Graphics\MaterialLoader.cpp" />
@@ -240,6 +241,7 @@
     <ClInclude Include="Events\EventList.h" />
     <ClInclude Include="Events\EventRegistry.h" />
     <ClInclude Include="Events\EventSession.h" />
+    <ClInclude Include="Events\RaceGrid.h" />
     <ClInclude Include="Graphics\GraphicsEngine.h" />
     <ClInclude Include="Graphics\MapLoader.h" />
     <ClInclude Include="Graphics\MaterialClassifier.h" />

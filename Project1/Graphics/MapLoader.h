@@ -9,7 +9,19 @@
 
 #include "../SharedTypes.h"
 #include "TextureManager.h"
+#include <cfloat>
+#include <algorithm>
+#undef min
+#undef max
 
+
+    struct GridMarker
+    {
+        std::string name;
+        float x;
+        float y;
+        float z;
+    };
 
 
 class MapLoader {
@@ -87,6 +99,35 @@ public:
         return LoadWorld(filename, device, context);
     }
 
+   void FindGridNodes(aiNode* node)
+    {
+        if (!node)
+            return;
+
+        std::string name = node->mName.C_Str();
+        std::string lower = name;
+        std::transform(lower.begin(), lower.end(), lower.begin(), ::tolower);
+
+        float x = node->mTransformation.a4;
+        float y = node->mTransformation.b4;
+        float z = node->mTransformation.c4;
+
+        if (lower.find("grid") != std::string::npos)
+        {
+            OutputDebugStringA(
+                ("FOUND GRID NODE: " + name +
+                    " X=" + std::to_string(x) +
+                    " Y=" + std::to_string(y) +
+                    " Z=" + std::to_string(z) +
+                    "\n").c_str());
+            m_gridMarkers.push_back({ name, x, y, z });
+        }
+
+        for (unsigned int i = 0; i < node->mNumChildren; i++)
+        {
+            FindGridNodes(node->mChildren[i]);
+        }
+    }
     bool LoadWorld(const std::string& filename,
         ID3D11Device* device,
         ID3D11DeviceContext* context)
@@ -102,8 +143,12 @@ public:
             aiProcess_GenNormals
         );
 
+
+
         if (!scene || !scene->HasMeshes())
             return false;
+
+        FindGridNodes(scene->mRootNode);
 
         m_allVertices.clear();
         m_allIndices.clear();
@@ -151,7 +196,6 @@ public:
             subset.startIndex = (UINT)m_allIndices.size();
             subset.indexCount = 0;
             subset.materialIndex = mesh->mMaterialIndex;
-            
 
         
             std::string meshName = mesh->mName.C_Str();
@@ -179,13 +223,44 @@ public:
                 subset.material.materialType = static_cast<float>(MaterialType::MATERIAL_LAMP);
             }
 
+            if (meshName == "GRID")
+            {
+                aiVector3D minP(FLT_MAX, FLT_MAX, FLT_MAX);
+                aiVector3D maxP(-FLT_MAX, -FLT_MAX, -FLT_MAX);
+
+                for (unsigned int v = 0; v < mesh->mNumVertices; v++)
+                {
+                    aiVector3D p = mesh->mVertices[v];
+
+                    minP.x = std::min(minP.x, p.x);
+                    minP.y = std::min(minP.y, p.y);
+                    minP.z = std::min(minP.z, p.z);
+
+                    maxP.x = std::max(maxP.x, p.x);
+                    maxP.y = std::max(maxP.y, p.y);
+                    maxP.z = std::max(maxP.z, p.z);
+                }
+
+                aiVector3D center;
+                center.x = (minP.x + maxP.x) * 0.5f;
+                center.y = (minP.y + maxP.y) * 0.5f;
+                center.z = (minP.z + maxP.z) * 0.5f;
+
+                std::string msg =
+                    "GRID mesh center: X=" + std::to_string(center.x) +
+                    " Y=" + std::to_string(center.y) +
+                    " Z=" + std::to_string(center.z) + "\n";
+
+                OutputDebugStringA(msg.c_str());
+            }
  
+    
 
             //OutputDebugStringA(
-             //   ("Mesh " + std::to_string(i) +
-            //        " name=" + meshName +
-              //      " mat=" + std::to_string(mesh->mMaterialIndex) +
-             //       "\n").c_str());
+              //  ("Mesh " + std::to_string(i) +
+                //    " name=" + meshName +
+                 // " mat=" + std::to_string(mesh->mMaterialIndex) +
+                   //"\n").c_str());
 
       
             // default safe material (FIX for grey/black map issue)
@@ -284,4 +359,12 @@ public:
 
     std::vector<SharedVertex> m_allVertices;
     std::vector<UINT> m_allIndices;
+
+    const std::vector<GridMarker>& GetGridMarkers() const
+    {
+        return m_gridMarkers;
+    }
+
+    private:
+        std::vector<GridMarker> m_gridMarkers;
 };

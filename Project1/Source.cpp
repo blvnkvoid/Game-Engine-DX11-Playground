@@ -5,6 +5,7 @@
 #include "Imgui/imgui_impl_dx11.h"
 #pragma warning(pop)
 #include <windows.h>
+
 #include <DirectXMath.h>
 #include "Graphics/GraphicsEngine.h"
 #include "Scene/Camera.h"
@@ -34,7 +35,6 @@
 #include "SharedVehicleTypes.h"
 #include "Physics/VehicleTelemetry.h"
 #include "UI/LapTimer.h"
-#include "Physics/Spawner.h"
 #include "Audio/FmodManager.h" 
 #include "Cars/CarSetup.h"
 #include "Cars/CarUpgrades.h"
@@ -53,13 +53,13 @@
 #include "Events/EventRegistry.h"
 #include "Events/ChampionshipDefinition.h"
 #include "Events/EventSession.h"
+#include "Events/RaceGrid.h"
 
 using namespace DirectX;
 
 XMVECTOR g_CameraPos = XMVectorSet(0.0f, 3.0f, -7.0f, 0.0f);
 XMVECTOR currentUp = XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);
 TelemetryData g_DebugTelemetry = { 0 };
-Spawner spawn;
 FMODManager audio;
 GraphicsEngine* engine = new GraphicsEngine();
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
@@ -71,6 +71,7 @@ CarSetupMenu& carsetup = menu.GetCarSetup();
 DevConsole devConsole;
 EventRegistry eventRegistry;
 EventSession eventSession;
+RaceGrid raceGrid;
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
     if (message == WM_DESTROY) { PostQuitMessage(0); return 0; }
@@ -120,6 +121,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     bool assetsLoaded = false;
     Model* playerModel = nullptr;
     GameObject* playerObject = nullptr;         
+    std::vector<GameObject*> aiObjects;
 
     ID3D11Buffer* cb = engine->GetConstantBuffer();
     camera->CycleCameraMode();
@@ -201,6 +203,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                 g_LapTimer.DrawUI();
                 audio.StopMenuMusic();
                 audio.UpdateJukebox();
+
+
            
                 if (!assetsLoaded) {
 
@@ -232,21 +236,49 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                     engine->ApplyEnvironmentDefinition(event.environment);
                     handling->SetPhysicsPointers(physics->GetCarBody());
 
-                    VehicleSelection playerSelection = garage.m_PreviewSelection;
-                    for (const auto& carEntry : event.cars)
-                    {
-                        if (carEntry.isPlayer)
-                        {
-                            playerSelection = carEntry.vehicle;
-                            break;
-                        }
+
+                    VehicleSelection playerSelection =
+                        raceGrid.GetPlayerSelection(event, garage.m_PreviewSelection);
+
+
+
+                    VehicleDefinition car =
+                        vehicleRegistry.CreateDefinition(playerSelection);
+
+                    physics->SetVehicleDefinition(car);
+                    physics->Initialize();
+
+
+
+
+                    if (m_mapTrack->OpenAndLoad(trackPath, engine->GetDevice(), engine->GetContext())) {
+                        physics->AddTriangleMeshCollider(m_mapTrack->GetVertices(), m_mapTrack->GetIndices());
                     }
+
+
+                    const auto& gridMarkers = m_mapTrack->GetGridMarkers();
+
+           
+                        raceGrid.Build(
+                            event,
+                            gridMarkers,
+                            vehicleRegistry,
+                            engine->GetDevice(),
+                            engine->GetContext(),
+                            engine->GetTextureManager(),
+                            garage.m_PreviewSelection);
+
+                        physics->SetStartTransform(
+                            raceGrid.GetPlayerSpawn());
+
+
+                        physics->CreatePhysicsWorld();
+
+
                     vehicleRegistry.GetOrLoadVehicle(playerSelection, engine->GetDevice(), engine->GetContext(), engine->GetTextureManager());
                     VehicleAsset& vehicle = vehicleRegistry.GetVehicle(playerSelection);
                     playerModel = vehicle.model.get();
                     playerObject = vehicle.object.get();
-                    VehicleDefinition car =
-                        vehicleRegistry.CreateDefinition(playerSelection);
 
                     CameraDefinition cam = vehicleRegistry.CreateCameraDefinition(playerSelection);
 
@@ -259,13 +291,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                     camera->SetVehicleCameraDefinition(cam);
                     racingHUD.SetVehicleDefinition(car);
                     handling->SetVehicleDefinition(car);
-                    physics->SetVehicleDefinition(car); 
-                    physics->Initialize();
-                    physics->CreatePhysicsWorld();
-
-                    if (m_mapTrack->OpenAndLoad(trackPath, engine->GetDevice(), engine->GetContext())) {
-                        physics->AddTriangleMeshCollider(m_mapTrack->GetVertices(), m_mapTrack->GetIndices());
-                    }
+          
 
                     mainScene->SetChaseTarget(playerModel);
                     engine->SetScene(mainScene);
@@ -288,6 +314,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                 physics->Update(deltaTime, Input::GetCurrentInputs());
                 g_LapTimer.Update(deltaTime);
 
+
                 if (physics->CheckAndResetPassedStartMeta()) g_LapTimer.TriggerStartMeta();
                 if (physics->CheckAndResetPassedSector1())   g_LapTimer.TriggerSector1();
                 if (physics->CheckAndResetPassedSector2())   g_LapTimer.TriggerSector2();
@@ -305,7 +332,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                 physics->GetCarTransform(trans);
                 XMMATRIX physicsWorld = physics->btTransformToXMMATRIX(trans);
 
-                if (playerModel && playerObject) {
+               if (playerModel && playerObject) {
                     XMMATRIX finalWorld = XMMatrixTranslation(0.0f, -0.64f, 0.0f) * physicsWorld;
                     playerObject->SetWorldMatrix(finalWorld);
                     playerModel->SetModelPosition(trans.getOrigin().x(), trans.getOrigin().y(), trans.getOrigin().z());
@@ -315,8 +342,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
                 devConsole.Draw();
                 devConsole.ExecuteCommand(*engine, *physics);
-
+        
                 engine->RenderObject(playerObject, camera);
+
+
+                raceGrid.Render(*engine, *camera);
                 if (m_mapTrack) {
                     SharedSceneData trackSD = engine->BuildSceneData(camera, playerObject, XMMatrixIdentity());
                     trackSD.view = XMMatrixTranspose(camera->viewMatrix);
@@ -325,6 +355,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                     m_mapTrack->Draw(engine->GetContext(), cb, trackSD);     
                 }
             }
+
+
 
             audio.Update(menu.g_CurrentState, g_DebugTelemetry.rpm, g_DebugTelemetry.throttle, g_DebugTelemetry.speed, g_DebugTelemetry.avgSlipRatio, g_DebugTelemetry.avgSlipAngle);
             ImGui::Render();

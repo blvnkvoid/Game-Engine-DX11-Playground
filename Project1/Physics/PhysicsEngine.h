@@ -56,6 +56,12 @@ public:
     void SetHandling(Handling* handling);
     void TeleportCar(float x, float y, float z);
     void SetTrackTiming(const TrackTimingEntry& timing);
+
+    void SetStartTransform(const btTransform& transform);
+
+    btTransform m_startTransform;
+
+
     private:
     btDefaultCollisionConfiguration* m_collisionConfig;
     btCollisionDispatcher* m_dispatcher;

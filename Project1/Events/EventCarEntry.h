@@ -7,4 +7,5 @@ struct EventCarEntry
 {
     VehicleSelection vehicle;
     bool isPlayer = false;
+    int gridPosition = 0;
 };

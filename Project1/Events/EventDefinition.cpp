@@ -10,10 +10,10 @@ EventDefinition CreateSundayCup_Tsukuba()
     event.totalLaps = 1;
     event.cars =
     {
-        { VehicleSelection::CIVIC, true },
-        { VehicleSelection::MX5, false },
-        { VehicleSelection::COPEN, false },
-        { VehicleSelection::XSARA, false }
+        { VehicleSelection::FURAI, true,0 },
+        { VehicleSelection::MX5, false,1 },
+        { VehicleSelection::COPEN, false,2 },
+        { VehicleSelection::XSARA, false,3 }
     };
 
     return event;
@@ -29,10 +29,10 @@ EventDefinition CreateSundayCup_Spa()
 
     event.cars =
     {
-        { VehicleSelection::PORSCHE_911, true },
-        { VehicleSelection::MX5, false },
-        { VehicleSelection::COPEN, false },
-        { VehicleSelection::XSARA, false }
+        { VehicleSelection::CIVIC, true,0 },
+        { VehicleSelection::MX5, false,1 },
+        { VehicleSelection::COPEN, false,2 },
+        { VehicleSelection::XSARA, false,3 }
     };
 
     return event;

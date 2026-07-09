@@ -17,7 +17,6 @@
 
 PhysicsEngine::PhysicsEngine()
 {
-
     m_passedStartMeta = false;
     m_passedSector1 = false;
     m_passedSector2 = false;
@@ -42,6 +41,12 @@ void PhysicsEngine::SetVehicleDefinition(
 {
     m_vehicle = definition;
 }
+
+void PhysicsEngine::SetStartTransform(const btTransform& transform)
+{
+    m_startTransform = transform;
+}
+
 
 
 void PhysicsEngine::SetTrackTiming(const TrackTimingEntry& timing)
@@ -73,7 +78,6 @@ void PhysicsEngine::TeleportCar(float x, float y, float z)
 void PhysicsEngine::CreatePhysicsWorld() {
     
 
-    Spawner spawn;
     m_groundBody = nullptr;
 
     btBoxShape* box = new btBoxShape(btVector3(0.925f, 0.64f, 2.275f));
@@ -95,7 +99,8 @@ void PhysicsEngine::CreatePhysicsWorld() {
     localInertia.setZ(localInertia.z() * m_vehicle.rollInertiaScale);
 
 
-    btTransform carTransform = spawn.PutCar();
+
+    btTransform carTransform = m_startTransform;
 
     btDefaultMotionState* carMotionState = new btDefaultMotionState(carTransform);
     m_motionStates.push_back(carMotionState);
@@ -187,9 +192,9 @@ void PhysicsEngine::ResetCar() {
     m_carBody->clearForces();
 
 
-    Spawner spawn;
+    btTransform carTransform = m_startTransform;
 
-    btTransform resetTr = spawn.ResetPos();
+    btTransform resetTr = m_startTransform;
     m_carBody->setWorldTransform(resetTr);
 
     if (m_carBody->getMotionState()) {

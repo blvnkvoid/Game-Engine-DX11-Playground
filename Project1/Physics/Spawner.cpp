@@ -28,10 +28,10 @@ btTransform Spawner::PutCar()
 		startPos.setOrigin(btVector3(0.0f, 0.0f, 0.0f));
 		break;
 	case TrackSelection::Spa:
-		startPos.setOrigin(btVector3(-314.0f, 24.0f, 730.0f)); // Spawamy w powietrzu!	
+		startPos.setOrigin(btVector3(-314.0f, 24.0f, 730.0f));
 		break;	
 	case TrackSelection::Nordschleife:
-		startPos.setOrigin(btVector3(-449.0f, 140.0F, -2351.0f)); // Spawamy w powietrzu!	
+		startPos.setOrigin(btVector3(-449.0f, 140.0F, -2351.0f));
 		break;
 	case TrackSelection::GrandValley:
 		startPos.setOrigin(btVector3(-283.0f, -20.0f, 50.0f));

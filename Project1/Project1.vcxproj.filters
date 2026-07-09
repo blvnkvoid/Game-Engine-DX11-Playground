@@ -222,6 +222,9 @@
     <ClCompile Include="Events\ChampionshipDefinition.cpp">
       <Filter>Source Files\Events</Filter>
     </ClCompile>
+    <ClCompile Include="Events\RaceGrid.cpp">
+      <Filter>Source Files\Events</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SharedTypes.h">
@@ -423,6 +426,9 @@
       <Filter>Source Files\Events</Filter>
     </ClInclude>
     <ClInclude Include="Events\EventSession.h">
+      <Filter>Source Files\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Events\RaceGrid.h">
       <Filter>Source Files\Events</Filter>
     </ClInclude>
   </ItemGroup>
