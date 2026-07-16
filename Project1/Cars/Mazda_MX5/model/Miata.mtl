@@ -1,7 +1,7 @@
 # Blender 5.1.1 MTL File: 'None'
 # www.blender.org
 
-newmtl Brake_light
+newmtl Bages_1.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -11,7 +11,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl Brake_light.001
+newmtl Black_Dull.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -21,7 +21,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl Brake_light.002
+newmtl Boost_Gauge.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -31,7 +31,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl Cockpit_LR
+newmtl Bottom_Dash.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -41,7 +41,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl Cockpit_LR_bottom
+newmtl Brembo_Detail.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -51,7 +51,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl Cockpit_LR_top
+newmtl Bumper_Bolts.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -61,7 +61,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl DAMAGE_GLASS
+newmtl Calipers.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -71,7 +71,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl EXT_Carpaint
+newmtl Chrome.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -81,7 +81,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl EXT_Carpaint_Plastic
+newmtl Cluster_Plastic_Plate.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -91,7 +91,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl EXT_Carpaint_Plastic_ref
+newmtl Dials.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -101,7 +101,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl EXT_Disc
+newmtl Dials_Emissive_on.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -111,7 +111,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl EXT_Flat_Light
+newmtl Door_Panels_0.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -121,7 +121,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl EXT_Glass_Light_INT
+newmtl Door_Panels_1.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -131,7 +131,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl EXT_Glass_Light_INT_emissive
+newmtl EXT_Carbon.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -141,7 +141,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl EXT_Glass_Windows
+newmtl EXT_Plastic.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -151,7 +151,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl EXT_Glass_Windows_black
+newmtl Exhaust.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -161,7 +161,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl EXT_Light_Details_NM
+newmtl Exhaust_Void.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -171,7 +171,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl EXT_Lights_Emissive
+newmtl External_Glass.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -181,7 +181,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl EXT_Lights_front
+newmtl Flyin_Miata_Logo.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -191,7 +191,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl EXT_Logos
+newmtl Front_Bumper_Blinker_Light.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -201,7 +201,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl EXT_Logos_Alfa
+newmtl Front_Lip.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -211,7 +211,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl EXT_Mechanics_Black_Crhome
+newmtl Front_Vents.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -221,7 +221,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl EXT_Mechanics_Chrome
+newmtl Halo_Lights.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -231,7 +231,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl EXT_Mechanics_Flat
+newmtl INT_Decals.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -241,7 +241,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl EXT_Mechanics_Plastic
+newmtl INT_Dop_EMISSIVE.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -251,7 +251,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl EXT_Mechanics_alu
+newmtl INT_Floor.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -261,7 +261,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl EXT_PLATE_plastic
+newmtl INT_Plastic_Ao.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -271,7 +271,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl EXT_Rim
+newmtl INT_Roof.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -281,7 +281,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl EXT_Rubber
+newmtl Intercooler.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -291,7 +291,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl EXT_Tyre
+newmtl Lights_Texture.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -301,7 +301,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl EXT_caliper
+newmtl Material_#1008.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -311,7 +311,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl EXT_caliper_AT
+newmtl Material_#25.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -321,7 +321,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl EXT_grid
+newmtl Miata_Skin.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -331,7 +331,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl INT_Alcantara.001
+newmtl Miata_Skin_1.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -341,7 +341,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl INT_Belts
+newmtl Needles_Bases.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -351,7 +351,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl INT_Carpaint.001
+newmtl Needles_Color.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -361,7 +361,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl INT_Carpet_Base
+newmtl Pedals.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -371,7 +371,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl INT_Carpet_fine
+newmtl RPM_Needle_Color.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -381,7 +381,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl INT_DECALS_Emissive
+newmtl Rear_Badge.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -391,7 +391,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl INT_DECALS_Emissive_REF
+newmtl Rear_Lights_Glass.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -401,7 +401,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl INT_DECALS_Flat
+newmtl Recaro_Logo.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -411,7 +411,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl INT_DECALS_Flat_alfa
+newmtl Rim_Bolts.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -421,7 +421,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl INT_DECALS_Metal
+newmtl Rim_Caps.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -431,7 +431,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl INT_DECALS_Metal_alfa
+newmtl Screen.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -441,7 +441,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl INT_DECALS_Plastic_base
+newmtl Seats_Plastics.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -451,7 +451,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl INT_DECALS_Plastic_ref
+newmtl Seats_Tone_0.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -461,7 +461,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl INT_DECALS_Rubber
+newmtl Seats_Tone_1.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -471,7 +471,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl INT_Glass
+newmtl Steer_Bolts.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -481,7 +481,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl INT_Logo
+newmtl Steering_Aluminium.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -491,7 +491,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl INT_Metal_Alu
+newmtl Steering_Hub.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -501,7 +501,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl INT_Plastic_Flat
+newmtl Steering_Marker.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -511,7 +511,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl INT_Plastic_Grey_satinata
+newmtl Steering_Ring.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -521,7 +521,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl INT_Plastic_Grey_satinata_BOTTOM
+newmtl Stitching.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -531,7 +531,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl INT_Plastic_Grey_satinata_TOP
+newmtl Taillights_Reflectors.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -541,7 +541,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl INT_Plastic_Speaker_BOTTOM
+newmtl Top_Dash.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -551,7 +551,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl INT_Plastic_Speaker_Octagon
+newmtl Turbo_Gauge.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -561,7 +561,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl INT_Plastic_Speaker_base
+newmtl Turbo_Gauge_Color.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -571,7 +571,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl INT_Plastic_White_Seat
+newmtl Tyre.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -581,7 +581,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl INT_Skin_Grey
+newmtl dials_faces.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -591,7 +591,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl INT_Skin_Grey_BOTTOM
+newmtl ext_chrome.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -601,7 +601,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl INT_Skin_pointed
+newmtl ext_exhaust.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -611,7 +611,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl INT_Stich
+newmtl ext_palstic.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -621,7 +621,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl INT_Windows
+newmtl ext_plate.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -631,7 +631,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl MIRROR.001
+newmtl ext_undercarriage.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -641,7 +641,107 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl Material.001
+newmtl headlights_high_bulb.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+
+newmtl int_belt.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+
+newmtl int_glass.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+
+newmtl int_mirrors.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+
+newmtl int_plastic_black.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+
+newmtl rear_light.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+
+newmtl rear_light_and_indicator_bulbs.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+
+newmtl rim_paint_inner.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+
+newmtl steer_logo.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+
+newmtl warning_dashboard_light.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+
+newmtl warning_dashboard_lights_thickl.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000

@@ -1,8 +1,8 @@
 #include "EventMenu.h"
 #include "../Imgui/imgui.h"
-void EventMenu::Draw()
+void EventMenu::Draw(const UIContext& ui)
 {
-    if (ImGui::Button("EVENT SELECTION", ImVec2(300, 50)))
+    if (ImGui::Button("EVENT SELECTION", ui.Size(300, 50)))
     {
         m_ShowEventMenu = !m_ShowEventMenu;
     }
@@ -10,7 +10,7 @@ void EventMenu::Draw()
     if (!m_ShowEventMenu)
         return;
 
-    ImGui::SetNextWindowPos(ImVec2(400, 100));
+    ImGui::SetNextWindowPos(ui.P(400, 100));
     ImGui::Begin("Event List", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
 
     ImGui::Text("Events");
@@ -35,9 +35,9 @@ void EventMenu::Draw()
         if (ImGui::Selectable(
             championship.displayName,
             m_LaunchType == EventLaunchType::Championship &&
-            m_SelectedEvent == championship.firstEvent))
+            m_SelectedChampionship == championship.selection))
         {
-            m_SelectedEvent = championship.firstEvent;
+            m_SelectedChampionship = championship.selection;
             m_LaunchType = EventLaunchType::Championship;
         }
     }

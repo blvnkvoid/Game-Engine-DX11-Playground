@@ -1,17 +1,17 @@
 #include "CarSetupMenu.h"
 #include "../Imgui/imgui.h"
 
-void CarSetupMenu::Draw()
+void CarSetupMenu::Draw(const UIContext& ui)
 {
-    if (ImGui::Button("Car Setup", ImVec2(300, 50))) {
+    if (ImGui::Button("Car Setup", ui.Size(300, 50))) {
 
         m_ShowCarSetup = !m_ShowCarSetup;
     }
 
     if (m_ShowCarSetup)
     {
-        ImGui::SetNextWindowPos(ImVec2(400, 100));
-        ImGui::SetNextWindowSize(ImVec2(300, 0), ImGuiCond_Always);
+        ImGui::SetNextWindowPos(ui.P(400, 100));
+        ImGui::SetNextWindowSize(ui.Size(300, 0), ImGuiCond_Always);
 
         ImGui::Begin("Car Setup", nullptr, 0);
 

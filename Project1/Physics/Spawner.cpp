@@ -50,11 +50,7 @@ btTransform Spawner::PutCar()
 		break;		
 	case TrackSelection::RouteX:
 		startPos.setOrigin(btVector3(-3205.0f, 10.0f, 4645.0f));
-		break;	
-	case TrackSelection::RoadAtlanta:
-		startPos.setOrigin(btVector3(0.0f, 5.0f, 0.0f));
 		break;		
-	
 	case TrackSelection::Motorland:
 		startPos.setOrigin(btVector3(-85.0f, 25.0f, -18.0f));
 		break;	
@@ -116,9 +112,6 @@ btTransform Spawner::ResetPos()
 	case TrackSelection::TestCourse:
 		startPos.setOrigin(btVector3(-970.0f, 5.0f, 1710.0f));
 		break;
-	case TrackSelection::RoadAtlanta:
-		startPos.setOrigin(btVector3(0.0f, 5.0f, 0.0f));
-		break;
 	case TrackSelection::Nordschleife:
 		startPos.setOrigin(btVector3(-449.0f, 140.0F, -2351.0f)); // Spawamy w powietrzu!	
 		break;
@@ -149,7 +142,7 @@ btTransform Spawner::ResetPos()
 
 		break;
 	}
-
+		
 
 	return startPos;
 }

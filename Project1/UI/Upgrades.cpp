@@ -1,27 +1,27 @@
 #include "Upgrades.h"
 #include "../Imgui/imgui.h"
 
-void Upgrades::Draw()
+void Upgrades::Draw(const UIContext& ui)
 {
-    if (ImGui::Button("Engine Uprades Menu", ImVec2(300, 50))) {
+    if (ImGui::Button("Engine Uprades Menu", ui.Size(300, 50))) {
 
         m_ShowEngineUpgrades = !m_ShowEngineUpgrades;
     }
 
 
-    if (ImGui::Button("Weight Reduction Menu", ImVec2(300, 50))) {
+    if (ImGui::Button("Weight Reduction Menu", ui.Size(300, 50))) {
 
         m_ShowWeightReductionUpgrades = !m_ShowWeightReductionUpgrades;
     }
 
-    if (ImGui::Button("Tyres Upgrades Menu", ImVec2(300, 50))) {
+    if (ImGui::Button("Tyres Upgrades Menu", ui.Size(300, 50))) {
 
         m_ShowTyresUpgrades = !m_ShowTyresUpgrades;
     }
 
     if (m_ShowEngineUpgrades) {
-        ImGui::SetNextWindowPos(ImVec2(400, 100)); // Place it next to the main menu
-        ImGui::SetNextWindowSize(ImVec2(180, 0), ImGuiCond_Always);
+        ImGui::SetNextWindowPos(ui.P(400, 100)); // Place it next to the main menu
+        ImGui::SetNextWindowSize(ui.Size(180, 0), ImGuiCond_Always);
         ImGui::Begin("Engine Upgrades", nullptr, 0);
 
         if (ImGui::Selectable("Stock Engine", m_EngineUpgradeSelection == EngineUpgradeSelection::StockEngine)) {
@@ -42,8 +42,8 @@ void Upgrades::Draw()
     }
 
     if (m_ShowWeightReductionUpgrades) {
-        ImGui::SetNextWindowPos(ImVec2(400, 100)); // Place it next to the main menu
-        ImGui::SetNextWindowSize(ImVec2(300, 0), ImGuiCond_Always);
+        ImGui::SetNextWindowPos(ui.P(400, 100)); // Place it next to the main menu
+        ImGui::SetNextWindowSize(ui.Size(300, 0), ImGuiCond_Always);
         ImGui::Begin("Weight Reduction Upgrades", nullptr, 0);
 
         if (ImGui::Selectable("Stock Weight", m_WeightReductionSelection == WeightReductionSelection::StockWeight)) {
@@ -68,8 +68,8 @@ void Upgrades::Draw()
     }
 
     if (m_ShowTyresUpgrades) {
-        ImGui::SetNextWindowPos(ImVec2(400, 100)); // Place it next to the main menu
-        ImGui::SetNextWindowSize(ImVec2(300, 0), ImGuiCond_Always);
+        ImGui::SetNextWindowPos(ui.P(400, 100)); // Place it next to the main menu
+        ImGui::SetNextWindowSize(ui.Size(300, 0), ImGuiCond_Always);
         ImGui::Begin("Tyres Upgrades", nullptr, 0);
 
         if (ImGui::Selectable("Stock Tyres", m_TyresUpgradeSelection == TyresUpgradeSelection::StockTyres)) {

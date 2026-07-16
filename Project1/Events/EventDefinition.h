@@ -15,3 +15,4 @@ struct EventDefinition
 
 EventDefinition CreateSundayCup_Tsukuba();
 EventDefinition CreateSundayCup_Spa();
+EventDefinition CreateSundayCup_TrialMountain();

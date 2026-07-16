@@ -61,6 +61,9 @@ public:
 
     btTransform m_startTransform;
 
+    btVector3 ProjectToGround(
+        const btVector3& approximatePosition,
+        float clearance = 0.6f) const;
 
     private:
     btDefaultCollisionConfiguration* m_collisionConfig;

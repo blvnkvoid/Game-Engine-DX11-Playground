@@ -11,7 +11,6 @@ const std::vector<TrackEntry> g_TrackTable =
     { TrackSelection::MidfieldRaceway,"Tracks/MidfieldRaceway/MidfieldRaceway.fbx" },
     { TrackSelection::TestCourse,     "Tracks/TestCourse/TestCourse.fbx" },
     { TrackSelection::RouteX,         "Tracks/RouteX/RouteX.fbx" },
-    { TrackSelection::RoadAtlanta,    "Tracks/RoadAtlanta/RoadAtlanta2.fbx" },
     { TrackSelection::Nordschleife,   "Tracks/Nurburgring/Nordschleife2.fbx" },
     { TrackSelection::BeginnerCourse,   "Tracks/BeginnerCourse/BeginnerCourse.fbx" },
     { TrackSelection::Motorland,   "Tracks/Motorland/Motorland.fbx" },

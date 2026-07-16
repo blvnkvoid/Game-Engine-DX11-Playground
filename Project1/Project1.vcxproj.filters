@@ -225,6 +225,9 @@
     <ClCompile Include="Events\RaceGrid.cpp">
       <Filter>Source Files\Events</Filter>
     </ClCompile>
+    <ClCompile Include="UI\UIContext.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SharedTypes.h">
@@ -430,6 +433,12 @@
     </ClInclude>
     <ClInclude Include="Events\RaceGrid.h">
       <Filter>Source Files\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Settings.h">
+      <Filter>Source Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\UIContext.h">
+      <Filter>Source Files\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

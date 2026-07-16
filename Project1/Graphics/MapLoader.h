@@ -14,15 +14,19 @@
 #undef min
 #undef max
 
+struct MapMarker
+{
+    std::string name;
 
-    struct GridMarker
-    {
-        std::string name;
-        float x;
-        float y;
-        float z;
-    };
+    float x;
+    float y;
+    float z;
 
+    float rotX;
+    float rotY;
+    float rotZ;
+    float rotW;
+};
 
 class MapLoader {
 public:
@@ -99,35 +103,78 @@ public:
         return LoadWorld(filename, device, context);
     }
 
-   void FindGridNodes(aiNode* node)
+    void FindGridNodes(
+        aiNode* node,
+        const aiMatrix4x4& parentTransform)
     {
         if (!node)
             return;
 
+        // Resolve the node into world space.
+        const aiMatrix4x4 worldTransform =
+            parentTransform * node->mTransformation;
+
         std::string name = node->mName.C_Str();
         std::string lower = name;
-        std::transform(lower.begin(), lower.end(), lower.begin(), ::tolower);
 
-        float x = node->mTransformation.a4;
-        float y = node->mTransformation.b4;
-        float z = node->mTransformation.c4;
+        std::transform(
+            lower.begin(),
+            lower.end(),
+            lower.begin(),
+            [](unsigned char c)
+            {
+                return static_cast<char>(std::tolower(c));
+            });
 
-        if (lower.find("grid") != std::string::npos)
+      
+        if (lower.find("grid") != std::string::npos || lower.find("timing") != std::string::npos)
         {
+            aiVector3D scaling;
+            aiQuaternion rotation;
+            aiVector3D position;
+
+            worldTransform.Decompose(
+                scaling,
+                rotation,
+                position);
+
             OutputDebugStringA(
                 ("FOUND GRID NODE: " + name +
-                    " X=" + std::to_string(x) +
-                    " Y=" + std::to_string(y) +
-                    " Z=" + std::to_string(z) +
+                    " POS=(" +
+                    std::to_string(position.x) + ", " +
+                    std::to_string(position.y) + ", " +
+                    std::to_string(position.z) + ")" +
+                    " ROT=(" +
+                    std::to_string(rotation.x) + ", " +
+                    std::to_string(rotation.y) + ", " +
+                    std::to_string(rotation.z) + ", " +
+                    std::to_string(rotation.w) + ")" +
                     "\n").c_str());
-            m_gridMarkers.push_back({ name, x, y, z });
+
+            m_markers.push_back(
+                {
+                    name,
+
+                    position.x,
+                    position.y,
+                    position.z,
+
+                    rotation.x,
+                    rotation.y,
+                    rotation.z,
+                    rotation.w
+                });
         }
 
-        for (unsigned int i = 0; i < node->mNumChildren; i++)
+        for (unsigned int i = 0; i < node->mNumChildren; ++i)
         {
-            FindGridNodes(node->mChildren[i]);
+            FindGridNodes(
+                node->mChildren[i],
+                worldTransform);
         }
     }
+
+
     bool LoadWorld(const std::string& filename,
         ID3D11Device* device,
         ID3D11DeviceContext* context)
@@ -148,7 +195,10 @@ public:
         if (!scene || !scene->HasMeshes())
             return false;
 
-        FindGridNodes(scene->mRootNode);
+        m_markers.clear();
+        aiMatrix4x4 identity;
+
+        FindGridNodes(scene->mRootNode, identity);
 
         m_allVertices.clear();
         m_allIndices.clear();
@@ -213,8 +263,8 @@ public:
             
             if (n.find("tree") != std::string::npos || meshName.find("KSTREE") != std::string::npos)
             {
-             //   OutputDebugStringA(("Tree: " + meshName + "\n").c_str());
-                subset.material.materialType = static_cast<float>(MaterialType::MATERIAL_TREE);
+            //   OutputDebugStringA(("Tree: " + meshName + "\n").c_str());
+              subset.material.materialType = static_cast<float>(MaterialType::MATERIAL_TREE);
             }
 
             if (n.find("bulb") != std::string::npos || n.find("tunnel_lamps") != std::string::npos || n.find("lightemitter") != std::string::npos|| n.find("streetlamp_sub1") != std::string::npos)
@@ -360,11 +410,11 @@ public:
     std::vector<SharedVertex> m_allVertices;
     std::vector<UINT> m_allIndices;
 
-    const std::vector<GridMarker>& GetGridMarkers() const
+    const std::vector<MapMarker>& GetMarkers() const
     {
-        return m_gridMarkers;
+        return m_markers;
     }
 
     private:
-        std::vector<GridMarker> m_gridMarkers;
+        std::vector<MapMarker> m_markers;
 };

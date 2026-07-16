@@ -282,6 +282,7 @@ void Model::BindAndDraw(
     float brakeAmount,
     ID3D11DepthStencilState* depthWriteOn,
     ID3D11DepthStencilState* depthWriteOff,
+    ID3D11BlendState* alphaBlendState,
     float time)
 {
     UINT offset = 0;
@@ -316,9 +317,31 @@ void Model::BindAndDraw(
             (int)subset.material.materialType ==
             (int)MaterialType::MATERIAL_GLASS;
 
-        context->OMSetDepthStencilState(
-            isGlass ? depthWriteOff : depthWriteOn,
-            0);
+        if (isGlass)
+        {
+            float blendFactor[4] = { 0, 0, 0, 0 };
+
+            context->OMSetBlendState(
+                alphaBlendState,
+                blendFactor,
+                0xffffffff);
+
+            context->OMSetDepthStencilState(
+                depthWriteOff,
+                0);
+        }
+        else
+        {
+            context->OMSetBlendState(
+                nullptr,
+                nullptr,
+                0xffffffff);
+
+            context->OMSetDepthStencilState(
+                depthWriteOn,
+                0);
+        }
+
 
         DirectX::XMFLOAT3 pos = cam->GetPosition();
         XMVECTOR posVec = XMLoadFloat3(&pos);

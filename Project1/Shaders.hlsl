@@ -18,6 +18,7 @@
 #define MATERIAL_DECAL_TEXT  13
 #define MATERIAL_TREE        14
 #define MATERIAL_LAMP        15
+#define MATERIAL_SAFETYCAR_PAINT 16
 
 struct SharedMaterial {
     float3 diffuseColor;
@@ -70,6 +71,7 @@ struct PS_INPUT {
     float2 texCoord : TEXCOORD;
     float3 normal   : TEXCOORD1;
     float3 worldPos : TEXCOORD2;
+    float3 localPos : TEXCOORD3;
 };
 
 Texture2D objTexture : register(t0);
@@ -83,6 +85,7 @@ PS_INPUT VS(VS_INPUT input) {
     output.position = mul(mul(worldPosition, view), projection);
     output.normal = normalize(mul((float3x3)world, input.normal));
     output.texCoord = input.texCoord;
+    output.localPos = input.position.xyz;
     return output;
 }
 
@@ -102,16 +105,17 @@ float3 PaceCarLightColor()
     return lerp(blue, amber, flash);
 }
 
-float PaceBodyMask(float3 worldPos)
+float PaceBodyMask(float3 localPos)
 {
-    float3 beaconPos = carPosition.xyz + float3(0.0f, 1.2f, 0.0f);
+    float roofY = smoothstep(0.8f, 1.15f, localPos.y);
 
-    float d = length(worldPos - beaconPos);
+    float centerX =
+        1.0f - smoothstep(0.6f, 1.2f, abs(localPos.x));
 
-    float range = 1.0f - saturate(d / 1.0f);
-    range *= range;
+    float roofZ =
+        1.0f - smoothstep(0.5f, 1.8f, abs(localPos.z));
 
-    return range;
+    return roofY * centerX * roofZ;
 }
 
 float4 ShadeCarPaint(float4 texColor, float3 N, float3 L, float3 V, float3 H, float3 R, float3 worldPos)
@@ -120,10 +124,32 @@ float4 ShadeCarPaint(float4 texColor, float3 N, float3 L, float3 V, float3 H, fl
     float fresnel = pow(1.0f - saturate(dot(N, V)), 5.0f);
 
     float3 base = texColor.rgb;
-
-
     if (base.r > 0.85f && base.g > 0.85f && base.b > 0.85f)
         base *= material.diffuseColor;
+    float3 diffuse = base * (ndotl * 0.75f + 0.25f);
+
+    float clearCoat = pow(saturate(dot(N, H)), 384.0f) * 2.0f;
+    float broadSpec = pow(saturate(dot(N, H)), 48.0f) * 0.25f;
+
+    float3 sky = GetSkyReflection(R) * fresnel * 0.35f;
+    float paceFresnel = pow(1.0f - saturate(dot(N, V)), 2.0f);
+
+    float topBias = saturate(N.y * 0.5f + 0.5f);
+    float rim = pow(1.0f - saturate(dot(N, V)), 24.0f);
+
+    float3 color = diffuse + sky + material.specularColor * (clearCoat + broadSpec);    
+   
+    return float4(color, 1.0f);
+}
+
+
+float4 ShadeSafetyCarPaint(float4 texColor, float3 N, float3 L, float3 V, float3 H, float3 R, float3 localPos   )
+{
+    float ndotl = saturate(dot(N, L));
+    float fresnel = pow(1.0f - saturate(dot(N, V)), 5.0f);
+
+    float3 base = texColor.rgb;
+
     float3 diffuse = base * (ndotl * 0.75f + 0.25f);
 
     float clearCoat = pow(saturate(dot(N, H)), 384.0f) * 2.0f;
@@ -139,16 +165,17 @@ float4 ShadeCarPaint(float4 texColor, float3 N, float3 L, float3 V, float3 H, fl
 
     float topBias = saturate(N.y * 0.5f + 0.5f);
 
-    float paceMask = PaceBodyMask(worldPos);
+    float paceMask = PaceBodyMask(localPos);
 
     float rim = pow(1.0f - saturate(dot(N, V)), 24.0f);
 
     float3 color = diffuse + sky + material.specularColor * (clearCoat + broadSpec);
 
-    color += PaceCarLightColor() * paceFresnel * topBias * rim * 0.2f;
+    color += PaceCarLightColor() * paceFresnel * topBias * rim * paceMask * 12.2f;
 
     return float4(color, 1.0f);
 }
+
 
 
 float4 ShadeCarLivery(float4 texColor, float3 N, float3 L, float3 V, float3 H, float3 R)
@@ -413,7 +440,7 @@ float4 PS(PS_INPUT input) : SV_Target{
         return ShadeHeadLight(texColor);
 
     if (matType == MATERIAL_PACE_LIGHT)
-        return ShadePaceLight(texColor);
+       return ShadePaceLight(texColor);
     
     if (matType == MATERIAL_SOLID_PAINT)
         return ShadeCarPaint(texColor, N, L, V, H, R, input.worldPos);
@@ -435,6 +462,10 @@ float4 PS(PS_INPUT input) : SV_Target{
     
     if (matType == MATERIAL_DECAL_TEXT)
         return ShadeDecalText(texColor, N, L);
+
+    if (matType == MATERIAL_SAFETYCAR_PAINT)
+        return ShadeSafetyCarPaint(texColor, N, L, V, H, R, input.localPos);
+
 
     if (matType == MATERIAL_TREE)
     {

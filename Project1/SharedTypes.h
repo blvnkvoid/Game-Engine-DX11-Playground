@@ -120,7 +120,8 @@ enum MaterialType
     MATERIAL_ALCANTARA,
     MATERIAL_DECAL_TEXT,
     MATERIAL_TREE,
-    MATERIAL_LAMP
+    MATERIAL_LAMP,
+    MATERIAL_SAFETYCAR_PAINT,
 };
 
 
@@ -158,7 +159,6 @@ enum class TyresUpgradeSelection
         HighSpeedRing,
         MidfieldRaceway,
         TestCourse,
-        RoadAtlanta,
         RouteX,
         Nordschleife,
         BeginnerCourse,

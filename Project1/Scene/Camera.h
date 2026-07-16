@@ -2,6 +2,7 @@
 
 #include "../SharedTypes.h"
 #include <DirectXMath.h>
+#include "../UI/Settings.h"
 
 using namespace DirectX;
 
@@ -44,6 +45,7 @@ public:
     float height = 0.0f;
     float distance = 0.0f;
     float pitchDeg = 0.0f;
+    Settings settings;
 
     void SetVehicleCameraDefinition(const CameraDefinition& cameraDef);
 private:

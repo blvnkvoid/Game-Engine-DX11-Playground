@@ -26,7 +26,7 @@ class Model {
 public:
     Model();
     void BindAndDraw(ID3D11DeviceContext* context, UINT stride, DirectX::XMMATRIX world, DirectX::XMMATRIX view, DirectX::XMMATRIX projection, Camera* cam, float brakeAmount, ID3D11DepthStencilState* depthWriteOn,
-        ID3D11DepthStencilState* depthWriteOff, float time);
+        ID3D11DepthStencilState* depthWriteOff, ID3D11BlendState* alphaBlendState, float time);
     void BindTexture(ID3D11DeviceContext* context);
     void SetModelPosition(float x, float y, float z) { modelposition = { x, y, z }; }
     void SetModelRotation(DirectX::XMMATRIX rotation) { m_rotationMatrix = rotation; }

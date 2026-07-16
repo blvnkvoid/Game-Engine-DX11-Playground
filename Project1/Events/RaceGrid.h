@@ -14,6 +14,7 @@ class GraphicsEngine;
 class Camera;
 class GameObject;
 class TextureManager;
+class PhysicsEngine;
 
 struct RaceGridCar
 {
@@ -28,8 +29,9 @@ class RaceGrid
 public:
     VehicleSelection Build(
         const EventDefinition& event,
-        const std::vector<GridMarker>& gridMarkers,
+        const std::vector<MapMarker>& markers,
         VehicleRegistry& vehicleRegistry,
+        PhysicsEngine& physics,
         ID3D11Device* device,
         ID3D11DeviceContext* context,
         TextureManager* textureManager,
@@ -44,6 +46,7 @@ public:
         return m_playerSpawn;
     }
 
+    
 
 
     void Render(GraphicsEngine& engine, Camera& camera);

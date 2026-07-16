@@ -11,7 +11,7 @@ illum 3
 map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Brake_Disc_DIF.dds
 map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Brake_Disc_DIF.dds
 
-newmtl Chrome
+newmtl Chrome.002
 Ns 1000.000000
 Ka 1.000000 1.000000 1.000000
 Ks 1.000000 1.000000 1.000000
@@ -461,7 +461,7 @@ illum 3
 map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Mirror.dds
 map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/Mirror.dds
 
-newmtl Plastic
+newmtl Plastic.001
 Ns 399.999969
 Ka 1.000000 1.000000 1.000000
 Ks 1.000000 1.000000 1.000000
@@ -611,16 +611,6 @@ illum 3
 map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/DAMAGE_GLASS_color.dds
 map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/DAMAGE_GLASS_color.dds
 
-newmtl livery
-Ns 499.999969
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/skins/2011/CarPaint_D.dds
-map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/CarPaint_D.dds
-
 newmtl pace_light
 Ns 1000.000000
 Ka 1.000000 1.000000 1.000000
@@ -660,6 +650,16 @@ Ni 1.500000
 illum 3
 map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/glass_yellow.dds
 map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/glass_yellow.dds
+
+newmtl safetycar
+Ns 499.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/skins/2011/CarPaint_D.dds
+map_d C:/Users/Void/Downloads/CARS/asw-mercedes-benz-sls-amg-safety-car/jw_mercedes_sls_sc/unp_mercedes_sls_sc.kn5/texture/CarPaint_D.dds
 
 newmtl tyre
 Ns 119.999992

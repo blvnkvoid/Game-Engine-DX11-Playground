@@ -1,6 +1,7 @@
 #pragma once
 #include "../SharedTypes.h"
 #include <bullet/btBulletDynamicsCommon.h>
+#include "../Graphics/MapLoader.h"
 
 struct TrackTimingEntry
 {
@@ -14,4 +15,6 @@ struct TrackTimingEntry
 
 };
 
-extern const std::vector<TrackTimingEntry> g_TrackTimingTable;
+TrackTimingEntry CreateTrackTiming(
+    TrackSelection track,
+    const std::vector<MapMarker>& markers);

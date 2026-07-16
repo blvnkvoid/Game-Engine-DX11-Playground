@@ -136,7 +136,7 @@
 
         XMStoreFloat3(&this->position, m_posVector);
         this->viewMatrix = XMMatrixLookAtLH(m_posVector, vLookAt, smoothedUp);
-        this->projectionMatrix = XMMatrixPerspectiveFovLH(targetFOV, 1920.0f / 1080.0f, 1.0f, 1000.0f);        
+        this->projectionMatrix = XMMatrixPerspectiveFovLH(targetFOV, settings.width / settings.height, 1.0f, 1000.0f);        
     }
 
     void Camera::AdjustRotation(float dx, float dy) {

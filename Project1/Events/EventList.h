@@ -4,7 +4,8 @@
 enum class EventSelection
 {
     SundayCupTsukuba,
-    SundayCupSpa
+    SundayCupSpa,
+    SundayCupTrialMountain
 };
 
 enum class EventLaunchType
@@ -19,9 +20,16 @@ struct EventListEntry
     const char* displayName;
 };
 
+enum class ChampionshipSelection
+{
+    SundayCup,
+    ClubmanCup,
+    GTWorldChampionship
+};
+
 struct ChampionshipListEntry
 {
-    EventSelection firstEvent;
+    ChampionshipSelection selection;
     const char* displayName;
 };
 

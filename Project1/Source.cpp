@@ -5,7 +5,6 @@
 #include "Imgui/imgui_impl_dx11.h"
 #pragma warning(pop)
 #include <windows.h>
-
 #include <DirectXMath.h>
 #include "Graphics/GraphicsEngine.h"
 #include "Scene/Camera.h"
@@ -54,6 +53,9 @@
 #include "Events/ChampionshipDefinition.h"
 #include "Events/EventSession.h"
 #include "Events/RaceGrid.h"
+#include "UI/Settings.h"
+#include "UI/UIContext.h"
+
 
 using namespace DirectX;
 
@@ -72,6 +74,7 @@ DevConsole devConsole;
 EventRegistry eventRegistry;
 EventSession eventSession;
 RaceGrid raceGrid;
+Settings settings;
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
     if (message == WM_DESTROY) { PostQuitMessage(0); return 0; }
@@ -90,12 +93,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
     WNDCLASSEX wc = { sizeof(WNDCLASSEX), CS_OWNDC, WndProc, 0L, 0L, hInstance, NULL, NULL, NULL, NULL, L"DX11Window", NULL };
     RegisterClassEx(&wc);
-    HWND hWnd = CreateWindow(L"DX11Window", L"911 Lab - DirectX 11", WS_OVERLAPPEDWINDOW, 0, 0, 1920, 1080, NULL, NULL, hInstance, NULL);
+    HWND hWnd = CreateWindow(L"DX11Window", L"911 Lab - DirectX 11", WS_OVERLAPPEDWINDOW, 0, 0, settings.width, settings.height, NULL, NULL, hInstance, NULL);
 
     CoInitializeEx(nullptr, COINIT_APARTMENTTHREADED);
     ShowWindow(hWnd, nCmdShow);
 
-    engine->Init(hWnd, 1920, 1080);
+    engine->Init(hWnd, settings.width, settings.height);
     audio.InitAudio();
     audio.LoadMenuSounds();
     audio.LoadJukebox();
@@ -103,13 +106,16 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     RacingHUD racingHUD;
     bool g_ShowDebugUI = false;
     LapTimer g_LapTimer;
+
+    engine->ConfigureUIScale(1920.0f, 1080.0f);
+
     ImGuiIO& io = ImGui::GetIO();   
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;
 
-    ImFont* telemetryFont = io.Fonts->AddFontFromFileTTF("C:\\Windows\\Fonts\\consola.ttf", 18.0f);
-    io.Fonts->Build();
-    telemetryUI.SetFont(telemetryFont);
+
+
+
 
     TextureManager* texMgr = new TextureManager(engine->GetDevice());
     Camera* camera = new Camera();
@@ -179,8 +185,22 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
             ImGui_ImplDX11_NewFrame();
             ImGui_ImplWin32_NewFrame();
+
+
+            io.DisplayFramebufferScale = ImVec2(
+                settings.width / io.DisplaySize.x,
+                settings.height / io.DisplaySize.y);
+
             Input::FeedImGuiGamepadNavigation();
             ImGui::NewFrame();
+
+
+
+
+            OutputDebugStringA(
+                ("DisplaySize = " +
+                    std::to_string(io.DisplaySize.x) + " x " +
+                    std::to_string(io.DisplaySize.y) + "\n").c_str());
 
             telemetryUI.Draw(&g_ShowDebugUI, camera, playerModel);
             racingHUD.Draw(g_DebugTelemetry);
@@ -194,7 +214,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                 }
    
                 menu.m_StartSimulationTriggered = false;
-                menu.Draw(*engine, audio);
+                menu.Draw(*engine, audio, engine->GetUIContext());
                 menu.HandleInput(audio);
             }
             else if (menu.g_CurrentState == EngineState::GAMEPLAY) {
@@ -250,23 +270,28 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 
 
-
                     if (m_mapTrack->OpenAndLoad(trackPath, engine->GetDevice(), engine->GetContext())) {
                         physics->AddTriangleMeshCollider(m_mapTrack->GetVertices(), m_mapTrack->GetIndices());
                     }
 
 
-                    const auto& gridMarkers = m_mapTrack->GetGridMarkers();
+                    const auto& markers = m_mapTrack->GetMarkers();
+
+                    TrackTimingEntry timing =
+                        CreateTrackTiming(event.track, markers);
+
+                    physics->SetTrackTiming(timing);
 
            
-                        raceGrid.Build(
-                            event,
-                            gridMarkers,
-                            vehicleRegistry,
-                            engine->GetDevice(),
-                            engine->GetContext(),
-                            engine->GetTextureManager(),
-                            garage.m_PreviewSelection);
+                    raceGrid.Build(
+                        event,
+                        markers,
+                        vehicleRegistry,
+                        *physics,
+                        engine->GetDevice(),
+                        engine->GetContext(),
+                        engine->GetTextureManager(),
+                        garage.m_PreviewSelection);
 
                         physics->SetStartTransform(
                             raceGrid.GetPlayerSpawn());
@@ -297,14 +322,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                     engine->SetScene(mainScene);
                     camera->SetFollowTarget(playerModel);
 
-                    for (const auto& timing : g_TrackTimingTable)
-                    {
-                        if (timing.track == event.track)
-                        {
-                            physics->SetTrackTiming(timing);
-                            break;
-                        }
-                    }
+                 
 
                     g_LapTimer.Reset();
                     g_LapTimer.SetTotalLaps(event.totalLaps);       
@@ -356,7 +374,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                 }
             }
 
-
+            
 
             audio.Update(menu.g_CurrentState, g_DebugTelemetry.rpm, g_DebugTelemetry.throttle, g_DebugTelemetry.speed, g_DebugTelemetry.avgSlipRatio, g_DebugTelemetry.avgSlipAngle);
             ImGui::Render();

@@ -7,7 +7,8 @@ ChampionshipDefinition CreateSundayCup()
     cup.events =
     {
         EventSelection::SundayCupTsukuba,
-        EventSelection::SundayCupSpa
+        EventSelection::SundayCupSpa,
+        EventSelection::SundayCupTrialMountain
     };
 
     return cup;

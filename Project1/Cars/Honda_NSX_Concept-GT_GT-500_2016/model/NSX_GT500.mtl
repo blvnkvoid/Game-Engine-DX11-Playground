@@ -8,8 +8,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/EXT_Skin.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/EXT_Skin.dds
+map_Kd EXT_Skin.dds
+map_d EXT_Skin.dds
 
 newmtl Carbon
 Ns 1000.000000
@@ -18,8 +18,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/carbon_fiber2.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/carbon_fiber2.dds
+map_Kd carbon_fiber2.dds
+map_d carbon_fiber2.dds
 
 newmtl Chrome
 Ns 1000.000000
@@ -28,8 +28,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/metal_detail_interior.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/metal_detail_interior.dds
+map_Kd metal_detail_interior.dds
+map_d metal_detail_interior.dds
 
 newmtl DECALESDRIVERS
 Ns 100.000015
@@ -38,8 +38,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/191.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/191.dds
+map_Kd 191.dds
+map_d 191.dds
 
 newmtl DECALS0
 Ns 1000.000000
@@ -48,8 +48,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/decal0.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/decal0.dds
+map_Kd decal0.dds
+map_d decal0.dds
 
 newmtl DECALS1
 Ns 1000.000000
@@ -58,8 +58,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/decals_1.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/decals_1.dds
+map_Kd decals_1.dds
+map_d decals_1.dds
 
 newmtl DECALS2
 Ns 1000.000000
@@ -68,8 +68,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/decals_2.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/decals_2.dds
+map_Kd decals_2.dds
+map_d decals_2.dds
 
 newmtl DECALS3
 Ns 1000.000000
@@ -78,8 +78,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/decals_3.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/decals_3.dds
+map_Kd decals_3.dds
+map_d decals_3.dds
 
 newmtl DECALS4
 Ns 1000.000000
@@ -88,8 +88,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/01.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/01.dds
+map_Kd 01.dds
+map_d 01.dds
 
 newmtl DETAILS
 Ns 100.000015
@@ -98,8 +98,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/141.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/141.dds
+map_Kd 141.dds
+map_d 141.dds
 
 newmtl EXHAUSTEMISSIVE
 Ns 1000.000000
@@ -108,8 +108,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/black.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/black.dds
+map_Kd black.dds
+map_d black.dds
 
 newmtl EXT_BANNER
 Ns 1000.000000
@@ -118,8 +118,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/ext_banner.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/ext_banner.dds
+map_Kd ext_banner.dds
+map_d ext_banner.dds
 
 newmtl EXT_RIM
 Ns 1000.000000
@@ -128,8 +128,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/EXT_Rim_Colour.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/EXT_Rim_Colour.dds
+map_Kd EXT_Rim_Colour.dds
+map_d EXT_Rim_Colour.dds
 
 newmtl EXT_WINDOW
 Ns 1000.000000
@@ -138,8 +138,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/glass.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/glass.dds
+map_Kd glass.dds
+map_d glass.dds
 
 newmtl FRONTLIGHT
 Ns 100.000015
@@ -148,8 +148,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/frontlight.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/frontlight.dds
+map_Kd frontlight.dds
+map_d frontlight.dds
 
 newmtl GLASS
 Ns 1000.000000
@@ -158,8 +158,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/Glass_and_lights_front.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/Glass_and_lights_front.dds
+map_Kd Glass_and_lights_front.dds
+map_d Glass_and_lights_front.dds
 
 newmtl GRID
 Ns 1000.000000
@@ -168,8 +168,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/Grid2_D.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/Grid2_D.dds
+map_Kd Grid2_D.dds
+map_d Grid2_D.dds
 
 newmtl HEATSHIELD
 Ns 1000.000000
@@ -179,7 +179,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/seamlessgold.dds
+map_Kd seamlessgold.dds
 
 newmtl Hose
 Ns 1000.000000
@@ -188,8 +188,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/hose.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/hose.dds
+map_Kd hose.dds
+map_d hose.dds
 
 newmtl INT_BANNER
 Ns 1000.000000
@@ -198,8 +198,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/ext_banner.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/ext_banner.dds
+map_Kd ext_banner.dds
+map_d ext_banner.dds
 
 newmtl INT_DECALS
 Ns 1000.000000
@@ -208,8 +208,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/int_decals.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/int_decals.dds
+map_Kd int_decals.dds
+map_d int_decals.dds
 
 newmtl INT_DECALS2
 Ns 1000.000000
@@ -218,8 +218,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/int_decals2.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/int_decals2.dds
+map_Kd int_decals2.dds
+map_d int_decals2.dds
 
 newmtl INT_DETAILS2
 Ns 100.000015
@@ -228,8 +228,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/details2.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/details2.dds
+map_Kd details2.dds
+map_d details2.dds
 
 newmtl INT_Decals_DISPLAY_gain
 Ns 1000.000000
@@ -238,8 +238,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 1.000000 1.000000 1.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/P1.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/P1.dds
+map_Kd P1.dds
+map_d P1.dds
 
 newmtl INT_ELECTRONICS
 Ns 1000.000000
@@ -248,8 +248,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/INT_Electronics_Colour.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/INT_Electronics_Colour.dds
+map_Kd INT_Electronics_Colour.dds
+map_d INT_Electronics_Colour.dds
 
 newmtl MIRROR
 Ns 1000.000000
@@ -258,8 +258,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/Mirror.DDS
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/Mirror.DDS
+map_Kd Mirror.DDS
+map_d Mirror.DDS
 
 newmtl Metallic
 Ns 1000.000000
@@ -268,8 +268,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/metal_detail_interior.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/metal_detail_interior.dds
+map_Kd metal_detail_interior.dds
+map_d metal_detail_interior.dds
 
 newmtl NUMPLATE
 Ns 1000.000000
@@ -278,8 +278,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/CARNUM.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/CARNUM.dds
+map_Kd CARNUM.dds
+map_d CARNUM.dds
 
 newmtl Plastic
 Ns 1000.000000
@@ -289,7 +289,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/PlasticDetail.dds
+map_Kd PlasticDetail.dds
 
 newmtl RPM_LEDS
 Ns 1000.000000
@@ -298,8 +298,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/RPM_LED.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/RPM_LED.dds
+map_Kd RPM_LED.dds
+map_d RPM_LED.dds
 
 newmtl Radiators
 Ns 100.000015
@@ -308,8 +308,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/radiator.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/radiator.dds
+map_Kd radiator.dds
+map_d radiator.dds
 
 newmtl STEER_DECAL
 Ns 1000.000000
@@ -318,8 +318,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/steer_decals.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/steer_decals.dds
+map_Kd steer_decals.dds
+map_d steer_decals.dds
 
 newmtl TAILGLASS
 Ns 1000.000000
@@ -328,8 +328,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/taillight_red.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/taillight_red.dds
+map_Kd taillight_red.dds
+map_d taillight_red.dds
 
 newmtl TAILLIGHT
 Ns 1000.000000
@@ -338,8 +338,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/turnlight.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/turnlight.dds
+map_Kd turnlight.dds
+map_d turnlight.dds
 
 newmtl Tyre
 Ns 1000.000000
@@ -348,8 +348,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/Tyre_Dry_Colour.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/Tyre_Dry_Colour.dds
+map_Kd Tyre_Dry_Colour.dds
+map_d Tyre_Dry_Colour.dds
 
 newmtl Windows
 Ns 1000.000000
@@ -358,8 +358,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/Glass_and_lights_front.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/Glass_and_lights_front.dds
+map_Kd Glass_and_lights_front.dds
+map_d Glass_and_lights_front.dds
 
 newmtl alcantara
 Ns 1000.000000
@@ -369,7 +369,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/alcnt.dds
+map_Kd alcnt.dds
 
 newmtl badge
 Ns 100.000015
@@ -378,8 +378,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/badge.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/badge.dds
+map_Kd badge.dds
+map_d badge.dds
 
 newmtl cloth
 Ns 1000.000000
@@ -388,8 +388,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/taillight_red.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/taillight_red.dds
+map_Kd taillight_red.dds
+map_d taillight_red.dds
 
 newmtl ext_decals
 Ns 100.000015
@@ -398,8 +398,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/EXT_Decals_Colour.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/EXT_Decals_Colour.dds
+map_Kd EXT_Decals_Colour.dds
+map_d EXT_Decals_Colour.dds
 
 newmtl ext_disc
 Ns 1000.000000
@@ -408,8 +408,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/DISC.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/DISC.dds
+map_Kd DISC.dds
+map_d DISC.dds
 
 newmtl ext_mechanics
 Ns 1000.000000
@@ -418,8 +418,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/EXT_Mechanics_AO.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/EXT_Mechanics_AO.dds
+map_Kd EXT_Mechanics_AO.dds
+map_d EXT_Mechanics_AO.dds
 
 newmtl int_details
 Ns 1000.000000
@@ -428,8 +428,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/details.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/details.dds
+map_Kd details.dds
+map_d details.dds
 
 newmtl scratches
 Ns 100.000015
@@ -437,9 +437,9 @@ Ka 1.000000 1.000000 1.000000
 Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-illum 6
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/scratches.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/scratches.dds
+illum 3
+map_Kd scratches.dds
+map_d scratches.dds
 
 newmtl seatbelt
 Ns 1000.000000
@@ -448,8 +448,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/belt.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/belt.dds
+map_Kd belt.dds
+map_d belt.dds
 
 newmtl sockets
 Ns 100.000015
@@ -458,8 +458,8 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/socket.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/socket.dds
+map_Kd socket.dds
+map_d socket.dds
 
 newmtl steer_leds
 Ns 1000.000000
@@ -468,5 +468,5 @@ Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/steer_leds.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/steer_leds.dds
+map_Kd steer_leds.dds
+map_d steer_leds.dds

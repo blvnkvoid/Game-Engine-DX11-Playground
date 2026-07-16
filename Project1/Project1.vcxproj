@@ -208,6 +208,7 @@
     <ClCompile Include="UI\RacingHUD.cpp" />
     <ClCompile Include="UI\TrackMenu.cpp" />
     <ClCompile Include="UI\TrackTiming.cpp" />
+    <ClCompile Include="UI\UIContext.cpp" />
     <ClCompile Include="UI\Upgrades.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -276,8 +277,10 @@
     <ClInclude Include="UI\LapTimer.h" />
     <ClInclude Include="UI\MainMenu.h" />
     <ClInclude Include="UI\RacingHUD.h" />
+    <ClInclude Include="UI\Settings.h" />
     <ClInclude Include="UI\TrackMenu.h" />
     <ClInclude Include="UI\TrackTiming.h" />
+    <ClInclude Include="UI\UIContext.h" />
     <ClInclude Include="UI\Upgrades.h" />
   </ItemGroup>
   <ItemGroup>

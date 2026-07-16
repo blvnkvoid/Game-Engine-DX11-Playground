@@ -6,11 +6,12 @@
 #include "../Environment/Time.h"
 #include "../Environment/EnvironmentDefinition.h"
 #include "../UI/MainMenu.h"
+#include "../UI/Settings.h"
+#include "../UI/UIContext.h"
 
 class Scene; // Forward declaration (keeps the header light!)
 class Camera;
 class Input;
-
 
 
 
@@ -26,6 +27,9 @@ public:
     void SetScene(Scene* scene) { m_activeScene = scene; }
     bool m_isWireframe = false;
     bool m_gWasPressed = false;
+    bool m_hWasPressed = false;
+
+    bool m_isCullBack = false;
     bool Init(HWND hWnd, int width, int height);
     ID3D11DeviceContext* GetContext() { return context.Get(); }
     ID3D11Device* GetDevice() { return device.Get(); }
@@ -44,6 +48,19 @@ public:
     EnvironmentDefinition DefaultEnvironment();
 
     Time& GetTime();
+    void ConfigureUIScale(float renderWidth, float renderHeight);
+    Settings settings;
+
+    const UIContext& GetUIContext() const
+    {
+        return m_uiContext;
+    }
+
+    ImFont* GetTelemetryFont() const
+    {
+        return m_telemetryFont;
+    }
+ 
 
 private:
     SharedSceneData m_sceneData;
@@ -62,8 +79,10 @@ private:
     Microsoft::WRL::ComPtr<ID3D11InputLayout> inputLayout;
     Microsoft::WRL::ComPtr<ID3D11Buffer> constantBuffer;
     Microsoft::WRL::ComPtr<ID3D11Buffer> materialConstantBuffer;
-    Microsoft::WRL::ComPtr<ID3D11RasterizerState> rasterState;
-    Microsoft::WRL::ComPtr<ID3D11RasterizerState> rasterStateWireframe;
+    Microsoft::WRL::ComPtr<ID3D11RasterizerState> m_solidCullNone;
+    Microsoft::WRL::ComPtr<ID3D11RasterizerState> m_solidCullBack;
+    Microsoft::WRL::ComPtr<ID3D11RasterizerState> m_wireCullNone;
+    Microsoft::WRL::ComPtr<ID3D11RasterizerState> m_wireCullBack;
     Microsoft::WRL::ComPtr<ID3D11Texture2D> pDepthStencil;
     Microsoft::WRL::ComPtr<ID3DBlob> vsBlob;
     Microsoft::WRL::ComPtr<ID3DBlob> psBlob;
@@ -84,4 +103,6 @@ private:
     UINT quality = 0;
     EnvironmentDefinition def;
 
+    ImFont* m_telemetryFont = nullptr;
+    UIContext m_uiContext;
 };

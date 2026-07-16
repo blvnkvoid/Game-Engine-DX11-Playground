@@ -4,6 +4,7 @@
 #include "../Scene/Camera.h"
 #include "../Scene/GameObject.h"
 #include "../Cars/VehicleAsset.h"
+#include "../Physics/PhysicsEngine.h"
 
 using namespace DirectX;
 
@@ -23,8 +24,9 @@ VehicleSelection RaceGrid::GetPlayerSelection(
 
 VehicleSelection RaceGrid::Build(
     const EventDefinition& event,
-    const std::vector<GridMarker>& gridMarkers,
+    const std::vector<MapMarker>& markers,
     VehicleRegistry& vehicleRegistry,
+    PhysicsEngine& physics,
     ID3D11Device* device,
     ID3D11DeviceContext* context,
     TextureManager* textureManager,
@@ -43,16 +45,30 @@ VehicleSelection RaceGrid::Build(
                 context,
                 textureManager);
 
+
+        const MapMarker& marker = markers[carEntry.gridPosition];
+
+        btVector3 groundedPosition =
+            physics.ProjectToGround(
+                btVector3(marker.x, marker.y, marker.z),
+                0.6f);
+
         if (carEntry.isPlayer)
         {
             playerSelection = carEntry.vehicle;
 
-            const GridMarker& marker =
-                gridMarkers[carEntry.gridPosition];
+            const MapMarker& marker =
+                markers[carEntry.gridPosition];
 
             m_playerSpawn.setIdentity();
-            m_playerSpawn.setOrigin(
-                btVector3(marker.x, marker.y, marker.z));
+            m_playerSpawn.setOrigin(groundedPosition);  
+            m_playerSpawn.setRotation(
+                btQuaternion(
+                    marker.rotX,
+                    marker.rotY,
+                    marker.rotZ,
+                    marker.rotW));
+
 
             continue;
         }
@@ -60,28 +76,37 @@ VehicleSelection RaceGrid::Build(
         RaceGridCar gridCar;
         gridCar.vehicle = carEntry.vehicle;
         gridCar.object = vehicle.object.get();
-
-        if (gridMarkers.empty())
+            
+        if (markers.empty())
         {
             OutputDebugStringA("ERROR: No grid markers found!\n");
             continue;
         }
 
         if (carEntry.gridPosition < 0 ||
-            carEntry.gridPosition >= gridMarkers.size())
+            carEntry.gridPosition >= markers.size())
         {
 
             OutputDebugStringA(
                 ("ERROR: gridPosition out of range: " +
                     std::to_string(carEntry.gridPosition) +
                     " marker count=" +
-                    std::to_string(gridMarkers.size()) +
+                    std::to_string(markers.size()) +
                     "\n").c_str());
 
             continue;
         }
 
-        const GridMarker& marker = gridMarkers[carEntry.gridPosition];
+
+        XMMATRIX visualOffset =
+            XMMatrixTranslation(0.0f, -0.6f, 0.0f);
+
+        XMVECTOR rotationQuaternion =
+            XMVectorSet(
+                marker.rotX,
+                marker.rotY,
+                marker.rotZ,
+                marker.rotW);
 
         OutputDebugStringA(
             ("AI car marker: " + marker.name +
@@ -91,7 +116,12 @@ VehicleSelection RaceGrid::Build(
                 "\n").c_str());
 
         gridCar.world =
-            XMMatrixRotationY(DirectX::XM_PIDIV2) * XMMatrixTranslation(marker.x, marker.y, marker.z);
+           visualOffset * XMMatrixRotationQuaternion(rotationQuaternion) *
+            XMMatrixTranslation(
+                groundedPosition.x(),
+                groundedPosition.y(),
+                groundedPosition.z());
+
         gridCar.isPlayer = false;
 
         m_cars.push_back(gridCar);

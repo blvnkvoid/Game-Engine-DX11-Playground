@@ -2,9 +2,9 @@
 #include "../Imgui/imgui.h"
 #include "../Cars/VehicleRegistry.h"
 
-void Garage::Draw()
+void Garage::Draw(const UIContext& ui)
 {
-    if (ImGui::Button("GARAGE / SELECT CAR", ImVec2(300, 50))) {
+    if (ImGui::Button("GARAGE / SELECT CAR", ui.Size(300, 50))) {
 
         m_ShowGarage = !m_ShowGarage;
     }
@@ -12,7 +12,7 @@ void Garage::Draw()
         return;
 
     if (m_ShowGarage) {
-        ImGui::SetNextWindowPos(ImVec2(400, 100)); // Place it next to the main menu
+        ImGui::SetNextWindowPos(ui.P(400, 100)); // Place it next to the main menu
         ImGui::Begin("Car List", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
         for (const auto& vehicle : VehicleRegistry::GetVehicleTable())
         {

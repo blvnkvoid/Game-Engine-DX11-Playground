@@ -40,8 +40,13 @@ public:
             return MaterialType::MATERIAL_PACE_LIGHT;
 
         if (ContainsAny(n, { "body", "paint" }))
-            return MaterialType::MATERIAL_SOLID_PAINT;        
-        
+           return MaterialType::MATERIAL_SOLID_PAINT;        
+
+        if (ContainsAny(n, { "safetycar" }))
+        {
+            OutputDebugStringA("Hello!");
+            return MaterialType::MATERIAL_SAFETYCAR_PAINT;
+        }
         if (ContainsAny(n, { "decal", "scdecal","text"}))
             return MaterialType::MATERIAL_DECAL_TEXT;
 

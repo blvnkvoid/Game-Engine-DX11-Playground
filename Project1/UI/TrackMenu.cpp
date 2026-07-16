@@ -1,9 +1,9 @@
 #include "TrackMenu.h"
 #include "../Imgui/imgui.h"
 
-void TrackMenu::Draw()
+void TrackMenu::Draw(const UIContext& ui)
 {
-    if (ImGui::Button("TRACK SELECTION", ImVec2(300, 50))) {
+    if (ImGui::Button("TRACK SELECTION", ui.Size(300, 50))) {
 
         m_TrackSelection = !m_TrackSelection;
     }
@@ -14,8 +14,8 @@ void TrackMenu::Draw()
 
     if (m_TrackSelection)
     {
-        ImGui::SetNextWindowPos(ImVec2(400, 100)); // Place it next to the main menu
-        ImGui::SetNextWindowSize(ImVec2(300, 0), ImGuiCond_Always);
+        ImGui::SetNextWindowPos(ui.P(400, 100)); // Place it next to the main menu
+        ImGui::SetNextWindowSize(ui.Size(300, 0), ImGuiCond_Always);
         ImGui::Begin("Track List", nullptr, 0);
         if (ImGui::Selectable("AutumnRing", GameConfig::activeTrack == TrackSelection::AutumnRing)) {
 
@@ -25,7 +25,7 @@ void TrackMenu::Draw()
 
             GameConfig::activeTrack = TrackSelection::ElCapitan;
         }
-        if (ImGui::Selectable("Spa Francorshamps ", GameConfig::activeTrack == TrackSelection::Spa)) {
+        if (ImGui::Selectable("Circuit de Spa-Francorchamps ", GameConfig::activeTrack == TrackSelection::Spa)) {
 
             GameConfig::activeTrack = TrackSelection::Spa;
         }
@@ -33,7 +33,7 @@ void TrackMenu::Draw()
 
             GameConfig::activeTrack = TrackSelection::GrandValley;
         }
-        if (ImGui::Selectable("Trial Mountain ", GameConfig::activeTrack == TrackSelection::TrialMountain)) {
+        if (ImGui::Selectable("Trial Mountain Circuit", GameConfig::activeTrack == TrackSelection::TrialMountain)) {
 
             GameConfig::activeTrack = TrackSelection::TrialMountain;
         }
@@ -41,7 +41,7 @@ void TrackMenu::Draw()
 
             GameConfig::activeTrack = TrackSelection::HighSpeedRing;
         }
-        if (ImGui::Selectable("Midfield Raceway ", GameConfig::activeTrack == TrackSelection::MidfieldRaceway)) {
+        if (ImGui::Selectable("Mid-field Raceway ", GameConfig::activeTrack == TrackSelection::MidfieldRaceway)) {
 
             GameConfig::activeTrack = TrackSelection::MidfieldRaceway;
         }
@@ -49,34 +49,31 @@ void TrackMenu::Draw()
 
             GameConfig::activeTrack = TrackSelection::TestCourse;
         }
-        if (ImGui::Selectable("Route X ", GameConfig::activeTrack == TrackSelection::RouteX)) {
+        if (ImGui::Selectable("Special Stage Route X ", GameConfig::activeTrack == TrackSelection::RouteX)) {
 
             GameConfig::activeTrack = TrackSelection::RouteX;
         }
-        if (ImGui::Selectable("Road Atlanta ", GameConfig::activeTrack == TrackSelection::RoadAtlanta)) {
 
-            GameConfig::activeTrack = TrackSelection::RoadAtlanta;
-        }
         if (ImGui::Selectable("Nurburgring Nordschleife ", GameConfig::activeTrack == TrackSelection::Nordschleife)) {
 
             GameConfig::activeTrack = TrackSelection::Nordschleife;
         }
 
-        if (ImGui::Selectable("Begginer Course ", GameConfig::activeTrack == TrackSelection::BeginnerCourse)) {
+        if (ImGui::Selectable("Beginner Course", GameConfig::activeTrack == TrackSelection::BeginnerCourse)) {
 
             GameConfig::activeTrack = TrackSelection::BeginnerCourse;
         }
-        if (ImGui::Selectable("Motorland ", GameConfig::activeTrack == TrackSelection::Motorland)) {
+        if (ImGui::Selectable("Motor Sports Land ", GameConfig::activeTrack == TrackSelection::Motorland)) {
 
             GameConfig::activeTrack = TrackSelection::Motorland;
         }
 
-        if (ImGui::Selectable("Tsukuba ", GameConfig::activeTrack == TrackSelection::Tsukuba)) {
+        if (ImGui::Selectable("Tsukuba Circuit", GameConfig::activeTrack == TrackSelection::Tsukuba)) {
 
             GameConfig::activeTrack = TrackSelection::Tsukuba;
         }
 
-        if (ImGui::Selectable("Le Mans ", GameConfig::activeTrack == TrackSelection::LeMans)) {
+        if (ImGui::Selectable("Circuit de la Sarthe", GameConfig::activeTrack == TrackSelection::LeMans)) {
 
             GameConfig::activeTrack = TrackSelection::LeMans;
         }

@@ -36,6 +36,30 @@ void PhysicsEngine::Initialize() {
     m_dynamicsWorld->getSolverInfo().m_globalCfm = 0.00000f;
     m_dynamicsWorld->getSolverInfo().m_erp2 = 0.02f;
 }
+
+btVector3 PhysicsEngine::ProjectToGround(
+    const btVector3& approximatePosition,
+    float clearance) const
+{
+    btVector3 rayStart =
+        approximatePosition + btVector3(0.0f, 20.0f, 0.0f);
+
+    btVector3 rayEnd =
+        approximatePosition - btVector3(0.0f, 50.0f, 0.0f);
+
+    btCollisionWorld::ClosestRayResultCallback hit(rayStart, rayEnd);
+
+    m_dynamicsWorld->rayTest(rayStart, rayEnd, hit);
+
+    if (hit.hasHit())
+    {
+        return hit.m_hitPointWorld +
+            hit.m_hitNormalWorld * clearance;
+    }
+
+    return approximatePosition;
+}
+
 void PhysicsEngine::SetVehicleDefinition(
     const VehicleDefinition& definition)
 {
@@ -49,10 +73,10 @@ void PhysicsEngine::SetStartTransform(const btTransform& transform)
 
 
 
-void PhysicsEngine::SetTrackTiming(const TrackTimingEntry& timing)
-{
-    m_timing = timing;
-}
+    void PhysicsEngine::SetTrackTiming(const TrackTimingEntry& timing)
+    {
+        m_timing = timing;
+    }
 
 void PhysicsEngine::SetHandling(Handling* handling)
 {
@@ -207,6 +231,14 @@ void PhysicsEngine::ResetCar() {
     m_carBody->setActivationState(ACTIVE_TAG);
 }
 
+auto HorizontalDistance = [](const btVector3& a, const btVector3& b)
+{
+    const float dx = a.x() - b.x();
+    const float dz = a.z() - b.z();
+
+    return std::sqrt(dx * dx + dz * dz);
+};
+
 void PhysicsEngine::Update(float deltaTime, SharedVehicleInputs inputs) {
     float internalDelta = 1.0f / 300.0f;
 
@@ -228,17 +260,17 @@ void PhysicsEngine::Update(float deltaTime, SharedVehicleInputs inputs) {
 
     if (triggerCooldown <= 0.0f)
     {
-        if (carPos.distance(m_timing.startFinish) < m_timing.radius)
+        if (HorizontalDistance(carPos, m_timing.startFinish) < m_timing.radius)
         {
             m_passedStartMeta = true;
             triggerCooldown = 5.0f;
         }
-        else if (carPos.distance(m_timing.sector1) < m_timing.radius)
+        else if (HorizontalDistance(carPos, m_timing.sector1) < m_timing.radius)
         {
             m_passedSector1 = true;
             triggerCooldown = 5.0f;
         }
-        else if (carPos.distance(m_timing.sector2) < m_timing.radius)
+        else if (HorizontalDistance(carPos, m_timing.sector2) < m_timing.radius)
         {
             m_passedSector2 = true;
             triggerCooldown = 5.0f;
@@ -390,7 +422,7 @@ void PhysicsEngine::Update(float deltaTime, SharedVehicleInputs inputs) {
 
 
     if (m_dynamicsWorld) {
-        m_dynamicsWorld->stepSimulation(deltaTime, 10, 1.0f / 300.0f);
+        m_dynamicsWorld->stepSimulation(deltaTime, 40, 1.0f / 1000.0f);
     }
 }
 

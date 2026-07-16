@@ -315,7 +315,7 @@ newmtl LED_FUEL
 Ns 100.000015
 Ka 1.000000 1.000000 1.000000
 Ks 1.000000 1.000000 1.000000
-Ke 50.000000 30.000000 0.000000
+Ke 50.000000 30.000002 0.000000
 Ni 1.500000
 illum 3
 map_Kd C:/Users/Void/Downloads/CARS/tw_honda_civic_eg6/unp_tw_honda_civic_eg6.kn5/texture/interior.dds

@@ -17,6 +17,7 @@
 #pragma warning(pop)
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "d3dcompiler.lib")
+#include "../UI/Settings.h"
 
 GraphicsEngine::GraphicsEngine()
 {
@@ -27,8 +28,6 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
 {
     HRESULT hr;
 
-
-
     DXGI_SWAP_CHAIN_DESC sd = {};
     sd.BufferCount = 1;
     sd.BufferDesc.Width = width;
@@ -36,7 +35,7 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     sd.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
     sd.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
     sd.OutputWindow = hWnd;
-    sd.SampleDesc.Count = 8;
+    sd.SampleDesc.Count = 2;
     sd.SampleDesc.Quality = 0;
     sd.Windowed = true;
 
@@ -47,24 +46,26 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     descDepth.MipLevels = 1;
     descDepth.ArraySize = 1;
     descDepth.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
-    descDepth.SampleDesc.Count = 8;
+    descDepth.SampleDesc.Count = 2;
     descDepth.Usage = D3D11_USAGE_DEFAULT;
     descDepth.BindFlags = D3D11_BIND_DEPTH_STENCIL;
 
-    D3D11_RASTERIZER_DESC rsDesc = {};
-    rsDesc.FillMode = D3D11_FILL_SOLID; // Or D3D11_FILL_WIREFRAME for a cool matrix look!
-    rsDesc.CullMode = D3D11_CULL_NONE;  // <--- THE CULL KILLER
-    rsDesc.AntialiasedLineEnable = true;
-    rsDesc.MultisampleEnable = true;
-    rsDesc.FrontCounterClockwise = false;
+    D3D11_RASTERIZER_DESC solidCullNoneDesc = {};
+    solidCullNoneDesc.FillMode = D3D11_FILL_SOLID;
+    solidCullNoneDesc.CullMode = D3D11_CULL_NONE;
+    solidCullNoneDesc.AntialiasedLineEnable = true;
+    solidCullNoneDesc.MultisampleEnable = true;
+    solidCullNoneDesc.FrontCounterClockwise = false;
 
+    D3D11_RASTERIZER_DESC solidCullBackDesc = solidCullNoneDesc;
+    solidCullBackDesc.CullMode = D3D11_CULL_BACK;
+    solidCullBackDesc.FrontCounterClockwise = true;
 
-    D3D11_RASTERIZER_DESC rsDesc2 = {};
-    rsDesc2.FillMode = D3D11_FILL_WIREFRAME; // Or D3D11_FILL_WIREFRAME for a cool matrix look!
-    rsDesc2.CullMode = D3D11_CULL_NONE;  // <--- THE CULL KIL6LER
-    rsDesc2.AntialiasedLineEnable = true;
-    rsDesc2.MultisampleEnable = true;
-    rsDesc2.FrontCounterClockwise = false;
+    D3D11_RASTERIZER_DESC wireCullNoneDesc = solidCullNoneDesc;
+    wireCullNoneDesc.FillMode = D3D11_FILL_WIREFRAME;
+
+    D3D11_RASTERIZER_DESC wireCullBackDesc = solidCullBackDesc;
+    wireCullBackDesc.FillMode = D3D11_FILL_WIREFRAME;
 
     D3D11_BUFFER_DESC bd = {};
     D3D11_SUBRESOURCE_DATA init = {};
@@ -149,9 +150,13 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     if (FAILED(hr)) return false;
     hr = device->CreateBuffer(&bd, nullptr, &constantBuffer);
     if (FAILED(hr)) return false;
-    hr = device->CreateRasterizerState(&rsDesc, &rasterState);
+    hr = device->CreateRasterizerState(&solidCullNoneDesc, m_solidCullNone.GetAddressOf());
     if (FAILED(hr)) return false;
-    hr = device->CreateRasterizerState(&rsDesc2, &rasterStateWireframe);
+    hr = device->CreateRasterizerState(&solidCullBackDesc, &m_solidCullBack);
+    if (FAILED(hr)) return false;
+    hr = device->CreateRasterizerState(&wireCullNoneDesc, &m_wireCullNone);
+    if (FAILED(hr)) return false;
+    hr = device->CreateRasterizerState(&wireCullBackDesc, &m_wireCullBack);
     if (FAILED(hr)) return false;
     hr = device->CreateSamplerState(&sampDesc, &m_samplerLinear);
     if (FAILED(hr)) return false;
@@ -191,6 +196,38 @@ void GraphicsEngine::SetBrakeAmount(float amount)
 Time& GraphicsEngine::GetTime()
 {
     return m_time;
+}
+
+void GraphicsEngine::ConfigureUIScale(float width, float height)
+{
+    m_uiContext.Update(width, height);
+
+    const float uiScale = m_uiContext.scale;
+
+    ImGuiIO& io = ImGui::GetIO();
+
+
+    io.FontGlobalScale = 1.0f;
+    io.Fonts->Clear();
+
+    m_telemetryFont = io.Fonts->AddFontFromFileTTF(
+        "C:\\Windows\\Fonts\\consola.ttf",
+        18.0f * uiScale);
+
+    ImGui::StyleColorsDark();
+    ImGuiStyle& style = ImGui::GetStyle();
+    ImGui::GetStyle().ScaleAllSizes(uiScale);
+
+    OutputDebugStringA(
+        ("ItemSpacing.y = " + std::to_string(style.ItemSpacing.y) + "\n").c_str());
+
+    OutputDebugStringA(
+        ("FramePadding.y = " + std::to_string(style.FramePadding.y) + "\n").c_str());
+
+
+
+
+    io.Fonts->Build();
 }
 
 SharedSceneData GraphicsEngine::BuildSceneData(Camera* cam, GameObject* player, XMMATRIX world)
@@ -252,27 +289,24 @@ void GraphicsEngine::ApplyEnvironmentDefinition(const EnvironmentDefinition& def
     m_time.PauseTime(!def.dynamicTime);
 }
 
-/*EnvironmentDefinition GraphicsEngine::DefaultEnvironment()
-{
-    EnvironmentDefinition defenv;
-    defenv.startTime = 60.0f;
-    defenv.timeScale = 0.0f;
-    defenv.shaderTime = 0.0f;
-    defenv.shaderTimeScale = 1.0f;
-    defenv.dynamicTime = true;
-    return defenv;
-}*/
-
-
-
 void GraphicsEngine::BeginFrame(HWND hWnd, DirectX::XMMATRIX view, DirectX::XMMATRIX projection, float deltaTime)
 {
     bool gIsDown = GetAsyncKeyState('G') & 0x8000;
+    bool hIsDown = GetAsyncKeyState('H') & 0x8000;
 
     if (gIsDown && !m_gWasPressed)
-        m_isWireframe = !m_isWireframe;
-
+    {
+        m_isCullBack = !m_isCullBack;
+    }
     m_gWasPressed = gIsDown;
+
+    if (hIsDown && !m_hWasPressed)
+    {
+        m_isWireframe = !m_isWireframe;
+    }
+    m_hWasPressed = hIsDown;
+
+
 
     m_time.Update(deltaTime);
 
@@ -287,9 +321,6 @@ void GraphicsEngine::BeginFrame(HWND hWnd, DirectX::XMMATRIX view, DirectX::XMMA
     m_sceneData.ambientIntensity = env.ambientIntensity;
     m_sceneData.headlightIntensity = env.headlightIntensity;    
 
-   // OutputDebugStringA("time: ");
-   // OutputDebugStringA(std::to_string(m_sceneData.time).c_str());
-
 
     float envTime = std::fmod(m_time.GetTime(), m_timeCycle.GetCycleLength());
 
@@ -300,19 +331,33 @@ void GraphicsEngine::BeginFrame(HWND hWnd, DirectX::XMMATRIX view, DirectX::XMMA
 
     float blendFactor[4] = { 0, 0, 0, 0 };
 
-    context->OMSetBlendState(m_alphaBlendState.Get(), blendFactor, 0xffffffff);
     context->ClearRenderTargetView(renderTargetView.Get(), env.clearColor);
     context->ClearDepthStencilView(depthStencilView.Get(), D3D11_CLEAR_DEPTH, 1.0f, 0);
     context->OMSetRenderTargets(1, renderTargetView.GetAddressOf(), depthStencilView.Get());
-    context->RSSetState(m_isWireframe ? rasterStateWireframe.Get() : rasterState.Get());
+    context->RSSetState(
+        m_isWireframe
+        ? (m_isCullBack ? m_wireCullBack.Get() : m_wireCullNone.Get())
+        : (m_isCullBack ? m_solidCullBack.Get() : m_solidCullNone.Get()));
+    context->OMSetBlendState(
+        nullptr,
+        nullptr,
+        0xffffffff);
+
+    context->OMSetDepthStencilState(
+        m_depthWriteOnState.Get(),
+        0);
+
+
+
 
     RECT rc;
     GetClientRect(hWnd, &rc);
 
+
     D3D11_VIEWPORT vp = {
         0.0f, 0.0f,
-        float(rc.right - rc.left),
-        float(rc.bottom - rc.top),
+        settings.width,
+        settings.height,
         0.0f, 1.0f
     };
 
@@ -354,13 +399,14 @@ void GraphicsEngine::RenderObject(GameObject* obj, Camera* cam)
         m_sceneData.brakeAmount,
         m_depthWriteOnState.Get(),
         m_depthWriteOffState.Get(),
+        m_alphaBlendState.Get(),
         m_sceneData.time
     );
 }
 
 void GraphicsEngine::EndFrame()
 {
-    swapChain->Present(1, 0); // 1 = VSync enabled
+    swapChain->Present(0, 0); // 1 = VSync enabled
 }
 
 GraphicsEngine::~GraphicsEngine()
@@ -394,8 +440,10 @@ GraphicsEngine::~GraphicsEngine()
     psBlobTor.Reset();
 
     // States
-    rasterState.Reset();
-    rasterStateWireframe.Reset();
+    m_solidCullNone.Reset();
+    m_solidCullBack.Reset();
+    m_wireCullNone.Reset();
+    m_wireCullBack.Reset();
     m_samplerLinear.Reset();
     m_alphaBlendState.Reset();
 

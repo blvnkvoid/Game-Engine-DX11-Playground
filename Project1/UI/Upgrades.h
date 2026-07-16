@@ -1,10 +1,11 @@
 #pragma once
 #include "../SharedTypes.h"
+#include "../UI/UIContext.h"
 
 class Upgrades
 {
 public:
-	void Draw();
+	void Draw(const UIContext& ui);
 	bool m_ShowEngineUpgrades = false;
 	bool m_ShowWeightReductionUpgrades = false;
 	bool m_ShowTyresUpgrades = false;

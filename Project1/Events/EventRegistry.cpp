@@ -1,4 +1,5 @@
 #include "EventRegistry.h"
+#include "ChampionshipDefinition.h"
 #include <vector>
 
 EventDefinition EventRegistry::Create(EventSelection selection)
@@ -10,6 +11,9 @@ EventDefinition EventRegistry::Create(EventSelection selection)
 
     case EventSelection::SundayCupSpa:
         return CreateSundayCup_Spa();
+
+    case EventSelection::SundayCupTrialMountain:
+        return CreateSundayCup_TrialMountain();
     }
 
     throw std::runtime_error("Unknown event.");
@@ -29,13 +33,9 @@ EventSession EventRegistry::CreateSession(
 
     if (launchType == EventLaunchType::Championship)
     {
-        // For now, only one championship exists.
-        // Later this becomes a table.
-        session.StartChampionship(
-            {
-               EventSelection::SundayCupSpa,
-               EventSelection::SundayCupTsukuba
-            });
+        ChampionshipDefinition championship = CreateSundayCup();
+
+        session.StartChampionship(championship.events);
 
         return session;
     }

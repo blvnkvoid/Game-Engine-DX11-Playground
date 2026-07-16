@@ -7,3 +7,5 @@ struct ChampionshipDefinition
 {
     std::vector<EventSelection> events;
 };
+
+ChampionshipDefinition CreateSundayCup();
