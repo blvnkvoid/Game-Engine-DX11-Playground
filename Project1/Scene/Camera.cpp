@@ -15,6 +15,51 @@
         m_camera = cameraDef;
     }
 
+    void Camera::UpdateFrustum()
+    {
+        // Create the frustum in camera/view space
+        DirectX::BoundingFrustum::CreateFromMatrix(
+            m_viewFrustum,
+            projectionMatrix
+        );
+
+        // Move it from camera space into world space
+        DirectX::XMMATRIX inverseView =
+            DirectX::XMMatrixInverse(nullptr, viewMatrix);
+
+        m_viewFrustum.Transform(
+            m_worldFrustum,
+            inverseView
+        );
+    }
+
+
+    void Camera::DebugFrustum() const
+    {
+        DirectX::XMFLOAT3 corners[DirectX::BoundingFrustum::CORNER_COUNT];
+
+        m_worldFrustum.GetCorners(corners);
+
+        std::string output =
+            "Camera: " +
+            std::to_string(position.x) + ", " +
+            std::to_string(position.y) + ", " +
+            std::to_string(position.z) + "\n";
+
+       // OutputDebugStringA(output.c_str());
+
+        for (int i = 0; i < DirectX::BoundingFrustum::CORNER_COUNT; ++i)
+        {
+            output =
+                "Frustum corner " + std::to_string(i) + ": " +
+                std::to_string(corners[i].x) + ", " +
+                std::to_string(corners[i].y) + ", " +
+                std::to_string(corners[i].z) + "\n";
+
+            //OutputDebugStringA(output.c_str());
+        }
+    }
+
     void Camera::CycleCameraMode() {
         m_currentMode = static_cast<CameraMode>((static_cast<int>(m_currentMode) + 1) % 4);
         const char* modeNames[] = { "FREE ROAM", "CHASE", "ROOF", "BUMPER" };
@@ -37,7 +82,7 @@
     }
 
 
-    void Camera::Update(float deltaTime) {
+    void Camera::Update(float deltaTime, const TrackEntry& activeTrackEntry) {
 
         XMMATRIX camRotation = XMMatrixRotationRollPitchYaw(m_pitch, m_yaw, 0);
         XMVECTOR lookDir = XMVector3TransformCoord(XMVectorSet(0, 0, 1, 0), camRotation);
@@ -45,7 +90,7 @@
         XMVECTOR rightDir = XMVector3Cross(Up, lookDir);
         XMVECTOR vLookAt = XMVectorSet(0, 0, 0, 0);
         XMVECTOR vCarUp = XMVectorSet(0, 1, 0, 0); // Default world up
-
+        const float cameraDeltaTime = min(deltaTime, 1.0f / 60.0f);
         static XMVECTOR smoothedUp = XMVectorSet(0, 1, 0, 0);
 
         float lerpFactor = 75.0f; // Adjust this: 1.0 is a hard snap, 0.05 is very lazy
@@ -136,8 +181,34 @@
 
         XMStoreFloat3(&this->position, m_posVector);
         this->viewMatrix = XMMatrixLookAtLH(m_posVector, vLookAt, smoothedUp);
-        this->projectionMatrix = XMMatrixPerspectiveFovLH(targetFOV, settings.width / settings.height, 1.0f, 1000.0f);        
-    }
+
+
+        const float aspectRatio =
+            static_cast<float>(settings.width) /
+            static_cast<float>(settings.height);
+
+
+        m_farPlane = activeTrackEntry.renderSettings.farPlane;
+
+        m_nearPlane = activeTrackEntry.renderSettings.nearPlane;
+
+
+        m_forward = XMVector3Normalize(vLookAt - m_posVector);
+        m_right = XMVector3Normalize(XMVector3Cross(m_forward, smoothedUp));
+        m_up = XMVector3Normalize(XMVector3Cross(m_right, m_forward));
+
+        this->projectionMatrix = XMMatrixPerspectiveFovLH(targetFOV, aspectRatio, activeTrackEntry.renderSettings.nearPlane, activeTrackEntry.renderSettings.farPlane);
+
+        UpdateFrustum();
+
+        static bool printed = false;
+
+        /*if (!printed)
+        {
+            DebugFrustum();
+            printed = true;
+        }*/
+    }   
 
     void Camera::AdjustRotation(float dx, float dy) {
         m_yaw += dx * m_mouseSensitivity;
@@ -152,5 +223,5 @@
         XMVECTOR lookDir = XMVector3TransformCoord(XMVectorSet(0, 0, 1, 0), camRotation);
         XMVECTOR Up = XMVector3TransformCoord(XMVectorSet(0, 1, 0, 0), camRotation);
 
-        this->viewMatrix = XMMatrixLookAtLH(m_posVector, m_posVector + lookDir, Up);
+        this->viewMatrix = XMMatrixLookAtLH(m_posVector, m_posVector + lookDir, Up);        
     }

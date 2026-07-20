@@ -8,6 +8,7 @@
 #include "../UI/MainMenu.h"
 #include "../UI/Settings.h"
 #include "../UI/UIContext.h"
+#include "../Sky/Sun.h"
 
 class Scene; // Forward declaration (keeps the header light!)
 class Camera;
@@ -20,20 +21,18 @@ class GraphicsEngine {
 public:
     GraphicsEngine();
     ~GraphicsEngine();
-    void BeginFrame(HWND hWnd,DirectX::XMMATRIX view, DirectX::XMMATRIX projection, float deltaTime);
+    void BeginFrame(HWND hWnd,DirectX::XMMATRIX view, DirectX::XMMATRIX projection, float deltaTime, Camera* cam);
     void RenderObject(GameObject* obj, Camera* cam);
     void EndFrame();
     void SetActiveCamera(Camera* camera) { activeCamera = camera; }
     void SetScene(Scene* scene) { m_activeScene = scene; }
     bool m_isWireframe = false;
     bool m_gWasPressed = false;
-    bool m_hWasPressed = false;
-
-    bool m_isCullBack = false;
     bool Init(HWND hWnd, int width, int height);
     ID3D11DeviceContext* GetContext() { return context.Get(); }
     ID3D11Device* GetDevice() { return device.Get(); }
     ID3D11Buffer* GetConstantBuffer() { return constantBuffer.Get(); }
+    ID3D11Buffer* GetLampConstantBuffer() { return lampConstantBuffer.Get(); }
     SharedSceneData& GetSharedSceneData() { return m_sceneData; }
     DirectX::XMMATRIX GetView() { return activeCamera ? activeCamera->GetViewMatrix() : DirectX::XMMatrixIdentity(); }
     DirectX::XMMATRIX GetProj() { return mProj; }
@@ -60,9 +59,35 @@ public:
     {
         return m_telemetryFont;
     }
- 
+
+    ID3D11DepthStencilState* GetDepthStencilState() const
+    {
+        return m_depthWriteOnState.Get();
+    }
+
+    ID3D11ShaderResourceView* GetLampResourceView() const
+    {
+        return m_lampSRV.Get();
+    }
+
+    ID3D11Buffer* GetLampStructuredBuffer() const
+    {
+        return m_lampStructuredBuffer.Get();
+    }
+
+    SharedSceneData GetSceneData() const
+    {
+        return m_sceneData;
+    }
+
+    Sun GetSun() const
+    {
+        return m_sun;
+    }
 
 private:
+    Sun m_sun;
+
     SharedSceneData m_sceneData;
     SharedSceneData cb; // [cite: 2026-01-03]
     Camera* activeCamera = nullptr;
@@ -79,10 +104,10 @@ private:
     Microsoft::WRL::ComPtr<ID3D11InputLayout> inputLayout;
     Microsoft::WRL::ComPtr<ID3D11Buffer> constantBuffer;
     Microsoft::WRL::ComPtr<ID3D11Buffer> materialConstantBuffer;
-    Microsoft::WRL::ComPtr<ID3D11RasterizerState> m_solidCullNone;
-    Microsoft::WRL::ComPtr<ID3D11RasterizerState> m_solidCullBack;
-    Microsoft::WRL::ComPtr<ID3D11RasterizerState> m_wireCullNone;
-    Microsoft::WRL::ComPtr<ID3D11RasterizerState> m_wireCullBack;
+    Microsoft::WRL::ComPtr<ID3D11Buffer> lampConstantBuffer;
+    Microsoft::WRL::ComPtr<ID3D11Buffer> m_lampStructuredBuffer;
+    Microsoft::WRL::ComPtr<ID3D11RasterizerState> rasterState;
+    Microsoft::WRL::ComPtr<ID3D11RasterizerState> rasterStateWireframe;
     Microsoft::WRL::ComPtr<ID3D11Texture2D> pDepthStencil;
     Microsoft::WRL::ComPtr<ID3DBlob> vsBlob;
     Microsoft::WRL::ComPtr<ID3DBlob> psBlob;
@@ -90,13 +115,14 @@ private:
     Microsoft::WRL::ComPtr<ID3D11SamplerState> m_samplerLinear;
     Microsoft::WRL::ComPtr<ID3D11BlendState> m_alphaBlendState;
     Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_defaultSRV;
+    Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_lampSRV;
     Microsoft::WRL::ComPtr<ID3D11DepthStencilState> m_depthWriteOnState;
     Microsoft::WRL::ComPtr<ID3D11DepthStencilState> m_depthWriteOffState;
     DirectX::XMMATRIX mView;
     DirectX::XMMATRIX mProj;
     DirectX::XMFLOAT4 m_lightDir = { 0.0f, -1.0f, 1.0f, 0.0f }; // Directional light
     std::unique_ptr<TextureManager> m_textureManager;
-    DirectX::XMFLOAT4 m_lightColor = { 1.0f, 1.0f, 1.0f, 1.0f }; // White light
+    DirectX::XMFLOAT4 m_lightColor = { 1.0f, 0.0f, 0.0f, 1.0f }; // White light
     TimeCycle m_timeCycle;
     EnvironmentState env;
     Time m_time;

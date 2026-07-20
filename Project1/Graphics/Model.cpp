@@ -283,9 +283,12 @@ void Model::BindAndDraw(
     ID3D11DepthStencilState* depthWriteOn,
     ID3D11DepthStencilState* depthWriteOff,
     ID3D11BlendState* alphaBlendState,
-    float time)
+    float time,
+    const SharedSceneData& sceneData)
 {
     UINT offset = 0;
+
+    SharedSceneData drawData = sceneData;
 
     context->IASetVertexBuffers(
         0, 1,
@@ -300,18 +303,14 @@ void Model::BindAndDraw(
 
     for (const auto& subset : m_subsets)
     {
-        SharedSceneData sceneData = {};
 
-        sceneData.material = subset.material;
-        sceneData.brakeAmount = brakeAmount;
-        sceneData.time = time;
 
-        sceneData.world = XMMatrixTranspose(world);
-        sceneData.view = XMMatrixTranspose(view);
-        sceneData.projection = XMMatrixTranspose(projection);
+        drawData.material = subset.material;
+        drawData.world = XMMatrixTranspose(world);
+        drawData.view = XMMatrixTranspose(view);
+        drawData.projection = XMMatrixTranspose(projection);
 
-        sceneData.lightDirection = XMFLOAT4(0.5f, -1.0f, 0.5f, 0.0f);
-        sceneData.lightColor = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
+
 
         bool isGlass =
             (int)subset.material.materialType ==
@@ -346,9 +345,6 @@ void Model::BindAndDraw(
         DirectX::XMFLOAT3 pos = cam->GetPosition();
         XMVECTOR posVec = XMLoadFloat3(&pos);
 
-        XMStoreFloat4(&sceneData.cameraPosition, posVec);
-        XMStoreFloat4(&sceneData.cameraDirection, cam->GetForwardVector());
-
         D3D11_MAPPED_SUBRESOURCE mappedResource;
         HRESULT hr = context->Map(
             m_constantBuffer.Get(),
@@ -363,7 +359,7 @@ void Model::BindAndDraw(
         {
             memcpy(
                 mappedResource.pData,
-                &sceneData,
+                &drawData,
                 sizeof(SharedSceneData));
 
             context->Unmap(m_constantBuffer.Get(), 0);

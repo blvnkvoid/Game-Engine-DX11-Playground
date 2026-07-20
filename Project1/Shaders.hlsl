@@ -35,8 +35,8 @@ cbuffer SharedSceneData : register(b0)
     matrix view;
     matrix projection;
 
-    float4 lightDirection_UNUSED;
-    float4 lightColor_UNUSED;
+    float4 lightDirection;
+    float4 lightColor;
     float4 cameraPosition;
     float4 cameraDirection;
 
@@ -55,9 +55,23 @@ cbuffer SharedSceneData : register(b0)
     float2 environmentPadding;
 };
 
+struct LampData
+{
+    float3 position;
+    float radius;
+};
+
+StructuredBuffer<LampData> lampLights : register(t1);
+
+cbuffer LampInfo : register(b1)
+{
+    int lampCount;
+    float3 lampInfoPadding;
+};
+
 // Hardcoded light constants to bypass buffer synchronization issues
-static const float3 lightDirection = float3(0.5f, -1.0f, 0.5f);
-static const float3 lightColor = float3(1.0f, 1.0f, 1.0f);
+//static const float3 lightDirection = float3(0.5f, -1.0f, 0.5f);
+//static const float3 lightColor = float3(1.0f, 1.0f, 1.0f);
 
 struct VS_INPUT {
     float3 position : POSITION;
@@ -137,7 +151,7 @@ float4 ShadeCarPaint(float4 texColor, float3 N, float3 L, float3 V, float3 H, fl
     float topBias = saturate(N.y * 0.5f + 0.5f);
     float rim = pow(1.0f - saturate(dot(N, V)), 24.0f);
 
-    float3 color = diffuse + sky + material.specularColor * (clearCoat + broadSpec);    
+    float3 color = diffuse + sky + lightColor * material.specularColor * (clearCoat + broadSpec);    
    
     return float4(color, 1.0f);
 }
@@ -171,14 +185,14 @@ float4 ShadeSafetyCarPaint(float4 texColor, float3 N, float3 L, float3 V, float3
 
     float3 color = diffuse + sky + material.specularColor * (clearCoat + broadSpec);
 
-    color += PaceCarLightColor() * paceFresnel * topBias * rim * paceMask * 12.2f;
+    color += PaceCarLightColor() * lightColor * paceFresnel * topBias * rim * paceMask * 12.2f;
 
     return float4(color, 1.0f);
 }
 
 
 
-float4 ShadeCarLivery(float4 texColor, float3 N, float3 L, float3 V, float3 H, float3 R)
+float4 ShadeCarLivery(float4 texColor, float3 N, float3 L, float3 V, float3 H, float3 R, float localLighting)
 {
     float ndotl = saturate(dot(N, L));
     float fresnel = pow(1.0f - saturate(dot(N, V)), 5.0f);
@@ -196,7 +210,7 @@ float4 ShadeCarLivery(float4 texColor, float3 N, float3 L, float3 V, float3 H, f
 
     float3 spec = material.specularColor * (clearCoat + broadSpec);
 
-    float3 color = diffuse + sky + spec;
+    float3 color = diffuse + sky + localLighting + spec * lightColor;
 
     return float4(color, 1.0f);
 }
@@ -340,20 +354,72 @@ float PaceLightMask(float3 worldPos)
     return range;
 }
 
+float LampLightMask(float3 worldPos)
+{  
+    float closest = 1e9f;
+    for (uint i = 0; i < lampCount; ++i)
+    {
+        float2 roadPos = worldPos.xz;
+        float2 lampPos = lampLights[i].position.xz;
+
+        float d = distance(roadPos, lampPos);
+        closest = min(closest, d);
+    }
+
+    return saturate(1.0f - closest / 45.0f);
+}
+
+float4 ShadeLampGlow(float4 texColor, float2 uv)
+{
+    // keep original texture
+    float3 base = texColor.rgb;
+
+    // fake glow mask from UV center
+    float2 center = uv - float2(0.5f, 0.5f);
+    float dist = length(center);
+
+    float glow = saturate(1.0f - dist * 2.2f);
+    glow = glow * glow;
+
+    float3 glowColor = float3(1.0f, 0.82f, 0.45f);
+
+    float3 finalColor = base + glowColor * glow * 0.8f;
+
+    return float4(finalColor, texColor.a);
+}
+
 float4 ShadeAsphalt(float4 texColor, float3 N, float3 L, float3 worldPos, float ambient, float headlightIntensity)
 {
 
     float ndotl = saturate(dot(N, L));
     float brakeSpill = BrakeLightMask(worldPos);
-    float3 base = texColor.rgb * (ndotl * 0.55f + ambient);
 
+    float3 sunDiffuse =
+        texColor.rgb *
+        lightColor.rgb *
+        ndotl *
+        0.55f;
+
+    float3 ambientDiffuse =
+        texColor.rgb *
+        ambient;
+   
+    float3 base =
+        sunDiffuse +
+        ambientDiffuse;
+ 
     float headlight = HeadlightMask(worldPos) ;
 
     float3 beamColor = float3(1.0f, 0.92f, 0.72f); 
     float3 finalColor = base + beamColor * headlight * 0.5f * headlightIntensity;
+    float lampLight = LampLightMask(worldPos);
+
+
+    float3 lampColor = float3(1.0f, 0.82f, 0.45f);
+
+
     finalColor += float3(1.0f, 0.05f, 0.02f) * brakeSpill * 0.5f;
-
-
+    finalColor += lampColor * lampLight * 0.8f;
     return float4(finalColor, 1.0f);
 }
 
@@ -388,24 +454,6 @@ float4 ShadeDecalText(float4 texColor, float3 N, float3 L)
 }
 
 
-float4 ShadeLampGlow(float4 texColor, float2 uv)
-{
-    // keep original texture
-    float3 base = texColor.rgb;
-
-    // fake glow mask from UV center
-    float2 center = uv - float2(0.5f, 0.5f);
-    float dist = length(center);
-
-    float glow = saturate(1.0f - dist * 2.2f);
-    glow = glow * glow;
-
-    float3 glowColor = float3(1.0f, 0.82f, 0.45f);
-
-    float3 finalColor = base + glowColor * glow * 0.8f;
-
-    return float4(finalColor, texColor.a);
-}
 
 
 
@@ -417,14 +465,6 @@ float4 PS(PS_INPUT input) : SV_Target{
 
     float4 texColor = objTexture.Sample(samplerLinear, input.texCoord);
 
-
-
-    if (matType == MATERIAL_DEFAULT)
-    {
-        clip(texColor.a - 0.001f);
-    }
-    
-
     // 1. Lighting vectors
     float3 N = normalize(input.normal);
     float3 L = normalize(-lightDirection); // Now uses static const
@@ -432,6 +472,29 @@ float4 PS(PS_INPUT input) : SV_Target{
     float3 H = normalize(L + V);
     float3 I = normalize(input.worldPos - cameraPosition.xyz);
     float3 R = reflect(I, N);
+
+
+    float headlight = HeadlightMask(input.worldPos);
+    float brakeSpill = BrakeLightMask(input.worldPos);
+    float lampLight = LampLightMask(input.worldPos);
+
+    float3 localLighting = 0.0f;
+
+    localLighting +=
+        float3(1.0f, 0.92f, 0.72f) *
+        headlight *
+        0.5f *
+        headlightIntensity;
+
+    localLighting +=
+        float3(1.0f, 0.05f, 0.02f) *
+        brakeSpill *
+        0.5f;
+
+    localLighting +=
+        float3(1.0f, 0.82f, 0.45f) *
+        lampLight *
+        0.8f;
 
     if (matType == MATERIAL_BRAKE_LIGHT)
         return ShadeBrakeLight(texColor);
@@ -455,7 +518,7 @@ float4 PS(PS_INPUT input) : SV_Target{
         return ShadeAsphalt(texColor, N, L, input.worldPos,ambientIntensity, headlightIntensity);
 
     if (matType == MATERIAL_LIVERY)
-        return ShadeCarLivery(texColor, N, L, V, H, R);
+        return ShadeCarLivery(texColor, N, L, V, H, R, localLighting);
 
     if (matType == MATERIAL_ALCANTARA)
         return ShadeAlcantara(texColor, N, L);    
@@ -469,68 +532,85 @@ float4 PS(PS_INPUT input) : SV_Target{
 
     if (matType == MATERIAL_TREE)
     {
-        clip(texColor.a - 0.3f);
+        clip(texColor.a - 0.01f);
     }
 
     if (matType == MATERIAL_LAMP)
         return ShadeLampGlow(texColor, input.texCoord);
 
+    float ndotl = saturate(dot(N, L));
 
-    if (length(material.diffuseColor) < 0.01f)
+    // Materials without a valid diffuse color use the texture directly.
+    float3 baseColor = texColor.rgb;
+
+    if (length(material.diffuseColor) >= 0.01f)
     {
-        float diffuseInt = saturate(dot(N, L)) * 0.7f + 0.5f;
-        return float4(texColor.rgb * diffuseInt * lightColor, 1.0f);
+        baseColor *= material.diffuseColor;
     }
 
-    // 2. TIGHTENED FRESNEL
-    float fresnel = pow(1.0 - saturate(dot(N, V)), 64.0);
+    // Global timecycle lighting.
+    float3 ambient = baseColor * ambientIntensity;
+    float3 diffuse = baseColor * lightColor.rgb * ndotl * 0.9f;
 
-    // Fake Sky Reflection
-    float skyFactor = saturate(R.y * 0.5 + 0.5);
-    float3 mirrorColor = lerp(float3(0.05, 0.05, 0.1), float3(0.8, 0.9, 1.0), skyFactor);
-    float3 finalMirror = mirrorColor * material.specularColor * fresnel * 1.0f;
-
-    // 3. DIFFUSE
-    float diffuseIntensity = saturate(dot(N, L)) * 0.9 + 0.1;
-    float3 safeDiffuseColor = material.diffuseColor;
-    float3 diffuse = diffuseIntensity * safeDiffuseColor;
-
-    // 4. DUAL-COAT SPECULAR GLINT
-    float specClearCoat = pow(saturate(dot(N, H)), 512.0f);
-    float specFlakes = pow(saturate(dot(N, H)), 51.2f);
-    float3 reflection = material.specularColor * ((specClearCoat * 2.5f) + (specFlakes * 0.3f));
-
-    // AMBIENT
-    float3 safeAmbient = max(material.ambientColor, float3(0.4f, 0.4f, 0.4f));
-    float3 ambient = safeAmbient * 0.3f;
-    float3 finalColor;
-
-    // Combine everything
-    if (material.d < 0.9f) {
-        finalColor = (ambient + reflection) * lightColor + (finalMirror * 2.0f);
-    }
-    else
+    // Materials with no specular response stay purely diffuse.
+    if (material.specularPower == 0.0f)
     {
-        // 1. Oblicz jasnosc swiatla (0.0 do 1.0+)
-        float3 totalLight = (diffuse + reflection + ambient) * lightColor;
-
-        // 2. Wblenduj teksture zamiast mnozyc wszystko przez safeDiffuseColor
-        // Uzywamy lerp, zeby polaczyc teksture z oswietleniem, zachowujac jej oryginalny odcien
-        float3 litTexture = texColor.rgb * totalLight;
-
-        // finalColor = (to co daje tekstura) + (lustrzane blaski)
-        finalColor = litTexture + finalMirror;
+        float3 finalColor = ambient + diffuse;
+        return float4(finalColor, 1.0f);
     }
 
-        if (material.specularPower == 0.0f)
-        {
-            float diffuseInt = abs(dot(N, L)) * 0.7 + 0.6;
-            float3 baseLight = lightColor * diffuseInt;
-            float3 boostedTex = pow(texColor.rgb, 0.85f);
-            return float4(boostedTex * baseLight, 1.0f);
-        }
+    // Fresnel.
+    float fresnel = pow(
+        1.0f - saturate(dot(N, V)),
+        64.0f
+    );
 
-   return float4(finalColor, 1.0f);
+    // Fake sky reflection.
+    float skyFactor = saturate(R.y * 0.5f + 0.5f);
+
+    float3 mirrorColor = lerp(
+        float3(0.05f, 0.05f, 0.10f),
+        float3(0.80f, 0.90f, 1.00f),
+        skyFactor
+    );
+
+    float3 finalMirror =
+        mirrorColor *
+        material.specularColor *
+        fresnel;
+
+    // Dual-coat specular.
+    float specClearCoat =
+        pow(saturate(dot(N, H)), 512.0f) * 2.5f;
+
+    float specFlakes =
+        pow(saturate(dot(N, H)), 51.2f) * 0.3f;
+
+    float3 reflection =
+        material.specularColor *
+        (specClearCoat + specFlakes) *
+        lightColor.rgb;
+
+    // Transparent fallback.
+    if (material.d < 0.9f)
+    {
+        float3 finalColor =
+            ambient +
+            reflection +
+            finalMirror * 2.0f;
+
+        return float4(finalColor, material.d);
+    }
+
+    // Opaque fallback.
+    float3 finalColor =
+        ambient +
+        diffuse +
+        reflection +
+        finalMirror +
+        localLighting;
+
+    return float4(finalColor, 1.0f);
 }
 
 PS_INPUT mainVS(VS_INPUT input) { return VS(input); }

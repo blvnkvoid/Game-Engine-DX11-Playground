@@ -33,6 +33,7 @@ VehicleDefinition Furai::CreateDefinition()
     car.engine.redlineRPM = 9000.0f;
     car.engine.limiterRPM = 9200.0f;
     car.engine.maxTorque = 420.0f;
+    //car.engine.maxTorque = 1420.0f;
     car.engineBrakeTorque = 90.0f;
 
     car.engine.torqueCurveCount = 6;
@@ -50,6 +51,7 @@ VehicleDefinition Furai::CreateDefinition()
     car.rearTorqueDistribution = 1.0f;
 
     car.gearbox.finalDrive = 4.30f;
+    //car.gearbox.finalDrive = 2.30f;
     car.gearbox.gearCount = 8;
 
     car.gearbox.gearRatios[0] = -3.30f;

@@ -33,6 +33,8 @@ struct MaterialData
     std::string diffuseTextureName;
 };
 
+
+
 struct SharedSceneData
 {
     DirectX::XMMATRIX world;
@@ -60,6 +62,24 @@ struct SharedSceneData
 };
 
 static_assert(sizeof(SharedSceneData) % 16 == 0, "DANGER!");
+
+struct LampData
+{
+    DirectX::XMFLOAT3 lampPosition;
+    float lampRadius;
+};
+
+static_assert(sizeof(LampData) % 16 == 0, "DANGER!");
+
+
+struct LampInfo
+{
+    int lampCount;
+    DirectX::XMFLOAT3 lampInfoPadding;
+
+};
+
+static_assert(sizeof(LampInfo) % 16 == 0, "DANGER!");
 
 
 

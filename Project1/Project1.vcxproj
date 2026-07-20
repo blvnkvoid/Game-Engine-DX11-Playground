@@ -198,7 +198,10 @@
     <ClCompile Include="Physics\VehicleTelemetry.cpp" />
     <ClCompile Include="Scene\Camera.cpp" />
     <ClCompile Include="Scene\GameObject.cpp" />
+    <ClCompile Include="Sky\SkyEngine.cpp" />
+    <ClCompile Include="Sky\Sun.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Tracks\TrackSettings.cpp" />
     <ClCompile Include="Tracks\TrackTable.cpp" />
     <ClCompile Include="UI\CarSetupMenu.cpp" />
     <ClCompile Include="UI\EventMenu.cpp" />
@@ -270,6 +273,9 @@
     <ClInclude Include="Scene\Scene.h" />
     <ClInclude Include="SharedTypes.h" />
     <ClInclude Include="SharedVehicleTypes.h" />
+    <ClInclude Include="Sky\SkyEngine.h" />
+    <ClInclude Include="Sky\Sun.h" />
+    <ClInclude Include="Tracks\TrackSettings.h" />
     <ClInclude Include="Tracks\TrackTable.h" />
     <ClInclude Include="UI\CarSetupMenu.h" />
     <ClInclude Include="UI\EventMenu.h" />
@@ -288,6 +294,7 @@
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shaders.hlsl" />
+    <FxCompile Include="Sun.hlsl" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Setup Template.txt" />

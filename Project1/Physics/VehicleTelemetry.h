@@ -2,6 +2,8 @@
 #include "../SharedTypes.h"
 #include "../Imgui/imgui.h"
 #include <deque>
+#include "../Graphics/MapLoader.h"
+#include "../Scene/Camera.h"
 
 class VehicleTelemetry {
 public:
@@ -9,7 +11,9 @@ public:
     void SetFont(ImFont* font) { m_font = font; }
 
     // This handles the entire Debug UI logic
-    void Draw(bool* p_open, class Camera* cam, class Model* playerModel);
+    void Draw(bool* p_open, class Camera* cam, class Model* playerModel, class MapLoader* map);
+
+
 
 private:
     struct TelemetryAverage {
@@ -29,6 +33,8 @@ private:
         }
     };
 
+
+
     TelemetryAverage m_slipRatioAvg[4];
     TelemetryAverage m_wheelLoadAvg[4];
     TelemetryAverage m_wheelLoadSmoothed[4];
@@ -41,7 +47,6 @@ private:
     TelemetryAverage m_diffLockTorque[4];
     TelemetryAverage m_driveTorqueLeft;
     TelemetryAverage m_driveTorqueRight;
-
 
 
     float m_displaySlipRatio[4] = {};

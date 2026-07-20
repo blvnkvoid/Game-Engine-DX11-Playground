@@ -50,29 +50,34 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     descDepth.Usage = D3D11_USAGE_DEFAULT;
     descDepth.BindFlags = D3D11_BIND_DEPTH_STENCIL;
 
-    D3D11_RASTERIZER_DESC solidCullNoneDesc = {};
-    solidCullNoneDesc.FillMode = D3D11_FILL_SOLID;
-    solidCullNoneDesc.CullMode = D3D11_CULL_NONE;
-    solidCullNoneDesc.AntialiasedLineEnable = true;
-    solidCullNoneDesc.MultisampleEnable = true;
-    solidCullNoneDesc.FrontCounterClockwise = false;
+    D3D11_RASTERIZER_DESC rasterSolidCullBack = {};
+    rasterSolidCullBack.FillMode = D3D11_FILL_SOLID; // Or D3D11_FILL_WIREFRAME for a cool matrix look!
+    rasterSolidCullBack.CullMode = D3D11_CULL_BACK;  // <--- THE CULL KILLER
+    rasterSolidCullBack.AntialiasedLineEnable = true;
+    rasterSolidCullBack.MultisampleEnable = true;
+    rasterSolidCullBack.FrontCounterClockwise = true;
 
-    D3D11_RASTERIZER_DESC solidCullBackDesc = solidCullNoneDesc;
-    solidCullBackDesc.CullMode = D3D11_CULL_BACK;
-    solidCullBackDesc.FrontCounterClockwise = true;
 
-    D3D11_RASTERIZER_DESC wireCullNoneDesc = solidCullNoneDesc;
-    wireCullNoneDesc.FillMode = D3D11_FILL_WIREFRAME;
+    D3D11_RASTERIZER_DESC rasterWireframeCullBack = {};
+    rasterWireframeCullBack.FillMode = D3D11_FILL_WIREFRAME; // Or D3D11_FILL_WIREFRAME for a cool matrix look!
+    rasterWireframeCullBack.CullMode = D3D11_CULL_BACK;  // <--- THE CULL KIL6LER
+    rasterWireframeCullBack.AntialiasedLineEnable = true;
+    rasterWireframeCullBack.MultisampleEnable = true;
+    rasterWireframeCullBack.FrontCounterClockwise = true;
 
-    D3D11_RASTERIZER_DESC wireCullBackDesc = solidCullBackDesc;
-    wireCullBackDesc.FillMode = D3D11_FILL_WIREFRAME;
 
     D3D11_BUFFER_DESC bd = {};
     D3D11_SUBRESOURCE_DATA init = {};
     bd.Usage = D3D11_USAGE_DYNAMIC;
     bd.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;    // Specifically allows Map()
     bd.ByteWidth = sizeof(SharedSceneData);
-    bd.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
+    bd.BindFlags = D3D11_BIND_CONSTANT_BUFFER;    
+    
+    D3D11_BUFFER_DESC lbd = {};
+    lbd.Usage = D3D11_USAGE_DYNAMIC;
+    lbd.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;    // Specifically allows Map()
+    lbd.ByteWidth = sizeof(LampInfo);
+    lbd.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
 
 
     D3D11_BUFFER_DESC matDesc = {};
@@ -125,11 +130,28 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     depthOff.DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ZERO; // key part
     depthOff.DepthFunc = D3D11_COMPARISON_LESS_EQUAL;
 
+    constexpr UINT MAX_LAMPS = 1200;
+
+    D3D11_BUFFER_DESC bufferDesc{};
+    bufferDesc.ByteWidth = sizeof(LampData) * MAX_LAMPS;
+    bufferDesc.Usage = D3D11_USAGE_DYNAMIC;
+    bufferDesc.BindFlags = D3D11_BIND_SHADER_RESOURCE;
+    bufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+    bufferDesc.MiscFlags = D3D11_RESOURCE_MISC_BUFFER_STRUCTURED;
+    bufferDesc.StructureByteStride = sizeof(LampData);
+
+    D3D11_SHADER_RESOURCE_VIEW_DESC srvDesc{};
+    srvDesc.Format = DXGI_FORMAT_UNKNOWN;
+    srvDesc.ViewDimension = D3D11_SRV_DIMENSION_BUFFER;
+    srvDesc.Buffer.FirstElement = 0;
+    srvDesc.Buffer.NumElements = MAX_LAMPS;
+
+
+
 
     hr = D3D11CreateDeviceAndSwapChain(nullptr, D3D_DRIVER_TYPE_HARDWARE, nullptr, 0, featureLevels, 2,
         D3D11_SDK_VERSION, &sd, &swapChain, &device, nullptr, &context);
     if (FAILED(hr)) return false;
-
     hr = D3DCompileFromFile(L"Shaders.hlsl", nullptr, nullptr, "main", "vs_5_0", 0, 0, &vsBlob, nullptr);
     if (FAILED(hr)) return false;
     hr = D3DCompileFromFile(L"Shaders.hlsl", nullptr, nullptr, "PS", "ps_5_0", 0, 0, &psBlob, nullptr);
@@ -148,15 +170,15 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     if (FAILED(hr)) return false;
     hr = device->CreatePixelShader(psBlob->GetBufferPointer(), psBlob->GetBufferSize(), nullptr, &pixelShader);
     if (FAILED(hr)) return false;
-    hr = device->CreateBuffer(&bd, nullptr, &constantBuffer);
+    hr = device->CreateBuffer(&bd, nullptr, &constantBuffer);    
     if (FAILED(hr)) return false;
-    hr = device->CreateRasterizerState(&solidCullNoneDesc, m_solidCullNone.GetAddressOf());
+    hr = device->CreateBuffer(&lbd, nullptr, &lampConstantBuffer);    
     if (FAILED(hr)) return false;
-    hr = device->CreateRasterizerState(&solidCullBackDesc, &m_solidCullBack);
+    hr = device->CreateBuffer(&bufferDesc, nullptr, &m_lampStructuredBuffer);
     if (FAILED(hr)) return false;
-    hr = device->CreateRasterizerState(&wireCullNoneDesc, &m_wireCullNone);
+    hr = device->CreateRasterizerState(&rasterSolidCullBack, &rasterState);
     if (FAILED(hr)) return false;
-    hr = device->CreateRasterizerState(&wireCullBackDesc, &m_wireCullBack);
+    hr = device->CreateRasterizerState(&rasterWireframeCullBack, &rasterStateWireframe);
     if (FAILED(hr)) return false;
     hr = device->CreateSamplerState(&sampDesc, &m_samplerLinear);
     if (FAILED(hr)) return false;
@@ -167,6 +189,8 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     hr = device->CreateDepthStencilState(&depthOff, m_depthWriteOffState.GetAddressOf());
     if (FAILED(hr)) return false;
     hr = device->CreateDepthStencilState(&depthOn, m_depthWriteOnState.GetAddressOf());
+    if (FAILED(hr)) return false;   
+    hr = device->CreateShaderResourceView(m_lampStructuredBuffer.Get(), &srvDesc, m_lampSRV.GetAddressOf());
     if (FAILED(hr)) return false;
 
     IMGUI_CHECKVERSION();
@@ -224,9 +248,6 @@ void GraphicsEngine::ConfigureUIScale(float width, float height)
     OutputDebugStringA(
         ("FramePadding.y = " + std::to_string(style.FramePadding.y) + "\n").c_str());
 
-
-
-
     io.Fonts->Build();
 }
 
@@ -238,8 +259,8 @@ SharedSceneData GraphicsEngine::BuildSceneData(Camera* cam, GameObject* player, 
     sd.view = XMMatrixTranspose(cam->GetViewMatrix());
     sd.projection = XMMatrixTranspose(cam->GetProjectionMatrix());
 
-    sd.lightDirection = m_lightDir;
-    sd.lightColor = m_lightColor;
+    sd.lightDirection = m_sceneData.lightDirection;
+    sd.lightColor = m_sceneData.lightColor;
 
     sd.ambientIntensity = m_sceneData.ambientIntensity;
     sd.headlightIntensity = m_sceneData.headlightIntensity;
@@ -280,7 +301,6 @@ SharedSceneData GraphicsEngine::BuildSceneData(Camera* cam, GameObject* player, 
 
 void GraphicsEngine::ApplyEnvironmentDefinition(const EnvironmentDefinition& def)
 {
-
     OutputDebugStringA(("Applying time: " + std::to_string(def.startTime) + "\n").c_str());
     m_time.SetTime(def.startTime);
     m_time.SetTimeScale(def.timeScale);
@@ -289,31 +309,22 @@ void GraphicsEngine::ApplyEnvironmentDefinition(const EnvironmentDefinition& def
     m_time.PauseTime(!def.dynamicTime);
 }
 
-void GraphicsEngine::BeginFrame(HWND hWnd, DirectX::XMMATRIX view, DirectX::XMMATRIX projection, float deltaTime)
+void GraphicsEngine::BeginFrame(HWND hWnd, DirectX::XMMATRIX view, DirectX::XMMATRIX projection, float deltaTime, Camera* cam)
 {
     bool gIsDown = GetAsyncKeyState('G') & 0x8000;
-    bool hIsDown = GetAsyncKeyState('H') & 0x8000;
 
-    if (gIsDown && !m_gWasPressed)
-    {
-        m_isCullBack = !m_isCullBack;
+    if (gIsDown && !m_gWasPressed) {
+        m_isWireframe = !m_isWireframe; // Flip the switch
     }
-    m_gWasPressed = gIsDown;
 
-    if (hIsDown && !m_hWasPressed)
-    {
-        m_isWireframe = !m_isWireframe;
-    }
-    m_hWasPressed = hIsDown;
-
-
-
+    float envTime = std::fmod(m_time.GetTime(), m_timeCycle.GetCycleLength());
+    if (envTime < 0.0f)
+        envTime += m_timeCycle.GetCycleLength();
     m_time.Update(deltaTime);
-
-   
-
+    m_timeCycle.Update(envTime, env);
+    m_timeCycle.UpdateSun(m_time,cam, m_sun);
+    m_gWasPressed = GetAsyncKeyState('G') & 0x8000;
     m_sceneData.time = m_time.GetShaderTime();
-
     m_sceneData.view = XMMatrixTranspose(view);
     m_sceneData.projection = XMMatrixTranspose(projection);
     m_sceneData.lightDirection = env.lightDirection;
@@ -321,23 +332,20 @@ void GraphicsEngine::BeginFrame(HWND hWnd, DirectX::XMMATRIX view, DirectX::XMMA
     m_sceneData.ambientIntensity = env.ambientIntensity;
     m_sceneData.headlightIntensity = env.headlightIntensity;    
 
-
-    float envTime = std::fmod(m_time.GetTime(), m_timeCycle.GetCycleLength());
-
-    if (envTime < 0.0f)
-        envTime += m_timeCycle.GetCycleLength();
-
-    m_timeCycle.Update(envTime, env);
-
     float blendFactor[4] = { 0, 0, 0, 0 };
-
     context->ClearRenderTargetView(renderTargetView.Get(), env.clearColor);
     context->ClearDepthStencilView(depthStencilView.Get(), D3D11_CLEAR_DEPTH, 1.0f, 0);
     context->OMSetRenderTargets(1, renderTargetView.GetAddressOf(), depthStencilView.Get());
-    context->RSSetState(
-        m_isWireframe
-        ? (m_isCullBack ? m_wireCullBack.Get() : m_wireCullNone.Get())
-        : (m_isCullBack ? m_solidCullBack.Get() : m_solidCullNone.Get()));
+
+
+    if (m_isWireframe) {
+        context->RSSetState(rasterStateWireframe.Get());
+    }
+    else {
+        context->RSSetState(rasterState.Get());
+    }
+
+
     context->OMSetBlendState(
         nullptr,
         nullptr,
@@ -389,6 +397,9 @@ void GraphicsEngine::RenderObject(GameObject* obj, Camera* cam)
     XMMATRIX view = cam->GetViewMatrix();
     XMMATRIX projection = cam->GetProjectionMatrix();
 
+
+
+
     model->BindAndDraw(
         context.Get(),
         sizeof(SharedVertex),
@@ -400,7 +411,8 @@ void GraphicsEngine::RenderObject(GameObject* obj, Camera* cam)
         m_depthWriteOnState.Get(),
         m_depthWriteOffState.Get(),
         m_alphaBlendState.Get(),
-        m_sceneData.time
+        m_sceneData.time,
+        m_sceneData
     );
 }
 
@@ -440,10 +452,8 @@ GraphicsEngine::~GraphicsEngine()
     psBlobTor.Reset();
 
     // States
-    m_solidCullNone.Reset();
-    m_solidCullBack.Reset();
-    m_wireCullNone.Reset();
-    m_wireCullBack.Reset();
+    rasterState.Reset();
+    rasterStateWireframe.Reset();
     m_samplerLinear.Reset();
     m_alphaBlendState.Reset();
 

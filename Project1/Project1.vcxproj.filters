@@ -49,6 +49,9 @@
     <Filter Include="Source Files\Events">
       <UniqueIdentifier>{688cb2e6-ee9c-4a28-93b6-fae5c4a02c88}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Sky">
+      <UniqueIdentifier>{3cf58a9b-ffbb-426f-97bd-ff1d72f7aa58}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -227,6 +230,15 @@
     </ClCompile>
     <ClCompile Include="UI\UIContext.cpp">
       <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Tracks\TrackSettings.cpp">
+      <Filter>Source Files\Tracks</Filter>
+    </ClCompile>
+    <ClCompile Include="Sky\SkyEngine.cpp">
+      <Filter>Source Files\Sky</Filter>
+    </ClCompile>
+    <ClCompile Include="Sky\Sun.cpp">
+      <Filter>Source Files\Sky</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -440,12 +452,24 @@
     <ClInclude Include="UI\UIContext.h">
       <Filter>Source Files\UI</Filter>
     </ClInclude>
+    <ClInclude Include="Tracks\TrackSettings.h">
+      <Filter>Source Files\Tracks</Filter>
+    </ClInclude>
+    <ClInclude Include="Sky\Sun.h">
+      <Filter>Source Files\Sky</Filter>
+    </ClInclude>
+    <ClInclude Include="Sky\SkyEngine.h">
+      <Filter>Source Files\Sky</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shaders.hlsl">
+      <Filter>Source Files</Filter>
+    </FxCompile>
+    <FxCompile Include="Sun.hlsl">
       <Filter>Source Files</Filter>
     </FxCompile>
   </ItemGroup>

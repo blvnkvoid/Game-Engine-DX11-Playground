@@ -1,7 +1,10 @@
 #pragma once
 #include "../SharedTypes.h"
 #include "../Environment/Time.h"
+#include <DirectXMath.h>
 
+class Sun;
+class Camera;
 
 struct EnvironmentState
 {
@@ -10,15 +13,18 @@ struct EnvironmentState
     DirectX::XMFLOAT4 lightDirection;
     DirectX::XMFLOAT4 lightColor;
 
-    float ambientIntensity = 0.0f;
-    
+    float ambientIntensity = 0.0f;    
     float headlightIntensity = 1.0f;
+    float sunSize = 250.0f;
+    float sunIntensity = 1.0f;
 };
 
 class TimeCycle
 {
 public:
     void Update(float time, EnvironmentState& state) const;
+
+    
 
 
 
@@ -68,7 +74,11 @@ public:
     }
 
 
-
+   void UpdateSun(
+        const Time& time,
+        Camera* cam,
+        Sun& sun);
+    
 private:
     float m_sunrise = 0.0f;
     float m_noon = 60.0f;
