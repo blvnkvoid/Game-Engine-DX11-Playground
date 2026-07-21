@@ -85,6 +85,17 @@ public:
         return m_sun;
     }
 
+    ID3D11ShaderResourceView* GetDepthShaderResourceView() const
+    {
+        return m_depthStencilSRV.Get();
+    }
+
+    ID3D11RenderTargetView* GetRenderTargetView() const
+    {
+        return renderTargetView.Get();
+    }
+
+
 private:
     Sun m_sun;
 
@@ -96,7 +107,6 @@ private:
     Microsoft::WRL::ComPtr<ID3D11DeviceContext> context;
     Microsoft::WRL::ComPtr<IDXGISwapChain> swapChain;
     Microsoft::WRL::ComPtr<ID3D11RenderTargetView> renderTargetView;
-    Microsoft::WRL::ComPtr<ID3D11DepthStencilView> depthStencilView;
     Microsoft::WRL::ComPtr<ID3D11Texture2D> pBackBuffer;
     Microsoft::WRL::ComPtr<ID3D11VertexShader> vertexShader;
     Microsoft::WRL::ComPtr<ID3D11PixelShader> pixelShader;
@@ -108,7 +118,9 @@ private:
     Microsoft::WRL::ComPtr<ID3D11Buffer> m_lampStructuredBuffer;
     Microsoft::WRL::ComPtr<ID3D11RasterizerState> rasterState;
     Microsoft::WRL::ComPtr<ID3D11RasterizerState> rasterStateWireframe;
-    Microsoft::WRL::ComPtr<ID3D11Texture2D> pDepthStencil;
+    Microsoft::WRL::ComPtr<ID3D11Texture2D> pDepthStencil;    
+    Microsoft::WRL::ComPtr<ID3D11DepthStencilView> depthStencilView;
+    Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_depthStencilSRV;
     Microsoft::WRL::ComPtr<ID3DBlob> vsBlob;
     Microsoft::WRL::ComPtr<ID3DBlob> psBlob;
     Microsoft::WRL::ComPtr<ID3DBlob> psBlobTor;

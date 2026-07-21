@@ -1,4 +1,7 @@
 #include "SkyEngine.h"
+#include <WICTextureLoader.h>
+#include <DDSTextureLoader.h>
+#include <filesystem>
 #include <d3dcompiler.h>
 bool SkyEngine::Initialize(ID3D11Device* device)
 {
@@ -185,6 +188,132 @@ bool SkyEngine::Initialize(ID3D11Device* device)
 
     if (FAILED(hr))
         return false;
+
+
+    //=====================================================
+// Cloud Vertex Shader
+//=====================================================
+
+    Microsoft::WRL::ComPtr<ID3DBlob> cloudVSBlob;
+
+    hr = (D3DCompileFromFile(
+        L"Clouds.hlsl",
+        nullptr,
+        D3D_COMPILE_STANDARD_FILE_INCLUDE,
+        "main",
+        "vs_5_0",
+        D3DCOMPILE_ENABLE_STRICTNESS,
+        0,
+        cloudVSBlob.GetAddressOf(),
+        nullptr));
+
+   hr = (device->CreateVertexShader(
+        cloudVSBlob->GetBufferPointer(),
+        cloudVSBlob->GetBufferSize(),
+        nullptr,
+        m_cloudVertexShader.GetAddressOf()));
+
+   hr = (device->CreateInputLayout(
+        layout,
+        ARRAYSIZE(layout),
+        cloudVSBlob->GetBufferPointer(),
+        cloudVSBlob->GetBufferSize(),
+        m_cloudInputLayout.GetAddressOf()));
+
+
+    //=====================================================
+    // Cloud Pixel Shader
+    //=====================================================
+
+    Microsoft::WRL::ComPtr<ID3DBlob> cloudPSBlob;
+
+    hr = (D3DCompileFromFile(
+        L"Clouds.hlsl",
+        nullptr,
+        D3D_COMPILE_STANDARD_FILE_INCLUDE,
+        "PSMain",
+        "ps_5_0",
+        D3DCOMPILE_ENABLE_STRICTNESS,
+        0,
+        cloudPSBlob.GetAddressOf(),
+        nullptr));
+
+    hr = (device->CreatePixelShader(
+        cloudPSBlob->GetBufferPointer(),
+        cloudPSBlob->GetBufferSize(),
+        nullptr,
+        m_cloudPixelShader.GetAddressOf()));
+
+    //====================================================
+    // Cloud Constant Buffer
+    //====================================================
+
+    D3D11_BUFFER_DESC cloudCBDesc = {};
+    cloudCBDesc.Usage = D3D11_USAGE_DYNAMIC;
+    cloudCBDesc.ByteWidth = sizeof(CloudConstants);
+    cloudCBDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
+    cloudCBDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+
+
+    hr = device->CreateBuffer(
+        &cloudCBDesc,
+        nullptr,
+        m_cloudConstantBuffer.GetAddressOf());
+
+    if (FAILED(hr))
+    {
+        return false;
+    }
+
+    OutputDebugStringA("Working directory:\n");
+    OutputDebugStringA(std::filesystem::current_path().string().c_str());
+    OutputDebugStringA("\n");
+
+
+    hr = CreateWICTextureFromFile(
+        device,
+        L"Assets\\Sky\\CloudNoise.png",
+        nullptr,
+        m_cloudNoiseSRV.GetAddressOf());
+
+    if (FAILED(hr))
+    {
+        return false;
+    }
+
+
+    hr = CreateWICTextureFromFile(
+        device,
+        L"Assets\\Sky\\CloudDetailNoise.png",
+        nullptr,
+        m_cloudDetailNoiseSRV.GetAddressOf());
+
+    if (FAILED(hr))
+    {
+        return false;
+    }
+
+
+    D3D11_SAMPLER_DESC samplerDesc = {};
+
+    samplerDesc.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
+
+    samplerDesc.AddressU = D3D11_TEXTURE_ADDRESS_MIRROR;
+    samplerDesc.AddressV = D3D11_TEXTURE_ADDRESS_MIRROR;
+    samplerDesc.AddressW = D3D11_TEXTURE_ADDRESS_WRAP;
+    samplerDesc.MaxLOD = D3D11_FLOAT32_MAX;
+
+    hr = device->CreateSamplerState(
+        &samplerDesc,
+        m_cloudSampler.GetAddressOf());
+
+    if (FAILED(hr))
+    {
+        return false;
+    }
+
+
+
 
     return true;
 }

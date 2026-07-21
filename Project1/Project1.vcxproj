@@ -198,6 +198,7 @@
     <ClCompile Include="Physics\VehicleTelemetry.cpp" />
     <ClCompile Include="Scene\Camera.cpp" />
     <ClCompile Include="Scene\GameObject.cpp" />
+    <ClCompile Include="Sky\Clouds.cpp" />
     <ClCompile Include="Sky\SkyEngine.cpp" />
     <ClCompile Include="Sky\Sun.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -273,6 +274,7 @@
     <ClInclude Include="Scene\Scene.h" />
     <ClInclude Include="SharedTypes.h" />
     <ClInclude Include="SharedVehicleTypes.h" />
+    <ClInclude Include="Sky\Clouds.h" />
     <ClInclude Include="Sky\SkyEngine.h" />
     <ClInclude Include="Sky\Sun.h" />
     <ClInclude Include="Tracks\TrackSettings.h" />
@@ -293,6 +295,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <FxCompile Include="Clouds.hlsl" />
     <FxCompile Include="Shaders.hlsl" />
     <FxCompile Include="Sun.hlsl" />
   </ItemGroup>

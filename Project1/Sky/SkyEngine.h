@@ -34,8 +34,29 @@ public:
         float texCoord[2];
     };
 
+    struct CloudConstants
+    {
+        DirectX::XMFLOAT2 windDirection = { 1.0f, 0.0f };
 
-    ID3D11Buffer* GetBillboardVertexBuffer() 
+        float time = 0.0f;
+        float speed = 0.02f;
+
+        float coverage = 0.5f;
+        float density = 0.7f;
+
+        float scale = 1.0f;
+        float brightness = 1.0f;
+
+        float nearPlane = 1.0f;
+        float farPlane = 1.0f;
+
+        DirectX::XMFLOAT2 padding = { 0.0f, 0.0f };
+    };
+
+    static_assert(sizeof(CloudConstants) % 16 == 0);
+
+
+    ID3D11Buffer* GetBillboardVertexBuffer() const
     {
         return m_BillboardVertexBuffer.Get();
     }
@@ -75,13 +96,45 @@ public:
         return m_RasterizerState.Get();
     }
 
+    ID3D11Buffer* GetCloudConstantBuffer()
+    {
+        return m_cloudConstantBuffer.Get();
+    }
 
+    ID3D11ShaderResourceView* GetCloudNoiseSRV() const
+    {
+        return m_cloudNoiseSRV.Get();
+    }
+
+    ID3D11ShaderResourceView* GetCloudDetailNoiseSRV() const
+    {
+        return m_cloudDetailNoiseSRV.Get();
+    }
+
+    ID3D11SamplerState* GetCloudSampler() const
+    {
+        return m_cloudSampler.Get();
+    }
+
+    ID3D11VertexShader* GetCloudVertexShader() const
+    {
+        return m_cloudVertexShader.Get();
+    }
+
+    ID3D11PixelShader* GetCloudPixelShader() const
+    {
+        return m_cloudPixelShader.Get();
+    }
+
+    ID3D11InputLayout* GetCloudInputLayout() const
+    {
+        return m_cloudInputLayout.Get();
+    }
+        
+
+            
 
 private:
-
-    //=========================================================
-    // Resources
-    //=========================================================
 
     Microsoft::WRL::ComPtr<ID3D11Buffer>       m_BillboardVertexBuffer;
 
@@ -90,13 +143,22 @@ private:
 
     Microsoft::WRL::ComPtr<ID3D11InputLayout>  m_SunInputLayout;
 
-    //=========================================================
-    // Render States
-    //=========================================================
-
     Microsoft::WRL::ComPtr<ID3D11BlendState>        m_AdditiveBlendState;
     Microsoft::WRL::ComPtr<ID3D11DepthStencilState> m_DepthState;
     Microsoft::WRL::ComPtr<ID3D11RasterizerState>   m_RasterizerState;
 
     Microsoft::WRL::ComPtr<ID3D11Buffer> m_SunConstantBuffer;
+
+
+    Microsoft::WRL::ComPtr<ID3D11Buffer>             m_cloudConstantBuffer;
+
+    Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_cloudNoiseSRV;
+    Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_cloudDetailNoiseSRV;
+
+    Microsoft::WRL::ComPtr<ID3D11SamplerState>       m_cloudSampler;
+
+
+    Microsoft::WRL::ComPtr<ID3D11VertexShader> m_cloudVertexShader;
+    Microsoft::WRL::ComPtr<ID3D11PixelShader>  m_cloudPixelShader;
+    Microsoft::WRL::ComPtr<ID3D11InputLayout>  m_cloudInputLayout;
 };

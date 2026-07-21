@@ -240,6 +240,9 @@
     <ClCompile Include="Sky\Sun.cpp">
       <Filter>Source Files\Sky</Filter>
     </ClCompile>
+    <ClCompile Include="Sky\Clouds.cpp">
+      <Filter>Source Files\Sky</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SharedTypes.h">
@@ -461,6 +464,9 @@
     <ClInclude Include="Sky\SkyEngine.h">
       <Filter>Source Files\Sky</Filter>
     </ClInclude>
+    <ClInclude Include="Sky\Clouds.h">
+      <Filter>Source Files\Sky</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -470,6 +476,9 @@
       <Filter>Source Files</Filter>
     </FxCompile>
     <FxCompile Include="Sun.hlsl">
+      <Filter>Source Files</Filter>
+    </FxCompile>
+    <FxCompile Include="Clouds.hlsl">
       <Filter>Source Files</Filter>
     </FxCompile>
   </ItemGroup>

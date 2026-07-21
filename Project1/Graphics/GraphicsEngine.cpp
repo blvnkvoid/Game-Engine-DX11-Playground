@@ -45,10 +45,12 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     descDepth.Height = height;
     descDepth.MipLevels = 1;
     descDepth.ArraySize = 1;
-    descDepth.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
+    descDepth.Format = DXGI_FORMAT_R24G8_TYPELESS;
     descDepth.SampleDesc.Count = 2;
     descDepth.Usage = D3D11_USAGE_DEFAULT;
-    descDepth.BindFlags = D3D11_BIND_DEPTH_STENCIL;
+    descDepth.BindFlags =
+        D3D11_BIND_DEPTH_STENCIL |
+        D3D11_BIND_SHADER_RESOURCE;
 
     D3D11_RASTERIZER_DESC rasterSolidCullBack = {};
     rasterSolidCullBack.FillMode = D3D11_FILL_SOLID; // Or D3D11_FILL_WIREFRAME for a cool matrix look!
@@ -146,6 +148,15 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     srvDesc.Buffer.FirstElement = 0;
     srvDesc.Buffer.NumElements = MAX_LAMPS;
 
+    D3D11_DEPTH_STENCIL_VIEW_DESC dsvDesc = {};
+    dsvDesc.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
+    dsvDesc.ViewDimension = D3D11_DSV_DIMENSION_TEXTURE2DMS;
+
+    D3D11_SHADER_RESOURCE_VIEW_DESC srvDesc2 = {};
+    srvDesc2.Format = DXGI_FORMAT_R24_UNORM_X8_TYPELESS;
+    srvDesc2.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2DMS;
+    srvDesc2.Texture2D.MostDetailedMip = 0;
+    srvDesc2.Texture2D.MipLevels = 1;
 
 
 
@@ -162,7 +173,9 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     if (FAILED(hr)) return false;
     hr = device->CreateTexture2D(&descDepth, nullptr, &pDepthStencil);
     if (FAILED(hr)) return false;
-    hr = device->CreateDepthStencilView(pDepthStencil.Get(), nullptr, &depthStencilView);
+    hr = device->CreateDepthStencilView(pDepthStencil.Get(), &dsvDesc, &depthStencilView);
+    if (FAILED(hr)) return false;     
+    hr = device->CreateShaderResourceView(pDepthStencil.Get(), &srvDesc2, &m_depthStencilSRV);
     if (FAILED(hr)) return false; 
     hr = device->CreateVertexShader(vsBlob->GetBufferPointer(), vsBlob->GetBufferSize(), nullptr, &vertexShader);
     if (FAILED(hr)) return false;
@@ -191,7 +204,7 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     hr = device->CreateDepthStencilState(&depthOn, m_depthWriteOnState.GetAddressOf());
     if (FAILED(hr)) return false;   
     hr = device->CreateShaderResourceView(m_lampStructuredBuffer.Get(), &srvDesc, m_lampSRV.GetAddressOf());
-    if (FAILED(hr)) return false;
+    if (FAILED(hr)) return false;    
 
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();

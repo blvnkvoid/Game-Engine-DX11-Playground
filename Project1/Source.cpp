@@ -57,6 +57,7 @@
 #include "UI/UIContext.h"
 #include "Sky/SkyEngine.h"
 #include "Sky/Sun.h"
+#include "Sky/Clouds.h"
 
 using namespace DirectX;
 
@@ -77,7 +78,7 @@ EventSession eventSession;
 RaceGrid raceGrid;
 Settings settings;
 SkyEngine skyEngine;
-Sun sun;
+Clouds clouds;
 
 const TrackEntry* activeTrackEntry = nullptr;
 
@@ -415,6 +416,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                 }
 
                 engine->GetSun().Render(engine->GetContext(), camera, skyEngine);
+                clouds.Render(engine->GetContext(), skyEngine, *engine, camera);
             }
                 
             
