@@ -265,10 +265,6 @@ bool SkyEngine::Initialize(ID3D11Device* device)
         return false;
     }
 
-    OutputDebugStringA("Working directory:\n");
-    OutputDebugStringA(std::filesystem::current_path().string().c_str());
-    OutputDebugStringA("\n");
-
 
     hr = CreateWICTextureFromFile(
         device,
@@ -306,6 +302,24 @@ bool SkyEngine::Initialize(ID3D11Device* device)
     hr = device->CreateSamplerState(
         &samplerDesc,
         m_cloudSampler.GetAddressOf());
+
+    if (FAILED(hr))
+    {
+        return false;
+    }
+
+    D3D11_BUFFER_DESC cloudcameraCBDesc = {};
+    cloudcameraCBDesc.Usage = D3D11_USAGE_DYNAMIC;
+    cloudcameraCBDesc.ByteWidth = sizeof(CloudCameraConstants);
+    cloudcameraCBDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
+    cloudcameraCBDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+
+
+    hr = device->CreateBuffer(
+        &cloudcameraCBDesc,
+        nullptr,
+        m_cloudcameraConstantBuffer.GetAddressOf());
+
 
     if (FAILED(hr))
     {

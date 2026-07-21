@@ -9,6 +9,7 @@
 #include "../UI/Settings.h"
 #include "../UI/UIContext.h"
 #include "../Sky/Sun.h"
+#include "../Sky/Clouds.h"
 
 class Scene; // Forward declaration (keeps the header light!)
 class Camera;
@@ -95,9 +96,15 @@ public:
         return renderTargetView.Get();
     }
 
+    Clouds GetClouds() const
+    {
+        return m_clouds;
+    }
+
 
 private:
     Sun m_sun;
+    Clouds m_clouds;
 
     SharedSceneData m_sceneData;
     SharedSceneData cb; // [cite: 2026-01-03]

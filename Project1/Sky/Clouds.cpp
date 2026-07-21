@@ -4,6 +4,7 @@
 #include "../Graphics/GraphicsEngine.h"
 
 
+
 void Clouds::Render(
     ID3D11DeviceContext* context,
     SkyEngine& skyEngine,
@@ -18,15 +19,34 @@ void Clouds::Render(
 
     SkyEngine::CloudConstants data{};
 
+    SkyEngine::CloudCameraConstants cameraData = {};
+
     data.windDirection = { 1.0f, 0.0f };
     data.time = graphicsEngine.GetTime().GetTime();
-    data.speed = 0.02f;
-    data.coverage = 0.45f;
-    data.density = 1.0f;
-    data.scale = 0.5f;
-    data.brightness = 1.0f;
+    data.speed = m_speed;
+    data.coverage = m_coverage;
+    data.density = m_density;
+    data.scale = m_scale;
+    data.brightness = m_brightness;
     data.nearPlane = camera->m_nearPlane;
     data.farPlane = camera->m_farPlane;
+    data.cloudColor = m_cloudColor;
+    data.cloudShadowColor = m_cloudshadowColor;
+
+    XMMATRIX viewProjection =
+        XMMatrixMultiply(camera->viewMatrix, camera->projectionMatrix);
+
+    XMMATRIX inverseViewProjection =
+        XMMatrixInverse(nullptr, viewProjection);
+
+    XMStoreFloat4x4(
+        &cameraData.inverseViewProjection,
+        XMMatrixTranspose(inverseViewProjection));
+
+    cameraData.cameraWorldPosition =
+        camera->position;
+
+    cameraData.cloudHeight = 500.0f;
 
     ID3D11Buffer* cloudConstantBuffer =
         skyEngine.GetCloudConstantBuffer();
@@ -39,6 +59,9 @@ void Clouds::Render(
 
     ID3D11SamplerState* cloudSampler =
         skyEngine.GetCloudSampler();
+
+    ID3D11Buffer* cloudCameraConstantBuffer =
+        skyEngine.GetCloudCameraConstantBuffer();
 
 
     context->IASetInputLayout(
@@ -131,6 +154,32 @@ void Clouds::Render(
         &billboard,
         &stride,
         &offset);
+
+
+    D3D11_MAPPED_SUBRESOURCE mappedResource = {};
+
+    hr = context->Map(
+        skyEngine.GetCloudCameraConstantBuffer(),
+        0,
+        D3D11_MAP_WRITE_DISCARD,
+        0,
+        &mappedResource);
+
+    if (FAILED(hr))
+    {
+        return;
+    }
+
+    memcpy(
+        mappedResource.pData,
+        &cameraData,
+        sizeof(SkyEngine::CloudCameraConstants));
+
+    context->Unmap(
+        skyEngine.GetCloudCameraConstantBuffer(),
+        0);
+
+    context->PSSetConstantBuffers(3, 1, &cloudCameraConstantBuffer);
 
     context->Draw(6, 0);
 }

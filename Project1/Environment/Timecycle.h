@@ -5,6 +5,7 @@
 
 class Sun;
 class Camera;
+class Clouds;
 
 struct EnvironmentState
 {
@@ -24,9 +25,57 @@ class TimeCycle
 public:
     void Update(float time, EnvironmentState& state) const;
 
-    
+    const float sunriseSky[4] = { 0.52f, 0.38f, 0.28f, 1.0f };
+    const float daySky[4] = { 0.65f, 0.75f, 1.00f, 1.0f };
+    const float sunsetSky[4] = { 0.65f, 0.42f, 0.22f, 1.0f };
+    const float nightSky[4] = { 0.02f, 0.025f, 0.04f, 1.0f };
+    const float midnightSky[4] = { 0.01f, 0.015f, 0.03f, 1.0f };
+
+    const DirectX::XMFLOAT3 sunriseCloudColor = { 1.00f, 0.88f, 0.78f };
+    const DirectX::XMFLOAT3 dayCloudColor = { 1.00f, 1.00f, 1.00f };
+    const DirectX::XMFLOAT3 sunsetCloudColor = { 1.00f, 0.72f, 0.56f };
+    const DirectX::XMFLOAT3 nightCloudColor = { 0.38f, 0.42f, 0.55f };
+    const DirectX::XMFLOAT3 midnightCloudColor = { 0.24f, 0.28f, 0.38f };
+
+    DirectX::XMFLOAT4 sunriseLight = { 0.95f, 0.78f, 0.62f, 1.0f };
+    DirectX::XMFLOAT4 dayLight = { 1.00f, 1.00f, 1.00f, 1.0f };
+    DirectX::XMFLOAT4 sunsetLight = { 1.00f, 0.72f, 0.42f, 1.0f };
+    DirectX::XMFLOAT4 nightLight = { 0.22f, 0.24f, 0.28f, 1.0f };
+    DirectX::XMFLOAT4 midnightLight = { 0.12f, 0.14f, 0.18f, 1.0f };
+
+    const float sunriseAmbient = 0.22f;
+    const float dayAmbient = 0.22f;
+    const float sunsetAmbient = 0.22f;
+    const float nightAmbient = 0.12f;
+    const float midnightAmbient = 0.18f;
+
+    const float sunriseHeadlight = 0.7f;
+    const float noonHeadlight = 0.2f;
+    const float sunsetHeadlight = 0.7f;
+    const float nightHeadlight = 1.0f;
+    const float midnightHeadlight = 1.0f;
+
+    const float sunriseCloudBrightness = 0.4f;
+    const float dayCloudBrightness = 1.0f;
+    const float sunsetCloudBrightness = 0.7f;
+    const float nightCloudBrightness = 0.2f;
+    const float midnightCloudBrightness = 0.05f;
 
 
+
+
+
+
+    static DirectX::XMFLOAT3 Lerp3(
+        const DirectX::XMFLOAT3& a,
+        const DirectX::XMFLOAT3& b,
+        float t)
+    {
+        return DirectX::XMFLOAT3(
+            Lerp(a.x, b.x, t),
+            Lerp(a.y, b.y, t),
+            Lerp(a.z, b.z, t));
+    }
 
     static float Lerp(float a, float b, float t)
     {
@@ -74,11 +123,16 @@ public:
     }
 
 
-   void UpdateSun(
+    void UpdateSun(
         const Time& time,
         Camera* cam,
         Sun& sun);
-    
+
+    void UpdateClouds(
+        float time,
+        Clouds& clouds
+    );
+
 private:
     float m_sunrise = 0.0f;
     float m_noon = 60.0f;

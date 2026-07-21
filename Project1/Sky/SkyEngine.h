@@ -49,11 +49,25 @@ public:
 
         float nearPlane = 1.0f;
         float farPlane = 1.0f;
+        DirectX::XMFLOAT2 paddingNearFar = { 0.0f, 0.0f };
 
-        DirectX::XMFLOAT2 padding = { 0.0f, 0.0f };
+        DirectX::XMFLOAT3 cloudColor = { 1.0f, 1.0f, 1.0f };
+        float padding0 = 0.0f;
+
+        DirectX::XMFLOAT3 cloudShadowColor = { 1.0f, 1.0f, 1.0f };
+        float padding1 = 0.0f;
     };
 
-    static_assert(sizeof(CloudConstants) % 16 == 0);
+    static_assert(sizeof(CloudConstants) == 80);
+
+
+    struct CloudCameraConstants
+    {
+        XMFLOAT4X4 inverseViewProjection;
+        XMFLOAT3 cameraWorldPosition;
+        float cloudHeight;
+    };
+    static_assert(sizeof(CloudCameraConstants) % 16 == 0);
 
 
     ID3D11Buffer* GetBillboardVertexBuffer() const
@@ -99,6 +113,11 @@ public:
     ID3D11Buffer* GetCloudConstantBuffer()
     {
         return m_cloudConstantBuffer.Get();
+    }    
+    
+    ID3D11Buffer* GetCloudCameraConstantBuffer()
+    {
+        return m_cloudcameraConstantBuffer.Get();
     }
 
     ID3D11ShaderResourceView* GetCloudNoiseSRV() const
@@ -151,6 +170,7 @@ private:
 
 
     Microsoft::WRL::ComPtr<ID3D11Buffer>             m_cloudConstantBuffer;
+    Microsoft::WRL::ComPtr<ID3D11Buffer>             m_cloudcameraConstantBuffer;
 
     Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_cloudNoiseSRV;
     Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_cloudDetailNoiseSRV;

@@ -336,6 +336,7 @@ void GraphicsEngine::BeginFrame(HWND hWnd, DirectX::XMMATRIX view, DirectX::XMMA
     m_time.Update(deltaTime);
     m_timeCycle.Update(envTime, env);
     m_timeCycle.UpdateSun(m_time,cam, m_sun);
+    m_timeCycle.UpdateClouds(envTime, m_clouds);
     m_gWasPressed = GetAsyncKeyState('G') & 0x8000;
     m_sceneData.time = m_time.GetShaderTime();
     m_sceneData.view = XMMatrixTranspose(view);

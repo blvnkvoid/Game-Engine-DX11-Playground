@@ -416,7 +416,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                 }
 
                 engine->GetSun().Render(engine->GetContext(), camera, skyEngine);
-                clouds.Render(engine->GetContext(), skyEngine, *engine, camera);
+                engine->GetClouds().Render(engine->GetContext(), skyEngine, *engine, camera);
             }
                 
             
