@@ -17,5 +17,10 @@ const std::vector<TrackEntry> g_TrackTable =
     { TrackSelection::Tsukuba,         "Tracks/Tsukuba/Tsukuba.fbx",                         { 1.0f, 1000.0f } },
     { TrackSelection::LeMans,          "Tracks/LeMans/LeMans.fbx",                           { 1.0f, 1000.0f } },
     { TrackSelection::DeepForest,      "Tracks/DeepForestRaceway/DeepForestRaceway.fbx",     { 1.0f, 1000.0f } },
-    { TrackSelection::SSR5,            "Tracks/SpecialStageRoute5/SSR5.fbx",                 { 1.0f, 5000.0f } }
+    //{ TrackSelection::SSR5,            "Tracks/SpecialStageRoute5/SSR5.fbx",                 { 1.0f, 5000.0f } },
+    //{ TrackSelection::SSR5,            "Tracks/SanAndreas/LosSantos/LosSantos.fbx",                 { 1.0f, 5000.0f } }
+    { TrackSelection::SSR5,            "Tracks/SanAndreas/SanAndreas.fbx",                 { 1.0f, 5000.0f } }
+    //{ TrackSelection::SSR5,            "Tracks/Bayview/Bayview.fbx",                 { 1.0f, 5000.0f } }
+    //{ TrackSelection::SSR5,            "Tracks/Bathurst/Bathurst.fbx",                 { 1.0f, 5000.0f } }
+    
 };

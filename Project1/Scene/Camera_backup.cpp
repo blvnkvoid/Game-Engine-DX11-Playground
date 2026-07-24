@@ -90,10 +90,10 @@
         XMVECTOR rightDir = XMVector3Cross(Up, lookDir);
         XMVECTOR vLookAt = XMVectorSet(0, 0, 0, 0);
         XMVECTOR vCarUp = XMVectorSet(0, 1, 0, 0); // Default world up
-        //const float cameraDeltaTime = min(deltaTime, 1.0f / 60.0f);
+        const float cameraDeltaTime = min(deltaTime, 1.0f / 60.0f);
         static XMVECTOR smoothedUp = XMVectorSet(0, 1, 0, 0);
 
-        //float lerpFactor = 75.0f; // Adjust this: 1.0 is a hard snap, 0.05 is very lazy
+        float lerpFactor = 75.0f; // Adjust this: 1.0 is a hard snap, 0.05 is very lazy
     
 
         float targetFOV = XM_PIDIV4; // Default 45 degrees
@@ -146,7 +146,7 @@
 
             float lookDirection = m_isLookingBack ? -1.0f : 1.0f;
 
-            //smoothedUp = XMVectorLerp(smoothedUp, vCarUp, deltaTime);
+            smoothedUp = XMVectorLerp(smoothedUp, vCarUp, 10.0f * deltaTime);
 
             XMVECTOR targetPos = vCarPos + (vCarForward * (distance/4) * lookDirection) + (vCarUp * height);       
 
@@ -155,12 +155,12 @@
             case CameraMode::CHASE:
                 targetFOV = XMConvertToRadians(45.0f); // Slightly wider
                 vLookAt = vCarPos + (vCarForward * (5.0f * lookDirection));
-                //m_posVector = XMVectorLerp(m_posVector, targetPos, deltaTime);
+                m_posVector = XMVectorLerp(m_posVector, targetPos, 300.0f * deltaTime);
                 break;
             case CameraMode::ROOF:
                 targetFOV = XMConvertToRadians(52.0f); // Slightly wider
                 vLookAt = vCarPos + (vCarForward * (5.0f * lookDirection));
-                //m_posVector = XMVectorLerp(m_posVector, targetPos,deltaTime);
+                m_posVector = XMVectorLerp(m_posVector, targetPos, 75.0f * deltaTime);
                 break;
             case CameraMode::BUMPER:
                 targetFOV = XMConvertToRadians(52.0f); // Slightly wider
@@ -169,8 +169,7 @@
             }
 
 
-            //m_posVector = XMVectorLerp(m_posVector, targetPos, deltaTime);
-            m_posVector = targetPos;
+            m_posVector = XMVectorLerp(m_posVector, targetPos, lerpFactor * deltaTime);
             m_pitch = m_isLookingBack ? 0.0f : XMConvertToRadians(pitchDeg);
             m_yaw = 0.0f;
 

@@ -9,7 +9,7 @@ class Clouds;
 
 struct EnvironmentState
 {
-    float clearColor[4] = { 0.65f, 0.75f, 1.0f, 1.0f };
+    float clearColor[4] = { 0.00f, 0.00f, 0.0f, 0.0f }; //Just init data, touching changes nothing
 
     DirectX::XMFLOAT4 lightDirection;
     DirectX::XMFLOAT4 lightColor;
@@ -25,17 +25,77 @@ class TimeCycle
 public:
     void Update(float time, EnvironmentState& state) const;
 
+    const DirectX::XMFLOAT4 sunriseDir =
+    {
+        -0.95f,
+        -0.15f,
+         0.25f,
+         0.0f
+    };
+
+    const DirectX::XMFLOAT4 dayDir =
+    {
+        -0.35f,
+        -0.95f,
+         0.20f,
+         0.0f
+    };
+
+    const DirectX::XMFLOAT4 sunsetDir =
+    {
+         0.95f,
+        -0.15f,
+         0.25f,
+         0.0f
+    };
+
+    const DirectX::XMFLOAT4 nightDir =
+    {
+         0.35f,
+         0.95f,
+        -0.20f,
+         0.0f
+    };
+
+    const DirectX::XMFLOAT4 midnightDir =
+    {
+         0.00f,
+         1.00f,
+        -0.30f,
+         0.0f
+    };
+
+    DirectX::XMFLOAT4 Normalize4(const DirectX::XMFLOAT4& v) const
+    {
+        DirectX::XMVECTOR vec =
+            DirectX::XMLoadFloat4(&v);
+
+        vec = DirectX::XMVector3Normalize(vec);
+
+        DirectX::XMFLOAT4 result;
+        DirectX::XMStoreFloat4(&result, vec);
+
+        result.w = 0.0f;
+        return result;
+    }
+
     const float sunriseSky[4] = { 0.52f, 0.38f, 0.28f, 1.0f };
     const float daySky[4] = { 0.65f, 0.75f, 1.00f, 1.0f };
     const float sunsetSky[4] = { 0.65f, 0.42f, 0.22f, 1.0f };
     const float nightSky[4] = { 0.02f, 0.025f, 0.04f, 1.0f };
     const float midnightSky[4] = { 0.01f, 0.015f, 0.03f, 1.0f };
 
-    const DirectX::XMFLOAT3 sunriseCloudColor = { 1.00f, 0.88f, 0.78f };
+    /*const DirectX::XMFLOAT3 sunriseCloudColor = { 1.00f, 0.88f, 0.78f };
     const DirectX::XMFLOAT3 dayCloudColor = { 1.00f, 1.00f, 1.00f };
     const DirectX::XMFLOAT3 sunsetCloudColor = { 1.00f, 0.72f, 0.56f };
     const DirectX::XMFLOAT3 nightCloudColor = { 0.38f, 0.42f, 0.55f };
-    const DirectX::XMFLOAT3 midnightCloudColor = { 0.24f, 0.28f, 0.38f };
+    const DirectX::XMFLOAT3 midnightCloudColor = { 0.24f, 0.28f, 0.38f };*/
+
+    const DirectX::XMFLOAT3 sunriseCloudColor = { 0.78f, 0.66f, 0.58f };
+    const DirectX::XMFLOAT3 dayCloudColor = { 0.82f, 0.88f, 0.95f };
+    const DirectX::XMFLOAT3 sunsetCloudColor = { 0.76f, 0.58f, 0.46f };
+    const DirectX::XMFLOAT3 nightCloudColor = { 0.10f, 0.12f, 0.16f };
+    const DirectX::XMFLOAT3 midnightCloudColor = { 0.06f, 0.08f, 0.11f };
 
     DirectX::XMFLOAT4 sunriseLight = { 0.95f, 0.78f, 0.62f, 1.0f };
     DirectX::XMFLOAT4 dayLight = { 1.00f, 1.00f, 1.00f, 1.0f };

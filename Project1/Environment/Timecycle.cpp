@@ -8,16 +8,6 @@ using namespace DirectX;
 
 void TimeCycle::Update(float time, EnvironmentState& state) const
 {
-    float angle = (time / 240.0f) * XM_2PI;
-
-    state.lightDirection =
-    {
-        cosf(angle),
-        -sinf(angle),
-        0.25f,
-        0.0f
-    };
-
     float t = 0.0f;
 
     if (time < m_noon)
@@ -28,6 +18,8 @@ void TimeCycle::Update(float time, EnvironmentState& state) const
         state.lightColor = Lerp4(sunriseLight, dayLight, t);
         state.ambientIntensity = Lerp(sunriseAmbient, dayAmbient, t);
         state.headlightIntensity = Lerp(sunriseHeadlight, noonHeadlight, t);
+        state.lightDirection = Normalize4(Lerp4(sunriseDir, dayDir, t));
+
       
     }
     else if (time < m_sunset)
@@ -38,6 +30,7 @@ void TimeCycle::Update(float time, EnvironmentState& state) const
         state.lightColor = Lerp4(dayLight, sunsetLight, t);
         state.ambientIntensity = Lerp(dayAmbient, sunsetAmbient, t);
         state.headlightIntensity = Lerp(noonHeadlight, sunsetHeadlight, t);
+        state.lightDirection = Normalize4(Lerp4(dayDir, sunsetDir, t));
     }
     else if (time < m_night)
     {
@@ -47,6 +40,7 @@ void TimeCycle::Update(float time, EnvironmentState& state) const
         state.lightColor = Lerp4(sunsetLight, nightLight, t);
         state.ambientIntensity = Lerp(sunsetAmbient, nightAmbient, t);
         state.headlightIntensity = Lerp(sunsetHeadlight, nightHeadlight, t);
+        state.lightDirection = Normalize4(Lerp4(sunsetDir, nightDir, t));
     }
     else if (time < m_midnight)
     {
@@ -56,6 +50,7 @@ void TimeCycle::Update(float time, EnvironmentState& state) const
         state.lightColor = Lerp4(nightLight, midnightLight, t);
         state.ambientIntensity = Lerp(nightAmbient, midnightAmbient, t);
         state.headlightIntensity = Lerp(nightHeadlight,midnightHeadlight , t);
+        state.lightDirection = Normalize4(Lerp4(nightDir, midnightDir, t));
     }
     else
     {
@@ -65,6 +60,7 @@ void TimeCycle::Update(float time, EnvironmentState& state) const
         state.lightColor = Lerp4(midnightLight, sunriseLight, t);
         state.ambientIntensity = Lerp(midnightAmbient, sunriseAmbient, t);
         state.headlightIntensity = Lerp(midnightHeadlight,sunriseHeadlight , t);
+        state.lightDirection = Normalize4(Lerp4(midnightDir, sunriseDir, t));
     }
 }
 

@@ -9,7 +9,7 @@ struct SharedVertex {
     DirectX::XMFLOAT3 pos;       // 12 bytes
     DirectX::XMFLOAT4 color;     // 16 bytes
     DirectX::XMFLOAT2 texCoord;  // 8 bytes
-    DirectX::XMFLOAT3 normal;    // 12 bytes (Crucial for the Bugatti's curves)
+    DirectX::XMFLOAT3 normal;    // 12 bytes
 };
 static_assert(sizeof(SharedVertex) % 16 == 0, "DANGER!");
 
@@ -34,12 +34,15 @@ struct MaterialData
 };
 
 
-
 struct SharedSceneData
 {
     DirectX::XMMATRIX world;
     DirectX::XMMATRIX view;
     DirectX::XMMATRIX projection;
+
+    DirectX::XMMATRIX lightView;
+    DirectX::XMMATRIX lightProjection;
+
 
     DirectX::XMFLOAT4 lightDirection;
     DirectX::XMFLOAT4 lightColor;

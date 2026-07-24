@@ -11,7 +11,7 @@ static const MapMarker& FindMarker(
             return marker;
     }
 
-    throw std::runtime_error("Missing timing marker: " + name);
+   throw std::runtime_error("Missing timing marker: " + name);
 }
 
 TrackTimingEntry CreateTrackTiming(

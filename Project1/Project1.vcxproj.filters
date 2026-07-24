@@ -470,6 +470,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="ShadowDebugPS.hlsl">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="ShadowDebugVS.hlsl">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shaders.hlsl">
@@ -479,6 +485,9 @@
       <Filter>Source Files</Filter>
     </FxCompile>
     <FxCompile Include="Clouds.hlsl">
+      <Filter>Source Files</Filter>
+    </FxCompile>
+    <FxCompile Include="Shadows.hlsl">
       <Filter>Source Files</Filter>
     </FxCompile>
   </ItemGroup>

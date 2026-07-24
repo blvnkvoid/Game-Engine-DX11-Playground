@@ -79,6 +79,7 @@ RaceGrid raceGrid;
 Settings settings;
 SkyEngine skyEngine;
 Clouds clouds;
+SharedSceneData sceneData;
 
 const TrackEntry* activeTrackEntry = nullptr;
 
@@ -129,6 +130,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     PhysicsEngine* physics = new PhysicsEngine();
     Handling* handling = new Handling();
     MapLoader* m_mapTrack = nullptr;
+
+    m_mapTrack = new MapLoader();
     VehicleRegistry vehicleRegistry;
     bool assetsLoaded = false;
     Model* playerModel = nullptr;
@@ -178,8 +181,20 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
             }
 
             Input::Update(camera);
-            engine->BeginFrame(hWnd, camera->viewMatrix, camera->projectionMatrix, deltaTime, camera);  
+            engine->BeginShadowPass();
+            engine->PrepareShadowPass(sceneData);
 
+           if (m_mapTrack)
+            {
+                m_mapTrack->DrawShadow(
+                    engine->GetContext(),
+                    cb,
+                    sceneData,
+                    engine->GetDepthStencilState()
+                );
+            }
+
+            engine->BeginFrame(hWnd, camera->viewMatrix, camera->projectionMatrix, deltaTime, camera);
             if (Input::IsTelemetryTogglePressed())
             {
                 g_ShowDebugUI = !g_ShowDebugUI;
@@ -239,12 +254,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                     EventDefinition event =
                         eventRegistry.Create(eventSession.GetCurrentEvent());
 
-                    m_mapTrack = new MapLoader();
                     m_mapTrack->m_texMgr = texMgr;
-                    std::string trackPath = "";
-                    
-
-                    
+                    std::string trackPath = "";                         
 
                     for (const auto& track : g_TrackTable)
                     {
@@ -254,9 +265,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                             activeTrackEntry = &track;
                             break;
                         }
-                    }    
-
-               
+                    }                   
 
                     GameConfig::activeTrack = event.track;
                     engine->ApplyEnvironmentDefinition(event.environment);
@@ -337,8 +346,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                     assetsLoaded = true;
                 }
 
-
-
                 telemetryUI.Draw(&g_ShowDebugUI, camera, playerModel, m_mapTrack);
                 physics->Update(deltaTime, Input::GetCurrentInputs());
                 g_LapTimer.Update(deltaTime);
@@ -378,22 +385,23 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                 
 
                 raceGrid.Render(*engine, *camera);
+
                 if (m_mapTrack)
                 {
-                    SharedSceneData trackSD =
+                    sceneData =
                         engine->BuildSceneData(
                             camera,
                             playerObject,
                             XMMatrixIdentity()
                         );
 
-                    trackSD.view =
+                    sceneData.view =
                         XMMatrixTranspose(camera->viewMatrix);
 
-                    trackSD.projection =
+                    sceneData.projection =
                         XMMatrixTranspose(camera->projectionMatrix);
 
-                    trackSD.world =
+                    sceneData.world =
                         XMMatrixTranspose(XMMatrixIdentity());
 
                     m_mapTrack->UpdateVisibleLights(
@@ -402,25 +410,28 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                         engine->GetLampConstantBuffer(),
                         camera->GetFrustum(),
                         camera
-                        );
+                    );
 
                     m_mapTrack->Draw(
                         engine->GetContext(),
                         cb,
-                        engine->GetLampConstantBuffer(),                 
+                        engine->GetLampConstantBuffer(),
                         engine->GetLampResourceView(),
-                        trackSD,
+                        sceneData,
                         camera->GetFrustum(),
                         engine->GetDepthStencilState()
                     );
                 }
+  
 
                 engine->GetSun().Render(engine->GetContext(), camera, skyEngine);
                 engine->GetClouds().Render(engine->GetContext(), skyEngine, *engine, camera);
-            }
-                
-            
 
+
+                
+            }
+            //engine->DrawShadowDebugView();
+            
             audio.Update(menu.g_CurrentState, g_DebugTelemetry.rpm, g_DebugTelemetry.throttle, g_DebugTelemetry.speed, g_DebugTelemetry.avgSlipRatio, g_DebugTelemetry.avgSlipAngle);
             ImGui::Render();
             ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());

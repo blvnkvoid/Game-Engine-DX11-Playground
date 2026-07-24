@@ -54,10 +54,10 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
 
     D3D11_RASTERIZER_DESC rasterSolidCullBack = {};
     rasterSolidCullBack.FillMode = D3D11_FILL_SOLID; // Or D3D11_FILL_WIREFRAME for a cool matrix look!
-    rasterSolidCullBack.CullMode = D3D11_CULL_BACK;  // <--- THE CULL KILLER
+    rasterSolidCullBack.CullMode = D3D11_CULL_NONE;  // <--- THE CULL KILLER
     rasterSolidCullBack.AntialiasedLineEnable = true;
     rasterSolidCullBack.MultisampleEnable = true;
-    rasterSolidCullBack.FrontCounterClockwise = true;
+    rasterSolidCullBack.FrontCounterClockwise = true;      
 
 
     D3D11_RASTERIZER_DESC rasterWireframeCullBack = {};
@@ -66,6 +66,12 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     rasterWireframeCullBack.AntialiasedLineEnable = true;
     rasterWireframeCullBack.MultisampleEnable = true;
     rasterWireframeCullBack.FrontCounterClockwise = true;
+
+    D3D11_RASTERIZER_DESC shadowrasterSolidCullBack = {};
+    shadowrasterSolidCullBack.FillMode = D3D11_FILL_SOLID; // Or D3D11_FILL_WIREFRAME for a cool matrix look!
+    shadowrasterSolidCullBack.CullMode = D3D11_CULL_BACK;  // <--- THE CULL KILLER
+    shadowrasterSolidCullBack.DepthClipEnable = true;
+
 
 
     D3D11_BUFFER_DESC bd = {};
@@ -159,6 +165,80 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     srvDesc2.Texture2D.MipLevels = 1;
 
 
+    D3D11_TEXTURE2D_DESC shadowTexDesc = {};
+    shadowTexDesc.Width = 8192;
+    shadowTexDesc.Height = 8192;
+    shadowTexDesc.MipLevels = 1;
+    shadowTexDesc.ArraySize = 1;
+    shadowTexDesc.Format = DXGI_FORMAT_R24G8_TYPELESS;
+    shadowTexDesc.SampleDesc.Count = 1;
+    shadowTexDesc.SampleDesc.Quality = 0;
+    shadowTexDesc.CPUAccessFlags = 0;
+    shadowTexDesc.BindFlags =
+        D3D11_BIND_DEPTH_STENCIL |
+        D3D11_BIND_SHADER_RESOURCE;
+    shadowTexDesc.Usage = D3D11_USAGE_DEFAULT;
+    shadowTexDesc.MiscFlags = 0;
+
+    D3D11_DEPTH_STENCIL_VIEW_DESC shadowDSVDesc = {};
+    shadowDSVDesc.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
+    shadowDSVDesc.ViewDimension = D3D11_DSV_DIMENSION_TEXTURE2D;
+    shadowDSVDesc.Texture2D.MipSlice = 0;
+
+    D3D11_SHADER_RESOURCE_VIEW_DESC shadowSRVDesc = {};
+    shadowSRVDesc.Format = DXGI_FORMAT_R24_UNORM_X8_TYPELESS;
+    shadowSRVDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
+    shadowSRVDesc.Texture2D.MostDetailedMip = 0;
+    shadowSRVDesc.Texture2D.MipLevels = 1;
+
+    m_shadowViewport = {};
+    m_shadowViewport.TopLeftX = 0.0f;
+    m_shadowViewport.TopLeftY = 0.0f;
+    m_shadowViewport.Width = 8192.0f;
+    m_shadowViewport.Height = 8192.0f;
+    m_shadowViewport.MinDepth = 0.0f;
+    m_shadowViewport.MaxDepth = 1.0f;
+
+    ID3DBlob* shadowVSBlob = nullptr;
+    ID3DBlob* errorBlob = nullptr;
+
+    ID3DBlob* shadowDebugPSBlob = nullptr;
+    ID3DBlob* errorPSBlob = nullptr;
+
+    ID3DBlob* shadowDebugVSBlob = nullptr;
+    ID3DBlob* errorVSBlob = nullptr;
+
+    D3D11_INPUT_ELEMENT_DESC shadowLayoutDesc[] =
+    {
+        {
+            "POSITION",
+            0,
+            DXGI_FORMAT_R32G32B32_FLOAT,
+            0,
+            0,
+            D3D11_INPUT_PER_VERTEX_DATA,
+            0
+        }
+    };
+
+    D3D11_SAMPLER_DESC samplerDesc{};
+    samplerDesc.Filter = D3D11_FILTER_MIN_MAG_MIP_POINT;
+    samplerDesc.AddressU = D3D11_TEXTURE_ADDRESS_CLAMP;
+    samplerDesc.AddressV = D3D11_TEXTURE_ADDRESS_CLAMP;
+    samplerDesc.AddressW = D3D11_TEXTURE_ADDRESS_CLAMP;
+    samplerDesc.ComparisonFunc = D3D11_COMPARISON_NEVER;
+    samplerDesc.MinLOD = 0.0f;
+    samplerDesc.MaxLOD = D3D11_FLOAT32_MAX;
+
+
+    D3D11_DEPTH_STENCIL_DESC depthDesc{};
+    depthDesc.DepthEnable = FALSE;
+    depthDesc.DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ZERO;
+    depthDesc.DepthFunc = D3D11_COMPARISON_ALWAYS;
+    depthDesc.StencilEnable = FALSE;
+
+
+
 
     hr = D3D11CreateDeviceAndSwapChain(nullptr, D3D_DRIVER_TYPE_HARDWARE, nullptr, 0, featureLevels, 2,
         D3D11_SDK_VERSION, &sd, &swapChain, &device, nullptr, &context);
@@ -192,6 +272,8 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     hr = device->CreateRasterizerState(&rasterSolidCullBack, &rasterState);
     if (FAILED(hr)) return false;
     hr = device->CreateRasterizerState(&rasterWireframeCullBack, &rasterStateWireframe);
+    if (FAILED(hr)) return false;    
+    hr = device->CreateRasterizerState(&shadowrasterSolidCullBack, &shadowrasterState);
     if (FAILED(hr)) return false;
     hr = device->CreateSamplerState(&sampDesc, &m_samplerLinear);
     if (FAILED(hr)) return false;
@@ -205,6 +287,52 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     if (FAILED(hr)) return false;   
     hr = device->CreateShaderResourceView(m_lampStructuredBuffer.Get(), &srvDesc, m_lampSRV.GetAddressOf());
     if (FAILED(hr)) return false;    
+    hr = device->CreateTexture2D(&shadowTexDesc, nullptr, &m_shadowMapTexture);
+    if (FAILED(hr)) return false;
+    hr = device->CreateDepthStencilView(m_shadowMapTexture, &shadowDSVDesc, &m_shadowMapDSV);
+    if (FAILED(hr)) return false;
+    hr = device->CreateShaderResourceView(m_shadowMapTexture, &shadowSRVDesc, &m_shadowMapSRV);
+    if (FAILED(hr)) return false;
+    hr = D3DCompileFromFile(L"Shadows.hlsl", nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, "main", "vs_5_0", 0, 0, &shadowVSBlob, &errorBlob);
+    if (FAILED(hr)) return false;
+    hr = device->CreateVertexShader(shadowVSBlob->GetBufferPointer(), shadowVSBlob->GetBufferSize(), nullptr, &m_shadowVertexShader);
+    if (FAILED(hr)) return false;
+    hr = device->CreateInputLayout(shadowLayoutDesc, ARRAYSIZE(shadowLayoutDesc), shadowVSBlob->GetBufferPointer(), shadowVSBlob->GetBufferSize(), &m_shadowInputLayout);
+    if (FAILED(hr)) return false;
+    hr = device->CreateSamplerState(&samplerDesc, &m_shadowDebugSampler);
+    if (FAILED(hr)) return false;
+    hr = D3DCompileFromFile(L"ShadowDebugPS.hlsl", nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, "main", "ps_5_0", 0, 0, &shadowDebugPSBlob, &errorPSBlob);
+    if (FAILED(hr)) return false;
+    hr = D3DCompileFromFile(L"ShadowDebugVS.hlsl", nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, "main", "vs_5_0", 0, 0, &shadowDebugVSBlob, &errorVSBlob);
+    if (FAILED(hr)) return false;
+    hr = device->CreatePixelShader(shadowDebugPSBlob->GetBufferPointer(), shadowDebugPSBlob->GetBufferSize(), nullptr, &m_shadowDebugPS);
+    if (FAILED(hr)) return false;
+    hr = device->CreateVertexShader(shadowDebugVSBlob->GetBufferPointer(), shadowDebugVSBlob->GetBufferSize(), nullptr, &m_shadowDebugVS);
+    if (FAILED(hr)) return false;
+    hr = device->CreateDepthStencilState(&depthDesc, &m_debugDepthDisabled);
+    if (FAILED(hr)) return false;
+
+    shadowVSBlob->Release();
+    shadowVSBlob = nullptr;
+    if (errorBlob)
+    {
+        errorBlob->Release();
+        errorBlob = nullptr;
+    }
+
+    shadowDebugPSBlob->Release();
+    shadowDebugVSBlob->Release();
+
+    if (errorPSBlob)
+    {
+        errorPSBlob->Release();
+    }
+
+    if (errorVSBlob)
+    {
+        errorVSBlob->Release();
+    }
+
 
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
@@ -227,6 +355,81 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
 void GraphicsEngine::SetBrakeAmount(float amount)
 {
     m_sceneData.brakeAmount = amount;
+}
+
+
+void GraphicsEngine::DrawShadowDebugView()
+{
+    context->OMSetDepthStencilState(m_debugDepthDisabled, 0);
+    D3D11_VIEWPORT debugViewport{};
+
+    debugViewport.TopLeftX = 900.0f;
+    debugViewport.TopLeftY = 20.0f;
+    debugViewport.Width = 400.0f;
+    debugViewport.Height = 400.0f;
+    debugViewport.MinDepth = 0.0f;
+    debugViewport.MaxDepth = 1.0f;
+
+    context->RSSetViewports(1, &debugViewport);
+
+
+    context->IASetVertexBuffers(
+        0,
+        0,
+        nullptr,
+        nullptr,
+        nullptr
+    );
+
+    context->IASetIndexBuffer(
+        nullptr,
+        DXGI_FORMAT_UNKNOWN,
+        0
+    );
+
+    context->IASetInputLayout(nullptr);
+
+    context->IASetPrimitiveTopology(
+        D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST
+    );
+
+    context->VSSetShader(
+        m_shadowDebugVS,
+        nullptr,
+        0
+    );
+
+    context->PSSetShader(
+        m_shadowDebugPS,
+        nullptr,
+        0
+    );
+
+    ID3D11ShaderResourceView* shadowSRV = m_shadowMapSRV;
+
+    context->PSSetShaderResources(
+        0,
+        1,
+        &shadowSRV
+    );
+
+    context->PSSetSamplers(
+        0,
+        1,
+        &m_shadowDebugSampler
+    );
+
+    context->RSSetViewports(1, &debugViewport);
+
+    context->Draw(3, 0);
+
+    ID3D11ShaderResourceView* nullSRV = nullptr;
+
+    context->PSSetShaderResources(
+        0,
+        1,
+        &nullSRV
+    );
 }
 
 
@@ -278,6 +481,9 @@ SharedSceneData GraphicsEngine::BuildSceneData(Camera* cam, GameObject* player, 
     sd.ambientIntensity = m_sceneData.ambientIntensity;
     sd.headlightIntensity = m_sceneData.headlightIntensity;
 
+    sd.lightView = XMMatrixTranspose(m_lightView);
+    sd.lightProjection = XMMatrixTranspose(m_lightProj);
+
     XMFLOAT3 camPos = cam->GetPosition();
     sd.cameraPosition = XMFLOAT4(camPos.x, camPos.y, camPos.z, 1.0f);
 
@@ -322,6 +528,115 @@ void GraphicsEngine::ApplyEnvironmentDefinition(const EnvironmentDefinition& def
     m_time.PauseTime(!def.dynamicTime);
 }
 
+void GraphicsEngine::BeginShadowPass()
+{
+    context->ClearDepthStencilView(m_shadowMapDSV, D3D11_CLEAR_DEPTH, 1.0f, 0);
+    context->OMSetRenderTargets(0, nullptr, m_shadowMapDSV);
+    context->RSSetViewports(1, &m_shadowViewport);
+}
+
+void GraphicsEngine::PrepareShadowPass(SharedSceneData& sceneData)
+{
+    XMVECTOR lightDirection =
+        XMVector3Normalize(
+            XMLoadFloat4(
+                &sceneData.lightDirection
+            )
+        );
+
+    XMVECTOR carPosition =
+        XMLoadFloat4(
+            &sceneData.carPosition
+        );
+
+    XMVECTOR carForward =
+        XMVector3Normalize(
+            XMLoadFloat4(
+                &sceneData.carForward
+            )
+        );
+
+    constexpr float shadowForwardOffset = 350.0f;
+    constexpr float shadowAreaSize = 800.0f;
+
+    XMVECTOR target =
+        XMVectorAdd(
+            carPosition,
+            XMVectorScale(
+                carForward,
+                shadowForwardOffset
+            )
+        );
+
+    constexpr float lightDistance = 1500.0f;
+
+    XMVECTOR lightPosition =
+        XMVectorSubtract(
+            target,
+            XMVectorScale(
+                lightDirection,
+                lightDistance
+            )
+        );
+
+    XMVECTOR up =
+        XMVectorSet(
+            0.0f,
+            1.0f,
+            0.0f,
+            0.0f
+        );
+
+    m_lightView =
+        XMMatrixLookAtLH(
+            lightPosition,
+            target,
+            up
+        );
+
+
+    m_lightProj = XMMatrixOrthographicLH(
+        shadowAreaSize,
+        shadowAreaSize,
+        50.0f,
+        2000.0f
+    );
+
+    sceneData.world =
+        XMMatrixTranspose(
+            XMMatrixIdentity()
+        );
+
+    sceneData.view =
+        XMMatrixTranspose(
+            m_lightView
+        );
+
+    sceneData.projection =
+        XMMatrixTranspose(
+            m_lightProj
+        );
+
+    context->VSSetShader(
+        m_shadowVertexShader,
+        nullptr,
+        0
+    );
+
+    context->PSSetShader(
+        nullptr,
+        nullptr,
+        0
+    );
+
+    context->IASetInputLayout(
+        m_shadowInputLayout
+    );
+
+    context->RSSetState(
+        shadowrasterState.Get()
+    );
+}
 void GraphicsEngine::BeginFrame(HWND hWnd, DirectX::XMMATRIX view, DirectX::XMMATRIX projection, float deltaTime, Camera* cam)
 {
     bool gIsDown = GetAsyncKeyState('G') & 0x8000;
@@ -335,7 +650,7 @@ void GraphicsEngine::BeginFrame(HWND hWnd, DirectX::XMMATRIX view, DirectX::XMMA
         envTime += m_timeCycle.GetCycleLength();
     m_time.Update(deltaTime);
     m_timeCycle.Update(envTime, env);
-    m_timeCycle.UpdateSun(m_time,cam, m_sun);
+    //m_timeCycle.UpdateSun(m_time,cam, m_sun);
     m_timeCycle.UpdateClouds(envTime, m_clouds);
     m_gWasPressed = GetAsyncKeyState('G') & 0x8000;
     m_sceneData.time = m_time.GetShaderTime();
@@ -349,7 +664,11 @@ void GraphicsEngine::BeginFrame(HWND hWnd, DirectX::XMMATRIX view, DirectX::XMMA
     float blendFactor[4] = { 0, 0, 0, 0 };
     context->ClearRenderTargetView(renderTargetView.Get(), env.clearColor);
     context->ClearDepthStencilView(depthStencilView.Get(), D3D11_CLEAR_DEPTH, 1.0f, 0);
+
     context->OMSetRenderTargets(1, renderTargetView.GetAddressOf(), depthStencilView.Get());
+
+    ID3D11ShaderResourceView* shadowSRV = m_shadowMapSRV;
+    context->PSSetShaderResources(2, 1, &shadowSRV);
 
 
     if (m_isWireframe) {

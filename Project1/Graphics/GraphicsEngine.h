@@ -27,6 +27,7 @@ public:
     void EndFrame();
     void SetActiveCamera(Camera* camera) { activeCamera = camera; }
     void SetScene(Scene* scene) { m_activeScene = scene; }
+    void BeginShadowPass();
     bool m_isWireframe = false;
     bool m_gWasPressed = false;
     bool Init(HWND hWnd, int width, int height);
@@ -101,7 +102,8 @@ public:
         return m_clouds;
     }
 
-
+    void PrepareShadowPass(SharedSceneData& sceneData);
+    void DrawShadowDebugView();
 private:
     Sun m_sun;
     Clouds m_clouds;
@@ -125,6 +127,7 @@ private:
     Microsoft::WRL::ComPtr<ID3D11Buffer> m_lampStructuredBuffer;
     Microsoft::WRL::ComPtr<ID3D11RasterizerState> rasterState;
     Microsoft::WRL::ComPtr<ID3D11RasterizerState> rasterStateWireframe;
+    Microsoft::WRL::ComPtr<ID3D11RasterizerState> shadowrasterState;
     Microsoft::WRL::ComPtr<ID3D11Texture2D> pDepthStencil;    
     Microsoft::WRL::ComPtr<ID3D11DepthStencilView> depthStencilView;
     Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_depthStencilSRV;
@@ -137,6 +140,27 @@ private:
     Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_lampSRV;
     Microsoft::WRL::ComPtr<ID3D11DepthStencilState> m_depthWriteOnState;
     Microsoft::WRL::ComPtr<ID3D11DepthStencilState> m_depthWriteOffState;
+    ID3D11VertexShader* m_shadowVertexShader = nullptr;
+    ID3D11InputLayout* m_shadowInputLayout = nullptr;
+    // Shadow map resources
+    ID3D11Texture2D* m_shadowMapTexture = nullptr;
+    ID3D11DepthStencilView* m_shadowMapDSV = nullptr;
+    ID3D11ShaderResourceView* m_shadowMapSRV = nullptr;
+
+
+    ID3D11VertexShader* m_shadowDebugVS = nullptr;
+    ID3D11PixelShader* m_shadowDebugPS = nullptr;
+    ID3D11SamplerState* m_shadowDebugSampler = nullptr;
+
+    ID3D11DepthStencilState* m_debugDepthDisabled = nullptr;
+
+    // Shadow rendering
+    D3D11_VIEWPORT            m_shadowViewport = {};
+
+    // Sun camera
+    XMMATRIX m_lightView = XMMatrixIdentity();
+    XMMATRIX m_lightProj = XMMatrixIdentity();
+    XMMATRIX m_lightViewProj = XMMatrixIdentity();
     DirectX::XMMATRIX mView;
     DirectX::XMMATRIX mProj;
     DirectX::XMFLOAT4 m_lightDir = { 0.0f, -1.0f, 1.0f, 0.0f }; // Directional light

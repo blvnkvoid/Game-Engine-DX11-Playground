@@ -119,12 +119,13 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\Dev\FMOD\FMOD Studio API Windows\api\studio\inc;C:\Dev\FMOD\FMOD Studio API Windows\api\core\inc;C:\Dev\LogitechSteeringWheelSDK_8.75.30\Include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;LogitechSteeringWheelLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Dev\LogitechSteeringWheelSDK_8.75.30\Lib\x64</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;LogitechSteeringWheelLib.lib;fmodL_vc.lib;fmod_vc.lib;fmodstudio_vc.lib;fmodstudioL_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Dev\FMOD\FMOD Studio API Windows\api\studio\lib\x64;C:\Dev\FMOD\FMOD Studio API Windows\api\core\lib\x64;C:\Dev\LogitechSteeringWheelSDK_8.75.30\Lib\x64</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -297,6 +298,13 @@
   <ItemGroup>
     <FxCompile Include="Clouds.hlsl" />
     <FxCompile Include="Shaders.hlsl" />
+    <None Include="ShadowDebugPS.hlsl">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="ShadowDebugVS.hlsl">
+      <FileType>Document</FileType>
+    </None>
+    <FxCompile Include="Shadows.hlsl" />
     <FxCompile Include="Sun.hlsl" />
   </ItemGroup>
   <ItemGroup>

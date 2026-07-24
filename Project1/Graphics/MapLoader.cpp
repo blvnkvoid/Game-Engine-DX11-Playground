@@ -85,6 +85,82 @@ void MapLoader::UpdateVisibleLights(
     }
 }
 
+void MapLoader::DrawShadow(
+    ID3D11DeviceContext* context,
+    ID3D11Buffer* cbb,
+    const SharedSceneData& engineSceneData,
+    ID3D11DepthStencilState* depthWriteOn)
+{
+    SharedSceneData sceneData = engineSceneData;
+
+    context->OMSetBlendState(
+        nullptr,
+        nullptr,
+        0xffffffff
+    );
+
+    context->OMSetDepthStencilState(
+        depthWriteOn,
+        0
+    );
+
+    UINT stride = sizeof(SharedVertex);
+    UINT offset = 0;
+
+    context->IASetVertexBuffers(
+        0,
+        1,
+        vertex_buffer.GetAddressOf(),
+        &stride,
+        &offset
+    );
+
+    context->IASetIndexBuffer(
+        index_buffer.Get(),
+        DXGI_FORMAT_R32_UINT,
+        0
+    );
+
+    context->IASetPrimitiveTopology(
+        D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST
+    );
+
+    context->VSSetConstantBuffers(
+        0,
+        1,
+        &cbb
+    );
+
+    D3D11_MAPPED_SUBRESOURCE mapped{};
+
+
+    context->Map(
+        cbb,
+        0,
+        D3D11_MAP_WRITE_DISCARD,
+        0,
+        &mapped
+    );
+
+    memcpy(
+        mapped.pData,
+        &sceneData,
+        sizeof(sceneData)
+    );
+
+    context->Unmap(cbb, 0);
+
+
+    for (const auto& subset : m_subsets)
+    {
+        context->DrawIndexed(
+            subset.indexCount,
+            subset.startIndex,
+            0
+        );
+    }
+}
+
 void MapLoader::Draw(ID3D11DeviceContext* context,
     ID3D11Buffer* cbb,
     ID3D11Buffer* lampInfoBuffer,

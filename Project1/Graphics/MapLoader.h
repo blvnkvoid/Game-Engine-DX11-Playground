@@ -78,6 +78,12 @@ public:
         const DirectX::BoundingFrustum& frustum,
         ID3D11DepthStencilState* depthWriteOn);
 
+    void DrawShadow(
+        ID3D11DeviceContext* context,
+        ID3D11Buffer* cbb,
+        const SharedSceneData& engineSceneData,
+        ID3D11DepthStencilState* depthWriteOn);
+
 
     void UpdateVisibleLights(
         ID3D11DeviceContext* context,

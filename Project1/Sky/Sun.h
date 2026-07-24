@@ -17,7 +17,7 @@ public:
         Camera* camera,
         SkyEngine& skyEngine);
 
-    bool m_Visible = true;
+    bool m_Visible = false;
 
     float m_AngularSize = 0.53f;      // degrees (real sun)
     float m_Distance = 3500.0f;
