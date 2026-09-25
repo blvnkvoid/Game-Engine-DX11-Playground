@@ -65,6 +65,12 @@ void VehicleTelemetry::Draw(bool* p_open, Camera* cam, Model* playerModel, MapLo
             const auto& stats = map->GetStats();
             ImGui::Text("Total lamp count: %u", stats.lampCount);
             ImGui::Text("Active lamp count: %u", stats.activelampCount);
+            ImGui::Text("Total Shadow Draw Calls: %u", stats.m_shadowdrawCalls);
+            ImGui::Text("Culled Shadow Draw Calls: %u", stats.m_shadowDrawCallsCulled);
+            ImGui::Text("Zero index subsets: %u", stats.zeroIndexSubsets);
+            ImGui::Text("Culled Shadow Indices: %llu", stats.culledIndices);
+            ImGui::Text("Rendered Shadow Indices: %llu", stats.renderedIndices);
+            ImGui::Text("Shadow CPU: %.3f ms", stats.shadowCpuMs);
         }
 
         if (ImGui::CollapsingHeader("Car Telemetry")) {

@@ -1,4 +1,5 @@
 #include "MapLoader.h"
+#include <chrono>
 
 void MapLoader::UpdateVisibleLights(
     ID3D11DeviceContext* context,
@@ -89,9 +90,13 @@ void MapLoader::DrawShadow(
     ID3D11DeviceContext* context,
     ID3D11Buffer* cbb,
     const SharedSceneData& engineSceneData,
+    const DirectX::BoundingFrustum& frustum,
     ID3D11DepthStencilState* depthWriteOn)
 {
     SharedSceneData sceneData = engineSceneData;
+
+    m_stats.m_shadowDrawCallsCulled = 0;
+    m_stats.m_shadowdrawCalls = 0;
 
     context->OMSetBlendState(
         nullptr,
@@ -150,15 +155,62 @@ void MapLoader::DrawShadow(
 
     context->Unmap(cbb, 0);
 
+    static  bool m_enableFrustumCulling = true;
+
+    static bool hWasPressed = false;
+    bool hPressed = GetAsyncKeyState('H') & 0x8000;
+    if (hPressed && !hWasPressed)
+    {
+        m_enableFrustumCulling = !m_enableFrustumCulling;
+
+        OutputDebugStringA(
+            m_enableFrustumCulling
+            ? "Shadow Frustum culling: ON\n"
+            : "Shadow Frustum culling: OFF\n"
+        );
+    }
+    hWasPressed = hPressed;
+
+    m_stats.culledIndices = 0;
+    m_stats.renderedIndices = 0;
+    m_stats.zeroIndexSubsets = 0;
+
+    const auto start = std::chrono::high_resolution_clock::now();
 
     for (const auto& subset : m_subsets)
     {
+        if (subset.indexCount == 0)
+        {
+            m_stats.zeroIndexSubsets++;
+            continue;
+        }
+
+        if (m_enableFrustumCulling &&
+            !frustum.Intersects(subset.bounds))
+        {
+            m_stats.m_shadowDrawCallsCulled++;
+            m_stats.culledIndices += subset.indexCount;
+            continue;
+        }
+
         context->DrawIndexed(
             subset.indexCount,
             subset.startIndex,
             0
         );
+
+        m_stats.m_shadowdrawCalls++;
+        m_stats.renderedIndices += subset.indexCount;
     }
+
+    const auto end = std::chrono::high_resolution_clock::now();
+
+    double shadowCpuMs =
+        std::chrono::duration<double, std::milli>(end - start).count();
+
+    m_stats.shadowCpuMs = shadowCpuMs;
+
+
 }
 
 void MapLoader::Draw(ID3D11DeviceContext* context,

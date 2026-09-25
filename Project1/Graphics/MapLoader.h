@@ -38,7 +38,17 @@ struct MapRendererStats
     uint32_t  m_totalTriangles = 0;
     uint32_t  lampCount = 0;
     uint32_t  activelampCount = 0;
+    uint32_t  m_shadowdrawCalls = 0;
+    uint32_t m_shadowDrawCallsCulled = 0;
+
+
+    uint64_t culledIndices = 0;
+    uint64_t renderedIndices = 0;
+    uint32_t zeroIndexSubsets = 0;
+
     bool lightsEnabled = true;
+
+    double shadowCpuMs = 0.0;
 };
 
 struct MapMeshSubset
@@ -82,6 +92,7 @@ public:
         ID3D11DeviceContext* context,
         ID3D11Buffer* cbb,
         const SharedSceneData& engineSceneData,
+        const DirectX::BoundingFrustum& frustum,
         ID3D11DepthStencilState* depthWriteOn);
 
 

@@ -8,6 +8,13 @@ struct TrackRenderSettings
 {
     float nearPlane = 1.0f;
     float farPlane = 1000.0f;
+
+    float shadowForwardOffset = 350.0f;
+    float shadowAreaSize = 800.0f;
+    float lightDistance = 1500.0f;
+    float shadowCameraNearClip = 50.0f;
+    float shadowCameraFarClip = 2000.0f;
+
 };
 
 
@@ -19,4 +26,4 @@ struct TrackRenderSettings
         TrackRenderSettings renderSettings; 
     };
 
-    extern const std::vector<TrackEntry> g_TrackTable;
+    extern std::vector<TrackEntry> g_TrackTable;

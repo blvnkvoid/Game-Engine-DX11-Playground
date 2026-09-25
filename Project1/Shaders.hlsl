@@ -91,6 +91,7 @@ struct PS_INPUT {
 Texture2D objTexture : register(t0);
 Texture2D shadowMap : register(t2);
 SamplerState samplerLinear : register(s0);
+SamplerComparisonState shadowComparisonSampler : register(s1);
 
 // --- Vertex Shader ---
 PS_INPUT VS(VS_INPUT input) {
@@ -142,9 +143,8 @@ float4 ShadeCarPaint(
     float3 V,
     float3 H,
     float3 R,
-    float3 worldPos,
-    float shadowFactor
-)
+    float3 worldPos
+ )
 {
     float ndotl =
         saturate(dot(N, L));
@@ -174,8 +174,7 @@ float4 ShadeCarPaint(
     float3 sunDiffuse =
         base *
         ndotl *
-        0.75f *
-        shadowFactor;
+        0.75f;
 
     float clearCoat =
         pow(
@@ -201,8 +200,7 @@ float4 ShadeCarPaint(
     float3 sunSpecular =
         lightColor.rgb *
         material.specularColor *
-        (clearCoat + broadSpec) *
-        shadowFactor;
+        (clearCoat + broadSpec);
 
     float3 color =
         ambientDiffuse +
@@ -224,8 +222,7 @@ float4 ShadeSafetyCarPaint(
     float3 V,
     float3 H,
     float3 R,
-    float3 localPos,
-    float shadowFactor
+    float3 localPos
 )
 {
     float ndotl =
@@ -247,8 +244,7 @@ float4 ShadeSafetyCarPaint(
     float3 sunDiffuse =
         base *
         ndotl *
-        0.75f *
-        shadowFactor;
+        0.75f;
 
     float clearCoat =
         pow(
@@ -272,8 +268,7 @@ float4 ShadeSafetyCarPaint(
     float3 sunSpecular =
         material.specularColor *
         lightColor.rgb *
-        (clearCoat + broadSpec) *
-        shadowFactor;
+        (clearCoat + broadSpec);
 
     float paceFresnel =
         pow(
@@ -326,9 +321,8 @@ float4 ShadeCarLivery(
     float3 V,
     float3 H,
     float3 R,
-    float3 localLighting,
-    float shadowFactor
-)
+    float3 localLighting
+ )
 {
     float ndotl =
         saturate(dot(N, L));
@@ -350,8 +344,7 @@ float4 ShadeCarLivery(
     float3 sunDiffuse =
         base *
         ndotl *
-        0.75f *
-        shadowFactor;
+        0.75f;
 
     float clearCoat =
         pow(
@@ -375,8 +368,7 @@ float4 ShadeCarLivery(
     float3 sunSpecular =
         material.specularColor *
         lightColor.rgb *
-        (clearCoat + broadSpec) *
-        shadowFactor;
+        (clearCoat + broadSpec);
 
     float3 color =
         ambientDiffuse +
@@ -394,8 +386,7 @@ float4 ShadeCarLivery(
 float4 ShadeAlcantara(
     float4 texColor,
     float3 N,
-    float3 L,
-    float shadowFactor
+    float3 L
 )
 {
     float ndotl =
@@ -426,8 +417,7 @@ float4 ShadeAlcantara(
 
     float directLight =
         ndotl *
-        0.35f *
-        shadowFactor;
+        0.35f;
 
     float light =
         ambientLight +
@@ -439,7 +429,7 @@ float4 ShadeAlcantara(
         );
 }
 
-float4 ShadeGlass(float4 texColor, float3 N, float3 L, float3 V, float3 H, float3 R, float shadowFactor)
+float4 ShadeGlass(float4 texColor, float3 N, float3 L, float3 V, float3 H, float3 R)
 {
     float fresnel = pow(1.0f - saturate(dot(N, V)), 3.0f);
     float ndotv = saturate(abs(dot(N, V)));
@@ -452,15 +442,13 @@ float4 ShadeGlass(float4 texColor, float3 N, float3 L, float3 V, float3 H, float
 
     float3 color = tint + sky + spec.xxx;
 
-  //  return float4(color, 0.00f);
     return float4(0,0,0,alpha);
 }
 
 float4 ShadeRubber(
     float4 texColor,
     float3 N,
-    float3 L,
-    float shadowFactor
+    float3 L
 )
 {
     float ndotl =
@@ -485,8 +473,7 @@ float4 ShadeRubber(
 
     float directLight =
         ndotl *
-        0.55f *
-        shadowFactor;
+        0.55f;
 
     float light =
         ambientLight +
@@ -631,8 +618,7 @@ float4 ShadeAsphalt(
     float ambient,
     float headlightIntensity,
     float3 H,
-    float3 V,
-    float shadowFactor
+    float3 V
 )
 {
     float ndotl =
@@ -646,8 +632,7 @@ float4 ShadeAsphalt(
         texColor.rgb *
         lightColor.rgb *
         ndotl *
-        0.55f *
-        shadowFactor;
+        0.55f;
 
     // Ambient remains visible underneath shadows.
     float3 ambientDiffuse =
@@ -762,8 +747,7 @@ float4 ShadeAsphalt(
     // so it must disappear underneath shadows.
     finalColor +=
         lightColor.rgb *
-        beam *
-        shadowFactor;
+        beam;
 
     return float4(
         finalColor,
@@ -793,8 +777,7 @@ float4 ShadeHeadLight(float4 texColor)
 float4 ShadeDecalText(
     float4 texColor,
     float3 N,
-    float3 L,
-    float shadowFactor
+    float3 L
 )
 {
     clip(texColor.a - 0.5f);
@@ -807,8 +790,8 @@ float4 ShadeDecalText(
 
     float directLight =
         ndotl *
-        0.75f *
-        shadowFactor;
+        0.75f
+        ;
 
     float light =
         ambientLight +
@@ -870,30 +853,36 @@ float CalculateShadowFactor(
     float2 texelSize =
         1.0f / float2(width, height);
 
+    float2 offset =
+        texelSize * 0.5f;
+
     float visibility = 0.0f;
 
-    [unroll]
-    for (int y = -1; y <= 1; ++y)
-    {
-        [unroll]
-        for (int x = -1; x <= 1; ++x)
-        {
-            float sampledDepth =
-                shadowMap.Sample(
-                    samplerLinear,
-                    shadowUV +
-                    float2(x, y) *
-                    texelSize
-                ).r;
+    visibility += shadowMap.SampleCmpLevelZero(
+        shadowComparisonSampler,
+        shadowUV + float2(-offset.x, -offset.y),
+        currentDepth - bias
+    );
 
-            visibility +=
-                currentDepth - bias <= sampledDepth
-                ? 1.0f
-                : 0.0f;
-        }
-    }
+    visibility += shadowMap.SampleCmpLevelZero(
+        shadowComparisonSampler,
+        shadowUV + float2(offset.x, -offset.y),
+        currentDepth - bias
+    );
 
-    return visibility / 9.0f;
+    visibility += shadowMap.SampleCmpLevelZero(
+        shadowComparisonSampler,
+        shadowUV + float2(-offset.x, offset.y),
+        currentDepth - bias
+    );
+
+    visibility += shadowMap.SampleCmpLevelZero(
+        shadowComparisonSampler,
+        shadowUV + float2(offset.x, offset.y),
+        currentDepth - bias
+    );
+
+    return visibility * 0.25f;
 }
 
 float4 PS(PS_INPUT input) : SV_Target
@@ -1042,8 +1031,8 @@ float4 PS(PS_INPUT input) : SV_Target
             V,
             H,
             R,
-            input.worldPos,
-            shadowFactor
+            input.worldPos
+            
         );
     }
 
@@ -1055,8 +1044,7 @@ float4 PS(PS_INPUT input) : SV_Target
             L,
             V,
             H,
-            R,
-            shadowFactor
+            R
         );
     }
 
@@ -1065,8 +1053,7 @@ float4 PS(PS_INPUT input) : SV_Target
         return ShadeRubber(
             texColor,
             N,
-            L,
-            shadowFactor
+            L
         );
     }
 
@@ -1080,8 +1067,7 @@ float4 PS(PS_INPUT input) : SV_Target
             ambientIntensity,
             headlightIntensity,
             H,
-            V,
-            shadowFactor
+            V
         );
     }
 
@@ -1094,8 +1080,7 @@ float4 PS(PS_INPUT input) : SV_Target
             V,
             H,
             R,
-            localLighting,
-            shadowFactor
+            localLighting
         );
     }
 
@@ -1104,8 +1089,7 @@ float4 PS(PS_INPUT input) : SV_Target
         return ShadeAlcantara(
             texColor,
             N,
-            L,
-            shadowFactor
+            L
         );
     }
 
@@ -1114,8 +1098,7 @@ float4 PS(PS_INPUT input) : SV_Target
         return ShadeDecalText(
             texColor,
             N,
-            L,
-            shadowFactor
+            L
         );
     }
 
@@ -1128,8 +1111,7 @@ float4 PS(PS_INPUT input) : SV_Target
             V,
             H,
             R,
-            input.localPos,
-            shadowFactor
+            input.localPos
         );
     }
 

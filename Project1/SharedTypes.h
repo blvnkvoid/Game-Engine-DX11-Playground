@@ -189,7 +189,11 @@ enum class TyresUpgradeSelection
         Tsukuba,
         LeMans,
         DeepForest,
-        SSR5
+        SSR5,
+        Suzuka,
+        SanAndreas,
+        Bayview,
+        Bathurst
     };
 
 

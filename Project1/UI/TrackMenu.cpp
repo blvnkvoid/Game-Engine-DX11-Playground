@@ -86,7 +86,29 @@ void TrackMenu::Draw(const UIContext& ui)
         if (ImGui::Selectable("Special Stage Route 5", GameConfig::activeTrack == TrackSelection::SSR5)) {
 
             GameConfig::activeTrack = TrackSelection::SSR5;
+        }        
+        
+        if (ImGui::Selectable("Suzuka Circuit", GameConfig::activeTrack == TrackSelection::Suzuka)) {
+
+            GameConfig::activeTrack = TrackSelection::Suzuka;
+        }  
+        
+        if (ImGui::Selectable("San Andreas", GameConfig::activeTrack == TrackSelection::SanAndreas)) {
+
+            GameConfig::activeTrack = TrackSelection::SanAndreas;
+        }    
+        
+        if (ImGui::Selectable("Bathurst", GameConfig::activeTrack == TrackSelection::Bathurst)) {
+
+            GameConfig::activeTrack = TrackSelection::Bathurst;
+        }        
+        
+        if (ImGui::Selectable("Bayview", GameConfig::activeTrack == TrackSelection::Bayview)) {
+
+            GameConfig::activeTrack = TrackSelection::Bayview;
         }
+
+
 
 
 

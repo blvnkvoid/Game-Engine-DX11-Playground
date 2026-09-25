@@ -8,14 +8,9 @@
 #include <bullet/btBulletDynamicsCommon.h>
 #pragma warning(pop)
 #include "Handling.h"
-#include "../Cars/Porsche_911_Carrera_S/Porsche911.h"
-#include "../Cars/Audi_R8_LMS/AudiR8.h"
-#include "../Cars/Honda_Civic_EG6/Civic.h"
+
 #define LERP(a, b, t) (a + t * (b - a))
-
 #define clamp(val, low, high) ((val) < (low) ? (low) : ((val) > (high) ? (high) : (val)))
-
-
 
 Handling::Handling()
 {
@@ -923,7 +918,8 @@ PhysicsAdvice Handling::CombinedForces(
         float effectiveLoad = m_wheels[i].normalLoad;
         float mu = g_DebugTelemetry.surfaceMu[i];
 
-        float maxGrip = effectiveLoad * mu * 1.35f;
+        //float maxGrip = effectiveLoad * mu * 1.35f;
+        float maxGrip = effectiveLoad * mu;
 
         float latMag = lateralForce.length();
         float longMag = longForce.length();

@@ -10,6 +10,7 @@
 #include "../UI/UIContext.h"
 #include "../Sky/Sun.h"
 #include "../Sky/Clouds.h"
+#include "../Tracks/TrackTable.h"
 
 class Scene; // Forward declaration (keeps the header light!)
 class Camera;
@@ -102,7 +103,12 @@ public:
         return m_clouds;
     }
 
-    void PrepareShadowPass(SharedSceneData& sceneData);
+    const BoundingFrustum& GetLightFrustum() const
+    {
+        return m_lightFrustum;
+    }
+
+    void PrepareShadowPass(SharedSceneData& sceneData, TrackEntry& track);
     void DrawShadowDebugView();
 private:
     Sun m_sun;
@@ -135,6 +141,7 @@ private:
     Microsoft::WRL::ComPtr<ID3DBlob> psBlob;
     Microsoft::WRL::ComPtr<ID3DBlob> psBlobTor;
     Microsoft::WRL::ComPtr<ID3D11SamplerState> m_samplerLinear;
+    Microsoft::WRL::ComPtr<ID3D11SamplerState> m_shadowComparisonSampler;
     Microsoft::WRL::ComPtr<ID3D11BlendState> m_alphaBlendState;
     Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_defaultSRV;
     Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_lampSRV;
@@ -171,6 +178,8 @@ private:
     Time m_time;
     UINT quality = 0;
     EnvironmentDefinition def;
+
+    BoundingFrustum m_lightFrustum;
 
     ImFont* m_telemetryFont = nullptr;
     UIContext m_uiContext;

@@ -81,7 +81,7 @@ SkyEngine skyEngine;
 Clouds clouds;
 SharedSceneData sceneData;
 
-const TrackEntry* activeTrackEntry = nullptr;
+TrackEntry* activeTrackEntry = nullptr;
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
     if (message == WM_DESTROY) { PostQuitMessage(0); return 0; }
@@ -181,20 +181,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
             }
 
             Input::Update(camera);
-            engine->BeginShadowPass();
-            engine->PrepareShadowPass(sceneData);
 
-           if (m_mapTrack)
-            {
-                m_mapTrack->DrawShadow(
-                    engine->GetContext(),
-                    cb,
-                    sceneData,
-                    engine->GetDepthStencilState()
-                );
-            }
 
-            engine->BeginFrame(hWnd, camera->viewMatrix, camera->projectionMatrix, deltaTime, camera);
+
+
+
+
             if (Input::IsTelemetryTogglePressed())
             {
                 g_ShowDebugUI = !g_ShowDebugUI;
@@ -222,11 +214,20 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
             if (menu.g_CurrentState == EngineState::MAIN_MENU) {
                 if (assetsLoaded) {
                     mainScene->Clear();        
+
                     camera->SetFollowTarget(nullptr);       
                     delete m_mapTrack;
                     m_mapTrack = nullptr;
+                    activeTrackEntry = nullptr;
                     assetsLoaded = false;
                 }
+
+                engine->BeginFrame(
+                    hWnd,
+                    camera->viewMatrix,
+                    camera->projectionMatrix,
+                    deltaTime,
+                    camera);
    
                 menu.m_StartSimulationTriggered = false;
                 menu.Draw(*engine, audio, engine->GetUIContext());
@@ -257,7 +258,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                     m_mapTrack->m_texMgr = texMgr;
                     std::string trackPath = "";                         
 
-                    for (const auto& track : g_TrackTable)
+                    for (auto& track : g_TrackTable)
                     {
                         if (track.selection == event.track)
                         {
@@ -265,7 +266,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                             activeTrackEntry = &track;
                             break;
                         }
-                    }                   
+                    }    
+
+
+
+                    
+
 
                     GameConfig::activeTrack = event.track;
                     engine->ApplyEnvironmentDefinition(event.environment);
@@ -292,6 +298,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 
                     const auto& markers = m_mapTrack->GetMarkers();
+
+
 
                     TrackTimingEntry timing =
                         CreateTrackTiming(event.track, markers);
@@ -345,6 +353,37 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
                     assetsLoaded = true;
                 }
+                sceneData =
+                    engine->BuildSceneData(
+                        camera,
+                        playerObject,
+                        XMMatrixIdentity()
+                    );
+
+
+                engine->BeginShadowPass();
+
+
+                engine->PrepareShadowPass(sceneData, *activeTrackEntry);
+
+
+                m_mapTrack->DrawShadow(
+                    engine->GetContext(),
+                    cb,
+                    sceneData,
+                    engine->GetLightFrustum(),
+                    engine->GetDepthStencilState()
+                );
+
+
+                engine->BeginFrame(hWnd, camera->viewMatrix, camera->projectionMatrix, deltaTime, camera);
+
+                sceneData =
+                    engine->BuildSceneData(
+                        camera,
+                        playerObject,
+                        XMMatrixIdentity()
+                    );
 
                 telemetryUI.Draw(&g_ShowDebugUI, camera, playerModel, m_mapTrack);
                 physics->Update(deltaTime, Input::GetCurrentInputs());
@@ -388,12 +427,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
                 if (m_mapTrack)
                 {
-                    sceneData =
-                        engine->BuildSceneData(
-                            camera,
-                            playerObject,
-                            XMMatrixIdentity()
-                        );
+
 
                     sceneData.view =
                         XMMatrixTranspose(camera->viewMatrix);

@@ -54,7 +54,7 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
 
     D3D11_RASTERIZER_DESC rasterSolidCullBack = {};
     rasterSolidCullBack.FillMode = D3D11_FILL_SOLID; // Or D3D11_FILL_WIREFRAME for a cool matrix look!
-    rasterSolidCullBack.CullMode = D3D11_CULL_NONE;  // <--- THE CULL KILLER
+    rasterSolidCullBack.CullMode = D3D11_CULL_BACK;  // <--- THE CULL KILLER
     rasterSolidCullBack.AntialiasedLineEnable = true;
     rasterSolidCullBack.MultisampleEnable = true;
     rasterSolidCullBack.FrontCounterClockwise = true;      
@@ -183,13 +183,34 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     D3D11_DEPTH_STENCIL_VIEW_DESC shadowDSVDesc = {};
     shadowDSVDesc.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
     shadowDSVDesc.ViewDimension = D3D11_DSV_DIMENSION_TEXTURE2D;
-    shadowDSVDesc.Texture2D.MipSlice = 0;
-
+    shadowDSVDesc.Texture2D.MipSlice = 0;   
+    
     D3D11_SHADER_RESOURCE_VIEW_DESC shadowSRVDesc = {};
     shadowSRVDesc.Format = DXGI_FORMAT_R24_UNORM_X8_TYPELESS;
     shadowSRVDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
     shadowSRVDesc.Texture2D.MostDetailedMip = 0;
     shadowSRVDesc.Texture2D.MipLevels = 1;
+
+    D3D11_SAMPLER_DESC shadowSamplerDesc = {};
+
+    shadowSamplerDesc.Filter =
+        D3D11_FILTER_COMPARISON_MIN_MAG_LINEAR_MIP_POINT;
+
+    shadowSamplerDesc.AddressU = D3D11_TEXTURE_ADDRESS_BORDER;
+    shadowSamplerDesc.AddressV = D3D11_TEXTURE_ADDRESS_BORDER;
+    shadowSamplerDesc.AddressW = D3D11_TEXTURE_ADDRESS_BORDER;
+
+    shadowSamplerDesc.ComparisonFunc =
+        D3D11_COMPARISON_LESS_EQUAL;
+
+    shadowSamplerDesc.MinLOD = 0.0f;
+    shadowSamplerDesc.MaxLOD = D3D11_FLOAT32_MAX;
+
+    // Outside the shadow map should generally be considered illuminated.
+    shadowSamplerDesc.BorderColor[0] = 1.0f;
+    shadowSamplerDesc.BorderColor[1] = 1.0f;
+    shadowSamplerDesc.BorderColor[2] = 1.0f;
+    shadowSamplerDesc.BorderColor[3] = 1.0f;
 
     m_shadowViewport = {};
     m_shadowViewport.TopLeftX = 0.0f;
@@ -310,6 +331,8 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     hr = device->CreateVertexShader(shadowDebugVSBlob->GetBufferPointer(), shadowDebugVSBlob->GetBufferSize(), nullptr, &m_shadowDebugVS);
     if (FAILED(hr)) return false;
     hr = device->CreateDepthStencilState(&depthDesc, &m_debugDepthDisabled);
+    if (FAILED(hr)) return false;
+    device->CreateSamplerState(&shadowSamplerDesc, &m_shadowComparisonSampler);
     if (FAILED(hr)) return false;
 
     shadowVSBlob->Release();
@@ -535,7 +558,7 @@ void GraphicsEngine::BeginShadowPass()
     context->RSSetViewports(1, &m_shadowViewport);
 }
 
-void GraphicsEngine::PrepareShadowPass(SharedSceneData& sceneData)
+void GraphicsEngine::PrepareShadowPass(SharedSceneData& sceneData, TrackEntry& track)
 {
     XMVECTOR lightDirection =
         XMVector3Normalize(
@@ -556,26 +579,22 @@ void GraphicsEngine::PrepareShadowPass(SharedSceneData& sceneData)
             )
         );
 
-    constexpr float shadowForwardOffset = 350.0f;
-    constexpr float shadowAreaSize = 800.0f;
-
     XMVECTOR target =
         XMVectorAdd(
             carPosition,
             XMVectorScale(
                 carForward,
-                shadowForwardOffset
+                track.renderSettings.shadowForwardOffset
             )
         );
 
-    constexpr float lightDistance = 1500.0f;
 
     XMVECTOR lightPosition =
         XMVectorSubtract(
             target,
             XMVectorScale(
                 lightDirection,
-                lightDistance
+                track.renderSettings.lightDistance
             )
         );
 
@@ -596,10 +615,25 @@ void GraphicsEngine::PrepareShadowPass(SharedSceneData& sceneData)
 
 
     m_lightProj = XMMatrixOrthographicLH(
-        shadowAreaSize,
-        shadowAreaSize,
-        50.0f,
-        2000.0f
+        track.renderSettings.shadowAreaSize,
+        track.renderSettings.shadowAreaSize,
+        track.renderSettings.shadowCameraNearClip,
+        track.renderSettings.shadowCameraFarClip
+    );
+
+    BoundingFrustum viewFrustum;
+
+    BoundingFrustum::CreateFromMatrix(
+        viewFrustum,
+        m_lightProj
+    );
+
+    XMMATRIX inverseLightView =
+        XMMatrixInverse(nullptr, m_lightView);
+
+    viewFrustum.Transform(
+        m_lightFrustum,
+        inverseLightView
     );
 
     sceneData.world =
@@ -629,6 +663,12 @@ void GraphicsEngine::PrepareShadowPass(SharedSceneData& sceneData)
         0
     );
 
+    context->PSSetSamplers(
+        1,
+        1,
+        m_shadowComparisonSampler.GetAddressOf()
+    );
+
     context->IASetInputLayout(
         m_shadowInputLayout
     );
@@ -637,6 +677,8 @@ void GraphicsEngine::PrepareShadowPass(SharedSceneData& sceneData)
         shadowrasterState.Get()
     );
 }
+
+
 void GraphicsEngine::BeginFrame(HWND hWnd, DirectX::XMMATRIX view, DirectX::XMMATRIX projection, float deltaTime, Camera* cam)
 {
     bool gIsDown = GetAsyncKeyState('G') & 0x8000;
@@ -650,7 +692,6 @@ void GraphicsEngine::BeginFrame(HWND hWnd, DirectX::XMMATRIX view, DirectX::XMMA
         envTime += m_timeCycle.GetCycleLength();
     m_time.Update(deltaTime);
     m_timeCycle.Update(envTime, env);
-    //m_timeCycle.UpdateSun(m_time,cam, m_sun);
     m_timeCycle.UpdateClouds(envTime, m_clouds);
     m_gWasPressed = GetAsyncKeyState('G') & 0x8000;
     m_sceneData.time = m_time.GetShaderTime();
@@ -687,9 +728,6 @@ void GraphicsEngine::BeginFrame(HWND hWnd, DirectX::XMMATRIX view, DirectX::XMMA
     context->OMSetDepthStencilState(
         m_depthWriteOnState.Get(),
         0);
-
-
-
 
     RECT rc;
     GetClientRect(hWnd, &rc);
