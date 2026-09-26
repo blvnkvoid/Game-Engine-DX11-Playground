@@ -148,6 +148,46 @@ void RaceGrid::Clear()
     m_cars.clear();
 }
 
+
+void RaceGrid::BuildPlayerSpawn(
+    const std::vector<MapMarker>& markers,
+    PhysicsEngine& physics,
+    int gridPosition)
+{
+    Clear();
+
+    if (markers.empty())
+    {
+        OutputDebugStringA("ERROR: No grid markers found!\n");
+        return;
+    }
+
+    if (gridPosition < 0 ||
+        gridPosition >= static_cast<int>(markers.size()))
+    {
+        OutputDebugStringA("ERROR: Arcade grid position out of range!\n");
+        return;
+    }
+
+    const MapMarker& marker = markers[gridPosition];
+
+    btVector3 groundedPosition =
+        physics.ProjectToGround(
+            btVector3(marker.x, marker.y, marker.z),
+            0.6f);
+
+    m_playerSpawn.setIdentity();
+
+    m_playerSpawn.setOrigin(groundedPosition);
+
+    m_playerSpawn.setRotation(
+        btQuaternion(
+            marker.rotX,
+            marker.rotY,
+            marker.rotZ,
+            marker.rotW));
+}
+
 XMMATRIX RaceGrid::GetGridTransform(int gridPosition)
 {
     float spacingZ = 8.0f;

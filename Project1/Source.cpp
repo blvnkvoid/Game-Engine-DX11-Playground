@@ -116,12 +116,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     LapTimer g_LapTimer;
 
     engine->ConfigureUIScale(1920.0f, 1080.0f);
-
     ImGuiIO& io = ImGui::GetIO();   
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;
-
-
 
 
     TextureManager* texMgr = new TextureManager(engine->GetDevice());
@@ -182,11 +179,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
             Input::Update(camera);
 
-
-
-
-
-
             if (Input::IsTelemetryTogglePressed())
             {
                 g_ShowDebugUI = !g_ShowDebugUI;
@@ -229,130 +221,325 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                     deltaTime,
                     camera);
    
+
+                audio.StopJukebox();
+
                 menu.m_StartSimulationTriggered = false;
                 menu.Draw(*engine, audio, engine->GetUIContext());
                 menu.HandleInput(audio);
             }
-            else if (menu.g_CurrentState == EngineState::GAMEPLAY) {
-                if (deltaTime > 0.033f) deltaTime = 0.033f;
+
+            else if (menu.g_CurrentState == EngineState::GAMEPLAY)
+            {
+                if (deltaTime > 0.033f)
+                    deltaTime = 0.033f;
 
                 g_LapTimer.DrawUI();
+
                 audio.StopMenuMusic();
                 audio.UpdateJukebox();
 
-                
-           
-                if (!assetsLoaded) {
+                if (!assetsLoaded)
+                {
+
+                    if (!m_mapTrack)
+                    {
+                        m_mapTrack = new MapLoader();
+                    }
+
 
                     physics->SetHandling(handling);
                     LogiSteeringInitialize(true);
 
-                    if (!eventSession.IsActive())
+
+                    // ---------------------------------------------------------
+                    // Resolve mode-specific race configuration
+                    // ---------------------------------------------------------
+
+                    TrackSelection trackSelection;
+                    VehicleSelection playerSelection;
+
+                    EnvironmentDefinition environment;
+                    int totalLaps = 100;
+
+                    EventDefinition event;
+
+
+                    if (menu.m_GameMode == GameMode::Arcade)
                     {
-                        eventSession = eventRegistry.CreateSession(menu.m_eventmenu.m_LaunchType, menu.m_eventmenu.m_SelectedEvent);
+                        // Arcade Mode:
+                        // Track comes directly from Track Selection.
+                        // Car comes directly from Garage.
+
+                        trackSelection =
+                            menu.m_trackmenu.m_selectedTrack;
+
+                        playerSelection =
+                            garage.m_PreviewSelection;
+
+                        // Temporary Arcade defaults.
+                        // These can become UI settings later.
+
+                        environment.startTime = 45.0f;
+                        environment.dynamicTime = false;
+
+                        totalLaps = 100;
+                    }
+                    else if (menu.m_GameMode == GameMode::GranTurismo)
+                    {
+                        // Gran Turismo Mode:
+                        // Event system determines the race.
+
+                        if (!eventSession.IsActive())
+                        {
+                            eventSession =
+                                eventRegistry.CreateSession(
+                                    menu.m_eventmenu.m_LaunchType,
+                                    menu.m_eventmenu.m_SelectedEvent);
+                        }
+
+                        event =
+                            eventRegistry.Create(
+                                eventSession.GetCurrentEvent());
+
+                        trackSelection =
+                            event.track;
+
+                        playerSelection =
+                            raceGrid.GetPlayerSelection(
+                                event,
+                                garage.m_PreviewSelection);
+
+                        environment =
+                            event.environment;
+
+                        totalLaps =
+                            event.totalLaps;
+                    }
+                    else
+                    {
+                        // Gameplay should never be entered without
+                        // selecting Arcade or Gran Turismo Mode.
+
+                        OutputDebugStringA(
+                            "ERROR: GAMEPLAY entered without a valid GameMode!\n");
+
+                        menu.g_CurrentState = EngineState::MAIN_MENU;
+                        continue;
                     }
 
-                    EventDefinition event =
-                        eventRegistry.Create(eventSession.GetCurrentEvent());
+
+                    // ---------------------------------------------------------
+                    // Resolve track
+                    // ---------------------------------------------------------
 
                     m_mapTrack->m_texMgr = texMgr;
-                    std::string trackPath = "";                         
+
+                    std::string trackPath = "";
 
                     for (auto& track : g_TrackTable)
                     {
-                        if (track.selection == event.track)
+                        if (track.selection == trackSelection)
                         {
                             trackPath = track.path;
                             activeTrackEntry = &track;
                             break;
                         }
-                    }    
+                    }
+
+                    if (!activeTrackEntry)
+                    {
+                        OutputDebugStringA("ERROR: Selected track was not found in g_TrackTable!\n");
+                        continue;
+                    }
+
+                    GameConfig::activeTrack =
+                        trackSelection;
+
+                    engine->ApplyEnvironmentDefinition(
+                        environment);
+
+                    handling->SetPhysicsPointers(
+                        physics->GetCarBody());
 
 
-
-                    
-
-
-                    GameConfig::activeTrack = event.track;
-                    engine->ApplyEnvironmentDefinition(event.environment);
-                    handling->SetPhysicsPointers(physics->GetCarBody());
-
-
-
-                    VehicleSelection playerSelection =
-                        raceGrid.GetPlayerSelection(event, garage.m_PreviewSelection);
-
-
+                    // ---------------------------------------------------------
+                    // Create player vehicle definition
+                    // ---------------------------------------------------------
 
                     VehicleDefinition car =
-                        vehicleRegistry.CreateDefinition(playerSelection);
+                        vehicleRegistry.CreateDefinition(
+                            playerSelection);
 
                     physics->SetVehicleDefinition(car);
                     physics->Initialize();
 
 
+                    // ---------------------------------------------------------
+                    // Load track + collision
+                    // ---------------------------------------------------------
 
-                    if (m_mapTrack->OpenAndLoad(trackPath, engine->GetDevice(), engine->GetContext())) {
-                        physics->AddTriangleMeshCollider(m_mapTrack->GetVertices(), m_mapTrack->GetIndices());
+                    if (m_mapTrack->OpenAndLoad(
+                        trackPath,
+                        engine->GetDevice(),
+                        engine->GetContext()))
+                    {
+                        physics->AddTriangleMeshCollider(
+                            m_mapTrack->GetVertices(),
+                            m_mapTrack->GetIndices());
                     }
 
 
-                    const auto& markers = m_mapTrack->GetMarkers();
+                    const auto& markers =
+                        m_mapTrack->GetMarkers();
 
 
+                    // ---------------------------------------------------------
+                    // Track timing
+                    // ---------------------------------------------------------
 
                     TrackTimingEntry timing =
-                        CreateTrackTiming(event.track, markers);
+                        CreateTrackTiming(
+                            trackSelection,
+                            markers);
 
                     physics->SetTrackTiming(timing);
 
-           
-                    raceGrid.Build(
-                        event,
-                        markers,
-                        vehicleRegistry,
-                        *physics,
+
+                    // ---------------------------------------------------------
+                    // Grid / player spawn
+                    // ---------------------------------------------------------
+
+                    if (menu.m_GameMode == GameMode::GranTurismo)
+                    {
+                        // Build complete Event grid.
+
+                        raceGrid.Build(
+                            event,
+                            markers,
+                            vehicleRegistry,
+                            *physics,
+                            engine->GetDevice(),
+                            engine->GetContext(),
+                            engine->GetTextureManager(),
+                            garage.m_PreviewSelection);
+                    }
+                    else if (menu.m_GameMode == GameMode::Arcade)
+                    {
+                        // Arcade currently contains only the player.
+                        // Spawn at grid position 0.
+
+                        raceGrid.BuildPlayerSpawn(
+                            markers,
+                            *physics,
+                            0);
+                    }
+
+
+                    physics->SetStartTransform(
+                        raceGrid.GetPlayerSpawn());
+
+                    physics->CreatePhysicsWorld();
+
+
+                    // ---------------------------------------------------------
+                    // Load player vehicle assets
+                    // ---------------------------------------------------------
+
+                    vehicleRegistry.GetOrLoadVehicle(
+                        playerSelection,
                         engine->GetDevice(),
                         engine->GetContext(),
-                        engine->GetTextureManager(),
-                        garage.m_PreviewSelection);
+                        engine->GetTextureManager());
 
-                        physics->SetStartTransform(
-                            raceGrid.GetPlayerSpawn());
+                    VehicleAsset& vehicle =
+                        vehicleRegistry.GetVehicle(
+                            playerSelection);
+
+                    playerModel =
+                        vehicle.model.get();
+
+                    playerObject =
+                        vehicle.object.get();
 
 
-                        physics->CreatePhysicsWorld();
+                    // ---------------------------------------------------------
+                    // Vehicle camera
+                    // ---------------------------------------------------------
+
+                    CameraDefinition cam =
+                        vehicleRegistry.CreateCameraDefinition(
+                            playerSelection);
 
 
-                    vehicleRegistry.GetOrLoadVehicle(playerSelection, engine->GetDevice(), engine->GetContext(), engine->GetTextureManager());
-                    VehicleAsset& vehicle = vehicleRegistry.GetVehicle(playerSelection);
-                    playerModel = vehicle.model.get();
-                    playerObject = vehicle.object.get();
+                    // ---------------------------------------------------------
+                    // Player upgrades / setup
+                    // ---------------------------------------------------------
 
-                    CameraDefinition cam = vehicleRegistry.CreateCameraDefinition(playerSelection);
+                    ApplyEngineUpgrade(
+                        car,
+                        GetEngineUpgrade(
+                            upgrades.m_EngineUpgradeSelection));
 
-                    ApplyEngineUpgrade(car, GetEngineUpgrade(upgrades.m_EngineUpgradeSelection));
-                    ApplyWeightReductionUpgrade(car, GetWeightReductionUpgrade(upgrades.m_WeightReductionSelection));
-                    ApplyTyresUpgrade(car, GetTyresUpgrade(upgrades.m_TyresUpgradeSelection));
-                    ApplySetup(car, carsetup.m_CarSetupState);
+                    ApplyWeightReductionUpgrade(
+                        car,
+                        GetWeightReductionUpgrade(
+                            upgrades.m_WeightReductionSelection));
 
-                    audio.SetVehicleAudioDefinition(car.audio);
-                    camera->SetVehicleCameraDefinition(cam);
-                    racingHUD.SetVehicleDefinition(car);
-                    handling->SetVehicleDefinition(car);
-          
+                    ApplyTyresUpgrade(
+                        car,
+                        GetTyresUpgrade(
+                            upgrades.m_TyresUpgradeSelection));
 
-                    mainScene->SetChaseTarget(playerModel);
-                    engine->SetScene(mainScene);
-                    camera->SetFollowTarget(playerModel);
+                    ApplySetup(
+                        car,
+                        carsetup.m_CarSetupState);
 
-                 
+
+                    // ---------------------------------------------------------
+                    // Apply player vehicle configuration
+                    // ---------------------------------------------------------
+
+                    audio.SetVehicleAudioDefinition(
+                        car.audio);
+
+                    camera->SetVehicleCameraDefinition(
+                        cam);
+
+                    racingHUD.SetVehicleDefinition(
+                        car);
+
+                    handling->SetVehicleDefinition(
+                        car);
+
+
+                    // ---------------------------------------------------------
+                    // Scene / camera
+                    // ---------------------------------------------------------
+
+                    mainScene->SetChaseTarget(
+                        playerModel);
+
+                    engine->SetScene(
+                        mainScene);
+
+                    camera->SetFollowTarget(
+                        playerModel);
+
+
+                    // ---------------------------------------------------------
+                    // Race state
+                    // ---------------------------------------------------------
 
                     g_LapTimer.Reset();
-                    g_LapTimer.SetTotalLaps(event.totalLaps);      
+
+                    g_LapTimer.SetTotalLaps(
+                        totalLaps);
+
 
                     assetsLoaded = true;
                 }
+           
                 sceneData =
                     engine->BuildSceneData(
                         camera,
@@ -472,7 +659,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
             engine->EndFrame();
         }
-    }
+    
+     }
 
     audio.ShutdownAudio();
     LogiSteeringShutdown();

@@ -40,6 +40,8 @@ EventSession EventRegistry::CreateSession(
         return session;
     }
 
+    //if (launchType == EventLaunchType::FreePlay)
+
     session.StartSingleEvent(selectedEvent);
     return session;
 }

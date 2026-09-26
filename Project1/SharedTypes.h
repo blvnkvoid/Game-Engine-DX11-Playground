@@ -108,6 +108,12 @@ enum class EngineState {
     GAMEPLAY
 };
 
+enum class GameMode {
+    None,
+    Arcade,
+    GranTurismo
+};
+
 
 enum class VehicleSelection {
     AUDI_R8,

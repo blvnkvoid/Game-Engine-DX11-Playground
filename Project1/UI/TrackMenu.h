@@ -7,5 +7,5 @@ class TrackMenu
 public:
 	bool m_TrackSelection = false;
 	void Draw(const UIContext& ui);
-	TrackSelection m_selectedTrack = TrackSelection::Spa;
+	TrackSelection m_selectedTrack;
 };

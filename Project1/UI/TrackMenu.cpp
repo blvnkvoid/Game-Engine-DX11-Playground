@@ -17,95 +17,104 @@ void TrackMenu::Draw(const UIContext& ui)
         ImGui::SetNextWindowPos(ui.P(400, 100)); // Place it next to the main menu
         ImGui::SetNextWindowSize(ui.Size(300, 0), ImGuiCond_Always);
         ImGui::Begin("Track List", nullptr, 0);
-        if (ImGui::Selectable("AutumnRing", GameConfig::activeTrack == TrackSelection::AutumnRing)) {
-
-            GameConfig::activeTrack = TrackSelection::AutumnRing;
-        }
-        if (ImGui::Selectable("ElCapitan", GameConfig::activeTrack == TrackSelection::ElCapitan)) {
-
-            GameConfig::activeTrack = TrackSelection::ElCapitan;
-        }
-        if (ImGui::Selectable("Circuit de Spa-Francorchamps ", GameConfig::activeTrack == TrackSelection::Spa)) {
-
-            GameConfig::activeTrack = TrackSelection::Spa;
-        }
-        if (ImGui::Selectable("Grand Valley Speedway ", GameConfig::activeTrack == TrackSelection::GrandValley)) {
-
-            GameConfig::activeTrack = TrackSelection::GrandValley;
-        }
-        if (ImGui::Selectable("Trial Mountain Circuit", GameConfig::activeTrack == TrackSelection::TrialMountain)) {
-
-            GameConfig::activeTrack = TrackSelection::TrialMountain;
-        }
-        if (ImGui::Selectable("High Speed Ring ", GameConfig::activeTrack == TrackSelection::HighSpeedRing)) {
-
-            GameConfig::activeTrack = TrackSelection::HighSpeedRing;
-        }
-        if (ImGui::Selectable("Mid-field Raceway ", GameConfig::activeTrack == TrackSelection::MidfieldRaceway)) {
-
-            GameConfig::activeTrack = TrackSelection::MidfieldRaceway;
-        }
-        if (ImGui::Selectable("Test Course ", GameConfig::activeTrack == TrackSelection::TestCourse)) {
-
-            GameConfig::activeTrack = TrackSelection::TestCourse;
-        }
-        if (ImGui::Selectable("Special Stage Route X ", GameConfig::activeTrack == TrackSelection::RouteX)) {
-
-            GameConfig::activeTrack = TrackSelection::RouteX;
+        if (ImGui::Selectable("AutumnRing", m_selectedTrack == TrackSelection::AutumnRing))
+        {
+            m_selectedTrack = TrackSelection::AutumnRing;
         }
 
-        if (ImGui::Selectable("Nurburgring Nordschleife ", GameConfig::activeTrack == TrackSelection::Nordschleife)) {
-
-            GameConfig::activeTrack = TrackSelection::Nordschleife;
+        if (ImGui::Selectable("ElCapitan", m_selectedTrack == TrackSelection::ElCapitan))
+        {
+            m_selectedTrack = TrackSelection::ElCapitan;
         }
 
-        if (ImGui::Selectable("Beginner Course", GameConfig::activeTrack == TrackSelection::BeginnerCourse)) {
-
-            GameConfig::activeTrack = TrackSelection::BeginnerCourse;
-        }
-        if (ImGui::Selectable("Motor Sports Land ", GameConfig::activeTrack == TrackSelection::Motorland)) {
-
-            GameConfig::activeTrack = TrackSelection::Motorland;
+        if (ImGui::Selectable("Circuit de Spa-Francorchamps", m_selectedTrack == TrackSelection::Spa))
+        {
+            m_selectedTrack = TrackSelection::Spa;
         }
 
-        if (ImGui::Selectable("Tsukuba Circuit", GameConfig::activeTrack == TrackSelection::Tsukuba)) {
-
-            GameConfig::activeTrack = TrackSelection::Tsukuba;
+        if (ImGui::Selectable("Grand Valley Speedway", m_selectedTrack == TrackSelection::GrandValley))
+        {
+            m_selectedTrack = TrackSelection::GrandValley;
         }
 
-        if (ImGui::Selectable("Circuit de la Sarthe", GameConfig::activeTrack == TrackSelection::LeMans)) {
-
-            GameConfig::activeTrack = TrackSelection::LeMans;
+        if (ImGui::Selectable("Trial Mountain Circuit", m_selectedTrack == TrackSelection::TrialMountain))
+        {
+            m_selectedTrack = TrackSelection::TrialMountain;
         }
 
-        if (ImGui::Selectable("Deep Forest Raceway", GameConfig::activeTrack == TrackSelection::DeepForest)) {
-
-            GameConfig::activeTrack = TrackSelection::DeepForest;
+        if (ImGui::Selectable("High Speed Ring", m_selectedTrack == TrackSelection::HighSpeedRing))
+        {
+            m_selectedTrack = TrackSelection::HighSpeedRing;
         }
 
-        if (ImGui::Selectable("Special Stage Route 5", GameConfig::activeTrack == TrackSelection::SSR5)) {
+        if (ImGui::Selectable("Mid-field Raceway", m_selectedTrack == TrackSelection::MidfieldRaceway))
+        {
+            m_selectedTrack = TrackSelection::MidfieldRaceway;
+        }
 
-            GameConfig::activeTrack = TrackSelection::SSR5;
-        }        
-        
-        if (ImGui::Selectable("Suzuka Circuit", GameConfig::activeTrack == TrackSelection::Suzuka)) {
+        if (ImGui::Selectable("Test Course", m_selectedTrack == TrackSelection::TestCourse))
+        {
+            m_selectedTrack = TrackSelection::TestCourse;
+        }
 
-            GameConfig::activeTrack = TrackSelection::Suzuka;
-        }  
-        
-        if (ImGui::Selectable("San Andreas", GameConfig::activeTrack == TrackSelection::SanAndreas)) {
+        if (ImGui::Selectable("Special Stage Route X", m_selectedTrack == TrackSelection::RouteX))
+        {
+            m_selectedTrack = TrackSelection::RouteX;
+        }
 
-            GameConfig::activeTrack = TrackSelection::SanAndreas;
-        }    
-        
-        if (ImGui::Selectable("Bathurst", GameConfig::activeTrack == TrackSelection::Bathurst)) {
+        if (ImGui::Selectable("Nurburgring Nordschleife", m_selectedTrack == TrackSelection::Nordschleife))
+        {
+            m_selectedTrack = TrackSelection::Nordschleife;
+        }
 
-            GameConfig::activeTrack = TrackSelection::Bathurst;
-        }        
-        
-        if (ImGui::Selectable("Bayview", GameConfig::activeTrack == TrackSelection::Bayview)) {
+        if (ImGui::Selectable("Beginner Course", m_selectedTrack == TrackSelection::BeginnerCourse))
+        {
+            m_selectedTrack = TrackSelection::BeginnerCourse;
+        }
 
-            GameConfig::activeTrack = TrackSelection::Bayview;
+        if (ImGui::Selectable("Motor Sports Land", m_selectedTrack == TrackSelection::Motorland))
+        {
+            m_selectedTrack = TrackSelection::Motorland;
+        }
+
+        if (ImGui::Selectable("Tsukuba Circuit", m_selectedTrack == TrackSelection::Tsukuba))
+        {
+            m_selectedTrack = TrackSelection::Tsukuba;
+        }
+
+        if (ImGui::Selectable("Circuit de la Sarthe", m_selectedTrack == TrackSelection::LeMans))
+        {
+            m_selectedTrack = TrackSelection::LeMans;
+        }
+
+        if (ImGui::Selectable("Deep Forest Raceway", m_selectedTrack == TrackSelection::DeepForest))
+        {
+            m_selectedTrack = TrackSelection::DeepForest;
+        }
+
+        if (ImGui::Selectable("Special Stage Route 5", m_selectedTrack == TrackSelection::SSR5))
+        {
+            m_selectedTrack = TrackSelection::SSR5;
+        }
+
+        if (ImGui::Selectable("Suzuka Circuit", m_selectedTrack == TrackSelection::Suzuka))
+        {
+            m_selectedTrack = TrackSelection::Suzuka;
+        }
+
+        if (ImGui::Selectable("San Andreas", m_selectedTrack == TrackSelection::SanAndreas))
+        {
+            m_selectedTrack = TrackSelection::SanAndreas;
+        }
+
+        if (ImGui::Selectable("Bathurst", m_selectedTrack == TrackSelection::Bathurst))
+        {
+            m_selectedTrack = TrackSelection::Bathurst;
+        }
+
+        if (ImGui::Selectable("Bayview", m_selectedTrack == TrackSelection::Bayview))
+        {
+            m_selectedTrack = TrackSelection::Bayview;
         }
 
 

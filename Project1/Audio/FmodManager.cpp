@@ -194,6 +194,23 @@ void FMODManager::PlayRandomTrack()
         musicChannel->setVolume(0.2f);
 }
 
+void FMODManager::StopJukebox()
+{
+    if (musicChannel)
+    {
+        musicChannel->stop();
+        musicChannel = nullptr;
+    }
+
+    if (m_currentMusic)
+    {
+        m_currentMusic->release();
+        m_currentMusic = nullptr;
+    }
+
+    m_currentTrackIndex = -1;
+}
+
 
 void FMODManager::UpdateJukebox()
 {

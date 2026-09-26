@@ -42,7 +42,6 @@ void EventMenu::Draw(const UIContext& ui)
         }
     }
 
-
     ImGui::Separator();
 
     ImGui::TextDisabled("More events coming soon...");

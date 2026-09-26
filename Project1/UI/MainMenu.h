@@ -9,6 +9,8 @@
 #include "../UI/Upgrades.h"
 #include "../UI/CarSetupMenu.h"
 #include "../UI/EventMenu.h"
+#include "../UI/ArcadeMode.h"
+#include "../UI/GranTurismoMode.h"
 #include "../Input/Input.h"
 #include "../UI/UIContext.h"
 #include <Xinput.h>
@@ -33,5 +35,9 @@ public:
     Upgrades m_upgrades;
     CarSetupMenu m_carsetup;
     EventMenu m_eventmenu;
+    ArcadeMode m_arcademode;
+    GranTurismoMode m_granturismomode;
+
+    GameMode m_GameMode;
 
 };

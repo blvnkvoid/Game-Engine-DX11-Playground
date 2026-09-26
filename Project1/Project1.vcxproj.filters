@@ -243,6 +243,12 @@
     <ClCompile Include="Scene\Camera.cpp">
       <Filter>Source Files\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="UI\ArcadeMode.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\GranTurismoMode.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SharedTypes.h">
@@ -466,6 +472,12 @@
     </ClInclude>
     <ClInclude Include="Sky\Clouds.h">
       <Filter>Source Files\Sky</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\ArcadeMode.h">
+      <Filter>Source Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\GranTurismoMode.h">
+      <Filter>Source Files\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

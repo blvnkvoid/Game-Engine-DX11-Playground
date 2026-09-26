@@ -53,6 +53,11 @@ public:
 
     void Clear();
 
+    void BuildPlayerSpawn(
+        const std::vector<MapMarker>& markers,
+        PhysicsEngine& physics,
+        int gridPosition);
+
 private:
     DirectX::XMMATRIX GetGridTransform(int gridPosition);
 

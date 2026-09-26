@@ -207,7 +207,9 @@
     <ClCompile Include="Tracks\TrackTable.cpp" />
     <ClCompile Include="UI\CarSetupMenu.cpp" />
     <ClCompile Include="UI\EventMenu.cpp" />
+    <ClCompile Include="UI\ArcadeMode.cpp" />
     <ClCompile Include="UI\Garage.cpp" />
+    <ClCompile Include="UI\GranTurismoMode.cpp" />
     <ClCompile Include="UI\LapTimer.cpp" />
     <ClCompile Include="UI\MainMenu.cpp" />
     <ClCompile Include="UI\RacingHUD.cpp" />
@@ -282,7 +284,9 @@
     <ClInclude Include="Tracks\TrackTable.h" />
     <ClInclude Include="UI\CarSetupMenu.h" />
     <ClInclude Include="UI\EventMenu.h" />
+    <ClInclude Include="UI\ArcadeMode.h" />
     <ClInclude Include="UI\Garage.h" />
+    <ClInclude Include="UI\GranTurismoMode.h" />
     <ClInclude Include="UI\LapTimer.h" />
     <ClInclude Include="UI\MainMenu.h" />
     <ClInclude Include="UI\RacingHUD.h" />

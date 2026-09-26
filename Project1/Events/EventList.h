@@ -11,7 +11,8 @@ enum class EventSelection
 enum class EventLaunchType
 {
     SingleEvent,
-    Championship
+    Championship,
+    FreePlay
 };
 
 struct EventListEntry

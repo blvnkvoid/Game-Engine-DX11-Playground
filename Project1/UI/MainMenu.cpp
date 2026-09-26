@@ -31,19 +31,76 @@ void MainMenu::Draw(
         );
 
 
-    if (ImGui::Button(
-        "START SIMULATION",
-        ui.Size(300.0f, 50.0f)))
+    if (m_GameMode == GameMode::None)
     {
-        m_StartSimulationTriggered = true;
-        g_CurrentState = EngineState::GAMEPLAY;
+        if (m_arcademode.Draw(ui))
+        {
+            m_GameMode = GameMode::Arcade;
+        }
+
+        if (m_granturismomode.Draw(ui))
+        {
+            m_GameMode = GameMode::GranTurismo;
+        }
     }
 
-    m_garage.Draw(ui);
+    else
+    {
+        switch (m_GameMode)
+        {
+        case GameMode::Arcade:
+
+            if (ImGui::Button(
+                "Start Race",
+                ui.Size(300.0f, 50.0f)))
+            {
+                m_StartSimulationTriggered = true;
+                g_CurrentState = EngineState::GAMEPLAY;
+            }
+
+            m_garage.Draw(ui);
+            m_trackmenu.Draw(ui);
+
+            if (ImGui::Button("BACK", ui.Size(300.0f, 50.0f)))
+            {
+                m_GameMode = GameMode::None;
+            }
+
+            break;
+
+
+        case GameMode::GranTurismo:
+
+            if (ImGui::Button(
+                "Start Event",
+                ui.Size(300.0f, 50.0f)))
+            {
+                m_StartSimulationTriggered = true;
+                g_CurrentState = EngineState::GAMEPLAY;
+            }
+
+            m_garage.Draw(ui);
+            m_upgrades.Draw(ui);
+            m_carsetup.Draw(ui);
+            m_eventmenu.Draw(ui);
+
+            if (ImGui::Button("BACK", ui.Size(300.0f, 50.0f)))
+            {
+                m_GameMode = GameMode::None;
+            }
+
+            break;
+        }
+    }
+
+
+
+
+   /* m_garage.Draw(ui);
     m_upgrades.Draw(ui);
     m_carsetup.Draw(ui);
     m_trackmenu.Draw(ui);
-    m_eventmenu.Draw(ui);
+    m_eventmenu.Draw(ui);*/
 
     if (ImGui::Button("EXIT", ui.Size(300, 50)))
     {
