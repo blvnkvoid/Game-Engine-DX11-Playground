@@ -1,395 +1,1811 @@
-# Blender 5.1.1 MTL File: 'None'
-# www.blender.org
+# Copen BEST OF BOTH WORLDS
+# Base: AC INI-derived material parameters/resources.
+# Old Copen.mtl contributes proven map_Kd/other texture mappings where names match.
+# Old-only materials are retained verbatim.
+
+newmtl Material #876
+# AC_SHADER ksPerPixelAlpha
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 101r.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=101r.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR alpha=1.0
+
+
+newmtl Material #877
+# AC_SHADER ksPerPixelAlpha
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 101_2.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=101_2.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR alpha=1.0
+
+
+newmtl Material #869
+# AC_SHADER ksPerPixelAlpha
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 131.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=131.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR alpha=1.0
+
+
+newmtl Material #870
+# AC_SHADER ksPerPixelAlpha
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 13a.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=13a.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR alpha=1.0
+
+
+newmtl Material #874
+# AC_SHADER ksPerPixelAlpha
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 10i.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=10i.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR alpha=1.0
+
+
+newmtl Material #872
+# AC_SHADER ksPerPixelAlpha
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 101i.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=101i.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR alpha=1.0
+
+
+newmtl Material #873
+# AC_SHADER ksPerPixelAlpha
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 101.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=101.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR alpha=1.0
+
+
+newmtl Material #880
+# AC_SHADER ksPerPixelAlpha
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 10.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=10.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR alpha=1.0
+
+
+newmtl Material #882
+# AC_SHADER ksPerPixelAlpha
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 10_2.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=10_2.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR alpha=1.0
+
+
+newmtl Material #884
+# AC_SHADER ksPerPixelAlpha
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 10r.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=10r.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR alpha=1.0
+
+
+newmtl Material #885
+# AC_SHADER ksPerPixelAlpha
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 10_1.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=10_1.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR alpha=1.0
+
+
+newmtl Material #886
+# AC_SHADER ksPerPixelAlpha
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 101_1.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=101_1.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR alpha=1.0
+
+
+newmtl Material__1395
+# AC_SHADER ksTyres
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.100000 0.100000 0.100000
+Ns 30.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/qKlXlqLaLGI.dds
+map_Bump qKlXlqLaLGI_NRM.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=qKlXlqLaLGI.dds
+# AC_RESOURCE slot=1 name=txNormal texture=qKlXlqLaLGI_NRM.dds
+# AC_RESOURCE slot=2 name=txDirty texture=black.dds
+# AC_RESOURCE slot=3 name=txBlur texture=qKlXlqLaLGIbl.dds
+# AC_RESOURCE slot=4 name=txNormalBlur texture=qKlXlqLaLGI_NRMbl.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR blurLevel=0.0
+# AC_VAR dirtyLevel=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=3.0
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=0.0
+
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/qKlXlqLaLGI.dds
+
+newmtl Material__1382
+# AC_SHADER ksTyres
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.100000 0.100000 0.100000
+Ns 30.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/h38HFbdolw.dds
+map_Bump h38HFbdolw_NRM.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=h38HFbdolw.dds
+# AC_RESOURCE slot=1 name=txNormal texture=h38HFbdolw_NRM.dds
+# AC_RESOURCE slot=2 name=txDirty texture=black.dds
+# AC_RESOURCE slot=3 name=txBlur texture=h38HFbdolwbl.dds
+# AC_RESOURCE slot=4 name=txNormalBlur texture=h38HFbdolw_NRMbl.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR blurLevel=0.0
+# AC_VAR dirtyLevel=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=3.0
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=0.0
+
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/h38HFbdolw.dds
+
+newmtl plastic
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.200000 0.200000 0.200000
+Kd 0.100000 0.100000 0.100000
+Ks 0.100000 0.100000 0.100000
+Ns 200.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/plao.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=plao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=plao.dds
+# AC_RESOURCE slot=3 name=txDetail texture=darkgrey.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=2.5
+# AC_VAR fresnelMaxLevel=0.1
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=1.0
+# AC_VAR detailUVMultiplier=3.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/plao.dds
+
+newmtl Material__28
+# AC_SHADER ksPerPixelReflection
+Ka 0.200000 0.200000 0.200000
+Kd 0.300000 0.300000 0.300000
+Ks 0.100000 0.100000 0.100000
+Ns 30.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/bbs-centercap-black-gold-ci-r.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=bbs-centercap-black-gold-ci-r.png
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=2.5
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=0.05
+
+
+newmtl Material #721
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.800000 0.800000 0.800000
+Ns 45.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd rimao.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=rimao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=rimao.dds
+# AC_RESOURCE slot=3 name=txDetail texture=rim_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=2.0
+# AC_VAR fresnelMaxLevel=0.1
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=1.0
+# AC_VAR detailUVMultiplier=20.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+
+newmtl rubber
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 30.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/rubao.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=rubao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=bodymap.dds
+# AC_RESOURCE slot=3 name=txDetail texture=darkgrey.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=2.5
+# AC_VAR fresnelMaxLevel=0.2
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=1.0
+# AC_VAR detailUVMultiplier=3.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/rubao.dds
+
+newmtl Material #915
+# AC_SHADER ksPerPixelReflection
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 30.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd rblur.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=rblur.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=4.0
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=0.04
+
+
+newmtl cal
+# AC_SHADER ksPerPixelMultiMap_NMDetail
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 30.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/alf.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=alf.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=map.dds
+# AC_RESOURCE slot=3 name=txDetail texture=darkgrey.dds
+# AC_RESOURCE slot=4 name=txNormalDetail texture=66.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=2.5
+# AC_VAR fresnelMaxLevel=0.2
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=1.0
+# AC_VAR detailUVMultiplier=20.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR detailNormalBlend=1.0
+
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/alf.dds
+
+newmtl calb
+# AC_SHADER ksPerPixel
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 50.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/darkgrey.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=darkgrey.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/darkgrey.dds
 
 newmtl EXT_Disc
-Ns 200.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
+# AC_SHADER ksBrakeDisc
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.200000 0.200000 0.200000
+Ns 20.000000
+Ni 1.000000
+d 1.000000
+illum 2
 map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/ext_disc.dds
+map_Bump ext_disc_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=ext_disc.dds
+# AC_RESOURCE slot=1 name=txNormal texture=ext_disc_nm.dds
+# AC_RESOURCE slot=2 name=txGlow texture=ext_disk_warm.dds
+# AC_RESOURCE slot=3 name=txBlur texture=ext_disc_blur.dds
+# AC_RESOURCE slot=4 name=txNormalBlur texture=ext_disc_nm.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR blurLevel=0.0
+# AC_VAR glowLevel=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=1.6
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=0.01
+
 map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/ext_disc.dds
 
-newmtl Material_#309
-Ns 499.999969
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/2E_0_0.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/2E_0_0.dds
+newmtl Material #890
+# AC_SHADER ksPerPixelReflection
+Ka 0.100000 0.100000 0.100000
+Kd 0.100000 0.100000 0.100000
+Ks 12.000000 12.000000 12.000000
+Ns 150.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 20_0_0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=20_0_0.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=1.0
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=0.4
 
-newmtl Material_#310
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/1E_0_1.png
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/1E_0_1.png
 
-newmtl Material_#313
-Ns 399.999969
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/darkgrey.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/darkgrey.dds
+newmtl Material #357
+# AC_SHADER ksPerPixelReflection
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 30.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 35_0_0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=35_0_0.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=2.5
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=0.2
 
-newmtl Material_#319
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/34_0_1.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/34_0_1.dds
 
-newmtl Material_#328
-Ns 399.999969
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/1B_0_0.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/1B_0_0.dds
+newmtl Material #358
+# AC_SHADER ksPerPixelReflection
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 30.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 18_0_0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=18_0_0.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=2.5
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=0.02
 
-newmtl Material_#334
-Ns 300.000031
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/1A_0_0.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/1A_0_0.dds
 
-newmtl Material_#339
-Ns 300.000031
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/24_0_0.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/24_0_0.dds
+newmtl Material #334
+# AC_SHADER ksPerPixelReflection
+Ka 0.100000 0.100000 0.100000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 30.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 1A_0_0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=1A_0_0.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=2.5
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=0.1
 
-newmtl Material_#341
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/chrome.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/chrome.dds
 
-newmtl Material_#354
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/2F_0_1.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/2F_0_1.dds
+newmtl Material #328
+# AC_SHADER ksPerPixel
+Ka 0.100000 0.100000 0.100000
+Kd 0.200000 0.200000 0.200000
+Ks 0.000000 0.000000 0.000000
+Ns 40.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 1B_0_0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=1B_0_0.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
 
-newmtl Material_#357
-Ns 300.000031
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/35_0_0.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/35_0_0.dds
 
-newmtl Material_#358
-Ns 300.000031
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/18_0_0.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/18_0_0.dds
+newmtl Material #313
+# AC_SHADER ksPerPixelNM
+Ka 0.200000 0.200000 0.200000
+Kd 0.300000 0.300000 0.300000
+Ks 0.100000 0.100000 0.100000
+Ns 40.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd darkgrey.dds
+map_Bump 1D_0_0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=darkgrey.dds
+# AC_RESOURCE slot=1 name=txNormal texture=1D_0_0.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=2.0
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=0.1
+# AC_VAR boh=0.0
 
-newmtl Material_#366
-Ns 499.999969
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/19_0_0.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/19_0_0.dds
 
-newmtl Material_#368
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/15_0_1.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/15_0_1.dds
+newmtl black
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.000000 0.000000 0.000000
+Kd 0.000000 0.000000 0.000000
+Ks 0.000000 0.000000 0.000000
+Ns 1.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/black.dds
+map_Bump 3B_0_0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=black.dds
+# AC_RESOURCE slot=1 name=txNormal texture=3B_0_0.dds
+# AC_RESOURCE slot=2 name=txMaps texture=black.dds
+# AC_RESOURCE slot=3 name=txDetail texture=black.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR fresnelMaxLevel=0.0
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
 
-newmtl Material_#378
-Ns 399.999969
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/0F_0_0.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/0F_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/black.dds
 
-newmtl Material_#379
-Ns 399.999969
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/0E_0_0.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/0E_0_0.dds
+newmtl Material #887
+# AC_SHADER ksPerPixelReflection
+Ka 0.100000 0.100000 0.100000
+Kd 0.100000 0.100000 0.100000
+Ks 12.000000 12.000000 12.000000
+Ns 150.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 26_0_0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=26_0_0.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=1.0
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=0.3
 
-newmtl Material_#390
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10_0_0.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10_0_0.dds
 
-newmtl Material_#394
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/glass.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/glass.dds
-
-newmtl Material_#396
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/2B_0_0.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/2B_0_0.dds
-
-newmtl Material_#412
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/frontd.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/frontd.dds
-
-newmtl Material_#446
-Ns 499.999969
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/2A_0_1.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/2A_0_1.dds
-
-newmtl Material_#462
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/28_0_1.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/28_0_1.dds
-
-newmtl Material_#499
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/glass.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/glass.dds
-
-newmtl Material_#550
-Ns 300.000031
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/carao.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/carao.dds
-
-newmtl Material_#552
-Ns 499.999969
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/mirror.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/mirror.dds
-
-newmtl Material_#556
-Ns 499.999969
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/14_0_0.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/14_0_0.dds
-
-newmtl Material_#559
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/reard.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/reard.dds
-
-newmtl Material_#573
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/taild.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/taild.dds
-
-newmtl Material_#574
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/27_0_0.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/27_0_0.dds
-
-newmtl Material_#587
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/heado.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/heado.dds
-
-newmtl Material_#590
-Ns 250.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/seatao.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/seatao.dds
-
-newmtl Material_#591
-Ns 250.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/carpao.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/carpao.dds
-
-newmtl Material_#630
-Ns 399.999969
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/rao.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/rao.dds
-
-newmtl Material_#670
-Ns 200.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/darkgrey.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/darkgrey.dds
-
-newmtl Material_#671
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
+newmtl glassint
+# AC_SHADER ksPerPixelReflection
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
 map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/INTERNAL_glass.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=INTERNAL_glass.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.5
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=0.1
+
 map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/INTERNAL_glass.dds
 
-newmtl Material_#672
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
+newmtl Material #891
+# AC_SHADER ksPerPixelReflection
+Ka 0.100000 0.100000 0.100000
+Kd 0.200000 0.200000 0.200000
+Ks 0.000000 0.000000 0.000000
+Ns 1.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 1A_0_0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=1A_0_0.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=2.5
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=0.1
+
+
+newmtl Material #587
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.300000 0.300000 0.300000
+Kd 0.100000 0.100000 0.100000
+Ks 12.000000 12.000000 12.000000
+Ns 150.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd heado.dds
+map_Bump 1F_0_0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=heado.dds
+# AC_RESOURCE slot=1 name=txNormal texture=1F_0_0.dds
+# AC_RESOURCE slot=2 name=txMaps texture=heado.dds
+# AC_RESOURCE slot=3 name=txDetail texture=Grey.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.4
+# AC_VAR fresnelEXP=1.0
+# AC_VAR fresnelMaxLevel=1.0
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+
+newmtl glass
+# AC_SHADER ksPerPixelReflection
+Ka 0.100000 0.100000 0.100000
+Kd 0.100000 0.100000 0.100000
+Ks 2.000000 2.000000 2.000000
+Ns 500.000000
+Ni 1.000000
+d 1.000000
+illum 2
 map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/glass.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/INTERNAL_glass.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=glass.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=1.5
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=0.7
 
-newmtl Material_#721
-Ns 449.999969
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/rimao.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/rimao.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/glass.dds
 
-newmtl Material_#722
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/lao.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/lao.dds
+newmtl Material #559
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.300000 0.300000 0.300000
+Kd 0.100000 0.100000 0.100000
+Ks 12.000000 12.000000 12.000000
+Ns 150.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd reard.dds
+map_Bump 25_0_0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=reard.dds
+# AC_RESOURCE slot=1 name=txNormal texture=25_0_0.dds
+# AC_RESOURCE slot=2 name=txMaps texture=rearo.dds
+# AC_RESOURCE slot=3 name=txDetail texture=Grey.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.4
+# AC_VAR fresnelEXP=1.0
+# AC_VAR fresnelMaxLevel=1.0
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
 
-newmtl Material_#723
-Ns 399.999969
-Ka 1.000000 1.000000 1.000000
+
+newmtl Material #574
+# AC_SHADER ksPerPixelReflection
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 12.000000 12.000000 12.000000
+Ns 150.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 27_0_0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=27_0_0.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=0.5
+
+
+newmtl Material #412
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.300000 0.300000 0.300000
+Kd 0.100000 0.100000 0.100000
+Ks 12.000000 12.000000 12.000000
+Ns 150.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd frontd.dds
+map_Bump 1F_0_0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=frontd.dds
+# AC_RESOURCE slot=1 name=txNormal texture=1F_0_0.dds
+# AC_RESOURCE slot=2 name=txMaps texture=fronto.dds
+# AC_RESOURCE slot=3 name=txDetail texture=Grey.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.4
+# AC_VAR fresnelEXP=1.0
+# AC_VAR fresnelMaxLevel=1.0
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+
+newmtl Material #396
+# AC_SHADER ksPerPixelReflection
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 12.000000 12.000000 12.000000
+Ns 150.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 2B_0_0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=2B_0_0.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=0.5
+
+
+newmtl Material #889
+# AC_SHADER ksPerPixelReflection
+Ka 0.100000 0.100000 0.100000
+Kd 0.100000 0.100000 0.100000
+Ks 12.000000 12.000000 12.000000
+Ns 150.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 32_0_0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=32_0_0.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=1.0
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=0.4
+
+
+newmtl Material #354
+# AC_SHADER ksPerPixelNM
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.500000 0.500000 0.500000
+Ns 150.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 2F_0_1.dds
+map_Bump 30_0_0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=2F_0_1.dds
+# AC_RESOURCE slot=1 name=txNormal texture=30_0_0.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.2
+# AC_VAR fresnelEXP=1.5
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=0.8
+# AC_VAR boh=0.0
+
+
+newmtl metal
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.200000 0.200000 0.200000
+Kd 0.100000 0.100000 0.100000
+Ks 0.200000 0.200000 0.200000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/metalao.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=metalao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=metalao.dds
+# AC_RESOURCE slot=3 name=txDetail texture=Grey.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=2.0
+# AC_VAR fresnelMaxLevel=0.2
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/metalao.dds
+
+newmtl Material #339
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.500000 0.500000 0.500000
+Ks 0.100000 0.100000 0.100000
+Ns 30.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 24_0_0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=24_0_0.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+
+newmtl Material #573
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.300000 0.300000 0.300000
+Kd 0.100000 0.100000 0.100000
+Ks 12.000000 12.000000 12.000000
+Ns 150.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd taild.dds
+map_Bump 33_0_0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=taild.dds
+# AC_RESOURCE slot=1 name=txNormal texture=33_0_0.dds
+# AC_RESOURCE slot=2 name=txMaps texture=tail.dds
+# AC_RESOURCE slot=3 name=txDetail texture=Grey.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=1.0
+# AC_VAR fresnelMaxLevel=0.4
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+
+newmtl Material #319
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.300000 0.300000 0.300000
+Kd 0.100000 0.100000 0.100000
+Ks 12.000000 12.000000 12.000000
+Ns 150.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 34_0_1.dds
+map_Bump 34_0_0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=34_0_1.dds
+# AC_RESOURCE slot=1 name=txNormal texture=34_0_0.dds
+# AC_RESOURCE slot=2 name=txMaps texture=bodymap.dds
+# AC_RESOURCE slot=3 name=txDetail texture=Grey.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.3
+# AC_VAR fresnelEXP=1.0
+# AC_VAR fresnelMaxLevel=0.4
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+
+newmtl Material #309
+# AC_SHADER ksPerPixel
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.100000 0.100000 0.100000
+Ns 50.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 2E_0_0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=2E_0_0.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+
+newmtl exh
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.200000 0.200000 0.200000
+Kd 0.300000 0.300000 0.300000
+Ks 0.100000 0.100000 0.100000
+Ns 30.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/exh.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=exh.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=exh.dds
+# AC_RESOURCE slot=3 name=txDetail texture=Grey.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR fresnelMaxLevel=0.1
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=1.0
+# AC_VAR detailUVMultiplier=3.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/exh.dds
+
+newmtl Material #341
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.200000 0.200000 0.200000
+Kd 0.100000 0.100000 0.100000
+Ks 12.000000 12.000000 12.000000
+Ns 150.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd chrome.dds
+map_Bump 23_0_0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=chrome.dds
+# AC_RESOURCE slot=1 name=txNormal texture=23_0_0.dds
+# AC_RESOURCE slot=2 name=txMaps texture=bodymap.dds
+# AC_RESOURCE slot=3 name=txDetail texture=Grey.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.3
+# AC_VAR fresnelEXP=2.0
+# AC_VAR fresnelMaxLevel=0.4
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+
+newmtl Material #462
+# AC_SHADER ksPerPixel
+Ka 0.300000 0.300000 0.300000
+Kd 0.400000 0.400000 0.400000
+Ks 0.000000 0.000000 0.000000
+Ns 1.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 28_0_1.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=28_0_1.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+
+newmtl body
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.400000 0.400000 0.400000
+Kd 0.400000 0.400000 0.400000
 Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/plateao.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/plateao.dds
+Ns 50.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd body.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=body.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=body_map.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=3.5
+# AC_VAR fresnelMaxLevel=0.6
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=2.0
+# AC_VAR useDetail=1.0
+# AC_VAR detailUVMultiplier=25.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=2.0
+# AC_VAR sunSpecularEXP=2500.0
+
+
+newmtl Material #552
+# AC_SHADER ksPerPixelReflection
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.100000 0.100000 0.100000
+Ns 50.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mirror.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=mirror.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=1.0
+
+
+newmtl Material #892
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.300000 0.300000 0.300000
+Kd 0.100000 0.100000 0.100000
+Ks 12.000000 12.000000 12.000000
+Ns 150.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd chrad.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=chrad.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=chrao.dds
+# AC_RESOURCE slot=3 name=txDetail texture=Grey.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=1.0
+# AC_VAR fresnelMaxLevel=0.4
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+
+newmtl chr
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.300000 0.300000 0.300000
+Kd 0.100000 0.100000 0.100000
+Ks 12.000000 12.000000 12.000000
+Ns 150.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/chrad.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=chrad.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=chrao.dds
+# AC_RESOURCE slot=3 name=txDetail texture=Grey.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.4
+# AC_VAR fresnelEXP=1.0
+# AC_VAR fresnelMaxLevel=1.0
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/chrad.dds
+
+newmtl Material #723
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.300000 0.300000 0.300000
+Kd 0.400000 0.400000 0.400000
+Ks 0.500000 0.500000 0.500000
+Ns 40.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd plateao.dds
+map_Bump plate_NRM.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=plateao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=plate_NRM.dds
+# AC_RESOURCE slot=2 name=txMaps texture=bodymap.dds
+# AC_RESOURCE slot=3 name=txDetail texture=plate.png
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR fresnelMaxLevel=0.02
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=1.0
+# AC_VAR detailUVMultiplier=1.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+
+newmtl plasticintes
+# AC_SHADER ksPerPixelMultiMap_NMDetail
+Ka 0.400000 0.400000 0.400000
+Kd 0.300000 0.300000 0.300000
+Ks 0.100000 0.100000 0.100000
+Ns 15.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/pliao.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=pliao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=pliao.dds
+# AC_RESOURCE slot=3 name=txDetail texture=darkgrey.dds
+# AC_RESOURCE slot=4 name=txNormalDetail texture=flat_nm.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.6
+# AC_VAR fresnelMaxLevel=0.05
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=1.0
+# AC_VAR detailUVMultiplier=20.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR detailNormalBlend=2.0
+
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/pliao.dds
+
+newmtl Material #427
+# AC_SHADER ksPerPixelNM
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.500000 0.500000 0.500000
+Ns 150.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd glass.dds
+map_Bump 29_0_0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=glass.dds
+# AC_RESOURCE slot=1 name=txNormal texture=29_0_0.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.2
+# AC_VAR fresnelEXP=1.5
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=0.8
+# AC_VAR boh=0.0
+
+
+newmtl Material #499
+# AC_SHADER ksPerPixelNM
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.500000 0.500000 0.500000
+Ns 150.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd glass.dds
+map_Bump 2D_0_0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=glass.dds
+# AC_RESOURCE slot=1 name=txNormal texture=2D_0_0.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.2
+# AC_VAR fresnelEXP=1.5
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=0.8
+# AC_VAR boh=0.0
+
+
+newmtl Material #672
+# AC_SHADER ksWindscreen
+Ka 0.400000 0.400000 0.400000
+Kd 0.400000 0.400000 0.400000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd INTERNAL_glass.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=INTERNAL_glass.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.5
+
+
+newmtl Material #446
+# AC_SHADER ksPerPixelReflection
+Ka 0.200000 0.200000 0.200000
+Kd 0.300000 0.300000 0.300000
+Ks 0.100000 0.100000 0.100000
+Ns 50.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 2A_0_1.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=2A_0_1.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=0.0
+
+
+newmtl Material #310
+# AC_SHADER ksPerPixelReflection
+Ka 0.200000 0.200000 0.200000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 1.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 1E_0_1.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=1E_0_1.png
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=0.0
+
+
+newmtl rgl
+# AC_SHADER ksPerPixelReflection
+Ka 0.100000 0.100000 0.100000
+Kd 0.150000 0.150000 0.150000
+Ks 2.000000 2.000000 2.000000
+Ns 500.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd glass_r.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=glass_r.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=1.5
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=0.7
+
+
+newmtl Material #394
+# AC_SHADER ksPerPixelNM
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.500000 0.500000 0.500000
+Ns 150.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd glass.dds
+map_Bump 23_0_1.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=glass.dds
+# AC_RESOURCE slot=1 name=txNormal texture=23_0_1.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.2
+# AC_VAR fresnelEXP=1.5
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=0.8
+# AC_VAR boh=0.0
+
+
+newmtl Material #879
+# AC_SHADER ksPerPixelAlpha
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 12.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=12.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR alpha=1.0
+
+
+newmtl Material #630
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.200000 0.200000 0.200000
+Kd 0.300000 0.300000 0.300000
+Ks 0.100000 0.100000 0.100000
+Ns 40.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd rao.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=rao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=map.dds
+# AC_RESOURCE slot=3 name=txDetail texture=red_gl.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR fresnelMaxLevel=0.0
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=1.0
+# AC_VAR detailUVMultiplier=3.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+
+newmtl Material__4
+# AC_SHADER ksPerPixelReflection
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.200000 0.200000 0.200000
+Ns 40.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/1.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=1.png
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=0.02
+
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/1.png
+
+newmtl Material__3
+# AC_SHADER ksPerPixelReflection
+Ka 0.200000 0.200000 0.200000
+Kd 0.300000 0.300000 0.300000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/wood_04.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=wood_04.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=2.0
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=0.05
+
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/wood_04.dds
+
+newmtl Material #378
+# AC_SHADER ksPerPixel
+Ka 0.100000 0.100000 0.100000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 40.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 0F_0_0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=0F_0_0.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+
+newmtl Material #379
+# AC_SHADER ksPerPixel
+Ka 0.200000 0.200000 0.200000
+Kd 0.300000 0.300000 0.300000
+Ks 0.100000 0.100000 0.100000
+Ns 40.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 0E_0_0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=0E_0_0.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+
+newmtl Material #390
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.100000 0.100000 0.100000
+Kd 0.150000 0.150000 0.150000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 10_0_0.dds
+map_Bump 10_0_0_NRM.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=10_0_0.dds
+# AC_RESOURCE slot=1 name=txNormal texture=10_0_0_NRM.dds
+# AC_RESOURCE slot=2 name=txMaps texture=10_0_0.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR fresnelMaxLevel=0.1
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+
+newmtl Material #590
+# AC_SHADER ksPerPixelMultiMap_NMDetail
+Ka 0.400000 0.400000 0.400000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 25.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd seatao.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=seatao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=seatao.dds
+# AC_RESOURCE slot=3 name=txDetail texture=carp_bott.dds
+# AC_RESOURCE slot=4 name=txNormalDetail texture=carp_bott_n.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=4.2
+# AC_VAR fresnelMaxLevel=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=1.0
+# AC_VAR detailUVMultiplier=40.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR detailNormalBlend=3.0
+
+
+newmtl Material #550
+# AC_SHADER ksPerPixelMultiMap_NMDetail
+Ka 0.100000 0.100000 0.100000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 30.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd carao.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=carao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=carao.dds
+# AC_RESOURCE slot=3 name=txDetail texture=carpet.dds
+# AC_RESOURCE slot=4 name=txNormalDetail texture=carpet_nm.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=6.0
+# AC_VAR fresnelMaxLevel=0.1
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=1.0
+# AC_VAR detailUVMultiplier=30.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR detailNormalBlend=0.2
+
+
+newmtl Material #556
+# AC_SHADER ksPerPixelNM_UVMult
+Ka 0.150000 0.150000 0.150000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 50.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 14_0_0.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=14_0_0.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR diffuseMult=3.0
+# AC_VAR normalMult=3.0
+# AC_VAR bo=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR fresnelMaxLevel=0.0
+# AC_VAR boh=0.0
+
+
+newmtl Material #366
+# AC_SHADER ksPerPixel
+Ka 0.150000 0.150000 0.150000
+Kd 0.150000 0.150000 0.150000
+Ks 0.100000 0.100000 0.100000
+Ns 50.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 19_0_0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=19_0_0.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+
+newmtl Material #591
+# AC_SHADER ksPerPixelMultiMap_NMDetail
+Ka 0.600000 0.600000 0.600000
+Kd 0.500000 0.500000 0.500000
+Ks 0.020000 0.020000 0.020000
+Ns 25.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd carpao.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=carpao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=carpao.dds
+# AC_RESOURCE slot=3 name=txDetail texture=carpet_d.dds
+# AC_RESOURCE slot=4 name=txNormalDetail texture=carpet_n.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=4.2
+# AC_VAR fresnelMaxLevel=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=1.0
+# AC_VAR detailUVMultiplier=40.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR detailNormalBlend=1.0
+
+
+newmtl Material #670
+# AC_SHADER ksPerPixelNM
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.200000 0.200000 0.200000
+Ns 20.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd darkgrey.dds
+map_Bump 6.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=darkgrey.dds
+# AC_RESOURCE slot=1 name=txNormal texture=6.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=0.05
+# AC_VAR boh=0.0
+
+
+newmtl Material #722
+# AC_SHADER ksPerPixelMultiMap_NMDetail
+Ka 0.400000 0.400000 0.400000
+Kd 0.500000 0.500000 0.500000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd lao.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=lao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=lao.dds
+# AC_RESOURCE slot=3 name=txDetail texture=leather_grey3_inv.dds
+# AC_RESOURCE slot=4 name=txNormalDetail texture=leather_nm.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=2.0
+# AC_VAR fresnelMaxLevel=0.03
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=1.0
+# AC_VAR detailUVMultiplier=42.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR detailNormalBlend=3.0
+
+
+newmtl Material #834
+# AC_SHADER ksPerPixelNM
+Ka 0.100000 0.100000 0.100000
+Kd 0.100000 0.100000 0.100000
+Ks 0.030000 0.030000 0.030000
+Ns 40.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd cockpit_belt.png
+map_Bump cockpit_belt_nm.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=cockpit_belt.png
+# AC_RESOURCE slot=1 name=txNormal texture=cockpit_belt_nm.png
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=0.0
+# AC_VAR boh=0.0
+
+
+newmtl Material #846
+# AC_SHADER ksPerPixel
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.000000 0.000000 0.000000
+Ns 1.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd int_l.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=int_l.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+
+newmtl Material #848
+# AC_SHADER ksPerPixel
+Ka 0.100000 0.100000 0.100000
+Kd 0.100000 0.100000 0.100000
+Ks 0.000000 0.000000 0.000000
+Ns 1.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd darkgrey.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=darkgrey.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+
+newmtl Material #368
+# AC_SHADER ksPerPixelReflection
+Ka 0.200000 0.200000 0.200000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 1.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd 15_0_1.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=15_0_1.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=0.0
+
+
+newmtl Material #832
+# AC_SHADER ksPerPixelMultiMap_AT
+Ka 0.350000 0.350000 0.350000
+Kd 0.400000 0.400000 0.400000
+Ks 0.200000 0.200000 0.200000
+Ns 50.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd int_dao.dds
+map_Bump int_na.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=int_dao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=int_na.dds
+# AC_RESOURCE slot=2 name=txMaps texture=int_dao.dds
+# AC_RESOURCE slot=3 name=txDetail texture=int_d.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR fresnelMaxLevel=0.04
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=1.0
+# AC_VAR useDetail=1.0
+# AC_VAR detailUVMultiplier=1.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR normalUVMultiplier=0.0
+# AC_VAR boh=0.0
+
+
+newmtl Material #671
+# AC_SHADER ksPerPixelReflection
+Ka 0.400000 0.400000 0.400000
+Kd 0.400000 0.400000 0.400000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd INTERNAL_glass.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=INTERNAL_glass.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.5
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=0.0
 
 newmtl Material_#832
 Ns 499.999969
@@ -401,75 +1817,50 @@ illum 3
 map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/int_dao.dds
 map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/int_dao.dds
 
-newmtl Material_#834
+
+newmtl Material_#446
+Ns 499.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/2A_0_1.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/2A_0_1.dds
+
+
+newmtl Material_#341
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/chrome.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/chrome.dds
+
+
+newmtl Material_#723
 Ns 399.999969
 Ka 1.000000 1.000000 1.000000
 Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 1.000000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/cockpit_belt.png
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/plateao.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/plateao.dds
 
-newmtl Material_#846
-Ns 0.000000
+
+newmtl Material_#573
+Ns 1000.000000
 Ka 1.000000 1.000000 1.000000
 Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/int_l.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/int_l.dds
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/taild.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/taild.dds
 
-newmtl Material_#848
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/darkgrey.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/darkgrey.dds
-
-newmtl Material_#869
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/131.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/131.dds
-
-newmtl Material_#870
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/13a.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/13a.dds
-
-newmtl Material_#874
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10i.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10i.dds
-
-newmtl Material_#879
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/12.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/12.dds
 
 newmtl Material_#880
 Ns 100.000015
@@ -481,165 +1872,17 @@ illum 3
 map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10.dds
 map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10.dds
 
-newmtl Material_#882
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10_2.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10_2.dds
 
-newmtl Material_#884
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10r.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10r.dds
-
-newmtl Material_#885
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10_1.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10_1.dds
-
-newmtl Material_#887
+newmtl Material_#587
 Ns 1000.000000
 Ka 1.000000 1.000000 1.000000
 Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/26_0_0.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/26_0_0.dds
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/heado.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/heado.dds
 
-newmtl Material_#889
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/32_0_0.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/32_0_0.dds
-
-newmtl Material_#890
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/20_0_0.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/20_0_0.dds
-
-newmtl Material_#891
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/1A_0_0.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/1A_0_0.dds
-
-newmtl Material_#892
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/chrad.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/chrad.dds
-
-newmtl Material_#915
-Ns 300.000031
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/rblur.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/rblur.dds
-
-newmtl Material__1382
-Ns 300.000031
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/h38HFbdolw.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/h38HFbdolw.dds
-
-newmtl Material__1395
-Ns 300.000031
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/qKlXlqLaLGI.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/qKlXlqLaLGI.dds
-
-newmtl Material__28
-Ns 300.000031
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/bbs-centercap-black-gold-ci-r.png
-
-newmtl Material__3
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/wood_04.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/wood_04.dds
-
-newmtl Material__4
-Ns 399.999969
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/1.png
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/1.png
-
-newmtl black
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/black.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/black.dds
-
-newmtl body.001
-Ns 499.999969
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/skins/04_silver_metallic/livery.png
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/body.dds
 
 newmtl body.002
 Ns 499.999969
@@ -651,6 +1894,95 @@ illum 3
 map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/skins/04_silver_metallic/livery.png
 map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/body.dds
 
+
+newmtl Material_#869
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/131.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/131.dds
+
+
+newmtl Material_#574
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/27_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/27_0_0.dds
+
+
+newmtl Material_#368
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/15_0_1.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/15_0_1.dds
+
+
+newmtl Material_#339
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/24_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/24_0_0.dds
+
+
+newmtl Material_#915
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/rblur.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/rblur.dds
+
+
+newmtl Material_#550
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/carao.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/carao.dds
+
+
+newmtl Material_#334
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/1A_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/1A_0_0.dds
+
+
+newmtl Material_#394
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/glass.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/glass.dds
+
+
 newmtl body.003
 Ns 499.999969
 Ka 1.000000 1.000000 1.000000
@@ -660,6 +1992,293 @@ Ni 1.500000
 illum 3
 map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/skins/04_silver_metallic/livery.png
 map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/body.dds
+
+
+newmtl Material_#396
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/2B_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/2B_0_0.dds
+
+
+newmtl Material_#379
+Ns 399.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/0E_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/0E_0_0.dds
+
+
+newmtl Material_#870
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/13a.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/13a.dds
+
+
+newmtl Material_#354
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/2F_0_1.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/2F_0_1.dds
+
+
+newmtl Material_#590
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/seatao.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/seatao.dds
+
+
+newmtl Material_#721
+Ns 449.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/rimao.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/rimao.dds
+
+
+newmtl Material_#884
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10r.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10r.dds
+
+
+newmtl Material_#412
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/frontd.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/frontd.dds
+
+
+newmtl Material_#357
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/35_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/35_0_0.dds
+
+
+newmtl Material_#889
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/32_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/32_0_0.dds
+
+
+newmtl Material_#358
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/18_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/18_0_0.dds
+
+
+newmtl Material_#462
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/28_0_1.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/28_0_1.dds
+
+
+newmtl Material_#556
+Ns 499.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/14_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/14_0_0.dds
+
+
+newmtl body.001
+Ns 499.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/skins/04_silver_metallic/livery.png
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/body.dds
+
+
+newmtl Material_#848
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/darkgrey.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/darkgrey.dds
+
+
+newmtl Material_#671
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/INTERNAL_glass.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/INTERNAL_glass.dds
+
+
+newmtl Material_#670
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/darkgrey.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/darkgrey.dds
+
+
+newmtl Material_#319
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/34_0_1.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/34_0_1.dds
+
+
+newmtl Material_#630
+Ns 399.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/rao.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/rao.dds
+
+
+newmtl Material_#885
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10_1.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10_1.dds
+
+
+newmtl Material_#310
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/1E_0_1.png
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/1E_0_1.png
+
+
+newmtl Material_#834
+Ns 399.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/cockpit_belt.png
+
+
+newmtl Material_#559
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/reard.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/reard.dds
+
+
+newmtl Material_#499
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/glass.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/glass.dds
+
+
+newmtl Material_#722
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/lao.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/lao.dds
+
+
+newmtl Material_#887
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/26_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/26_0_0.dds
+
 
 newmtl body.004
 Ns 499.999969
@@ -671,27 +2290,41 @@ illum 3
 map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/skins/04_silver_metallic/livery.png
 map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/body.dds
 
-newmtl cal
-Ns 300.000031
+
+newmtl Material_#846
+Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/alf.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/alf.dds
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/int_l.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/int_l.dds
 
-newmtl calb
+
+newmtl Material_#890
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/20_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/20_0_0.dds
+
+
+newmtl Material_#552
 Ns 499.999969
 Ka 1.000000 1.000000 1.000000
 Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/darkgrey.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/darkgrey.dds
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/mirror.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/mirror.dds
 
-newmtl chr
+
+newmtl Material_#892
 Ns 1000.000000
 Ka 1.000000 1.000000 1.000000
 Ks 1.000000 1.000000 1.000000
@@ -701,76 +2334,94 @@ illum 3
 map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/chrad.dds
 map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/chrad.dds
 
-newmtl exh
-Ns 300.000031
+
+newmtl Material_#309
+Ns 499.999969
 Ka 1.000000 1.000000 1.000000
 Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/exh.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/exh.dds
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/2E_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/2E_0_0.dds
 
-newmtl glass
-Ns 1000.000000
+
+newmtl Material_#366
+Ns 499.999969
 Ka 1.000000 1.000000 1.000000
 Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
-d 0.000000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/19_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/19_0_0.dds
+
+
+newmtl Material_#672
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
 illum 3
 map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/glass.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/glass.dds
-
-newmtl glassint
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/INTERNAL_glass.dds
 map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/INTERNAL_glass.dds
 
-newmtl metal
+
+newmtl Material_#328
+Ns 399.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/1B_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/1B_0_0.dds
+
+
+newmtl Material_#874
 Ns 100.000015
 Ka 1.000000 1.000000 1.000000
 Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/metalao.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/metalao.dds
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10i.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10i.dds
 
-newmtl plastic
-Ns 1000.000000
+
+newmtl Material_#882
+Ns 100.000015
 Ka 1.000000 1.000000 1.000000
 Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/plao.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/plao.dds
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10_2.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10_2.dds
 
-newmtl plasticintes
-Ns 150.000000
+
+newmtl Material_#390
+Ns 100.000015
 Ka 1.000000 1.000000 1.000000
 Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/pliao.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/pliao.dds
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/10_0_0.dds
 
-newmtl rubber
-Ns 300.000031
+
+newmtl Material_#313
+Ns 399.999969
 Ka 1.000000 1.000000 1.000000
 Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/rubao.dds
-map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/rubao.dds
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/darkgrey.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/darkgrey.dds
+
 
 newmtl rubber.001
 Ns 300.000031
@@ -781,3 +2432,47 @@ Ni 1.500000
 illum 3
 map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/skins/04_silver_metallic/livery.png
 map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/rubao.dds
+
+newmtl Material_#891
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/1A_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/1A_0_0.dds
+
+
+newmtl Material_#378
+Ns 399.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/0F_0_0.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/0F_0_0.dds
+
+
+newmtl Material_#879
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/12.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/12.dds
+
+
+newmtl Material_#591
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/carpao.dds
+map_d C:/Users/Void/Downloads/CARS/Daihatsu Copen Street-Spec/unp_daihatsu_copen.kn5/texture/carpao.dds
+

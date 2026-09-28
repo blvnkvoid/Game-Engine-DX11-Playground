@@ -141,7 +141,7 @@ VehicleDefinition Porsche911::CreateDefinition()
     car.rearTyres.wheelRadius = 0.346f;
     car.rearTyres.rearWheelInertia = 1.98f;
 
-    car.audio.basePath = "C:\\Users\\Void\\Documents\\GitHub\\Game-Engine\\Project1\\Cars\\Porsche_911_Carrera_S\\sounds\\";
+    car.audio.basePath = "C:\\Users\\Void\\Documents\\GitHub\\Game-Engine-DX11-Playground\\Project1\\Cars\\Porsche_911_Carrera_S\\sounds\\";
 
     car.audio.idle = "911_Carrera_S_idle_in.wav";
     car.audio.lowOn = "911_Carrera_S_2300_on_in.wav";
@@ -189,6 +189,14 @@ CameraDefinition Porsche911::CreateCameraDefinition()
     camera.bumperHeight = 0.7f;
     camera.bumperDistance = 4.0f;
     camera.bumperPitchDeg = 5.0f;
+    
+    camera.cockpitHeight = 0.4f;
+    camera.cockpitDistance = -0.8f;
+    camera.cockpitPitchDeg = 5.0f;
+
+    camera.cockpitOffsetX = -0.3f;
+    camera.cockpitOffsetY = 0.0f;
+    camera.cockpitOffsetZ = 0.0f;
 
 
     return camera;

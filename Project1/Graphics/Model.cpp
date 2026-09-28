@@ -42,6 +42,11 @@ bool Model::LoadOBJ(const std::string& mtlFile, const std::string& objFile, ID3D
     std::ifstream file(objFile);
     if (!file.is_open()) return false;
 
+    if (!m_flatNormalRV)
+    {
+        CreateFlatNormalTexture(device);
+    }
+
     std::string line;
 
 
@@ -93,6 +98,11 @@ bool Model::LoadOBJ(const std::string& mtlFile, const std::string& objFile, ID3D
 
                 newSubset.material = mat.gpuMaterial;
                 newSubset.diffuseTextureName = mat.diffuseTextureName;
+                newSubset.normalTextureName = mat.normalTextureName;
+                newSubset.detailTextureName = mat.detailTextureName;
+                newSubset.normalDetailTextureName = mat.normalDetailTextureName;
+
+                
 
                 if (!mat.diffuseTextureName.empty())
                 {
@@ -104,7 +114,7 @@ bool Model::LoadOBJ(const std::string& mtlFile, const std::string& objFile, ID3D
             }
             else
             {
-                newSubset.material.diffuseColor = XMFLOAT3(1.0f, 1.0f, 1.0f);
+                newSubset.material.diffuseColor = XMFLOAT3(1.0f, 1.0f, 1.0f);   
                 newSubset.material.ambientColor = XMFLOAT3(0.3f, 0.3f, 0.3f);
                 newSubset.material.specularColor = XMFLOAT3(0.1f, 0.1f, 0.1f);
                 newSubset.material.specularPower = 32.0f;
@@ -161,6 +171,7 @@ bool Model::LoadOBJ(const std::string& mtlFile, const std::string& objFile, ID3D
                     v.normal = (nIdx > 0) ? temp_normals[nIdx - 1] : XMFLOAT3(0, 1, 0);
                     v.normal.z = -v.normal.z;
                     v.color = XMFLOAT4(1, 1, 1, 1);
+                    v.tangent = XMFLOAT4(0, 0, 0, 1);
                     uniqueVertices[vk] = (unsigned int)vertices.size();
                     vertices.push_back(v);
                 }
@@ -197,6 +208,104 @@ bool Model::LoadOBJ(const std::string& mtlFile, const std::string& objFile, ID3D
         maxPos.x = max(maxPos.x, v.pos.x); maxPos.y = max(maxPos.y, v.pos.y); maxPos.z = max(maxPos.z, v.pos.z);
     }
 
+
+    // --- GENERATE TANGENTS ---
+    for (size_t i = 0; i + 2 < indices.size(); i += 3)
+    {
+        SharedVertex& v0 = vertices[indices[i]];
+        SharedVertex& v1 = vertices[indices[i + 1]];
+        SharedVertex& v2 = vertices[indices[i + 2]];
+
+        XMVECTOR p0 = XMLoadFloat3(&v0.pos);
+        XMVECTOR p1 = XMLoadFloat3(&v1.pos);
+        XMVECTOR p2 = XMLoadFloat3(&v2.pos);
+
+        XMVECTOR edge1 = XMVectorSubtract(p1, p0);
+        XMVECTOR edge2 = XMVectorSubtract(p2, p0);
+
+        float du1 = v1.texCoord.x - v0.texCoord.x;
+        float dv1 = v1.texCoord.y - v0.texCoord.y;
+
+        float du2 = v2.texCoord.x - v0.texCoord.x;
+        float dv2 = v2.texCoord.y - v0.texCoord.y;
+
+        float determinant = du1 * dv2 - du2 * dv1;
+
+        // Degenerate UV triangle - can't calculate a useful tangent
+        if (fabsf(determinant) < 1e-8f)
+            continue;
+
+        float r = 1.0f / determinant;
+
+        XMVECTOR tangent =
+            XMVectorScale(
+                XMVectorSubtract(
+                    XMVectorScale(edge1, dv2),
+                    XMVectorScale(edge2, dv1)
+                ),
+                r
+            );
+
+        //tangent = XMVector3Normalize(tangent);
+
+        XMFLOAT3 t;
+        XMStoreFloat3(&t, tangent);
+
+        v0.tangent.x += t.x;
+        v0.tangent.y += t.y;
+        v0.tangent.z += t.z;
+
+        v1.tangent.x += t.x;
+        v1.tangent.y += t.y;
+        v1.tangent.z += t.z;
+
+        v2.tangent.x += t.x;
+        v2.tangent.y += t.y;
+        v2.tangent.z += t.z;
+    }
+
+
+    for (auto& v : vertices)
+    {
+        XMVECTOR N = XMLoadFloat3(&v.normal);
+
+        XMVECTOR T = XMVectorSet(
+            v.tangent.x,
+            v.tangent.y,
+            v.tangent.z,
+            0.0f);
+
+        // Gram-Schmidt:
+        // remove any part of T pointing along N
+        float dotNT = XMVectorGetX(XMVector3Dot(N, T));
+
+        T = XMVectorSubtract(
+            T,
+            XMVectorScale(N, dotNT)
+        );
+
+        if (XMVectorGetX(XMVector3LengthSq(T)) > 1e-8f)
+        {
+            T = XMVector3Normalize(T);
+
+            XMFLOAT3 result;
+            XMStoreFloat3(&result, T);
+
+            v.tangent.x = result.x;
+            v.tangent.y = result.y;
+            v.tangent.z = result.z;
+        }
+        else
+        {
+            // Safe fallback
+            v.tangent.x = 1.0f;
+            v.tangent.y = 0.0f;
+            v.tangent.z = 0.0f;
+        }
+
+        v.tangent.w = 1.0f;
+    }
+
     // --- CREATE BUFFERS (Using final, scaled data) ---
     D3D11_BUFFER_DESC vbd = {};
     vbd.Usage = D3D11_USAGE_DEFAULT;
@@ -226,23 +335,66 @@ bool Model::LoadOBJ(const std::string& mtlFile, const std::string& objFile, ID3D
 
 
 
-void Model::ResolveMaterialTextures(TextureManager* textureManager, ID3D11DeviceContext* context,const std::wstring& textureFolder)
+void Model::ResolveMaterialTextures(
+    TextureManager* textureManager,
+    ID3D11DeviceContext* context,
+    const std::wstring& textureFolder)
 {
     for (auto& subset : m_subsets)
     {
-        if (subset.diffuseTextureName.empty())
-            continue;
+        // Diffuse
+        if (!subset.diffuseTextureName.empty())
+        {
+            std::wstring textureName(
+                subset.diffuseTextureName.begin(),
+                subset.diffuseTextureName.end());
 
-        std::wstring textureName(
-            subset.diffuseTextureName.begin(),
-            subset.diffuseTextureName.end());
+            std::wstring fullPath =
+                textureFolder + textureName;
 
-        std::wstring fullPath =
-            textureFolder + textureName;
+            subset.diffuseTexture =
+                textureManager->GetTexture(fullPath, context);
+        }
 
-        subset.diffuseTexture =
-            textureManager->GetTexture(fullPath, context);
+        // Normal
+        if (!subset.normalTextureName.empty())
+        {
+            std::wstring textureName(
+                subset.normalTextureName.begin(),
+                subset.normalTextureName.end());
 
+            std::wstring fullPath =
+                textureFolder + textureName;
+
+            subset.normalTexture =
+                textureManager->GetTexture(fullPath, context);
+        }        
+        
+        if (!subset.detailTextureName.empty())
+        {
+            std::wstring textureName(
+                subset.detailTextureName.begin(),
+                subset.detailTextureName.end());
+
+            std::wstring fullPath =
+                textureFolder + textureName;
+
+            subset.detailTexture =
+                textureManager->GetTexture(fullPath, context);
+        }       
+        
+        if (!subset.normalDetailTextureName.empty())
+        {
+            std::wstring textureName(
+                subset.normalDetailTextureName.begin(),
+                subset.normalDetailTextureName.end());
+
+            std::wstring fullPath =
+                textureFolder + textureName;
+
+            subset.normalDetailTexture =
+                textureManager->GetTexture(fullPath, context);
+        }
     }
 }
 
@@ -272,6 +424,52 @@ void Model::BindTexture(ID3D11DeviceContext* context) {
     }
 }
 
+void Model::CreateFlatNormalTexture(ID3D11Device* device)
+{
+    const unsigned char pixel[4] =
+    {
+        128, 128, 255, 255
+    };
+
+    D3D11_TEXTURE2D_DESC desc = {};
+    desc.Width = 1;
+    desc.Height = 1;
+    desc.MipLevels = 1;
+    desc.ArraySize = 1;
+    desc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+    desc.SampleDesc.Count = 1;
+    desc.Usage = D3D11_USAGE_IMMUTABLE;
+    desc.BindFlags = D3D11_BIND_SHADER_RESOURCE;
+
+    D3D11_SUBRESOURCE_DATA data = {};
+    data.pSysMem = pixel;
+    data.SysMemPitch = 4;
+
+    Microsoft::WRL::ComPtr<ID3D11Texture2D> texture;
+
+    HRESULT hr = device->CreateTexture2D(
+        &desc,
+        &data,
+        texture.GetAddressOf()
+    );
+
+
+    hr = device->CreateShaderResourceView(
+        texture.Get(),
+        nullptr,
+        m_flatNormalRV.GetAddressOf()
+    );
+
+    if (FAILED(hr))
+        return;
+
+    device->CreateShaderResourceView(
+        texture.Get(),
+        nullptr,
+        m_flatNormalRV.GetAddressOf()
+    );
+}
+
 void Model::BindAndDraw(
     ID3D11DeviceContext* context,
     UINT stride,
@@ -283,6 +481,8 @@ void Model::BindAndDraw(
     ID3D11DepthStencilState* depthWriteOn,
     ID3D11DepthStencilState* depthWriteOff,
     ID3D11BlendState* alphaBlendState,
+    ID3D11Buffer* lampInfoBuffer,
+    ID3D11ShaderResourceView* lampLightsSRV,
     float time,
     const SharedSceneData& sceneData)
 {
@@ -301,6 +501,14 @@ void Model::BindAndDraw(
         DXGI_FORMAT_R32_UINT,
         0);
 
+    context->PSSetConstantBuffers(
+        1, 1,
+        &lampInfoBuffer);
+
+    context->PSSetShaderResources(
+        1, 1,
+        &lampLightsSRV);
+
     for (const auto& subset : m_subsets)
     {
 
@@ -316,7 +524,8 @@ void Model::BindAndDraw(
             (int)subset.material.materialType ==
             (int)MaterialType::MATERIAL_GLASS;
 
-        if (isGlass)
+
+       if (isGlass)
         {
             float blendFactor[4] = { 0, 0, 0, 0 };
 
@@ -340,6 +549,8 @@ void Model::BindAndDraw(
                 depthWriteOn,
                 0);
         }
+
+ 
 
 
         DirectX::XMFLOAT3 pos = cam->GetPosition();
@@ -381,6 +592,36 @@ void Model::BindAndDraw(
         context->PSSetShaderResources(
             0, 1,
             &srv);
+
+        
+        ID3D11ShaderResourceView* normalSRV =
+            subset.normalTexture
+            ? subset.normalTexture
+            : m_flatNormalRV.Get();
+
+        context->PSSetShaderResources(
+            3, 1,
+            &normalSRV);
+
+
+        ID3D11ShaderResourceView* detailSRV =
+            subset.detailTexture
+            ? subset.detailTexture
+            : m_textureRV.Get();
+
+        context->PSSetShaderResources(
+            4, 1,
+            &detailSRV);
+
+        ID3D11ShaderResourceView* normalDetailSRV =
+            subset.normalDetailTexture
+            ? subset.normalDetailTexture
+            : m_flatNormalRV.Get();
+
+        context->PSSetShaderResources(
+            5, 1,
+            &normalDetailSRV);
+
 
         context->DrawIndexed(
             subset.indexCount,

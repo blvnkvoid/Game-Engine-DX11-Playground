@@ -1,307 +1,320 @@
 # Blender 5.1.1 MTL File: 'None'
 # www.blender.org
 
-newmtl Bages_1.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Black_Dull.001
-Ns 0.000000
+newmtl Bages_1
+Ns 0.999999
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
 Ks 0.000000 0.000000 0.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
 illum 1
+map_Kd prib.png
 
-newmtl Boost_Gauge.001
-Ns 0.000000
+newmtl Black_Dull
+Ns 0.999999
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
 Ks 0.000000 0.000000 0.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
 illum 1
+map_Kd BLACK.DDS
 
-newmtl Bottom_Dash.001
-Ns 0.000000
+newmtl Boost_Gauge
+Ns 159.999985
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.100000 0.100000 0.100000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd BOOST_Turbo_Gauge.png
 
-newmtl Brembo_Detail.001
-Ns 0.000000
+newmtl Bottom_Dash
+Ns 10.000005
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.050000 0.050000 0.050000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd INT_Ao.dds
+map_Bump flat_nm.dds
 
-newmtl Bumper_Bolts.001
-Ns 0.000000
+newmtl Brembo_Detail
+Ns 220.000015
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.080000 0.080000 0.080000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd brembo.png
+map_Bump brembo_NM.png
 
-newmtl Calipers.001
-Ns 0.000000
+newmtl Bumper_Bolts
+Ns 250.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.100000 0.100000 0.100000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd Bulloni_D.dds
+map_Bump Bulloni_NM.dds
 
-newmtl Chrome.001
-Ns 0.000000
+newmtl Calipers
+Ns 79.999985
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 2.000000 2.000000 2.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd Calipers.dds
+map_Bump flat_nm.dds
 
-newmtl Cluster_Plastic_Plate.001
-Ns 0.000000
+newmtl Chrome
+Ns 50.000011
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 2.000000 2.000000 2.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd Chrome_Ao.dds
+map_Bump flat_nm.dds
 
-newmtl Dials.001
-Ns 0.000000
+newmtl Cluster_Plastic_Plate
+Ns 79.999985
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.100000 0.100000 0.100000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd Int_Plastic_Ao.dds
+map_Bump flat_nm.dds
 
-newmtl Dials_Emissive_on.001
-Ns 0.000000
+newmtl Dials
+Ns 75.000008
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.200000 0.200000 0.200000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd Dials_Dragstrip.png
+map_Bump Dials_DragstripNM.png
 
-newmtl Door_Panels_0.001
-Ns 0.000000
+newmtl Dials_Emissive_on
+Ns 220.000015
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.080000 0.080000 0.080000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd Dials_Dragstrip_Emissive.png
 
-newmtl Door_Panels_1.001
-Ns 0.000000
+newmtl Door_Panels_0
+Ns 10.000005
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.050000 0.050000 0.050000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd INT_Ao.dds
+map_Bump flat_nm.dds
 
-newmtl EXT_Carbon.001
-Ns 0.000000
+newmtl Door_Panels_1
+Ns 10.000005
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.050000 0.050000 0.050000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd INT_Ao.dds
+map_Bump flat_nm.dds
 
-newmtl EXT_Plastic.001
-Ns 0.000000
+newmtl EXT_Carbon
+Ns 100.000015
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 2.000000 2.000000 2.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd Ext_Plastic_Ao.dds
+map_Bump flat_nm.dds
 
-newmtl Exhaust.001
-Ns 0.000000
+newmtl EXT_Plastic
+Ns 79.999985
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.200000 0.200000 0.200000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd Ext_Plastic_Ao.dds
+map_Bump flat_nm.dds
 
-newmtl Exhaust_Void.001
-Ns 0.000000
+newmtl Exhaust
+Ns 50.000011
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.300000 0.300000 0.300000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd Exhaust.dds
+map_Bump flat_nm.dds
 
-newmtl External_Glass.001
-Ns 0.000000
+newmtl Exhaust_Void
+Ns 0.999999
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
 Ks 0.000000 0.000000 0.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
 illum 1
+map_Kd BLACK.DDS
 
-newmtl Flyin_Miata_Logo.001
-Ns 0.000000
+newmtl Flyin_Miata_Logo
+Ns 220.000015
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.080000 0.080000 0.080000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd Flyin_Miata.png
+map_Bump Flyin_Miata_NM.png
 
-newmtl Front_Bumper_Blinker_Light.001
-Ns 0.000000
+newmtl Front_Bumper_Blinker_Light
+Ns 250.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.500000 0.500000 0.500000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd rear_light_D.dds
+map_Bump rear_light_NM.dds
 
-newmtl Front_Lip.001
-Ns 0.000000
+newmtl Front_Lip
+Ns 79.999985
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.200000 0.200000 0.200000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd Ext_Plastic_Ao.dds
+map_Bump flat_nm.dds
 
-newmtl Front_Vents.001
-Ns 0.000000
+newmtl Front_Vents
+Ns 100.000015
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 2.000000 2.000000 2.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd Ext_Plastic_Ao.dds
+map_Bump flat_nm.dds
 
-newmtl Halo_Lights.001
-Ns 0.000000
+newmtl Halo_Lights
+Ns 50.000011
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd Lights_Halos.png
+map_Bump flat_nm.dds
 
-newmtl INT_Decals.001
-Ns 0.000000
+newmtl INT_Decals
+Ns 220.000015
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.080000 0.080000 0.080000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd INT_Decals.dds
+map_Bump INT_Decals_NM.dds
 
-newmtl INT_Dop_EMISSIVE.001
-Ns 0.000000
+newmtl INT_Dop_EMISSIVE
+Ns 0.999999
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
 Ks 0.000000 0.000000 0.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
 illum 1
+map_Kd doooops.png
 
-newmtl INT_Floor.001
-Ns 0.000000
+newmtl INT_Floor
+Ns 12.000001
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.200000 0.200000 0.200000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd INT_Ao.dds
+map_Bump flat_nm.dds
 
-newmtl INT_Plastic_Ao.001
-Ns 0.000000
+newmtl INT_Plastic_Ao
+Ns 79.999985
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.100000 0.100000 0.100000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd Int_Plastic_Ao.dds
+map_Bump flat_nm.dds
 
-newmtl INT_Roof.001
-Ns 0.000000
+newmtl INT_Roof
+Ns 12.000001
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.200000 0.200000 0.200000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd INT_Ao.dds
+map_Bump flat_nm.dds
 
-newmtl Intercooler.001
-Ns 0.000000
+newmtl Intercooler
+Ns 119.999992
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.120000 0.120000 0.120000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd INTERCOOLER.dds
+map_Bump INTERCOOLER_NM.dds
 
-newmtl Lights_Texture.001
-Ns 0.000000
+newmtl Lights_Texture
+Ns 50.000011
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd Lights.png
+map_Bump Lights_NM.png
 
-newmtl Material_#1008.001
+newmtl Material_#1008
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -311,277 +324,299 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl Material_#25.001
-Ns 0.000000
+newmtl Miata_Skin
+Ns 79.999985
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 2.000000 2.000000 2.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd Skin_00.dds
+map_Bump flat_nm.dds
 
-newmtl Miata_Skin.001
-Ns 0.000000
+newmtl Miata_Skin_1
+Ns 79.999985
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 2.000000 2.000000 2.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd Skin_00.dds
+map_Bump flat_nm.dds
 
-newmtl Miata_Skin_1.001
-Ns 0.000000
+newmtl Needles_Bases
+Ns 79.999985
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.200000 0.200000 0.200000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd Int_Plastic_Ao.dds
+map_Bump flat_nm.dds
 
-newmtl Needles_Bases.001
-Ns 0.000000
+newmtl Needles_Color
+Ns 39.999996
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.300000 0.300000 0.300000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd Needle_Colors.png
 
-newmtl Needles_Color.001
-Ns 0.000000
+newmtl Pedals
+Ns 180.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.200000 0.200000 0.200000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd INT_Ao.dds
+map_Bump flat_nm.dds
 
-newmtl Pedals.001
-Ns 0.000000
+newmtl RPM_Needle_Color
+Ns 39.999996
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.300000 0.300000 0.300000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd RPM_Needle_Color.png
 
-newmtl RPM_Needle_Color.001
-Ns 0.000000
+newmtl Rear_Badge
+Ns 29.999998
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.600000 0.600000 0.600000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd rear badge.png
+map_Bump rear badge_NM.png
 
-newmtl Rear_Badge.001
-Ns 0.000000
+newmtl Rear_Lights_Glass
+Ns 250.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.100000 0.100000 0.100000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd rear_light_Alpha.dds
+map_Bump rear_light_Alpha_NM.dds
 
-newmtl Rear_Lights_Glass.001
-Ns 0.000000
+newmtl Recaro_Logo
+Ns 39.999996
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.178000 0.178000 0.178000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd Recaro_Logo.png
+map_Bump Recaro_Logo_NM.png
 
-newmtl Recaro_Logo.001
-Ns 0.000000
+newmtl Rim_Bolts
+Ns 29.999998
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 2.000000 2.000000 2.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd Rim_Bolts.dds
 
-newmtl Rim_Bolts.001
-Ns 0.000000
+newmtl Rim_Caps
+Ns 39.999996
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.400000 0.400000 0.400000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd Jr_Rims_Logo.png
+map_Bump Jr_Rims_Logo_NM.png
 
-newmtl Rim_Caps.001
-Ns 0.000000
+newmtl Screen
+Ns 29.999998
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.400000 0.400000 0.400000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd black2.dds
 
-newmtl Screen.001
-Ns 0.000000
+newmtl Seats_Plastics
+Ns 79.999985
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.200000 0.200000 0.200000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd Recaro_Seats_Ao.dds
+map_Bump flat_nm.dds
 
-newmtl Seats_Plastics.001
-Ns 0.000000
+newmtl Seats_Tone_0
+Ns 10.000005
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.050000 0.050000 0.050000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd Recaro_Seats_Ao.dds
+map_Bump flat_nm.dds
 
-newmtl Seats_Tone_0.001
-Ns 0.000000
+newmtl Seats_Tone_1
+Ns 10.000005
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.050000 0.050000 0.050000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd Recaro_Seats_Ao.dds
+map_Bump flat_nm.dds
 
-newmtl Seats_Tone_1.001
-Ns 0.000000
+newmtl Steer_Bolts
+Ns 79.999985
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.500000 0.500000 0.500000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd diffuse.dds
+map_Bump diffuse_NM.dds
 
-newmtl Steer_Bolts.001
-Ns 0.000000
+newmtl Steering_Aluminium
+Ns 180.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.200000 0.200000 0.200000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd carbon_base.dds
+map_Bump flat_nm.dds
 
-newmtl Steering_Aluminium.001
-Ns 0.000000
+newmtl Steering_Hub
+Ns 180.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 2.000000 2.000000 2.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd INT_Ao.dds
+map_Bump flat_nm.dds
 
-newmtl Steering_Hub.001
-Ns 0.000000
+newmtl Steering_Marker
+Ns 10.000005
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.050000 0.050000 0.050000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd INT_Ao.dds
+map_Bump flat_nm.dds
 
-newmtl Steering_Marker.001
-Ns 0.000000
+newmtl Steering_Ring
+Ns 10.000005
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.050000 0.050000 0.050000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd INT_Ao.dds
+map_Bump flat_nm.dds
 
-newmtl Steering_Ring.001
-Ns 0.000000
+newmtl Stitching
+Ns 39.999996
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.100000 0.100000 0.100000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd INT_Seams.png
+map_Bump INT_Seams_nm.png
 
-newmtl Stitching.001
-Ns 0.000000
+newmtl Taillights_Reflectors
+Ns 180.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 2.000000 2.000000 2.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd Taillights_Reflectors_Ao.dds
+map_Bump flat_nm.dds
 
-newmtl Taillights_Reflectors.001
-Ns 0.000000
+newmtl Top_Dash
+Ns 10.000005
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.050000 0.050000 0.050000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd INT_Ao.dds
+map_Bump flat_nm.dds
 
-newmtl Top_Dash.001
-Ns 0.000000
+newmtl Turbo_Gauge
+Ns 180.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 2.000000 2.000000 2.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd TurboMano.png
+map_Bump flat_nm.dds
 
-newmtl Turbo_Gauge.001
-Ns 0.000000
+newmtl Turbo_Gauge_Color
+Ns 39.999996
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.100000 0.100000 0.100000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd Turbo_Gauge_Face_Color.dds
 
-newmtl Turbo_Gauge_Color.001
-Ns 0.000000
+newmtl Tyre
+Ns 65.000015
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.800000 0.800000 0.800000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd wheel_B.dds
+map_Bump wheel_B_NM.dds
 
-newmtl Tyre.001
-Ns 0.000000
+newmtl dials_faces
+Ns 79.999985
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.100000 0.100000 0.100000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd Dials_Dragstrip.png
+map_Bump Dials_DragstripNM.png
 
-newmtl dials_faces.001
+newmtl dsadsa
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -591,107 +626,115 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl ext_chrome.001
-Ns 0.000000
+newmtl ext_chrome
+Ns 50.000011
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.600000 0.600000 0.600000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd details_D.dds
+map_Bump details_NM.dds
 
-newmtl ext_exhaust.001
-Ns 0.000000
+newmtl ext_exhaust
+Ns 19.999990
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.200000 0.200000 0.200000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd details_D.dds
+map_Bump details_NM.dds
 
-newmtl ext_palstic.001
-Ns 0.000000
+newmtl ext_palstic
+Ns 29.999998
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.500000 0.500000 0.500000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd details_D1.dds
+map_Bump normal blue.dds
 
-newmtl ext_plate.001
-Ns 0.000000
+newmtl ext_plate
+Ns 60.000008
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.200000 0.200000 0.200000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd Plate_D.dds
+map_Bump Plate_NM.dds
 
-newmtl ext_undercarriage.001
-Ns 0.000000
+newmtl ext_undercarriage
+Ns 29.999998
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.100000 0.100000 0.100000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd details_D1.dds
+map_Bump details_NM.dds
 
-newmtl headlights_high_bulb.001
-Ns 0.000000
+newmtl headlights_high_bulb
+Ns 70.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.700000 0.700000 0.700000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd headlight_N.dds
+map_Bump headlight_N2.dds
 
-newmtl int_belt.001
-Ns 0.000000
+newmtl int_belt
+Ns 15.000002
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.100000 0.100000 0.100000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd cinture.dds
+map_Bump cinture_n.dds
 
-newmtl int_glass.001
-Ns 0.000000
+newmtl int_glass
+Ns 499.999969
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.100000 0.100000 0.100000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd glass.png
 
-newmtl int_mirrors.001
-Ns 0.000000
+newmtl int_mirrors
+Ns 100.000015
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.900000 0.900000 0.900000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd MIRROR_PLACEMENT.png
 
-newmtl int_plastic_black.001
-Ns 0.000000
+newmtl int_plastic_black
+Ns 19.999990
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.100000 0.100000 0.100000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd int_AO3.dds
+map_Bump normal blue.dds
 
-newmtl rear_light.001
+newmtl rear_light
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -701,7 +744,7 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl rear_light_and_indicator_bulbs.001
+newmtl rear_light_and_indicator_bulbs
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -711,42 +754,44 @@ Ni 1.500000
 d 1.000000
 illum 1
 
-newmtl rim_paint_inner.001
-Ns 0.000000
+newmtl rim_paint_inner
+Ns 39.999996
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.580000 0.580000 0.580000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd Rims_Ao.dds
+map_Bump flat_nm.dds
 
-newmtl steer_logo.001
-Ns 0.000000
+newmtl steer_logo
+Ns 39.999996
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
+Ks 0.150000 0.150000 0.150000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd steer_logo.png
+map_Bump steer_logo_N.png
 
-newmtl warning_dashboard_light.001
-Ns 0.000000
+newmtl warning_dashboard_light
+Ns 0.999999
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
 Ks 0.000000 0.000000 0.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
 illum 1
+map_Kd doooops.png
 
-newmtl warning_dashboard_lights_thickl.001
-Ns 0.000000
+newmtl warning_dashboard_lights_thickl
+Ns 0.999999
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
 Ks 0.000000 0.000000 0.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
 illum 1
+map_Kd thick_warning_light.dds

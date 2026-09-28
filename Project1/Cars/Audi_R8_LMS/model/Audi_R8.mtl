@@ -1,0 +1,364 @@
+# Blender 5.1.1 MTL File: 'None'
+# www.blender.org
+
+newmtl BadgeA
+Ns 39.999996
+Ka 1.000000 1.000000 1.000000
+Ks 0.100000 0.100000 0.100000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd BadgeA_diff.dds
+map_Bump BadgeA_nrml.dds
+
+newmtl Base
+Ns 0.999999
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd black2.dds
+
+newmtl CLIPPER
+Ns 39.999996
+Ka 1.000000 1.000000 1.000000
+Ks 0.400000 0.400000 0.400000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd calipper.dds
+map_Bump Flat-NM.dds
+
+newmtl Carbon1
+Ns 70.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.200000 0.200000 0.200000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd black2.dds
+map_Bump Flat-NM.dds
+
+newmtl Coloured
+Ns 19.999990
+Ka 1.000000 1.000000 1.000000
+Ks 0.200000 0.200000 0.200000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd black2.dds
+map_Bump Flat-NM.dds
+
+newmtl DISKBRAKE
+Ns 50.000011
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd brakedisk.dds
+map_Bump brakedisk_n.dds
+
+newmtl Details
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 0.300000 0.300000 0.300000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd EXT_Details.dds
+map_Bump EXT_Details_NM.dds
+
+newmtl GlassDarkMtl
+Ns 499.999969
+Ka 1.000000 1.000000 1.000000
+Ks 5.000000 5.000000 5.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd glass.dds
+
+newmtl GlassMtl
+Ns 499.999969
+Ka 1.000000 1.000000 1.000000
+Ks 5.000000 5.000000 5.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd glass.dds
+
+newmtl GlassRedMtl
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 0.200000 0.200000 0.200000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd red_glass.dds
+
+newmtl Grille1A
+Ns 19.999990
+Ka 1.000000 1.000000 1.000000
+Ks 0.200000 0.200000 0.200000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd Grille1A_diff.dds
+map_Bump Grille1A_nrml.dds
+
+newmtl Grille2A
+Ns 19.999990
+Ka 1.000000 1.000000 1.000000
+Ks 0.100000 0.100000 0.100000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd Grille2A_diff.dds
+map_Bump Grille2A_nrml.dds
+
+newmtl Grille3A
+Ns 19.999990
+Ka 1.000000 1.000000 1.000000
+Ks 0.200000 0.200000 0.200000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd Grille1A_diff.dds
+map_Bump Grille1A_nrml.dds
+
+newmtl Grille4A
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 0.200000 0.200000 0.200000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd Grille4A_diff.png
+map_Bump Grille4A_nrml.png
+
+newmtl Grille5A
+Ns 19.999990
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd Grille5A_diff.png
+
+newmtl Grille6A
+Ns 19.999990
+Ka 1.000000 1.000000 1.000000
+Ks 0.100000 0.100000 0.100000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd Grille6A_diff.png
+map_Bump Grille6A_nrml.png
+
+newmtl Grille7A
+Ns 50.000011
+Ka 1.000000 1.000000 1.000000
+Ks 0.200000 0.200000 0.200000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd Grille7A_diff.png
+map_Bump Grille7A_nrml.png
+
+newmtl Grille8A
+Ns 50.000011
+Ka 1.000000 1.000000 1.000000
+Ks 0.100000 0.100000 0.100000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd Grille8A_diff.png
+map_Bump Grille8A_nrml.png
+
+newmtl InteriorTilling
+Ns 6.000004
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd gray.dds
+map_Bump Flat-NM.dds
+
+newmtl Lights
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd LightA_diff.png
+map_Bump Flat-NM.dds
+
+newmtl Paint
+Ns 79.999985
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd body.dds
+map_Bump Flat-NM.dds
+
+newmtl RIM_BLUR
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd blur_rim.dds
+map_Bump blur_rim_n.dds
+
+newmtl RIM_BLUR_TRANS
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd blur_rim.dds
+map_Bump blur_rim_n.dds
+
+newmtl SpecularTintA
+Ns 50.000011
+Ka 1.000000 1.000000 1.000000
+Ks 0.200000 0.200000 0.200000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd SpecularTintA_diff.png
+
+newmtl Textured2A
+Ns 10.000005
+Ka 1.000000 1.000000 1.000000
+Ks 0.100000 0.100000 0.100000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd Textured2A_diff.png
+
+newmtl TexturedA
+Ns 50.000011
+Ka 1.000000 1.000000 1.000000
+Ks 0.200000 0.200000 0.200000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd TexturedA_diff.png
+map_Bump Flat-NM.dds
+
+newmtl WHEEL
+Ns 25.000004
+Ka 1.000000 1.000000 1.000000
+Ks 0.150000 0.150000 0.150000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd wheel_B.dds
+map_Bump wheel_B_NM.dds
+
+newmtl Wheel1A
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd Wheel1A_diff.dds
+map_Bump Flat-NM.dds
+
+newmtl color2
+Ns 19.999990
+Ka 1.000000 1.000000 1.000000
+Ks 0.100000 0.100000 0.100000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd InteriorA_ref.png
+
+newmtl crhome
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 2.000000 2.000000 2.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd SpecularTintA_diff.png
+
+newmtl hud
+Ns 0.999999
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd hud.png
+
+newmtl interior
+Ns 50.000011
+Ka 1.000000 1.000000 1.000000
+Ks 0.100000 0.100000 0.100000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd InteriorA_diff.png
+map_Bump Flat-NM.dds
+
+newmtl interior_o
+Ns 19.999990
+Ka 1.000000 1.000000 1.000000
+Ks 0.100000 0.100000 0.100000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd InteriorA_diff.png
+
+newmtl mirrors
+Ns 10.000005
+Ka 1.000000 1.000000 1.000000
+Ks 0.900000 0.900000 0.900000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd MIRROR_PLACEMENT.png

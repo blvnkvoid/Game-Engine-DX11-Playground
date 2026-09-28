@@ -21,7 +21,7 @@ static const std::vector<VehicleRegistryEntry> vehicleTable =
 {
     { VehicleSelection::PORSCHE_911,    "Cars/Porsche_911_Carrera_S/", "911_Carrera_S", "Porsche 911 Carrera S"},
     { VehicleSelection::BUGATTI_CHIRON, "Cars/Bugatti_Chiron/",        "Bugatti", "Bugatti Chiron"},
-    { VehicleSelection::AUDI_R8,        "Cars/Audi_R8_LMS/",           "R8", "Audi R8"},
+    { VehicleSelection::AUDI_R8,        "Cars/Audi_R8_LMS/",           "Audi_R8", "Audi R8"},
     { VehicleSelection::CIVIC,          "Cars/Honda_Civic_EG6/",       "Civic", "Honda Civic SIR-II '91"},
     { VehicleSelection::GT500,        "Cars/Honda_NSX_Concept-GT_GT-500_2016/",        "NSX_GT500", "Honda NSX_Concept-GT GT-500 '16"},
     { VehicleSelection::FURAI,        "Cars/Mazda_Furai/",        "Furai", "Mazda Furai"},
@@ -110,7 +110,9 @@ VehicleDefinition VehicleRegistry::CreateDefinition(VehicleSelection selection)
     
     case VehicleSelection::GT500:
         return NSX_GT500::CreateDefinition();    
-    
+
+    case VehicleSelection::SLS_PACECAR:
+        return SLS_Pacecar::CreateDefinition();    
     
     case VehicleSelection::FURAI:
         return Furai::CreateDefinition();
@@ -179,6 +181,9 @@ CameraDefinition VehicleRegistry::CreateCameraDefinition(VehicleSelection select
 
     case VehicleSelection::JGTCNSX2000:
         return NSX_JGTC2000::CreateCameraDefinition();
+
+    case VehicleSelection::SLS_PACECAR:
+        return SLS_Pacecar::CreateCameraDefinition();
     }
 
     return Civic::CreateCameraDefinition();

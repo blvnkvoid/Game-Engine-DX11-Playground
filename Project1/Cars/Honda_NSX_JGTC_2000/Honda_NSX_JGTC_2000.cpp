@@ -139,7 +139,7 @@ VehicleDefinition NSX_JGTC2000::CreateDefinition()
     // ---------------------------------------------------------
     // 10. Audio
     // ---------------------------------------------------------
-    car.audio.basePath = "C:\\Users\\Void\\Documents\\GitHub\\Game-Engine\\Project1\\Cars\\Honda_NSX_JGTC_2000\\sounds\\";
+    car.audio.basePath = "C:\\Users\\Void\\Documents\\GitHub\\Game-Engine-DX11-Playground\\Project1\\Cars\\Honda_NSX_JGTC_2000\\sounds\\";
 
     car.audio.idle =
         "ext_evoraGTC_idle.wav";
@@ -206,6 +206,13 @@ CameraDefinition NSX_JGTC2000::CreateCameraDefinition()
     camera.bumperDistance = 3.5f;
     camera.bumperPitchDeg = 5.0f;
 
+    camera.cockpitHeight = 0.15f;
+    camera.cockpitDistance = -1.0f;
+    camera.cockpitPitchDeg = 5.0f;
+
+    camera.cockpitOffsetX = 0.3f;
+    camera.cockpitOffsetY = 0.0f;
+    camera.cockpitOffsetZ = 0.0f;
 
     return camera;
 }

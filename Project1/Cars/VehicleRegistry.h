@@ -13,7 +13,7 @@
 
     struct VehicleSelectionHash
     {
-        std::size_t operator()(VehicleSelection selection) const noexcept
+        std::size_t operator()(VehicleSelection selection) const noexcept   
         {
             return static_cast<std::size_t>(selection);
         }
@@ -45,7 +45,7 @@
             ID3D11DeviceContext* context,
             TextureManager* textureManager);
 
-        void RegisterVehicle(
+        void RegisterVehicle    (
             VehicleSelection selection,
             const std::string& mtlPath,
             const std::string& objPath,

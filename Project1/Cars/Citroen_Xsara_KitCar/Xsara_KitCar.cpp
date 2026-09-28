@@ -145,7 +145,7 @@ VehicleDefinition Xsara::CreateDefinition()
     // ---------------------------------------------------------
     // 10. Audio
     // ---------------------------------------------------------
-    car.audio.basePath = "C:\\Users\\Void\\Documents\\GitHub\\Game-Engine\\Project1\\Cars\\Citroen_Xsara_KitCar\\sounds\\";
+    car.audio.basePath = "C:\\Users\\Void\\Documents\\GitHub\\Game-Engine-DX11-Playground\\Project1\\Cars\\Citroen_Xsara_KitCar\\sounds\\";
 
     car.audio.idle = "idle_2705.wav";
 
@@ -190,9 +190,19 @@ CameraDefinition Xsara::CreateCameraDefinition()
     camera.roofDistance = 1.0f;
     camera.roofPitchDeg = 0.0f;
 
+
     camera.bumperHeight = 0.7f;
     camera.bumperDistance = 5.0f;
     camera.bumperPitchDeg = 5.0f;
+
+
+    camera.cockpitHeight = 0.4f;
+    camera.cockpitDistance = 0.15f;
+    camera.cockpitPitchDeg = 5.0f;
+
+    camera.cockpitOffsetX = -0.3f;
+    camera.cockpitOffsetY = 0.0f;
+    camera.cockpitOffsetZ = 0.0f;
 
     return camera;
 }

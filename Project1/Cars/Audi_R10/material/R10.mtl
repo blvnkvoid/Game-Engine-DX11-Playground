@@ -1,362 +1,567 @@
-# Blender 5.1.1 MTL File: 'None'
-# www.blender.org
-
-newmtl AUDI_R8_LMP900_DISC
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl AUDI_R8_LMP900_MISC
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl AUDI_R8_LMP900_RIM
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Audi_R10/textures/rimblur.dds
-
-newmtl Front_lights
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl GENERIC_TIRE
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Audi_R10/textures/tyre.dds
-
-newmtl GENERIC_TREAD
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl GLOW
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Audi_R10/textures/GLOW.DDS
-
-newmtl HGLOW
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl MIRROR
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Material_#3
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl R10_ATTACHE
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl R10_CPIT
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Audi_R10/textures/AUDIR10_CPIT.DDS
-
-newmtl R10_CPIT_NOCUBE
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Audi_R10/textures/AUDIR10_CPIT.DDS
-
-newmtl R10_DASH
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Audi_R10/textures/audir10_dash.dds
-
-newmtl R10_SUSP
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl SW_ALC
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Audi_R10/textures/audir10_dash.dds
-
-newmtl WCCARBODY
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Audi_R10/textures/AUDIR10_BODY.DDS
-
-newmtl WCCARBODY.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Audi_R10/textures/AUDIR10_BODY.DDS
-
-newmtl WCEXTRA0
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Audi_R10/textures/AUDIR10_EXTRA.DDS
-
-newmtl WCEXTRA1
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Audi_R10/textures/AUDIR10_EXTRA.DDS
-
-newmtl WCWINDOW
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Audi_R10/textures/audir10_windows.dds
-
-newmtl ZYT_LEDPOSITION
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
+# Converted from Assetto Corsa FBX material INI
+# Source: rms_audi_r10_tdi.fbx.ini
+# AC-specific shader/resource metadata preserved as comments.
 
 newmtl black
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
+# AC_SHADER ksPerPixel
+Ka 0.000000 0.000000 0.000000
+Kd 0.000000 0.000000 0.000000
 Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
+Ns 10.000000
 d 1.000000
-illum 1
-
-newmtl blur_lip
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl blur_rim
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Audi_R10/textures/BRAKE_disk.dds
-
-newmtl detail_glass_clear
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl digital_gauge
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
+illum 2
+map_Kd AC_black.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=AC_black.DDS
+# AC_VAR ksEmissive=0.0
 
 newmtl emblem
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
+# AC_SHADER ksPerPixelReflection
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.300000 0.300000 0.300000
+Ns 30.000000
 d 1.000000
-illum 1
+illum 2
+map_Kd nodamage_lod0.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=nodamage_lod0.png
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.05
+# AC_VAR fresnelEXP=4.0
+# AC_VAR fresnelMaxLevel=0.2
+# AC_VAR isAdditive=0.0
 
 newmtl grille1
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
+# AC_SHADER ksPerPixel
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
 Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
+Ns 10.000000
 d 1.000000
-illum 1
+illum 2
+map_Kd grille1.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=grille1.DDS
+# AC_VAR ksEmissive=0.0
 
-newmtl metal
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
+newmtl MIRROR
+# AC_SHADER ksPerPixel
+Ka 0.900000 0.900000 0.900000
+Kd 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
+Ns 100.000000
 d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Audi_R10/textures/audir10_dash.dds
-
-newmtl mottled
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Audi_R10/textures/audir10_dash.dds
-
-newmtl plastic
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl reflector_cp
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
+illum 2
+map_Kd mirror.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=mirror.png
+# AC_VAR ksEmissive=0.0
 
 newmtl tail_light_lod0
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
+# AC_SHADER ksPerPixelReflection
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 2.000000 2.000000 2.000000
+Ns 850.000000
 d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Audi_R10/textures/LIGHTS.DDS
+illum 2
+map_Kd lights_lod0.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=lights_lod0.png
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.2
+# AC_VAR fresnelEXP=2.5
+# AC_VAR fresnelMaxLevel=0.6
+# AC_VAR isAdditive=0.0
 
-newmtl textured_reflector
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
+newmtl metal
+# AC_SHADER ksPerPixelReflection
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.300000 0.300000 0.300000
+Ns 30.000000
 d 1.000000
-illum 1
+illum 2
+map_Kd interior_lod0.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=interior_lod0.DDS
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.05
+# AC_VAR fresnelEXP=4.0
+# AC_VAR fresnelMaxLevel=0.2
+# AC_VAR isAdditive=0.0
+
+newmtl mottled
+# AC_SHADER ksPerPixelNM_UVMult
+Ka 0.160000 0.160000 0.160000
+Kd 0.160000 0.160000 0.160000
+Ks 0.060000 0.060000 0.060000
+Ns 10.000000
+d 1.000000
+illum 2
+map_Kd interior_lod0.DDS
+map_Bump alcantara_NM.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=interior_lod0.DDS
+# AC_RESOURCE slot=1 name=txNormal texture=alcantara_NM.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR fresnelMaxLevel=0.0
+
+newmtl plastic
+# AC_SHADER ksPerPixelReflection
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.300000 0.300000 0.300000
+Ns 30.000000
+d 1.000000
+illum 2
+map_Kd interior_lod0.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=interior_lod0.DDS
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.01
+# AC_VAR fresnelEXP=4.0
+# AC_VAR fresnelMaxLevel=0.2
+# AC_VAR isAdditive=0.0
+
+newmtl reflector_cp
+# AC_SHADER ksPerPixelReflection
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.200000 0.200000 0.200000
+Ns 40.000000
+d 1.000000
+illum 2
+map_Kd interior_lod0.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=interior_lod0.DDS
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=0.0
+# AC_VAR fresnelMaxLevel=0.1
+# AC_VAR isAdditive=0.0
+
+newmtl SW_ALC
+# AC_SHADER ksPerPixelNM_UVMult
+Ka 0.100000 0.100000 0.100000
+Kd 0.100000 0.100000 0.100000
+Ks 0.060000 0.060000 0.060000
+Ns 10.000000
+d 1.000000
+illum 2
+map_Kd alcantara.dds
+map_Bump alcantara_NM.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=alcantara.dds
+# AC_RESOURCE slot=1 name=txNormal texture=alcantara_NM.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR fresnelMaxLevel=0.0
 
 newmtl unicolor_carbon_fiber
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
+# AC_SHADER ksPerPixelNM_UVMult
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.200000 0.200000 0.200000
+Ns 30.000000
 d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine/Project1/Cars/Audi_R10/textures/audir10_dash.dds
+illum 2
+map_Kd AC_carbon_cockp_diffuse.dds
+map_Bump AC_carbon_cockp_normal.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=AC_carbon_cockp_diffuse.dds
+# AC_RESOURCE slot=1 name=txNormal texture=AC_carbon_cockp_normal.DDS
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.03
+# AC_VAR fresnelEXP=3.0
+# AC_VAR fresnelMaxLevel=0.04
+
+newmtl digital_gauge
+# AC_SHADER ksPerPixel
+Ka 0.600000 0.600000 0.600000
+Kd 0.600000 0.600000 0.600000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+d 1.000000
+illum 2
+map_Kd AC_silver_DARK.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=AC_silver_DARK.dds
+# AC_VAR ksEmissive=0.0
+
+newmtl Material #3
+# AC_SHADER ksPerPixel
+Ka 0.800000 0.800000 0.800000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+d 1.000000
+illum 2
+map_Kd aud_2_r10_08_bkgrnd.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=aud_2_r10_08_bkgrnd.png
+# AC_VAR ksEmissive=0.0
+
+newmtl GLOW
+# AC_SHADER ksPerPixelReflection
+Ka 0.200000 0.200000 0.200000
+Kd 0.500000 0.500000 0.500000
+Ks 150.000000 150.000000 150.000000
+Ns 1000.000000
+d 1.000000
+illum 2
+map_Kd GLOW.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=GLOW.DDS
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=3.0
+# AC_VAR fresnelMaxLevel=0.8
+# AC_VAR isAdditive=0.0
+
+newmtl WCCARBODY
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.450000 0.450000 0.450000
+Kd 0.500000 0.500000 0.500000
+Ks 0.500000 0.500000 0.500000
+Ns 220.000000
+d 1.000000
+illum 2
+map_Kd AUDIR10_BODY.DDS
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=AUDIR10_BODY.DDS
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=AUDIR10_BODY_SPEC.DDS
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.07
+# AC_VAR fresnelEXP=3.5
+# AC_VAR fresnelMaxLevel=0.6
+# AC_VAR isAdditive=2.0
+
+newmtl WCEXTRA0
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.450000 0.450000 0.450000
+Kd 0.500000 0.500000 0.500000
+Ks 0.500000 0.500000 0.500000
+Ns 220.000000
+d 1.000000
+illum 2
+map_Kd AUDIR10_CHASSIS.DDS
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=AUDIR10_CHASSIS.DDS
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=AUDIR10_CHASSIS_SPEC.DDS
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.07
+# AC_VAR fresnelEXP=3.5
+# AC_VAR fresnelMaxLevel=0.6
+# AC_VAR isAdditive=2.0
+
+newmtl WCWINDOW
+# AC_SHADER ksPerPixelReflection
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 2.000000 2.000000 2.000000
+Ns 850.000000
+d 1.000000
+illum 2
+map_Kd audir10_windows.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=audir10_windows.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.03
+# AC_VAR fresnelEXP=1.5
+# AC_VAR fresnelMaxLevel=0.3
+# AC_VAR isAdditive=0.0
+
+newmtl R10_CPIT
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.450000 0.450000 0.450000
+Kd 0.500000 0.500000 0.500000
+Ks 0.500000 0.500000 0.500000
+Ns 220.000000
+d 1.000000
+illum 2
+map_Kd AUDIR10_CPIT.DDS
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=AUDIR10_CPIT.DDS
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=AUDIR10_CPIT_SPEC.DDS
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.07
+# AC_VAR fresnelEXP=3.5
+# AC_VAR fresnelMaxLevel=0.6
+# AC_VAR isAdditive=2.0
+
+newmtl R10_SUSP
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.050000 0.050000 0.050000
+Ns 10.000000
+d 1.000000
+illum 2
+map_Kd audir10_caliper.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=audir10_caliper.dds
+# AC_VAR ksEmissive=0.0
+
+newmtl WCEXTRA1
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.450000 0.450000 0.450000
+Kd 0.500000 0.500000 0.500000
+Ks 0.500000 0.500000 0.500000
+Ns 220.000000
+d 1.000000
+illum 2
+map_Kd AUDIR10_EXTRA.DDS
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=AUDIR10_EXTRA.DDS
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=AUDIR10_EXTRA_SPEC.DDS
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.07
+# AC_VAR fresnelEXP=3.5
+# AC_VAR fresnelMaxLevel=0.6
+# AC_VAR isAdditive=2.0
+
+newmtl Front_lights
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.450000 0.450000 0.450000
+Kd 0.500000 0.500000 0.500000
+Ks 0.500000 0.500000 0.500000
+Ns 220.000000
+d 1.000000
+illum 2
+map_Kd AUDIR10_BODY.DDS
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=AUDIR10_BODY.DDS
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=AUDIR10_BODY_SPEC.DDS
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.07
+# AC_VAR fresnelEXP=3.5
+# AC_VAR fresnelMaxLevel=0.6
+# AC_VAR isAdditive=2.0
+
+newmtl R10_DASH
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.050000 0.050000 0.050000
+Ns 10.000000
+d 1.000000
+illum 2
+map_Kd audir10_dash.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=audir10_dash.dds
+# AC_VAR ksEmissive=0.0
+
+newmtl R10_CPIT_NOCUBE
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.050000 0.050000 0.050000
+Ns 10.000000
+d 1.000000
+illum 2
+map_Kd AUDIR10_CPIT.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=AUDIR10_CPIT.DDS
+# AC_VAR ksEmissive=0.0
+
+newmtl ZYT_LEDPOSITION
+# AC_SHADER ksPerPixel
+Ka 0.100000 0.100000 0.100000
+Kd 0.200000 0.200000 0.200000
+Ks 5.000000 5.000000 5.000000
+Ns 750.000000
+d 1.000000
+illum 2
+map_Kd internal_glass1.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=internal_glass1.dds
+# AC_VAR ksEmissive=0.0
+
+newmtl R10_ATTACHE
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.050000 0.050000 0.050000
+Ns 10.000000
+d 1.000000
+illum 2
+map_Kd AC_silver_DARK.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=AC_silver_DARK.dds
+# AC_VAR ksEmissive=0.0
+
+newmtl detail_glass_clear
+# AC_SHADER ksPerPixelNM
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 10.000000 10.000000 10.000000
+Ns 420.000000
+d 1.000000
+illum 2
+map_Kd LIGHTS.DDS
+map_Bump LIGHTS_Normal.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=LIGHTS.DDS
+# AC_RESOURCE slot=1 name=txNormal texture=LIGHTS_Normal.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.15
+# AC_VAR fresnelEXP=1.5
+# AC_VAR fresnelMaxLevel=0.3
+# AC_VAR isAdditive=0.0
+
+newmtl HGLOW
+# AC_SHADER ksPerPixelReflection
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 10.000000 10.000000 10.000000
+Ns 520.000000
+d 1.000000
+illum 2
+map_Kd HGLOW.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=HGLOW.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.15
+# AC_VAR fresnelEXP=1.5
+# AC_VAR fresnelMaxLevel=0.3
+# AC_VAR isAdditive=0.0
+
+newmtl textured_reflector
+# AC_SHADER ksPerPixelReflection
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.300000 0.300000 0.300000
+Ns 30.000000
+d 1.000000
+illum 2
+map_Kd lights_lod0.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=lights_lod0.png
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.01
+# AC_VAR fresnelEXP=4.0
+# AC_VAR fresnelMaxLevel=0.2
+# AC_VAR isAdditive=0.0
+
+newmtl GENERIC_TREAD
+# AC_SHADER ksTyres
+Ka 0.350000 0.350000 0.350000
+Kd 0.350000 0.350000 0.350000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+d 1.000000
+illum 2
+map_Kd 00e5f6a0.dds
+map_Bump 00e3b850.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=00e5f6a0.dds
+# AC_RESOURCE slot=1 name=txNormal texture=00e3b850.dds
+# AC_RESOURCE slot=2 name=txDirty texture=dirt.dds
+# AC_RESOURCE slot=3 name=txBlur texture=00e3b0b0.dds
+# AC_RESOURCE slot=4 name=txNormalBlur texture=flat_nm.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR fresnelMaxLevel=0.0
+# AC_VAR isAdditive=0.0
+
+newmtl GENERIC_TIRE
+# AC_SHADER ksTyres
+Ka 0.350000 0.350000 0.350000
+Kd 0.350000 0.350000 0.350000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+d 1.000000
+illum 2
+map_Kd tyre.dds
+map_Bump tyre_n.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=tyre.dds
+# AC_RESOURCE slot=1 name=txNormal texture=tyre_n.dds
+# AC_RESOURCE slot=2 name=txDirty texture=dirt.dds
+# AC_RESOURCE slot=3 name=txBlur texture=tyre_blur.dds
+# AC_RESOURCE slot=4 name=txNormalBlur texture=flat_nm.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR fresnelMaxLevel=0.0
+# AC_VAR isAdditive=0.0
+
+newmtl AUDI_R8_LMP900_RIM
+# AC_SHADER ksPerPixelReflection
+Ka 0.300000 0.300000 0.300000
+Kd 0.500000 0.500000 0.500000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+d 1.000000
+illum 2
+map_Kd 00421520.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=00421520.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=2.0
+# AC_VAR fresnelMaxLevel=0.2
+# AC_VAR isAdditive=1.0
+
+newmtl blur_rim
+# AC_SHADER ksPerPixelReflection
+Ka 0.400000 0.400000 0.400000
+Kd 0.400000 0.400000 0.400000
+Ks 0.200000 0.200000 0.200000
+Ns 10.000000
+d 1.000000
+illum 2
+map_Kd rimblur.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=rimblur.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.11
+# AC_VAR fresnelEXP=2.5
+# AC_VAR fresnelMaxLevel=0.2
+# AC_VAR isAdditive=0.0
+
+newmtl blur_lip
+# AC_SHADER ksPerPixelReflection
+Ka 0.400000 0.400000 0.400000
+Kd 0.400000 0.400000 0.400000
+Ks 0.200000 0.200000 0.200000
+Ns 10.000000
+d 1.000000
+illum 2
+map_Kd rimblur.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=rimblur.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR fresnelMaxLevel=0.2
+# AC_VAR isAdditive=0.0
+
+newmtl AUDI_R8_LMP900_DISC
+# AC_SHADER ksBrakeDisc
+Ka 0.400000 0.400000 0.400000
+Kd 0.400000 0.400000 0.400000
+Ks 0.200000 0.200000 0.200000
+Ns 20.000000
+d 1.000000
+illum 2
+map_Kd BRAKE_disk.dds
+map_Bump DISK_NM.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=BRAKE_disk.dds
+# AC_RESOURCE slot=1 name=txNormal texture=DISK_NM.dds
+# AC_RESOURCE slot=2 name=txGlow texture=DISK_warm.dds
+# AC_RESOURCE slot=3 name=txBlur texture=DISK_blur.dds
+# AC_RESOURCE slot=4 name=txNormalBlur texture=DISK_blur_NM.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=1.5
+# AC_VAR fresnelMaxLevel=0.0
+# AC_VAR isAdditive=0.0
+
+newmtl AUDI_R8_LMP900_MISC
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.400000 0.400000 0.400000
+Kd 0.400000 0.400000 0.400000
+Ks 0.500000 0.500000 0.500000
+Ns 60.000000
+d 1.000000
+illum 2
+map_Kd 000e4b00.dds
+map_Bump 000bba40.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=000e4b00.dds
+# AC_RESOURCE slot=1 name=txNormal texture=000bba40.dds
+# AC_RESOURCE slot=2 name=txMaps texture=map.dds
+# AC_RESOURCE slot=3 name=txDetail texture=000e4b00.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.05
+# AC_VAR fresnelEXP=4.0
+# AC_VAR fresnelMaxLevel=0.1
+# AC_VAR isAdditive=1.0

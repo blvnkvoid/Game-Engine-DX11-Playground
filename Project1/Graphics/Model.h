@@ -19,14 +19,20 @@ struct MeshSubset {
     std::string materialName;
     MeshSubset(unsigned int start = 0) : startIndex(start), indexCount(0) {};
     ID3D11ShaderResourceView* diffuseTexture = nullptr;
-    std::string diffuseTextureName;
+    std::string diffuseTextureName;    
+    ID3D11ShaderResourceView* normalTexture = nullptr;
+    std::string normalTextureName;
+    ID3D11ShaderResourceView* detailTexture = nullptr;
+    std::string detailTextureName;
+    ID3D11ShaderResourceView* normalDetailTexture = nullptr;
+    std::string normalDetailTextureName;
 };
 
 class Model {
 public:
     Model();
     void BindAndDraw(ID3D11DeviceContext* context, UINT stride, DirectX::XMMATRIX world, DirectX::XMMATRIX view, DirectX::XMMATRIX projection, Camera* cam, float brakeAmount, ID3D11DepthStencilState* depthWriteOn,
-        ID3D11DepthStencilState* depthWriteOff, ID3D11BlendState* alphaBlendState, float time, const SharedSceneData& sceneData);
+        ID3D11DepthStencilState* depthWriteOff, ID3D11BlendState* alphaBlendState, ID3D11Buffer* lampInfoBuffer, ID3D11ShaderResourceView* lampLightsSRV, float time, const SharedSceneData& sceneData);
     void BindTexture(ID3D11DeviceContext* context);
     void SetModelPosition(float x, float y, float z) { modelposition = { x, y, z }; }
     void SetModelRotation(DirectX::XMMATRIX rotation) { m_rotationMatrix = rotation; }
@@ -46,11 +52,13 @@ public:
     std::map<std::string, MaterialData> m_materialLib;
     void ResolveMaterialTextures(TextureManager* textureManager, ID3D11DeviceContext* context, const std::wstring& textureFolder);
     float DetectMaterialType(const std::string& matName, const MaterialData& mat);
+    void CreateFlatNormalTexture(ID3D11Device* device);
 
 private:
     UINT index_count;
     std::vector<MeshSubset> m_subsets;
     Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_textureRV;    
+    Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_flatNormalRV;
     DirectX::XMMATRIX m_rotationMatrix = DirectX::XMMatrixIdentity();
     DirectX::XMFLOAT3 modelposition = { 0.0f, 0.0f, 0.0f };
 };

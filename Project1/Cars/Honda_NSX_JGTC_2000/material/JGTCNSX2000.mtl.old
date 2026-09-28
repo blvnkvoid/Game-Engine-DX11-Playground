@@ -1,0 +1,352 @@
+# Blender 5.1.1 MTL File: 'None'
+# www.blender.org
+
+newmtl _gtrlodagrille1
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/grille1_alpha.dds
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/grille1_alpha.dds
+
+newmtl _nsx-cockpitdigital_gauge
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
+
+newmtl _nsx-lodainterior
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/nodamage.dds
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/nodamage.dds
+
+newmtl _nsx-lodarubber_trim
+Ns 180.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/nodamage_lod0.dds
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/nodamage_lod0.dds
+
+newmtl _wheelblur_rim
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/wheel1.dds
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/wheel1.dds
+
+newmtl _wheelrim
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/wheel.dds
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/wheel.dds
+
+newmtl black
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/nodamage_lod0.dds
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/nodamage_lod0.dds
+
+newmtl black_glass
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/COMMON_GLASS_BLACK.DDS
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/COMMON_GLASS_BLACK.DDS
+
+newmtl body
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/nodamage_lod0.dds
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/nodamage_lod0.dds
+
+newmtl brakes
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/rotor0.dds
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/rotor0.dds
+
+newmtl chrome
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/COMMON_CHROME.DDS
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/COMMON_CHROME.DDS
+
+newmtl cockpit_carbon_fiber
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/COMMON_CARBON3_BLACK_DIFFUSE.DDS
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/COMMON_CARBON3_BLACK_DIFFUSE.DDS
+
+newmtl cockpitbadge
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
+
+newmtl cockpitbump_stitching
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
+
+newmtl cockpitmatte_colors
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
+
+newmtl cockpitmetal
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
+
+newmtl cockpitmottled
+Ns 60.000008
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/alcantara_black.dds
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/alcantara_black.dds
+
+newmtl cockpitplastic
+Ns 50.000011
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
+
+newmtl cockpitplasticnm
+Ns 79.999985
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/COMMON_DASH_PLASTIC01_DIFFUSE.DDS
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/COMMON_DASH_PLASTIC01_DIFFUSE.DDS
+
+newmtl cockpitreflector
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
+
+newmtl cockpitrubber
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
+
+newmtl cockpitsolid
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
+
+newmtl emblem
+Ns 399.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/nodamage_lod0.dds
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/nodamage_lod0.dds
+
+newmtl frame
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/bumper_frame.dds
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/bumper_frame.dds
+
+newmtl glass
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/glass.dds
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/glass.dds
+
+newmtl glass_interior
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/windows_inside.dds
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/windows_inside.dds
+
+newmtl led_red
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/dash_mfd_redlight_on.dds
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/dash_mfd_redlight_on.dds
+
+newmtl matte_colors
+Ns 70.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/nodamage_lod0.dds
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/nodamage_lod0.dds
+
+newmtl mirror
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/MIRROR_PLACEMENT.png
+
+newmtl plastic2
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/nodamage_lod0.dds
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/nodamage_lod0.dds
+
+newmtl textured_reflector
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/lights_lod0.dds
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/lights_lod0.dds
+
+newmtl textured_reflector_opaque
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/lights_lod0.dds
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/lights_lod0.dds
+
+newmtl tyre_fx
+Ns 600.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/tyre_d2.dds
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/tyre_d2.dds
+
+newmtl undercarriage
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/undercarriage.dds
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/undercarriage.dds
+
+newmtl weatherstrip
+Ns 79.999985
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/nodamage_lod0.dds
+map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/nodamage_lod0.dds

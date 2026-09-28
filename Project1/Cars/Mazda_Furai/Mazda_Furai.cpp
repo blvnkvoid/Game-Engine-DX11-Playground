@@ -144,7 +144,7 @@ VehicleDefinition Furai::CreateDefinition()
     car.rearTyres.rearWheelInertia = 1.30f;
 
 
-    car.audio.basePath = "C:\\Users\\Void\\Documents\\GitHub\\Game-Engine\\Project1\\Cars\\Mazda_Furai\\sounds\\";
+    car.audio.basePath = "C:\\Users\\Void\\Documents\\GitHub\\Game-Engine-DX11-Playground\\Project1\\Cars\\Mazda_Furai\\sounds\\";
 
     car.audio.idle =
         "exh_idl_vn2.wav";
@@ -213,6 +213,13 @@ CameraDefinition Furai::CreateCameraDefinition()
     camera.bumperDistance = 2.0f;
     camera.bumperPitchDeg = 5.0f;
 
+    camera.cockpitHeight = 0.05f;
+    camera.cockpitDistance = -0.1f;
+    camera.cockpitPitchDeg = 5.0f;
+
+    camera.cockpitOffsetX = 0.2f;
+    camera.cockpitOffsetY = 0.0f;
+    camera.cockpitOffsetZ = 0.0f;
 
     return camera;
 }

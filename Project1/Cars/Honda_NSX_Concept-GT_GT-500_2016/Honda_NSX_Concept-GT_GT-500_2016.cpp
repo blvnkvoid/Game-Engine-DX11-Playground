@@ -142,7 +142,7 @@ VehicleDefinition NSX_GT500::CreateDefinition()
     car.rearTyres.rearWheelInertia = 1.55f;
 
 
-    car.audio.basePath = "C:\\Users\\Void\\Documents\\GitHub\\Game-Engine\\Project1\\Cars\\Honda_NSX_Concept-GT_GT-500_2016\\sounds\\";
+    car.audio.basePath = "C:\\Users\\Void\\Documents\\GitHub\\Game-Engine-DX11-Playground\\Project1\\Cars\\Honda_NSX_Concept-GT_GT-500_2016\\sounds\\";
 
     car.audio.idle =
         "BRZ Ext Front Idle.wav";
@@ -210,6 +210,13 @@ CameraDefinition NSX_GT500::CreateCameraDefinition()
     camera.bumperDistance = 3.2f;
     camera.bumperPitchDeg = 5.0f;
 
+    camera.cockpitHeight = 0.25f;
+    camera.cockpitDistance = -1.0f;
+    camera.cockpitPitchDeg = 5.0f;
+
+    camera.cockpitOffsetX = -0.25f;
+    camera.cockpitOffsetY = 0.0f;
+    camera.cockpitOffsetZ = 0.0f;
 
     return camera;
 }

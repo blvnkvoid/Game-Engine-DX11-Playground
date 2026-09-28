@@ -142,8 +142,7 @@ VehicleDefinition Copen::CreateDefinition()
     car.rearTyres.wheelRadius = 0.285f;
     car.rearTyres.rearWheelInertia = 0.75f;
 
-    car.audio.basePath =
-        "C:\\Users\\Void\\Documents\\GitHub\\Game-Engine\\Project1\\Cars\\Daihatsu_Copen\\sounds\\";
+    car.audio.basePath = "C:\\Users\\Void\\Documents\\GitHub\\Game-Engine-DX11-Playground\\Project1\\Cars\\Daihatsu_Copen\\sounds\\";
 
     car.audio.idle = "1 EngB_01290.wav";
 
@@ -190,6 +189,14 @@ CameraDefinition Copen::CreateCameraDefinition()
     camera.bumperDistance = 1.7f;
     camera.bumperPitchDeg = 5.0f;
 
+
+    camera.cockpitHeight = 0.25f;
+    camera.cockpitDistance = -1.1f;
+    camera.cockpitPitchDeg = 5.0f;
+
+    camera.cockpitOffsetX = 0.25f;
+    camera.cockpitOffsetY = 0.0f;
+    camera.cockpitOffsetZ = 0.0f;
 
     return camera;
 }

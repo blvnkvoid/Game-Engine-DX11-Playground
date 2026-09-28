@@ -1,0 +1,1947 @@
+# Generated from furai.fbx.ini
+# Assetto Corsa material parameters -> Wavefront MTL
+# Materials: 90
+
+newmtl MFC_BODYMETAL
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.450000 0.450000 0.450000
+Kd 0.500000 0.500000 0.500000
+Ks 1.000000 1.000000 1.000000
+Ns 50.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_body.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_body.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=mfc_body_s.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.07
+# AC_VAR fresnelEXP=3.5
+# AC_VAR fresnelMaxLevel=0.5
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=2.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=12.0
+# AC_VAR sunSpecularEXP=1500.0
+
+newmtl MFC_BODYGRILLE
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.450000 0.450000 0.450000
+Kd 0.500000 0.500000 0.500000
+Ks 1.000000 1.000000 1.000000
+Ns 50.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_body.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_body.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=mfc_body_s.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.07
+# AC_VAR fresnelEXP=3.5
+# AC_VAR fresnelMaxLevel=0.5
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=2.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=12.0
+# AC_VAR sunSpecularEXP=1500.0
+
+newmtl MFC_BODYCHROME
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.450000 0.450000 0.450000
+Kd 0.500000 0.500000 0.500000
+Ks 1.000000 1.000000 1.000000
+Ns 50.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_body.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_body.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=mfc_body_s.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.07
+# AC_VAR fresnelEXP=3.5
+# AC_VAR fresnelMaxLevel=0.5
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=2.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=12.0
+# AC_VAR sunSpecularEXP=1500.0
+
+newmtl MFC_BODYPLASTIC
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.450000 0.450000 0.450000
+Kd 0.500000 0.500000 0.500000
+Ks 1.000000 1.000000 1.000000
+Ns 50.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_body.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_body.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=mfc_body_s.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.07
+# AC_VAR fresnelEXP=3.5
+# AC_VAR fresnelMaxLevel=0.5
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=2.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=12.0
+# AC_VAR sunSpecularEXP=1500.0
+
+newmtl MFC_BODYMATTE
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.450000 0.450000 0.450000
+Kd 0.500000 0.500000 0.500000
+Ks 1.000000 1.000000 1.000000
+Ns 50.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_body.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_body.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=mfc_body_s.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.07
+# AC_VAR fresnelEXP=3.5
+# AC_VAR fresnelMaxLevel=0.5
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=2.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=12.0
+# AC_VAR sunSpecularEXP=1500.0
+
+newmtl MFC_BODYCARBON
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.450000 0.450000 0.450000
+Kd 0.500000 0.500000 0.500000
+Ks 1.000000 1.000000 1.000000
+Ns 50.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_body.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_body.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=mfc_body_s.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.07
+# AC_VAR fresnelEXP=3.5
+# AC_VAR fresnelMaxLevel=0.5
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=2.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=12.0
+# AC_VAR sunSpecularEXP=1500.0
+
+newmtl WCCARBODY
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.450000 0.450000 0.450000
+Kd 0.500000 0.500000 0.500000
+Ks 1.000000 1.000000 1.000000
+Ns 50.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_body.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_body.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=mfc_body_s.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.07
+# AC_VAR fresnelEXP=3.5
+# AC_VAR fresnelMaxLevel=0.5
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=2.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=12.0
+# AC_VAR sunSpecularEXP=1500.0
+
+newmtl MFC_BREMBO
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_windows.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_windows.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_BRAKELIGHT
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_windows.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_windows.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_WINBLACKS
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_windows.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_windows.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_HDCPSEATS
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.360000 0.360000 0.360000
+Kd 0.330000 0.330000 0.330000
+Ks 0.100000 0.100000 0.100000
+Ns 15.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_hdint.dds
+map_Bump mfc_hdint_b.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_hdint.dds
+# AC_RESOURCE slot=1 name=txNormal texture=mfc_hdint_b.dds
+# AC_RESOURCE slot=2 name=txMaps texture=mfc_hdint_s.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl MFC_HDCPRUBBER
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.360000 0.360000 0.360000
+Kd 0.330000 0.330000 0.330000
+Ks 0.100000 0.100000 0.100000
+Ns 15.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_hdint.dds
+map_Bump mfc_hdint_b.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_hdint.dds
+# AC_RESOURCE slot=1 name=txNormal texture=mfc_hdint_b.dds
+# AC_RESOURCE slot=2 name=txMaps texture=mfc_hdint_s.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl MFC_HDCPLEATHER
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.360000 0.360000 0.360000
+Kd 0.330000 0.330000 0.330000
+Ks 0.100000 0.100000 0.100000
+Ns 15.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_hdint.dds
+map_Bump mfc_hdint_b.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_hdint.dds
+# AC_RESOURCE slot=1 name=txNormal texture=mfc_hdint_b.dds
+# AC_RESOURCE slot=2 name=txMaps texture=mfc_hdint_s.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl MFC_HDCPCARBON
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.360000 0.360000 0.360000
+Kd 0.330000 0.330000 0.330000
+Ks 0.100000 0.100000 0.100000
+Ns 15.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_hdint.dds
+map_Bump mfc_hdint_b.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_hdint.dds
+# AC_RESOURCE slot=1 name=txNormal texture=mfc_hdint_b.dds
+# AC_RESOURCE slot=2 name=txMaps texture=mfc_hdint_s.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl MFC_HDCPMETPLAIN
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.360000 0.360000 0.360000
+Kd 0.330000 0.330000 0.330000
+Ks 0.100000 0.100000 0.100000
+Ns 15.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_hdint.dds
+map_Bump mfc_hdint_b.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_hdint.dds
+# AC_RESOURCE slot=1 name=txNormal texture=mfc_hdint_b.dds
+# AC_RESOURCE slot=2 name=txMaps texture=mfc_hdint_s.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl MFC_HDCPMETPAINT
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.360000 0.360000 0.360000
+Kd 0.330000 0.330000 0.330000
+Ks 0.100000 0.100000 0.100000
+Ns 15.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_hdint.dds
+map_Bump mfc_hdint_b.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_hdint.dds
+# AC_RESOURCE slot=1 name=txNormal texture=mfc_hdint_b.dds
+# AC_RESOURCE slot=2 name=txMaps texture=mfc_hdint_s.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl MFC_HDCPCHROME
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.360000 0.360000 0.360000
+Kd 0.330000 0.330000 0.330000
+Ks 0.100000 0.100000 0.100000
+Ns 15.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_hdint.dds
+map_Bump mfc_hdint_b.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_hdint.dds
+# AC_RESOURCE slot=1 name=txNormal texture=mfc_hdint_b.dds
+# AC_RESOURCE slot=2 name=txMaps texture=mfc_hdint_s.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl MFC_HDCPFIBRE
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.360000 0.360000 0.360000
+Kd 0.330000 0.330000 0.330000
+Ks 0.100000 0.100000 0.100000
+Ns 15.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_hdint.dds
+map_Bump mfc_hdint_b.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_hdint.dds
+# AC_RESOURCE slot=1 name=txNormal texture=mfc_hdint_b.dds
+# AC_RESOURCE slot=2 name=txMaps texture=MFC_SW_S.DDS
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl MFC_HDCPMETALLIC
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.360000 0.360000 0.360000
+Kd 0.330000 0.330000 0.330000
+Ks 0.100000 0.100000 0.100000
+Ns 15.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_hdint.dds
+map_Bump mfc_hdint_b.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_hdint.dds
+# AC_RESOURCE slot=1 name=txNormal texture=mfc_hdint_b.dds
+# AC_RESOURCE slot=2 name=txMaps texture=mfc_hdint_s.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl MFC_HDCPBLAGLASS
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.360000 0.360000 0.360000
+Kd 0.330000 0.330000 0.330000
+Ks 0.100000 0.100000 0.100000
+Ns 15.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_hdint.dds
+map_Bump mfc_hdint_b.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_hdint.dds
+# AC_RESOURCE slot=1 name=txNormal texture=mfc_hdint_b.dds
+# AC_RESOURCE slot=2 name=txMaps texture=mfc_hdint_s.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl MFC_HDCPBLKGLOS
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.360000 0.360000 0.360000
+Kd 0.330000 0.330000 0.330000
+Ks 0.100000 0.100000 0.100000
+Ns 15.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_hdint.dds
+map_Bump mfc_hdint_b.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_hdint.dds
+# AC_RESOURCE slot=1 name=txNormal texture=mfc_hdint_b.dds
+# AC_RESOURCE slot=2 name=txMaps texture=mfc_hdint_s.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl MFC_HDCPVENT
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.360000 0.360000 0.360000
+Kd 0.330000 0.330000 0.330000
+Ks 0.100000 0.100000 0.100000
+Ns 15.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_hdint.dds
+map_Bump mfc_hdint_b.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_hdint.dds
+# AC_RESOURCE slot=1 name=txNormal texture=mfc_hdint_b.dds
+# AC_RESOURCE slot=2 name=txMaps texture=mfc_hdint_s.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl MFC_HDCPPLASTIC
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.360000 0.360000 0.360000
+Kd 0.330000 0.330000 0.330000
+Ks 0.100000 0.100000 0.100000
+Ns 15.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_hdint.dds
+map_Bump mfc_hdint_b.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_hdint.dds
+# AC_RESOURCE slot=1 name=txNormal texture=mfc_hdint_b.dds
+# AC_RESOURCE slot=2 name=txMaps texture=mfc_hdint_s.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl MFC_HDCPFABRIK2
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.360000 0.360000 0.360000
+Kd 0.330000 0.330000 0.330000
+Ks 0.100000 0.100000 0.100000
+Ns 15.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_hdint.dds
+map_Bump mfc_hdint_b.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_hdint.dds
+# AC_RESOURCE slot=1 name=txNormal texture=mfc_hdint_b.dds
+# AC_RESOURCE slot=2 name=txMaps texture=mfc_hdint_s.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl MFC_HDCPFABRIK1
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.360000 0.360000 0.360000
+Kd 0.330000 0.330000 0.330000
+Ks 0.100000 0.100000 0.100000
+Ns 15.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_hdint.dds
+map_Bump mfc_hdint_b.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_hdint.dds
+# AC_RESOURCE slot=1 name=txNormal texture=mfc_hdint_b.dds
+# AC_RESOURCE slot=2 name=txMaps texture=mfc_hdint_s.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl MFC_SWCARBON
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.360000 0.360000 0.360000
+Kd 0.330000 0.330000 0.330000
+Ks 0.100000 0.100000 0.100000
+Ns 15.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_sw.dds
+map_Bump MFC_SW_B.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_sw.dds
+# AC_RESOURCE slot=1 name=txNormal texture=MFC_SW_B.DDS
+# AC_RESOURCE slot=2 name=txMaps texture=MFC_SW_S.DDS
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl MFC_SWLEDS
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.360000 0.360000 0.360000
+Kd 0.330000 0.330000 0.330000
+Ks 0.100000 0.100000 0.100000
+Ns 15.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_sw.dds
+map_Bump MFC_SW_B.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_sw.dds
+# AC_RESOURCE slot=1 name=txNormal texture=MFC_SW_B.DDS
+# AC_RESOURCE slot=2 name=txMaps texture=MFC_SW_S.DDS
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl MFC_SWBUTTONS
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.360000 0.360000 0.360000
+Kd 0.330000 0.330000 0.330000
+Ks 0.100000 0.100000 0.100000
+Ns 15.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_sw.dds
+map_Bump MFC_SW_B.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_sw.dds
+# AC_RESOURCE slot=1 name=txNormal texture=MFC_SW_B.DDS
+# AC_RESOURCE slot=2 name=txMaps texture=MFC_SW_S.DDS
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl MFC_SWGLOSSY
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.360000 0.360000 0.360000
+Kd 0.330000 0.330000 0.330000
+Ks 0.100000 0.100000 0.100000
+Ns 15.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_sw.dds
+map_Bump MFC_SW_B.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_sw.dds
+# AC_RESOURCE slot=1 name=txNormal texture=MFC_SW_B.DDS
+# AC_RESOURCE slot=2 name=txMaps texture=MFC_SW_S.DDS
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl MFC_SWBOLTS
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.360000 0.360000 0.360000
+Kd 0.330000 0.330000 0.330000
+Ks 0.100000 0.100000 0.100000
+Ns 15.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_sw.dds
+map_Bump MFC_SW_B.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_sw.dds
+# AC_RESOURCE slot=1 name=txNormal texture=MFC_SW_B.DDS
+# AC_RESOURCE slot=2 name=txMaps texture=MFC_SW_S.DDS
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl MFC_SWMETAL
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.360000 0.360000 0.360000
+Kd 0.330000 0.330000 0.330000
+Ks 0.100000 0.100000 0.100000
+Ns 15.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_sw.dds
+map_Bump MFC_SW_B.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_sw.dds
+# AC_RESOURCE slot=1 name=txNormal texture=MFC_SW_B.DDS
+# AC_RESOURCE slot=2 name=txMaps texture=MFC_SW_S.DDS
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl MFC_SWSUEDE
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.360000 0.360000 0.360000
+Kd 0.330000 0.330000 0.330000
+Ks 0.100000 0.100000 0.100000
+Ns 15.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_sw.dds
+map_Bump MFC_SW_B.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_sw.dds
+# AC_RESOURCE slot=1 name=txNormal texture=MFC_SW_B.DDS
+# AC_RESOURCE slot=2 name=txMaps texture=MFC_SW_S.DDS
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl LEDFB
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd LEDBK.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=LEDBK.png
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_RPMBAR29
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_RPMRED01.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_RPMRED01.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_RPMBAR26
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_RPMRED01.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_RPMRED01.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_RPMBAR24
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_RPMRED01.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_RPMRED01.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_RPMBAR20
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_RPMRED01.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_RPMRED01.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_RPMBAR18
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_RPMRED01.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_RPMRED01.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl LEDFY
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd LEDBK.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=LEDBK.png
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_LCD
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_lcdbk.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_lcdbk.png
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_GEARSBKG
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_gearbk.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_gearbk.png
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_SPEEDBKG
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_speedbk.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_speedbk.png
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_PLACEBKG
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_placebk.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_placebk.png
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_LAPSBKG
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_lapsbk.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_lapsbk.png
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_RPMBAR32
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_RPMRED01.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_RPMRED01.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_RPMBAR31
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_RPMRED01.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_RPMRED01.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_RPMBAR30
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_RPMRED01.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_RPMRED01.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_RPMBAR28
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_RPMRED01.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_RPMRED01.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_RPMBAR27
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_RPMRED01.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_RPMRED01.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_RPMBAR25
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_RPMRED01.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_RPMRED01.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_RPMBAR23
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_RPMRED01.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_RPMRED01.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_RPMBAR22
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_RPMRED01.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_RPMRED01.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_RPMBAR21
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_RPMRED01.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_RPMRED01.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_RPMBAR19
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_RPMRED01.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_RPMRED01.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_RPMBAR17
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_RPMRED01.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_RPMRED01.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_RPMBAR16
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_RPMRED01.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_RPMRED01.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_RPMBAR15
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_RPMRED01.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_RPMRED01.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_RPMBAR14
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_RPMRED01.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_RPMRED01.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_RPMBAR13
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_RPMRED01.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_RPMRED01.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_RPMBAR12
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_RPMRED01.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_RPMRED01.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_RPMBAR11
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_RPMRED01.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_RPMRED01.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_RPMBAR10
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_RPMRED01.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_RPMRED01.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_RPMBAR09
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_RPMRED01.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_RPMRED01.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_RPMBAR08
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_RPMRED01.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_RPMRED01.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_RPMBAR07
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_RPMRED01.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_RPMRED01.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_RPMBAR06
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_RPMRED01.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_RPMRED01.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_RPMBAR05
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_RPMRED01.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_RPMRED01.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_RPMBAR04
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_RPMRED01.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_RPMRED01.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_RPMBAR03
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_RPMRED01.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_RPMRED01.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_RPMBAR02
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_RPMRED01.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_RPMRED01.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_RPMBAR01
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_RPMRED01.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_RPMRED01.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl pretimfundo
+# AC_SHADER ksPerPixel
+Ka 0.000000 0.000000 0.000000
+Kd 0.000000 0.000000 0.000000
+Ks 0.000000 0.000000 0.000000
+Ns 1.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd LEDBK.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=LEDBK.png
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl MFC_CPWIN
+# AC_SHADER ksWindscreen
+Ka 0.450000 0.450000 0.450000
+Kd 0.450000 0.450000 0.450000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_windows.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_windows.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.5
+
+newmtl MFC_LDINTCHROME
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.360000 0.360000 0.360000
+Kd 0.330000 0.330000 0.330000
+Ks 0.100000 0.100000 0.100000
+Ns 15.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_LDINT.DDS
+map_Bump MFC_LDINT_B.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_LDINT.DDS
+# AC_RESOURCE slot=1 name=txNormal texture=MFC_LDINT_B.DDS
+# AC_RESOURCE slot=2 name=txMaps texture=mfc_ldint_s.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl MFC_LDINTFIBRE
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.360000 0.360000 0.360000
+Kd 0.330000 0.330000 0.330000
+Ks 0.100000 0.100000 0.100000
+Ns 15.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_LDINT.DDS
+map_Bump MFC_LDINT_B.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_LDINT.DDS
+# AC_RESOURCE slot=1 name=txNormal texture=MFC_LDINT_B.DDS
+# AC_RESOURCE slot=2 name=txMaps texture=mfc_ldint_s.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl MFC_LDINTMETALLIC
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.360000 0.360000 0.360000
+Kd 0.330000 0.330000 0.330000
+Ks 0.100000 0.100000 0.100000
+Ns 15.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_LDINT.DDS
+map_Bump MFC_LDINT_B.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_LDINT.DDS
+# AC_RESOURCE slot=1 name=txNormal texture=MFC_LDINT_B.DDS
+# AC_RESOURCE slot=2 name=txMaps texture=mfc_ldint_s.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl MFC_LDINTFABRIK1
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.360000 0.360000 0.360000
+Kd 0.330000 0.330000 0.330000
+Ks 0.100000 0.100000 0.100000
+Ns 15.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_LDINT.DDS
+map_Bump MFC_LDINT_B.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_LDINT.DDS
+# AC_RESOURCE slot=1 name=txNormal texture=MFC_LDINT_B.DDS
+# AC_RESOURCE slot=2 name=txMaps texture=mfc_ldint_s.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl MFC_LDINTSEATS
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.360000 0.360000 0.360000
+Kd 0.330000 0.330000 0.330000
+Ks 0.100000 0.100000 0.100000
+Ns 15.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_LDINT.DDS
+map_Bump MFC_LDINT_B.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_LDINT.DDS
+# AC_RESOURCE slot=1 name=txNormal texture=MFC_LDINT_B.DDS
+# AC_RESOURCE slot=2 name=txMaps texture=mfc_ldint_s.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl MFC_LDINTCARBON
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.360000 0.360000 0.360000
+Kd 0.330000 0.330000 0.330000
+Ks 0.100000 0.100000 0.100000
+Ns 15.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_LDINT.DDS
+map_Bump MFC_LDINT_B.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_LDINT.DDS
+# AC_RESOURCE slot=1 name=txNormal texture=MFC_LDINT_B.DDS
+# AC_RESOURCE slot=2 name=txMaps texture=mfc_ldint_s.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl MFC_LDINTFABRIK2
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.360000 0.360000 0.360000
+Kd 0.330000 0.330000 0.330000
+Ks 0.100000 0.100000 0.100000
+Ns 15.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_LDINT.DDS
+map_Bump MFC_LDINT_B.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_LDINT.DDS
+# AC_RESOURCE slot=1 name=txNormal texture=MFC_LDINT_B.DDS
+# AC_RESOURCE slot=2 name=txMaps texture=mfc_ldint_s.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl MFC_LDITBLAGLASS
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.360000 0.360000 0.360000
+Kd 0.330000 0.330000 0.330000
+Ks 0.100000 0.100000 0.100000
+Ns 15.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_LDINT.DDS
+map_Bump MFC_LDINT_B.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_LDINT.DDS
+# AC_RESOURCE slot=1 name=txNormal texture=MFC_LDINT_B.DDS
+# AC_RESOURCE slot=2 name=txMaps texture=mfc_ldint_s.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl MFC_LDINTPLASTIC
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.360000 0.360000 0.360000
+Kd 0.330000 0.330000 0.330000
+Ks 0.100000 0.100000 0.100000
+Ns 15.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd MFC_LDINT.DDS
+map_Bump MFC_LDINT_B.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=MFC_LDINT.DDS
+# AC_RESOURCE slot=1 name=txNormal texture=MFC_LDINT_B.DDS
+# AC_RESOURCE slot=2 name=txMaps texture=mfc_ldint_s.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl MFC_DISPLAY
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_display.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_display.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+
+newmtl WCWINDOW
+# AC_SHADER ksPerPixelReflection
+Ka 0.450000 0.450000 0.450000
+Kd 0.450000 0.450000 0.450000
+Ks 1.000000 1.000000 1.000000
+Ns 550.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_windows.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_windows.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.5
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=2.5
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=0.6
+
+newmtl WCRIMS
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.300000 0.300000 0.300000
+Kd 0.250000 0.250000 0.250000
+Ks 0.300000 0.300000 0.300000
+Ns 75.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_tireside.dds
+map_Bump mfc_tireside_b.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_tireside.dds
+# AC_RESOURCE slot=1 name=txNormal texture=mfc_tireside_b.dds
+# AC_RESOURCE slot=2 name=txMaps texture=mfc_tireside_s.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=1.65
+# AC_VAR fresnelMaxLevel=0.4
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=3.0
+# AC_VAR sunSpecularEXP=1200.0
+
+newmtl MFC_TIRESIDE
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.300000 0.300000 0.300000
+Kd 0.250000 0.250000 0.250000
+Ks 0.200000 0.200000 0.200000
+Ns 25.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_tireside.dds
+map_Bump mfc_tireside_b.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_tireside.dds
+# AC_RESOURCE slot=1 name=txNormal texture=mfc_tireside_b.dds
+# AC_RESOURCE slot=2 name=txMaps texture=mfc_tireside_s.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.025
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl MFC_TIRETREAD
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.300000 0.300000 0.300000
+Kd 0.250000 0.250000 0.250000
+Ks 0.200000 0.200000 0.200000
+Ns 25.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_tiretread.dds
+map_Bump mfc_tiretread_b.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_tiretread.dds
+# AC_RESOURCE slot=1 name=txNormal texture=mfc_tiretread_b.dds
+# AC_RESOURCE slot=2 name=txMaps texture=mfc_tiretread_s.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.025
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl MFC_BDISC
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.200000 0.200000 0.200000
+Kd 0.150000 0.150000 0.150000
+Ks 0.200000 0.200000 0.200000
+Ns 45.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_bdisc.dds
+map_Bump MFC_BDISC_B.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_bdisc.dds
+# AC_RESOURCE slot=1 name=txNormal texture=MFC_BDISC_B.DDS
+# AC_RESOURCE slot=2 name=txMaps texture=MFC_BDISC_S.DDS
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.05
+# AC_VAR fresnelEXP=2.5
+# AC_VAR fresnelMaxLevel=0.03
+# AC_VAR nmObjectSpace=0.0
+# AC_VAR isAdditive=0.0
+# AC_VAR useDetail=0.0
+# AC_VAR detailUVMultiplier=0.0
+# AC_VAR shadowBiasMult=0.0
+# AC_VAR damageZones=0.0
+# AC_VAR dirt=0.0
+# AC_VAR sunSpecular=0.0
+# AC_VAR sunSpecularEXP=0.0
+
+newmtl MFC_LIGHTS
+# AC_SHADER ksPerPixelReflection
+Ka 0.350000 0.350000 0.350000
+Kd 0.300000 0.300000 0.300000
+Ks 0.350000 0.350000 0.350000
+Ns 120.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd mfc_lights.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=mfc_lights.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=2.5
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=0.1
+
+newmtl UnwrapChecker
+# AC_SHADER ksPerPixelReflection
+Ka 0.100000 0.100000 0.100000
+Kd 0.100000 0.100000 0.100000
+Ks 0.200000 0.200000 0.200000
+Ns 150.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd common_mirror.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=common_mirror.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR ksAlphaRef=0.0
+# AC_VAR fresnelC=1.0
+# AC_VAR fresnelEXP=1.0
+# AC_VAR isAdditive=0.0
+# AC_VAR fresnelMaxLevel=1.0

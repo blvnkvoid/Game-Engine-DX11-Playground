@@ -142,7 +142,7 @@ VehicleDefinition R10::CreateDefinition()
     car.rearTyres.rearWheelInertia = 1.55f;
 
 
-    car.audio.basePath = "C:\\Users\\Void\\Documents\\GitHub\\Game-Engine\\Project1\\Cars\\Audi_R10\\sounds\\";
+    car.audio.basePath = "C:\\Users\\Void\\Documents\\GitHub\\Game-Engine-DX11-Playground\\Project1\\Cars\\Audi_R10\\sounds\\";
 
     car.audio.idle =
         "1 EngA_01076.wav";
@@ -209,6 +209,14 @@ CameraDefinition R10::CreateCameraDefinition()
     camera.bumperHeight = 0.7f;
     camera.bumperDistance = 2.2f;
     camera.bumperPitchDeg = 5.0f;
+
+    camera.cockpitHeight = 0.20f;
+    camera.cockpitDistance = -0.0f;
+    camera.cockpitPitchDeg = 5.0f;
+
+    camera.cockpitOffsetX = -0.2f;
+    camera.cockpitOffsetY = 0.0f;
+    camera.cockpitOffsetZ = 0.0f;
 
 
     return camera;

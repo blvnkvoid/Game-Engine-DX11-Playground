@@ -1,752 +1,1391 @@
-# Blender 5.1.1 MTL File: 'None'
-# www.blender.org
-
-newmtl Bages_1.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Black_Dull.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Boost_Gauge.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Bottom_Dash.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Brembo_Detail.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Bumper_Bolts.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Calipers.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Chrome.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Cluster_Plastic_Plate.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Dials.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Dials_Emissive_on.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Door_Panels_0.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Door_Panels_1.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl EXT_Carbon.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl EXT_Plastic.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Exhaust.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Exhaust_Void.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl External_Glass.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Flyin_Miata_Logo.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Front_Bumper_Blinker_Light.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Front_Lip.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Front_Vents.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Halo_Lights.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl INT_Decals.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl INT_Dop_EMISSIVE.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl INT_Floor.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl INT_Plastic_Ao.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl INT_Roof.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Intercooler.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Lights_Texture.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Material_#1008.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Material_#25.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Miata_Skin.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Miata_Skin_1.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Needles_Bases.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Needles_Color.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Pedals.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl RPM_Needle_Color.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Rear_Badge.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Rear_Lights_Glass.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Recaro_Logo.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Rim_Bolts.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Rim_Caps.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Screen.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Seats_Plastics.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Seats_Tone_0.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Seats_Tone_1.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Steer_Bolts.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Steering_Aluminium.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Steering_Hub.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Steering_Marker.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Steering_Ring.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Stitching.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Taillights_Reflectors.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Top_Dash.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Turbo_Gauge.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Turbo_Gauge_Color.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Tyre.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl dials_faces.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl ext_chrome.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl ext_exhaust.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl ext_palstic.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl ext_plate.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl ext_undercarriage.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl headlights_high_bulb.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl int_belt.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl int_glass.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl int_mirrors.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl int_plastic_black.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl rear_light.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl rear_light_and_indicator_bulbs.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl rim_paint_inner.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl steer_logo.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl warning_dashboard_light.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl warning_dashboard_lights_thickl.001
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
+# Converted from Assetto Corsa FBX material INI
+# Source: mnba_mazda_miata_gingium.fbx.ini
+# AC-specific shader/resource metadata preserved as comments.
+
+newmtl Material #25
+# AC_SHADER ksWindscreen
+Ka 0.000000 0.000000 0.000000
+Kd 0.000000 0.000000 0.000000
+Ks 0.000000 0.000000 0.000000
+Ns 1.000000
+d 1.000000
+illum 2
+map_Kd internal_glass.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=internal_glass.dds
+# AC_VAR ksEmissive=0.0
+
+newmtl External_Glass
+# AC_SHADER ksPerPixelReflection
+Ka 0.200000 0.200000 0.200000
+Kd 0.100000 0.100000 0.100000
+Ks 2.000000 2.000000 2.000000
+Ns 450.000000
+d 1.000000
+illum 2
+map_Kd glass.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=glass.png
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=2.8
+# AC_VAR fresnelMaxLevel=0.7
+# AC_VAR isAdditive=0.0
+
+newmtl int_mirrors
+# AC_SHADER ksPerPixelSimpleRefl
+Ka 0.100000 0.100000 0.100000
+Kd 0.100000 0.100000 0.100000
+Ks 0.900000 0.900000 0.900000
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd MIRROR_PLACEMENT.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=MIRROR_PLACEMENT.png
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=1.0
+# AC_VAR fresnelEXP=1.0
+# AC_VAR fresnelMaxLevel=2.0
+# AC_VAR isAdditive=1.0
+
+newmtl ext_chrome
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.600000 0.600000 0.600000
+Ns 50.000000
+d 1.000000
+illum 2
+map_Kd details_D.dds
+map_Bump details_NM.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=details_D.dds
+# AC_RESOURCE slot=1 name=txNormal texture=details_NM.dds
+# AC_RESOURCE slot=2 name=txMaps texture=details_MAPS.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=4.0
+# AC_VAR fresnelMaxLevel=0.3
+# AC_VAR isAdditive=2.0
+
+newmtl Chrome
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.100000 0.100000 0.100000
+Kd 0.100000 0.100000 0.100000
+Ks 2.000000 2.000000 2.000000
+Ns 50.000000
+d 1.000000
+illum 2
+map_Kd Chrome_Ao.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=Chrome_Ao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=Chrome_Ao_Map.dds
+# AC_RESOURCE slot=3 name=txDetail texture=NULL.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.3
+# AC_VAR fresnelEXP=0.3
+# AC_VAR fresnelMaxLevel=1.0
+# AC_VAR isAdditive=0.0
+
+newmtl EXT_Plastic
+# AC_SHADER ksPerPixelMultiMap_NMDetail
+Ka 0.400000 0.400000 0.400000
+Kd 0.100000 0.100000 0.100000
+Ks 0.200000 0.200000 0.200000
+Ns 80.000000
+d 1.000000
+illum 2
+map_Kd Ext_Plastic_Ao.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=Ext_Plastic_Ao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=Ext_Plastic_Ao_Map.dds
+# AC_RESOURCE slot=3 name=txDetail texture=Plastic_Detail.dds
+# AC_RESOURCE slot=4 name=txNormalDetail texture=Plastic_Detail_NM.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=3.0
+# AC_VAR fresnelMaxLevel=0.03
+# AC_VAR isAdditive=0.0
+
+newmtl Miata_Skin
+# AC_SHADER ksPerPixelMultiMap_damage_dirt
+Ka 0.430000 0.430000 0.430000
+Kd 0.400000 0.400000 0.400000
+Ks 2.000000 2.000000 2.000000
+Ns 80.000000
+d 1.000000
+illum 2
+map_Kd Skin_00.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=Skin_00.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=Skin_00_Map.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_RESOURCE slot=4 name=txDamage texture=Skin_00.dds
+# AC_RESOURCE slot=5 name=txDust texture=Skin_00.dds
+# AC_RESOURCE slot=21 name=txDamageMask texture=Skin_00.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=3.2
+# AC_VAR fresnelMaxLevel=0.6
+# AC_VAR isAdditive=2.0
+
+newmtl Calipers
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.430000 0.430000 0.430000
+Kd 0.400000 0.400000 0.400000
+Ks 2.000000 2.000000 2.000000
+Ns 80.000000
+d 1.000000
+illum 2
+map_Kd Calipers.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=Calipers.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=Calipers_Map.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail_calipers.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=3.2
+# AC_VAR fresnelMaxLevel=0.6
+# AC_VAR isAdditive=2.0
+
+newmtl Brembo_Detail
+# AC_SHADER ksPerPixelAT_NM
+Ka 0.500000 0.500000 0.500000
+Kd 0.500000 0.500000 0.500000
+Ks 0.080000 0.080000 0.080000
+Ns 220.000000
+d 1.000000
+illum 2
+map_Kd brembo.png
+map_Bump brembo_NM.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=brembo.png
+# AC_RESOURCE slot=1 name=txNormal texture=brembo_NM.png
+# AC_VAR ksEmissive=0.0
+
+newmtl ext_undercarriage
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.250000 0.250000 0.250000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 30.000000
+d 1.000000
+illum 2
+map_Kd details_D1.dds
+map_Bump details_NM.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=details_D1.dds
+# AC_RESOURCE slot=1 name=txNormal texture=details_NM.dds
+# AC_RESOURCE slot=2 name=txMaps texture=details_MAPS.dds
+# AC_RESOURCE slot=3 name=txDetail texture=PlasticDetail_ext.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.05
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.1
+# AC_VAR isAdditive=0.0
+
+newmtl Steer_Bolts
+# AC_SHADER ksPerPixelNM
+Ka 0.500000 0.500000 0.500000
+Kd 0.300000 0.300000 0.300000
+Ks 0.500000 0.500000 0.500000
+Ns 80.000000
+d 1.000000
+illum 2
+map_Kd diffuse.dds
+map_Bump diffuse_NM.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=diffuse.dds
+# AC_RESOURCE slot=1 name=txNormal texture=diffuse_NM.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=3.0
+# AC_VAR fresnelMaxLevel=0.1
+# AC_VAR isAdditive=0.0
+
+newmtl steer_logo
+# AC_SHADER ksPerPixelNM
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.150000 0.150000 0.150000
+Ns 40.000000
+d 1.000000
+illum 2
+map_Kd steer_logo.png
+map_Bump steer_logo_N.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=steer_logo.png
+# AC_RESOURCE slot=1 name=txNormal texture=steer_logo_N.png
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=0.0
+# AC_VAR fresnelMaxLevel=0.2
+# AC_VAR isAdditive=1.0
+
+newmtl Steering_Hub
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.150000 0.150000 0.150000
+Kd 0.300000 0.300000 0.300000
+Ks 2.000000 2.000000 2.000000
+Ns 180.000000
+d 1.000000
+illum 2
+map_Kd INT_Ao.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=INT_Ao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=INT_Ao_Map.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=3.0
+# AC_VAR fresnelMaxLevel=0.2
+# AC_VAR isAdditive=0.0
+
+newmtl Steering_Aluminium
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.080000 0.080000 0.080000
+Kd 0.100000 0.100000 0.100000
+Ks 0.200000 0.200000 0.200000
+Ns 180.000000
+d 1.000000
+illum 2
+map_Kd carbon_base.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=carbon_base.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=carbon_base.dds
+# AC_RESOURCE slot=3 name=txDetail texture=Brushed_Alum.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=3.0
+# AC_VAR fresnelMaxLevel=0.05
+# AC_VAR isAdditive=0.0
+
+newmtl Steering_Ring
+# AC_SHADER ksPerPixelMultiMap_NMDetail
+Ka 0.550000 0.550000 0.550000
+Kd 0.300000 0.300000 0.300000
+Ks 0.050000 0.050000 0.050000
+Ns 10.000000
+d 1.000000
+illum 2
+map_Kd INT_Ao.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=INT_Ao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=INT_Ao_Map.dds
+# AC_RESOURCE slot=3 name=txDetail texture=Leather_Steer.dds
+# AC_RESOURCE slot=4 name=txNormalDetail texture=leather_nm1.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.01
+# AC_VAR fresnelEXP=2.5
+# AC_VAR fresnelMaxLevel=0.045
+# AC_VAR isAdditive=1.0
+
+newmtl Steering_Marker
+# AC_SHADER ksPerPixelMultiMap_NMDetail
+Ka 0.550000 0.550000 0.550000
+Kd 0.300000 0.300000 0.300000
+Ks 0.050000 0.050000 0.050000
+Ns 10.000000
+d 1.000000
+illum 2
+map_Kd INT_Ao.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=INT_Ao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=INT_Ao_Map.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_RESOURCE slot=4 name=txNormalDetail texture=leather_nm1.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.01
+# AC_VAR fresnelEXP=2.5
+# AC_VAR fresnelMaxLevel=0.045
+# AC_VAR isAdditive=1.0
+
+newmtl int_glass
+# AC_SHADER ksPerPixelReflection
+Ka 0.200000 0.200000 0.200000
+Kd 0.100000 0.100000 0.100000
+Ks 0.100000 0.100000 0.100000
+Ns 500.000000
+d 1.000000
+illum 2
+map_Kd glass.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=glass.png
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.2
+# AC_VAR fresnelEXP=0.4
+# AC_VAR fresnelMaxLevel=0.1
+# AC_VAR isAdditive=0.0
+
+newmtl int_plastic_black
+# AC_SHADER ksPerPixelMultiMap_NMDetail
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 20.000000
+d 1.000000
+illum 2
+map_Kd int_AO3.dds
+map_Bump normal blue.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=int_AO3.dds
+# AC_RESOURCE slot=1 name=txNormal texture=normal blue.dds
+# AC_RESOURCE slot=2 name=txMaps texture=int_MAPS2.dds
+# AC_RESOURCE slot=3 name=txDetail texture=PlasticDetail.dds
+# AC_RESOURCE slot=4 name=txNormalDetail texture=PlasticDetail_N4.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=4.2
+# AC_VAR fresnelMaxLevel=0.0
+# AC_VAR isAdditive=0.0
+
+newmtl INT_Decals
+# AC_SHADER ksPerPixelNM
+Ka 0.230000 0.230000 0.230000
+Kd 0.500000 0.500000 0.500000
+Ks 0.080000 0.080000 0.080000
+Ns 220.000000
+d 1.000000
+illum 2
+map_Kd INT_Decals.dds
+map_Bump INT_Decals_NM.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=INT_Decals.dds
+# AC_RESOURCE slot=1 name=txNormal texture=INT_Decals_NM.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR fresnelMaxLevel=0.0
+# AC_VAR isAdditive=0.0
+
+newmtl INT_Plastic_Ao
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.800000 0.800000 0.800000
+Kd 0.150000 0.150000 0.150000
+Ks 0.100000 0.100000 0.100000
+Ns 80.000000
+d 1.000000
+illum 2
+map_Kd Int_Plastic_Ao.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=Int_Plastic_Ao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=INT_Ao_Map.dds
+# AC_RESOURCE slot=3 name=txDetail texture=dark.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.05
+# AC_VAR fresnelEXP=2.0
+# AC_VAR fresnelMaxLevel=0.005
+# AC_VAR isAdditive=0.0
+
+newmtl Door_Panels_1
+# AC_SHADER ksPerPixelMultiMap_NMDetail
+Ka 0.550000 0.550000 0.550000
+Kd 0.300000 0.300000 0.300000
+Ks 0.050000 0.050000 0.050000
+Ns 10.000000
+d 1.000000
+illum 2
+map_Kd INT_Ao.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=INT_Ao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=INT_Ao_Map.dds
+# AC_RESOURCE slot=3 name=txDetail texture=Leather_Door_Cells_1.dds
+# AC_RESOURCE slot=4 name=txNormalDetail texture=leather_nm1.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.01
+# AC_VAR fresnelEXP=2.5
+# AC_VAR fresnelMaxLevel=0.045
+# AC_VAR isAdditive=1.0
+
+newmtl Door_Panels_0
+# AC_SHADER ksPerPixelMultiMap_NMDetail
+Ka 0.550000 0.550000 0.550000
+Kd 0.300000 0.300000 0.300000
+Ks 0.050000 0.050000 0.050000
+Ns 10.000000
+d 1.000000
+illum 2
+map_Kd INT_Ao.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=INT_Ao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=INT_Ao_Map.dds
+# AC_RESOURCE slot=3 name=txDetail texture=Leather_Door_Cells_0.dds
+# AC_RESOURCE slot=4 name=txNormalDetail texture=leather_nm1.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.01
+# AC_VAR fresnelEXP=2.5
+# AC_VAR fresnelMaxLevel=0.045
+# AC_VAR isAdditive=1.0
+
+newmtl ext_palstic
+# AC_SHADER ksPerPixelMultiMap_NMDetail
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.500000 0.500000 0.500000
+Ns 30.000000
+d 1.000000
+illum 2
+map_Kd details_D1.dds
+map_Bump normal blue.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=details_D1.dds
+# AC_RESOURCE slot=1 name=txNormal texture=normal blue.dds
+# AC_RESOURCE slot=2 name=txMaps texture=details_MAPS.dds
+# AC_RESOURCE slot=3 name=txDetail texture=PlasticDetail.dds
+# AC_RESOURCE slot=4 name=txNormalDetail texture=PlasticDetail_N4.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=2.0
+# AC_VAR fresnelMaxLevel=0.0
+# AC_VAR isAdditive=0.0
+
+newmtl int_belt
+# AC_SHADER ksPerPixelNM
+Ka 0.200000 0.200000 0.200000
+Kd 0.250000 0.250000 0.250000
+Ks 0.100000 0.100000 0.100000
+Ns 15.000000
+d 1.000000
+illum 2
+map_Kd cinture.dds
+map_Bump cinture_n.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=cinture.dds
+# AC_RESOURCE slot=1 name=txNormal texture=cinture_n.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR isAdditive=0.0
+
+newmtl Needles_Bases
+# AC_SHADER ksPerPixelMultiMap_NMDetail
+Ka 0.300000 0.300000 0.300000
+Kd 0.250000 0.250000 0.250000
+Ks 0.200000 0.200000 0.200000
+Ns 80.000000
+d 1.000000
+illum 2
+map_Kd Int_Plastic_Ao.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=Int_Plastic_Ao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=Int_Plastic_Ao_Map.dds
+# AC_RESOURCE slot=3 name=txDetail texture=PlasticDetail.dds
+# AC_RESOURCE slot=4 name=txNormalDetail texture=PlasticDetail_N4.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.01
+# AC_VAR fresnelEXP=4.2
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR isAdditive=0.0
+
+newmtl RPM_Needle_Color
+# AC_SHADER ksPerPixelReflection
+Ka 0.300000 0.300000 0.300000
+Kd 0.100000 0.100000 0.100000
+Ks 0.300000 0.300000 0.300000
+Ns 40.000000
+d 1.000000
+illum 2
+map_Kd RPM_Needle_Color.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=RPM_Needle_Color.png
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.2
+# AC_VAR fresnelEXP=1.0
+# AC_VAR fresnelMaxLevel=0.15
+# AC_VAR isAdditive=0.0
+
+newmtl Bages_1
+# AC_SHADER ksPerPixelReflection
+Ka 0.300000 0.300000 0.300000
+Kd 0.000000 0.000000 0.000000
+Ks 0.000000 0.000000 0.000000
+Ns 1.000000
+d 1.000000
+illum 2
+map_Kd prib.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=prib.png
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR fresnelMaxLevel=0.0
+# AC_VAR isAdditive=0.0
+
+newmtl Screen
+# AC_SHADER ksPerPixelReflection
+Ka 0.000000 0.000000 0.000000
+Kd 0.300000 0.300000 0.300000
+Ks 0.400000 0.400000 0.400000
+Ns 30.000000
+d 1.000000
+illum 2
+map_Kd black2.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=black2.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=2.0
+# AC_VAR fresnelMaxLevel=0.12
+# AC_VAR isAdditive=0.0
+
+newmtl warning_dashboard_light
+# AC_SHADER ksPerPixelReflection
+Ka 0.300000 0.300000 0.300000
+Kd 0.150000 0.150000 0.150000
+Ks 0.000000 0.000000 0.000000
+Ns 1.000000
+d 1.000000
+illum 2
+map_Kd doooops.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=doooops.png
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR fresnelMaxLevel=0.0
+# AC_VAR isAdditive=0.0
+
+newmtl warning_dashboard_lights_thickl
+# AC_SHADER ksPerPixelReflection
+Ka 0.120000 0.120000 0.120000
+Kd 0.000000 0.000000 0.000000
+Ks 0.000000 0.000000 0.000000
+Ns 1.000000
+d 1.000000
+illum 2
+map_Kd thick_warning_light.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=thick_warning_light.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR fresnelMaxLevel=0.0
+# AC_VAR isAdditive=0.0
+
+newmtl Dials_Emissive_on
+# AC_SHADER ksPerPixelReflection
+Ka 0.230000 0.230000 0.230000
+Kd 0.200000 0.200000 0.200000
+Ks 0.080000 0.080000 0.080000
+Ns 220.000000
+d 1.000000
+illum 2
+map_Kd Dials_Dragstrip_Emissive.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=Dials_Dragstrip_Emissive.png
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR fresnelMaxLevel=0.0
+# AC_VAR isAdditive=0.0
+
+newmtl Dials
+# AC_SHADER ksPerPixelNM
+Ka 0.250000 0.250000 0.250000
+Kd 0.250000 0.250000 0.250000
+Ks 0.200000 0.200000 0.200000
+Ns 75.000000
+d 1.000000
+illum 2
+map_Kd Dials_Dragstrip.png
+map_Bump Dials_DragstripNM.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=Dials_Dragstrip.png
+# AC_RESOURCE slot=1 name=txNormal texture=Dials_DragstripNM.png
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR fresnelMaxLevel=0.005
+# AC_VAR isAdditive=0.0
+
+newmtl INT_Dop_EMISSIVE
+# AC_SHADER ksPerPixelReflection
+Ka 0.300000 0.300000 0.300000
+Kd 0.000000 0.000000 0.000000
+Ks 0.000000 0.000000 0.000000
+Ns 1.000000
+d 1.000000
+illum 2
+map_Kd doooops.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=doooops.png
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR fresnelMaxLevel=0.0
+# AC_VAR isAdditive=0.0
+
+newmtl dials_faces
+# AC_SHADER ksPerPixelNM
+Ka 0.400000 0.400000 0.400000
+Kd 0.100000 0.100000 0.100000
+Ks 0.100000 0.100000 0.100000
+Ns 80.000000
+d 1.000000
+illum 2
+map_Kd Dials_Dragstrip.png
+map_Bump Dials_DragstripNM.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=Dials_Dragstrip.png
+# AC_RESOURCE slot=1 name=txNormal texture=Dials_DragstripNM.png
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR isAdditive=0.0
+
+newmtl Cluster_Plastic_Plate
+# AC_SHADER ksPerPixelMultiMap_NMDetail
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 80.000000
+d 1.000000
+illum 2
+map_Kd Int_Plastic_Ao.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=Int_Plastic_Ao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=Int_Plastic_Ao_Map.dds
+# AC_RESOURCE slot=3 name=txDetail texture=PlasticDetail.dds
+# AC_RESOURCE slot=4 name=txNormalDetail texture=PlasticDetail_N4.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.01
+# AC_VAR fresnelEXP=4.2
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR isAdditive=0.0
+
+newmtl Needles_Color
+# AC_SHADER ksPerPixelReflection
+Ka 0.300000 0.300000 0.300000
+Kd 0.100000 0.100000 0.100000
+Ks 0.300000 0.300000 0.300000
+Ns 40.000000
+d 1.000000
+illum 2
+map_Kd Needle_Colors.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=Needle_Colors.png
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.2
+# AC_VAR fresnelEXP=1.0
+# AC_VAR fresnelMaxLevel=0.15
+# AC_VAR isAdditive=0.0
+
+newmtl Boost_Gauge
+# AC_SHADER ksPerPixelReflection
+Ka 0.230000 0.230000 0.230000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 160.000000
+d 1.000000
+illum 2
+map_Kd BOOST_Turbo_Gauge.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=BOOST_Turbo_Gauge.png
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR fresnelMaxLevel=0.0
+# AC_VAR isAdditive=0.0
+
+newmtl Turbo_Gauge_Color
+# AC_SHADER ksPerPixelReflection
+Ka 0.230000 0.230000 0.230000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 40.000000
+d 1.000000
+illum 2
+map_Kd Turbo_Gauge_Face_Color.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=Turbo_Gauge_Face_Color.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR isAdditive=0.0
+
+newmtl Turbo_Gauge
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.150000 0.150000 0.150000
+Kd 0.300000 0.300000 0.300000
+Ks 2.000000 2.000000 2.000000
+Ns 180.000000
+d 1.000000
+illum 2
+map_Kd TurboMano.png
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=TurboMano.png
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=TurboMano.png
+# AC_RESOURCE slot=3 name=txDetail texture=NULL.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=3.0
+# AC_VAR fresnelMaxLevel=0.2
+# AC_VAR isAdditive=0.0
+
+newmtl Recaro_Logo
+# AC_SHADER ksPerPixelMultiMap_AT_NMDetail
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.178000 0.178000 0.178000
+Ns 40.000000
+d 1.000000
+illum 2
+map_Kd Recaro_Logo.png
+map_Bump Recaro_Logo_NM.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=Recaro_Logo.png
+# AC_RESOURCE slot=1 name=txNormal texture=Recaro_Logo_NM.png
+# AC_RESOURCE slot=2 name=txMaps texture=Recaro_Logo.png
+# AC_RESOURCE slot=3 name=txDetail texture=Roof1.dds
+# AC_RESOURCE slot=4 name=txNormalDetail texture=Roof1_NM.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=3.0
+# AC_VAR fresnelMaxLevel=0.02
+# AC_VAR isAdditive=0.0
+
+newmtl Stitching
+# AC_SHADER ksPerPixelAT_NM
+Ka 0.220000 0.220000 0.220000
+Kd 0.100000 0.100000 0.100000
+Ks 0.100000 0.100000 0.100000
+Ns 40.000000
+d 1.000000
+illum 2
+map_Kd INT_Seams.png
+map_Bump INT_Seams_nm.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=INT_Seams.png
+# AC_RESOURCE slot=1 name=txNormal texture=INT_Seams_nm.png
+# AC_VAR ksEmissive=0.0
+
+newmtl Seats_Plastics
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.600000 0.600000 0.600000
+Kd 0.200000 0.200000 0.200000
+Ks 0.200000 0.200000 0.200000
+Ns 80.000000
+d 1.000000
+illum 2
+map_Kd Recaro_Seats_Ao.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=Recaro_Seats_Ao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=Recaro_Seats_Ao_Map.dds
+# AC_RESOURCE slot=3 name=txDetail texture=dark.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.05
+# AC_VAR fresnelEXP=2.0
+# AC_VAR fresnelMaxLevel=0.005
+# AC_VAR isAdditive=0.0
+
+newmtl Seats_Tone_1
+# AC_SHADER ksPerPixelMultiMap_NMDetail
+Ka 0.550000 0.550000 0.550000
+Kd 0.300000 0.300000 0.300000
+Ks 0.050000 0.050000 0.050000
+Ns 10.000000
+d 1.000000
+illum 2
+map_Kd Recaro_Seats_Ao.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=Recaro_Seats_Ao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=Recaro_Seats_Ao_Map.dds
+# AC_RESOURCE slot=3 name=txDetail texture=Leather_Seats1.dds
+# AC_RESOURCE slot=4 name=txNormalDetail texture=leather_nm1.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.01
+# AC_VAR fresnelEXP=2.5
+# AC_VAR fresnelMaxLevel=0.045
+# AC_VAR isAdditive=1.0
+
+newmtl Seats_Tone_0
+# AC_SHADER ksPerPixelMultiMap_NMDetail
+Ka 0.550000 0.550000 0.550000
+Kd 0.300000 0.300000 0.300000
+Ks 0.050000 0.050000 0.050000
+Ns 10.000000
+d 1.000000
+illum 2
+map_Kd Recaro_Seats_Ao.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=Recaro_Seats_Ao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=Recaro_Seats_Ao_Map.dds
+# AC_RESOURCE slot=3 name=txDetail texture=Leather_Seats.dds
+# AC_RESOURCE slot=4 name=txNormalDetail texture=leather_nm1.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.01
+# AC_VAR fresnelEXP=2.5
+# AC_VAR fresnelMaxLevel=0.045
+# AC_VAR isAdditive=1.0
+
+newmtl Top_Dash
+# AC_SHADER ksPerPixelMultiMap_NMDetail
+Ka 0.550000 0.550000 0.550000
+Kd 0.300000 0.300000 0.300000
+Ks 0.050000 0.050000 0.050000
+Ns 10.000000
+d 1.000000
+illum 2
+map_Kd INT_Ao.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=INT_Ao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=INT_Ao_Map.dds
+# AC_RESOURCE slot=3 name=txDetail texture=Leather_Top_Dash.dds
+# AC_RESOURCE slot=4 name=txNormalDetail texture=leather_nm1.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.01
+# AC_VAR fresnelEXP=2.5
+# AC_VAR fresnelMaxLevel=0.045
+# AC_VAR isAdditive=1.0
+
+newmtl Bottom_Dash
+# AC_SHADER ksPerPixelMultiMap_NMDetail
+Ka 0.550000 0.550000 0.550000
+Kd 0.300000 0.300000 0.300000
+Ks 0.050000 0.050000 0.050000
+Ns 10.000000
+d 1.000000
+illum 2
+map_Kd INT_Ao.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=INT_Ao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=INT_Ao_Map.dds
+# AC_RESOURCE slot=3 name=txDetail texture=Leather_Bottom_Dash.dds
+# AC_RESOURCE slot=4 name=txNormalDetail texture=leather_nm1.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.01
+# AC_VAR fresnelEXP=2.5
+# AC_VAR fresnelMaxLevel=0.045
+# AC_VAR isAdditive=1.0
+
+newmtl INT_Roof
+# AC_SHADER ksPerPixelMultiMap_NMDetail
+Ka 0.220000 0.220000 0.220000
+Kd 0.200000 0.200000 0.200000
+Ks 0.200000 0.200000 0.200000
+Ns 12.000000
+d 1.000000
+illum 2
+map_Kd INT_Ao.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=INT_Ao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=INT_Ao_Map.dds
+# AC_RESOURCE slot=3 name=txDetail texture=Roof1.dds
+# AC_RESOURCE slot=4 name=txNormalDetail texture=Roof1_NM.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR fresnelMaxLevel=0.0
+# AC_VAR isAdditive=0.0
+
+newmtl Pedals
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.400000 0.400000 0.400000
+Kd 0.100000 0.100000 0.100000
+Ks 0.200000 0.200000 0.200000
+Ns 180.000000
+d 1.000000
+illum 2
+map_Kd INT_Ao.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=INT_Ao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=INT_Ao_Map.dds
+# AC_RESOURCE slot=3 name=txDetail texture=Brushed_Alum.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=3.0
+# AC_VAR fresnelMaxLevel=0.05
+# AC_VAR isAdditive=0.0
+
+newmtl INT_Floor
+# AC_SHADER ksPerPixelMultiMap_NMDetail
+Ka 0.220000 0.220000 0.220000
+Kd 0.200000 0.200000 0.200000
+Ks 0.200000 0.200000 0.200000
+Ns 12.000000
+d 1.000000
+illum 2
+map_Kd INT_Ao.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=INT_Ao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=INT_Ao_Map.dds
+# AC_RESOURCE slot=3 name=txDetail texture=Carpet_0.dds
+# AC_RESOURCE slot=4 name=txNormalDetail texture=Carpet_NM.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR fresnelMaxLevel=0.0
+# AC_VAR isAdditive=0.0
+
+newmtl Exhaust
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.050000 0.050000 0.050000
+Kd 0.200000 0.200000 0.200000
+Ks 0.300000 0.300000 0.300000
+Ns 50.000000
+d 1.000000
+illum 2
+map_Kd Exhaust.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=Exhaust.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=Exhaust_Map.dds
+# AC_RESOURCE slot=3 name=txDetail texture=NULL.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.12
+# AC_VAR fresnelEXP=2.0
+# AC_VAR fresnelMaxLevel=0.6
+# AC_VAR isAdditive=0.0
+
+newmtl Exhaust_Void
+# AC_SHADER ksPerPixel
+Ka 0.000000 0.000000 0.000000
+Kd 0.000000 0.000000 0.000000
+Ks 0.000000 0.000000 0.000000
+Ns 1.000000
+d 1.000000
+illum 2
+map_Kd BLACK.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=BLACK.DDS
+# AC_VAR ksEmissive=0.0
+
+newmtl Flyin_Miata_Logo
+# AC_SHADER ksPerPixelAT_NM
+Ka 0.500000 0.500000 0.500000
+Kd 0.500000 0.500000 0.500000
+Ks 0.080000 0.080000 0.080000
+Ns 220.000000
+d 1.000000
+illum 2
+map_Kd Flyin_Miata.png
+map_Bump Flyin_Miata_NM.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=Flyin_Miata.png
+# AC_RESOURCE slot=1 name=txNormal texture=Flyin_Miata_NM.png
+# AC_VAR ksEmissive=0.0
+
+newmtl rear light
+# AC_SHADER ksPerPixelNM
+Ka 0.250000 0.250000 0.250000
+Kd 0.230000 0.230000 0.230000
+Ks 0.100000 0.100000 0.100000
+Ns 250.000000
+d 1.000000
+illum 2
+map_Kd rear_light_D.dds
+map_Bump rear_light_NM.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=rear_light_D.dds
+# AC_RESOURCE slot=1 name=txNormal texture=rear_light_NM.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.05
+# AC_VAR fresnelEXP=2.8
+# AC_VAR fresnelMaxLevel=0.05
+# AC_VAR isAdditive=0.0
+
+newmtl Bumper_Bolts
+# AC_SHADER ksPerPixelAT_NM
+Ka 0.500000 0.500000 0.500000
+Kd 0.230000 0.230000 0.230000
+Ks 0.100000 0.100000 0.100000
+Ns 250.000000
+d 1.000000
+illum 2
+map_Kd Bulloni_D.dds
+map_Bump Bulloni_NM.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=Bulloni_D.dds
+# AC_RESOURCE slot=1 name=txNormal texture=Bulloni_NM.dds
+# AC_VAR ksEmissive=0.0
+
+newmtl Black_Dull
+# AC_SHADER ksPerPixel
+Ka 0.000000 0.000000 0.000000
+Kd 0.000000 0.000000 0.000000
+Ks 0.000000 0.000000 0.000000
+Ns 1.000000
+d 1.000000
+illum 2
+map_Kd BLACK.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=BLACK.DDS
+# AC_VAR ksEmissive=0.0
+
+newmtl ext_exhaust
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.200000 0.200000 0.200000
+Ns 20.000000
+d 1.000000
+illum 2
+map_Kd details_D.dds
+map_Bump details_NM.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=details_D.dds
+# AC_RESOURCE slot=1 name=txNormal texture=details_NM.dds
+# AC_RESOURCE slot=2 name=txMaps texture=details_MAPS.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail_black.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=3.0
+# AC_VAR fresnelMaxLevel=0.1
+# AC_VAR isAdditive=0.0
+
+newmtl Miata_Skin_1
+# AC_SHADER ksPerPixelMultiMap_damage_dirt
+Ka 0.430000 0.430000 0.430000
+Kd 0.400000 0.400000 0.400000
+Ks 2.000000 2.000000 2.000000
+Ns 80.000000
+d 1.000000
+illum 2
+map_Kd Skin_00.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=Skin_00.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=Skin_00_Map.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail_Hardtop.dds
+# AC_RESOURCE slot=4 name=txDamage texture=Skin_00.dds
+# AC_RESOURCE slot=5 name=txDust texture=Skin_00.dds
+# AC_RESOURCE slot=21 name=txDamageMask texture=Skin_00.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=3.2
+# AC_VAR fresnelMaxLevel=0.6
+# AC_VAR isAdditive=2.0
+
+newmtl EXT_Carbon
+# AC_SHADER ksPerPixelMultiMap_NMDetail
+Ka 0.300000 0.300000 0.300000
+Kd 0.400000 0.400000 0.400000
+Ks 2.000000 2.000000 2.000000
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd Ext_Plastic_Ao.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=Ext_Plastic_Ao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=Ext_Plastic_Ao_Map.dds
+# AC_RESOURCE slot=3 name=txDetail texture=Carbon_Detail_Style_0.dds
+# AC_RESOURCE slot=4 name=txNormalDetail texture=Carbon_Detail_Style_0_NM.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.05
+# AC_VAR fresnelEXP=2.0
+# AC_VAR fresnelMaxLevel=0.15
+# AC_VAR isAdditive=1.0
+
+newmtl Intercooler
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.120000 0.120000 0.120000
+Kd 0.100000 0.100000 0.100000
+Ks 0.120000 0.120000 0.120000
+Ns 120.000000
+d 1.000000
+illum 2
+map_Kd INTERCOOLER.dds
+map_Bump INTERCOOLER_NM.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=INTERCOOLER.dds
+# AC_RESOURCE slot=1 name=txNormal texture=INTERCOOLER_NM.dds
+# AC_RESOURCE slot=2 name=txMaps texture=INTERCOOLER_NM.dds
+# AC_RESOURCE slot=3 name=txDetail texture=NULL.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.14
+# AC_VAR fresnelEXP=1.0
+# AC_VAR fresnelMaxLevel=0.4
+# AC_VAR isAdditive=0.0
+
+newmtl Front_Bumper_Blinker_Light
+# AC_SHADER ksPerPixelNM
+Ka 0.120000 0.120000 0.120000
+Kd 0.120000 0.120000 0.120000
+Ks 0.500000 0.500000 0.500000
+Ns 250.000000
+d 1.000000
+illum 2
+map_Kd rear_light_D.dds
+map_Bump rear_light_NM.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=rear_light_D.dds
+# AC_RESOURCE slot=1 name=txNormal texture=rear_light_NM.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.2
+# AC_VAR fresnelEXP=2.8
+# AC_VAR fresnelMaxLevel=0.2
+# AC_VAR isAdditive=0.0
+
+newmtl Lights_Texture
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.400000 0.400000 0.400000
+Kd 0.500000 0.500000 0.500000
+Ks 1.000000 1.000000 1.000000
+Ns 50.000000
+d 1.000000
+illum 2
+map_Kd Lights.png
+map_Bump Lights_NM.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=Lights.png
+# AC_RESOURCE slot=1 name=txNormal texture=Lights_NM.png
+# AC_RESOURCE slot=2 name=txMaps texture=Lights_Map.png
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=3.5
+# AC_VAR fresnelMaxLevel=0.1
+# AC_VAR isAdditive=2.0
+
+newmtl Halo_Lights
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.400000 0.400000 0.400000
+Kd 0.500000 0.500000 0.500000
+Ks 1.000000 1.000000 1.000000
+Ns 50.000000
+d 1.000000
+illum 2
+map_Kd Lights_Halos.png
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=Lights_Halos.png
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=Lights_Map.png
+# AC_RESOURCE slot=3 name=txDetail texture=NULL.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=3.5
+# AC_VAR fresnelMaxLevel=0.1
+# AC_VAR isAdditive=2.0
+
+newmtl headlights_high_bulb
+# AC_SHADER ksPerPixelNM
+Ka 0.400000 0.400000 0.400000
+Kd 0.400000 0.400000 0.400000
+Ks 0.700000 0.700000 0.700000
+Ns 70.000000
+d 1.000000
+illum 2
+map_Kd headlight_N.dds
+map_Bump headlight_N2.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=headlight_N.dds
+# AC_RESOURCE slot=1 name=txNormal texture=headlight_N2.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.2
+# AC_VAR fresnelEXP=1.0
+# AC_VAR fresnelMaxLevel=0.4
+# AC_VAR isAdditive=2.0
+
+newmtl ext_plate
+# AC_SHADER ksPerPixelNM
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.200000 0.200000 0.200000
+Ns 60.000000
+d 1.000000
+illum 2
+map_Kd Plate_D.dds
+map_Bump Plate_NM.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=Plate_D.dds
+# AC_RESOURCE slot=1 name=txNormal texture=Plate_NM.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.01
+# AC_VAR fresnelEXP=4.0
+# AC_VAR fresnelMaxLevel=0.05
+# AC_VAR isAdditive=0.0
+
+newmtl rear light and indicator bulbs
+# AC_SHADER ksPerPixelReflection
+Ka 0.400000 0.400000 0.400000
+Kd 0.400000 0.400000 0.400000
+Ks 1.000000 1.000000 1.000000
+Ns 350.000000
+d 1.000000
+illum 2
+map_Kd BLACK.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=BLACK.DDS
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=2.5
+# AC_VAR fresnelMaxLevel=0.25
+# AC_VAR isAdditive=0.0
+
+newmtl Taillights_Reflectors
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 2.000000 2.000000 2.000000
+Ns 180.000000
+d 1.000000
+illum 2
+map_Kd Taillights_Reflectors_Ao.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=Taillights_Reflectors_Ao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=Taillights_Reflectors_Ao_Map.dds
+# AC_RESOURCE slot=3 name=txDetail texture=NULL.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.3
+# AC_VAR fresnelEXP=2.0
+# AC_VAR fresnelMaxLevel=0.6
+# AC_VAR isAdditive=0.0
+
+newmtl Rear_Lights_Glass
+# AC_SHADER ksPerPixelNM
+Ka 0.250000 0.250000 0.250000
+Kd 0.230000 0.230000 0.230000
+Ks 0.100000 0.100000 0.100000
+Ns 250.000000
+d 1.000000
+illum 2
+map_Kd rear_light_Alpha.dds
+map_Bump rear_light_Alpha_NM.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=rear_light_Alpha.dds
+# AC_RESOURCE slot=1 name=txNormal texture=rear_light_Alpha_NM.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.05
+# AC_VAR fresnelEXP=2.8
+# AC_VAR fresnelMaxLevel=0.05
+# AC_VAR isAdditive=0.0
+
+newmtl Front_Lip
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.200000 0.200000 0.200000
+Kd 0.080000 0.080000 0.080000
+Ks 0.200000 0.200000 0.200000
+Ns 80.000000
+d 1.000000
+illum 2
+map_Kd Ext_Plastic_Ao.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=Ext_Plastic_Ao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=Ext_Plastic_Ao_Map.dds
+# AC_RESOURCE slot=3 name=txDetail texture=dark.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.12
+# AC_VAR fresnelEXP=2.0
+# AC_VAR fresnelMaxLevel=0.1
+# AC_VAR isAdditive=1.0
+
+newmtl Front_Vents
+# AC_SHADER ksPerPixelMultiMap_NMDetail
+Ka 0.300000 0.300000 0.300000
+Kd 0.400000 0.400000 0.400000
+Ks 2.000000 2.000000 2.000000
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd Ext_Plastic_Ao.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=Ext_Plastic_Ao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=Ext_Plastic_Ao_Map.dds
+# AC_RESOURCE slot=3 name=txDetail texture=Carbon_Detail_Style_0.dds
+# AC_RESOURCE slot=4 name=txNormalDetail texture=Carbon_Detail_Style_0_NM.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.05
+# AC_VAR fresnelEXP=2.0
+# AC_VAR fresnelMaxLevel=0.15
+# AC_VAR isAdditive=1.0
+
+newmtl Rear_Badge
+# AC_SHADER ksPerPixelAT_NM
+Ka 0.300000 0.300000 0.300000
+Kd 0.400000 0.400000 0.400000
+Ks 0.600000 0.600000 0.600000
+Ns 30.000000
+d 1.000000
+illum 2
+map_Kd rear badge.png
+map_Bump rear badge_NM.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=rear badge.png
+# AC_RESOURCE slot=1 name=txNormal texture=rear badge_NM.png
+# AC_VAR ksEmissive=0.0
+
+newmtl Material #1008
+# AC_SHADER ksBrakeDisc
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 60.000000
+d 1.000000
+illum 2
+map_Kd ROTOR0.DDS
+map_Bump ROTOR_NM.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=ROTOR0.DDS
+# AC_RESOURCE slot=1 name=txNormal texture=ROTOR_NM.dds
+# AC_RESOURCE slot=2 name=txGlow texture=ROTOR_Warm.dds
+# AC_RESOURCE slot=3 name=txBlur texture=ROTOR0.DDS
+# AC_RESOURCE slot=4 name=txNormalBlur texture=ROTOR_NM.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.12
+# AC_VAR fresnelEXP=0.5
+# AC_VAR fresnelMaxLevel=0.6
+# AC_VAR isAdditive=0.0
+
+newmtl Tyre
+# AC_SHADER ksTyres
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.800000 0.800000 0.800000
+Ns 65.000000
+d 1.000000
+illum 2
+map_Kd wheel_B.dds
+map_Bump wheel_B_NM.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=wheel_B.dds
+# AC_RESOURCE slot=1 name=txNormal texture=wheel_B_NM.dds
+# AC_RESOURCE slot=2 name=txDirty texture=wheel_B.dds
+# AC_RESOURCE slot=3 name=txBlur texture=wheel_B_BLUR.dds
+# AC_RESOURCE slot=4 name=txNormalBlur texture=wheel_B_BLUR_NM.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.02
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.002
+# AC_VAR isAdditive=0.0
+
+newmtl rim_paint_inner
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.400000 0.400000 0.400000
+Kd 0.700000 0.700000 0.700000
+Ks 0.580000 0.580000 0.580000
+Ns 40.000000
+d 1.000000
+illum 2
+map_Kd Rims_Ao.dds
+map_Bump flat_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=Rims_Ao.dds
+# AC_RESOURCE slot=1 name=txNormal texture=flat_nm.dds
+# AC_RESOURCE slot=2 name=txMaps texture=Rims_Ao_Map.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail_rims.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.2
+# AC_VAR fresnelEXP=2.0
+# AC_VAR fresnelMaxLevel=0.2
+# AC_VAR isAdditive=0.0
+
+newmtl Rim_Caps
+# AC_SHADER ksPerPixelNM
+Ka 0.200000 0.200000 0.200000
+Kd 1.000000 1.000000 1.000000
+Ks 0.400000 0.400000 0.400000
+Ns 40.000000
+d 1.000000
+illum 2
+map_Kd Jr_Rims_Logo.png
+map_Bump Jr_Rims_Logo_NM.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=Jr_Rims_Logo.png
+# AC_RESOURCE slot=1 name=txNormal texture=Jr_Rims_Logo_NM.png
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=0.0
+# AC_VAR fresnelMaxLevel=0.2
+# AC_VAR isAdditive=1.0
+
+newmtl Rim_Bolts
+# AC_SHADER ksPerPixelReflection
+Ka 0.100000 0.100000 0.100000
+Kd 0.200000 0.200000 0.200000
+Ks 2.000000 2.000000 2.000000
+Ns 30.000000
+d 1.000000
+illum 2
+map_Kd Rim_Bolts.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=Rim_Bolts.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=1.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR fresnelMaxLevel=0.3
+# AC_VAR isAdditive=0.0

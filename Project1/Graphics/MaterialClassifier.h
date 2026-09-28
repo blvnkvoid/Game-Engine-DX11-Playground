@@ -18,7 +18,8 @@ public:
     "glass_light",
     "windscreen",
     "window",
-    "damage_glass" }))
+    "damage_glass",
+    "INT_Rear_Window"}))
             return MaterialType::MATERIAL_GLASS;
 
         if (ContainsAny(n, { "tyre", "tire", "rubber" }))

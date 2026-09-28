@@ -85,11 +85,6 @@ public:
     const float nightSky[4] = { 0.02f, 0.025f, 0.04f, 1.0f };
     const float midnightSky[4] = { 0.01f, 0.015f, 0.03f, 1.0f };
 
-    /*const DirectX::XMFLOAT3 sunriseCloudColor = { 1.00f, 0.88f, 0.78f };
-    const DirectX::XMFLOAT3 dayCloudColor = { 1.00f, 1.00f, 1.00f };
-    const DirectX::XMFLOAT3 sunsetCloudColor = { 1.00f, 0.72f, 0.56f };
-    const DirectX::XMFLOAT3 nightCloudColor = { 0.38f, 0.42f, 0.55f };
-    const DirectX::XMFLOAT3 midnightCloudColor = { 0.24f, 0.28f, 0.38f };*/
 
     const DirectX::XMFLOAT3 sunriseCloudColor = { 0.78f, 0.66f, 0.58f };
     const DirectX::XMFLOAT3 dayCloudColor = { 0.82f, 0.88f, 0.95f };

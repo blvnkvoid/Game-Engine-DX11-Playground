@@ -142,8 +142,7 @@ VehicleDefinition Civic::CreateDefinition()
     car.rearTyres.wheelRadius = 0.308f;
     car.rearTyres.rearWheelInertia = 1.59f;
 
-    car.audio.basePath =
-        "C:\\Users\\Void\\Documents\\GitHub\\Game-Engine\\Project1\\Cars\\Honda_Civic_EG6\\sounds\\";
+    car.audio.basePath = "C:\\Users\\Void\\Documents\\GitHub\\Game-Engine-DX11-Playground\\Project1\\Cars\\Honda_Civic_EG6\\sounds\\";
 
     car.audio.idle = "1 EngA_00867.wav";
     car.audio.lowOn = "3 EngA_02100.wav";
@@ -191,6 +190,14 @@ CameraDefinition Civic::CreateCameraDefinition()
     camera.bumperHeight = 0.7f;
     camera.bumperDistance = 2.7f;
     camera.bumperPitchDeg = 5.0f;
+
+    camera.cockpitHeight = 0.35f;
+    camera.cockpitDistance = -0.9f;
+    camera.cockpitPitchDeg = 5.0f;
+
+    camera.cockpitOffsetX = 0.3f;
+    camera.cockpitOffsetY = 0.0f;
+    camera.cockpitOffsetZ = 0.0f;
 
 
     return camera;

@@ -14,7 +14,8 @@ enum class CameraMode {
     FREE_ROAM,
     CHASE,
     ROOF,
-    BUMPER
+    BUMPER,
+    COCKPIT
 };
 
 class Camera {
@@ -95,7 +96,7 @@ public:
 private:
     float m_yaw = 0.0f;
     float m_pitch = 0.0f;
-    float m_moveSpeed = 5.0f;
+    float m_moveSpeed = 0.5f;
     float m_mouseSensitivity = 0.005f;
     float yVelocity = 0.0f;
     float gravity = -9.81f;

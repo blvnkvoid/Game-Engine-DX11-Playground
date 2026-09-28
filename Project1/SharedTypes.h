@@ -10,6 +10,7 @@ struct SharedVertex {
     DirectX::XMFLOAT4 color;     // 16 bytes
     DirectX::XMFLOAT2 texCoord;  // 8 bytes
     DirectX::XMFLOAT3 normal;    // 12 bytes
+    DirectX::XMFLOAT4 tangent;
 };
 static_assert(sizeof(SharedVertex) % 16 == 0, "DANGER!");
 
@@ -31,6 +32,9 @@ struct MaterialData
 {
     SharedMaterial gpuMaterial;
     std::string diffuseTextureName;
+    std::string normalTextureName;
+    std::string detailTextureName;
+    std::string normalDetailTextureName;
 };
 
 
@@ -100,6 +104,14 @@ struct CameraDefinition
     float bumperHeight = 0.0f;
     float bumperDistance = 0.0f;
     float bumperPitchDeg = 0.0f;
+
+    float cockpitHeight = 0.0f;
+    float cockpitDistance = 0.0f;
+    float cockpitPitchDeg = 0.0f;
+
+    float cockpitOffsetY = 0.0f;
+    float cockpitOffsetX = 0.0f;
+    float cockpitOffsetZ = 0.0f;
 
 };
 

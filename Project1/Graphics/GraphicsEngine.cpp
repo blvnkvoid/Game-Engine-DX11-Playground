@@ -35,7 +35,7 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     sd.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
     sd.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
     sd.OutputWindow = hWnd;
-    sd.SampleDesc.Count = 2;
+    sd.SampleDesc.Count = 1;
     sd.SampleDesc.Quality = 0;
     sd.Windowed = true;
 
@@ -46,7 +46,7 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     descDepth.MipLevels = 1;
     descDepth.ArraySize = 1;
     descDepth.Format = DXGI_FORMAT_R24G8_TYPELESS;
-    descDepth.SampleDesc.Count = 2;
+    descDepth.SampleDesc.Count = 1;
     descDepth.Usage = D3D11_USAGE_DEFAULT;
     descDepth.BindFlags =
         D3D11_BIND_DEPTH_STENCIL |
@@ -57,7 +57,8 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     rasterSolidCullBack.CullMode = D3D11_CULL_BACK;  // <--- THE CULL KILLER
     rasterSolidCullBack.AntialiasedLineEnable = true;
     rasterSolidCullBack.MultisampleEnable = true;
-    rasterSolidCullBack.FrontCounterClockwise = true;      
+    rasterSolidCullBack.FrontCounterClockwise = true;    
+    rasterSolidCullBack.DepthClipEnable = TRUE;
 
 
     D3D11_RASTERIZER_DESC rasterWireframeCullBack = {};
@@ -66,6 +67,7 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     rasterWireframeCullBack.AntialiasedLineEnable = true;
     rasterWireframeCullBack.MultisampleEnable = true;
     rasterWireframeCullBack.FrontCounterClockwise = true;
+    rasterWireframeCullBack.DepthClipEnable = TRUE;
 
     D3D11_RASTERIZER_DESC shadowrasterSolidCullBack = {};
     shadowrasterSolidCullBack.FillMode = D3D11_FILL_SOLID; // Or D3D11_FILL_WIREFRAME for a cool matrix look!
@@ -99,7 +101,8 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     { "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT,    0, 0,  D3D11_INPUT_PER_VERTEX_DATA, 0 },
     { "COLOR",    0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 12, D3D11_INPUT_PER_VERTEX_DATA, 0 },
     { "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT,       0, 28, D3D11_INPUT_PER_VERTEX_DATA, 0 },
-    { "NORMAL",   0, DXGI_FORMAT_R32G32B32_FLOAT,    0, 36, D3D11_INPUT_PER_VERTEX_DATA, 0 }, // Changed R32G32 to R32G32B32
+    { "NORMAL",   0, DXGI_FORMAT_R32G32B32_FLOAT,    0, 36, D3D11_INPUT_PER_VERTEX_DATA, 0 },
+    { "TANGENT",  0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 48, D3D11_INPUT_PER_VERTEX_DATA, 0 }// Changed R32G32 to R32G32B32
 };
 
     D3D_FEATURE_LEVEL featureLevels[] = {
@@ -261,100 +264,100 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
 
 
 
-    hr = D3D11CreateDeviceAndSwapChain(nullptr, D3D_DRIVER_TYPE_HARDWARE, nullptr, 0, featureLevels, 2,
-        D3D11_SDK_VERSION, &sd, &swapChain, &device, nullptr, &context);
-    if (FAILED(hr)) return false;
-    hr = D3DCompileFromFile(L"Shaders.hlsl", nullptr, nullptr, "main", "vs_5_0", 0, 0, &vsBlob, nullptr);
-    if (FAILED(hr)) return false;
-    hr = D3DCompileFromFile(L"Shaders.hlsl", nullptr, nullptr, "PS", "ps_5_0", 0, 0, &psBlob, nullptr);
-    if (FAILED(hr)) return false;
-    hr = swapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&pBackBuffer);
-    if (FAILED(hr)) return false;
-    hr = device->CreateRenderTargetView(pBackBuffer.Get(), nullptr, &renderTargetView);
-    if (FAILED(hr)) return false;
-    hr = device->CreateTexture2D(&descDepth, nullptr, &pDepthStencil);
-    if (FAILED(hr)) return false;
-    hr = device->CreateDepthStencilView(pDepthStencil.Get(), &dsvDesc, &depthStencilView);
-    if (FAILED(hr)) return false;     
-    hr = device->CreateShaderResourceView(pDepthStencil.Get(), &srvDesc2, &m_depthStencilSRV);
-    if (FAILED(hr)) return false; 
-    hr = device->CreateVertexShader(vsBlob->GetBufferPointer(), vsBlob->GetBufferSize(), nullptr, &vertexShader);
-    if (FAILED(hr)) return false;
-    hr = device->CreateInputLayout(layout, 4, vsBlob->GetBufferPointer(), vsBlob->GetBufferSize(), &inputLayout);
-    if (FAILED(hr)) return false;
-    hr = device->CreatePixelShader(psBlob->GetBufferPointer(), psBlob->GetBufferSize(), nullptr, &pixelShader);
-    if (FAILED(hr)) return false;
-    hr = device->CreateBuffer(&bd, nullptr, &constantBuffer);    
-    if (FAILED(hr)) return false;
-    hr = device->CreateBuffer(&lbd, nullptr, &lampConstantBuffer);    
-    if (FAILED(hr)) return false;
-    hr = device->CreateBuffer(&bufferDesc, nullptr, &m_lampStructuredBuffer);
-    if (FAILED(hr)) return false;
-    hr = device->CreateRasterizerState(&rasterSolidCullBack, &rasterState);
-    if (FAILED(hr)) return false;
-    hr = device->CreateRasterizerState(&rasterWireframeCullBack, &rasterStateWireframe);
-    if (FAILED(hr)) return false;    
-    hr = device->CreateRasterizerState(&shadowrasterSolidCullBack, &shadowrasterState);
-    if (FAILED(hr)) return false;
-    hr = device->CreateSamplerState(&sampDesc, &m_samplerLinear);
-    if (FAILED(hr)) return false;
-    hr = device->CreateBlendState(&blendDesc, &m_alphaBlendState);
-    if (FAILED(hr)) return false;
-    hr = device->CreateBuffer(&matDesc, nullptr, &materialConstantBuffer);
-    if (FAILED(hr)) return false;
-    hr = device->CreateDepthStencilState(&depthOff, m_depthWriteOffState.GetAddressOf());
-    if (FAILED(hr)) return false;
-    hr = device->CreateDepthStencilState(&depthOn, m_depthWriteOnState.GetAddressOf());
-    if (FAILED(hr)) return false;   
-    hr = device->CreateShaderResourceView(m_lampStructuredBuffer.Get(), &srvDesc, m_lampSRV.GetAddressOf());
-    if (FAILED(hr)) return false;    
-    hr = device->CreateTexture2D(&shadowTexDesc, nullptr, &m_shadowMapTexture);
-    if (FAILED(hr)) return false;
-    hr = device->CreateDepthStencilView(m_shadowMapTexture, &shadowDSVDesc, &m_shadowMapDSV);
-    if (FAILED(hr)) return false;
-    hr = device->CreateShaderResourceView(m_shadowMapTexture, &shadowSRVDesc, &m_shadowMapSRV);
-    if (FAILED(hr)) return false;
-    hr = D3DCompileFromFile(L"Shadows.hlsl", nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, "main", "vs_5_0", 0, 0, &shadowVSBlob, &errorBlob);
-    if (FAILED(hr)) return false;
-    hr = device->CreateVertexShader(shadowVSBlob->GetBufferPointer(), shadowVSBlob->GetBufferSize(), nullptr, &m_shadowVertexShader);
-    if (FAILED(hr)) return false;
-    hr = device->CreateInputLayout(shadowLayoutDesc, ARRAYSIZE(shadowLayoutDesc), shadowVSBlob->GetBufferPointer(), shadowVSBlob->GetBufferSize(), &m_shadowInputLayout);
-    if (FAILED(hr)) return false;
-    hr = device->CreateSamplerState(&samplerDesc, &m_shadowDebugSampler);
-    if (FAILED(hr)) return false;
-    hr = D3DCompileFromFile(L"ShadowDebugPS.hlsl", nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, "main", "ps_5_0", 0, 0, &shadowDebugPSBlob, &errorPSBlob);
-    if (FAILED(hr)) return false;
-    hr = D3DCompileFromFile(L"ShadowDebugVS.hlsl", nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, "main", "vs_5_0", 0, 0, &shadowDebugVSBlob, &errorVSBlob);
-    if (FAILED(hr)) return false;
-    hr = device->CreatePixelShader(shadowDebugPSBlob->GetBufferPointer(), shadowDebugPSBlob->GetBufferSize(), nullptr, &m_shadowDebugPS);
-    if (FAILED(hr)) return false;
-    hr = device->CreateVertexShader(shadowDebugVSBlob->GetBufferPointer(), shadowDebugVSBlob->GetBufferSize(), nullptr, &m_shadowDebugVS);
-    if (FAILED(hr)) return false;
-    hr = device->CreateDepthStencilState(&depthDesc, &m_debugDepthDisabled);
-    if (FAILED(hr)) return false;
-    device->CreateSamplerState(&shadowSamplerDesc, &m_shadowComparisonSampler);
-    if (FAILED(hr)) return false;
+        hr = D3D11CreateDeviceAndSwapChain(nullptr, D3D_DRIVER_TYPE_HARDWARE, nullptr, 0, featureLevels, 2,
+            D3D11_SDK_VERSION, &sd, &swapChain, &device, nullptr, &context);
+        if (FAILED(hr)) return false;
+        hr = D3DCompileFromFile(L"Shaders.hlsl", nullptr, nullptr, "main", "vs_5_0", 0, 0, &vsBlob, nullptr);
+        if (FAILED(hr)) return false;
+        hr = D3DCompileFromFile(L"Shaders.hlsl", nullptr, nullptr, "PS", "ps_5_0", 0, 0, &psBlob, nullptr);
+        if (FAILED(hr)) return false;
+        hr = swapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&pBackBuffer);
+        if (FAILED(hr)) return false;
+        hr = device->CreateRenderTargetView(pBackBuffer.Get(), nullptr, &renderTargetView);
+        if (FAILED(hr)) return false;
+        hr = device->CreateTexture2D(&descDepth, nullptr, &pDepthStencil);
+        if (FAILED(hr)) return false;
+        hr = device->CreateDepthStencilView(pDepthStencil.Get(), &dsvDesc, &depthStencilView);
+        if (FAILED(hr)) return false;     
+        hr = device->CreateShaderResourceView(pDepthStencil.Get(), &srvDesc2, &m_depthStencilSRV);
+        if (FAILED(hr)) return false; 
+        hr = device->CreateVertexShader(vsBlob->GetBufferPointer(), vsBlob->GetBufferSize(), nullptr, &vertexShader);
+        if (FAILED(hr)) return false;
+        hr = device->CreateInputLayout(layout, 5, vsBlob->GetBufferPointer(), vsBlob->GetBufferSize(), &inputLayout);
+        if (FAILED(hr)) return false;
+        hr = device->CreatePixelShader(psBlob->GetBufferPointer(), psBlob->GetBufferSize(), nullptr, &pixelShader);
+        if (FAILED(hr)) return false;
+        hr = device->CreateBuffer(&bd, nullptr, &constantBuffer);    
+        if (FAILED(hr)) return false;
+        hr = device->CreateBuffer(&lbd, nullptr, &lampConstantBuffer);    
+        if (FAILED(hr)) return false;
+        hr = device->CreateBuffer(&bufferDesc, nullptr, &m_lampStructuredBuffer);
+        if (FAILED(hr)) return false;
+        hr = device->CreateRasterizerState(&rasterSolidCullBack, &rasterState);
+        if (FAILED(hr)) return false;
+        hr = device->CreateRasterizerState(&rasterWireframeCullBack, &rasterStateWireframe);
+        if (FAILED(hr)) return false;    
+        hr = device->CreateRasterizerState(&shadowrasterSolidCullBack, &shadowrasterState);
+        if (FAILED(hr)) return false;
+        hr = device->CreateSamplerState(&sampDesc, &m_samplerLinear);
+        if (FAILED(hr)) return false;
+        hr = device->CreateBlendState(&blendDesc, &m_alphaBlendState);
+        if (FAILED(hr)) return false;
+        hr = device->CreateBuffer(&matDesc, nullptr, &materialConstantBuffer);
+        if (FAILED(hr)) return false;
+        hr = device->CreateDepthStencilState(&depthOff, m_depthWriteOffState.GetAddressOf());
+        if (FAILED(hr)) return false;
+        hr = device->CreateDepthStencilState(&depthOn, m_depthWriteOnState.GetAddressOf());
+        if (FAILED(hr)) return false;   
+        hr = device->CreateShaderResourceView(m_lampStructuredBuffer.Get(), &srvDesc, m_lampSRV.GetAddressOf());
+        if (FAILED(hr)) return false;    
+        hr = device->CreateTexture2D(&shadowTexDesc, nullptr, &m_shadowMapTexture);
+        if (FAILED(hr)) return false;
+        hr = device->CreateDepthStencilView(m_shadowMapTexture, &shadowDSVDesc, &m_shadowMapDSV);
+        if (FAILED(hr)) return false;
+        hr = device->CreateShaderResourceView(m_shadowMapTexture, &shadowSRVDesc, &m_shadowMapSRV);
+        if (FAILED(hr)) return false;
+        hr = D3DCompileFromFile(L"Shadows.hlsl", nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, "main", "vs_5_0", 0, 0, &shadowVSBlob, &errorBlob);
+        if (FAILED(hr)) return false;
+        hr = device->CreateVertexShader(shadowVSBlob->GetBufferPointer(), shadowVSBlob->GetBufferSize(), nullptr, &m_shadowVertexShader);
+        if (FAILED(hr)) return false;
+        hr = device->CreateInputLayout(shadowLayoutDesc, ARRAYSIZE(shadowLayoutDesc), shadowVSBlob->GetBufferPointer(), shadowVSBlob->GetBufferSize(), &m_shadowInputLayout);
+        if (FAILED(hr)) return false;
+        hr = device->CreateSamplerState(&samplerDesc, &m_shadowDebugSampler);
+        if (FAILED(hr)) return false;
+        hr = D3DCompileFromFile(L"ShadowDebugPS.hlsl", nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, "main", "ps_5_0", 0, 0, &shadowDebugPSBlob, &errorPSBlob);
+        if (FAILED(hr)) return false;
+        hr = D3DCompileFromFile(L"ShadowDebugVS.hlsl", nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, "main", "vs_5_0", 0, 0, &shadowDebugVSBlob, &errorVSBlob);
+        if (FAILED(hr)) return false;
+        hr = device->CreatePixelShader(shadowDebugPSBlob->GetBufferPointer(), shadowDebugPSBlob->GetBufferSize(), nullptr, &m_shadowDebugPS);
+        if (FAILED(hr)) return false;
+        hr = device->CreateVertexShader(shadowDebugVSBlob->GetBufferPointer(), shadowDebugVSBlob->GetBufferSize(), nullptr, &m_shadowDebugVS);
+        if (FAILED(hr)) return false;
+        hr = device->CreateDepthStencilState(&depthDesc, &m_debugDepthDisabled);
+        if (FAILED(hr)) return false;
+        hr = device->CreateSamplerState(&shadowSamplerDesc, &m_shadowComparisonSampler);
+        if (FAILED(hr)) return false;
 
-    shadowVSBlob->Release();
-    shadowVSBlob = nullptr;
-    if (errorBlob)
-    {
-        errorBlob->Release();
-        errorBlob = nullptr;
-    }
+        shadowVSBlob->Release();
+        shadowVSBlob = nullptr;
+        if (errorBlob)
+        {
+            errorBlob->Release();
+            errorBlob = nullptr;
+        }
 
-    shadowDebugPSBlob->Release();
-    shadowDebugVSBlob->Release();
+        shadowDebugPSBlob->Release();
+        shadowDebugVSBlob->Release();
 
-    if (errorPSBlob)
-    {
-        errorPSBlob->Release();
-    }
+        if (errorPSBlob)
+        {
+            errorPSBlob->Release();
+        }
 
-    if (errorVSBlob)
-    {
-        errorVSBlob->Release();
-    }
+        if (errorVSBlob)
+        {
+            errorVSBlob->Release();
+        }
 
 
     IMGUI_CHECKVERSION();
@@ -768,9 +771,6 @@ void GraphicsEngine::RenderObject(GameObject* obj, Camera* cam)
     XMMATRIX view = cam->GetViewMatrix();
     XMMATRIX projection = cam->GetProjectionMatrix();
 
-
-
-
     model->BindAndDraw(
         context.Get(),
         sizeof(SharedVertex),
@@ -782,6 +782,8 @@ void GraphicsEngine::RenderObject(GameObject* obj, Camera* cam)
         m_depthWriteOnState.Get(),
         m_depthWriteOffState.Get(),
         m_alphaBlendState.Get(),
+        GetLampConstantBuffer(),
+        GetLampResourceView(),
         m_sceneData.time,
         m_sceneData
     );

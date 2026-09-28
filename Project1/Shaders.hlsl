@@ -77,6 +77,8 @@ struct VS_INPUT {
     float4 color    : COLOR;
     float2 texCoord : TEXCOORD;
     float3 normal   : NORMAL;
+    float4 tangent  : TANGENT;
+    
 };
 
 struct PS_INPUT {
@@ -86,10 +88,15 @@ struct PS_INPUT {
     float3 worldPos : TEXCOORD2;
     float3 localPos : TEXCOORD3;
     float4 lightSpacePos : TEXCOORD4;
+    float clipW : TEXCOORD5;
+    float3 tangent : TEXCOORD6;
 };
 
 Texture2D objTexture : register(t0);
 Texture2D shadowMap : register(t2);
+Texture2D normalTexture : register(t3);
+Texture2D detailTexture : register(t4);
+Texture2D normalDetailTexture : register(t5);
 SamplerState samplerLinear : register(s0);
 SamplerComparisonState shadowComparisonSampler : register(s1);
 
@@ -104,6 +111,11 @@ PS_INPUT VS(VS_INPUT input) {
     output.normal = normalize(mul((float3x3)world, input.normal));
     output.texCoord = input.texCoord;
     output.localPos = input.position.xyz;
+    output.tangent =  normalize(mul((float3x3)world, input.tangent.xyz));
+    float4 clipPos = mul(mul(worldPosition, view), projection);
+
+    output.position = clipPos;
+    output.clipW = clipPos.w;
     return output;
 }
 
@@ -885,8 +897,12 @@ float CalculateShadowFactor(
     return visibility * 0.25f;
 }
 
+
+
 float4 PS(PS_INPUT input) : SV_Target
 {
+
+
     int matType =
         (int)material.materialType;
 
@@ -896,12 +912,88 @@ float4 PS(PS_INPUT input) : SV_Target
             input.texCoord
         );
 
+
+    float4 detailSample =
+        detailTexture.Sample(
+            samplerLinear,
+            input.texCoord * 60.0f
+        );
+
+    float leatherDetail = detailSample.r;
+
+    texColor.rgb *= leatherDetail;
+
     // ---------------------------------------------------------
-    // Lighting vectors
+    // Tangent basis
     // ---------------------------------------------------------
 
-    float3 N =
-        normalize(input.normal);
+    float3 N = normalize(input.normal);
+    float3 T = normalize(input.tangent);
+
+    T = normalize(T - N * dot(T, N));
+
+    float3 B = normalize(cross(N, T));
+
+    float3x3 TBN = float3x3(
+        T,
+        B,
+        N
+        );
+
+
+    // ---------------------------------------------------------
+    // BASE NORMAL
+    // ---------------------------------------------------------
+
+    float3 baseNormal =
+        normalTexture.Sample(
+            samplerLinear,
+            input.texCoord
+        ).xyz;
+
+    baseNormal =
+        baseNormal * 2.0f - 1.0f;
+
+    baseNormal = normalize(baseNormal);
+
+
+    // ---------------------------------------------------------
+    // DETAIL NORMAL
+    // ---------------------------------------------------------
+
+    float3 detailNormal =
+        normalDetailTexture.Sample(
+            samplerLinear,
+            input.texCoord * 60.0f
+        ).xyz;
+
+    detailNormal =
+        detailNormal * 2.0f - 1.0f;
+
+    float DETAIL_NORMAL_STRENGTH = 1.0f;
+
+    detailNormal.xy *= DETAIL_NORMAL_STRENGTH;
+
+    detailNormal = normalize(detailNormal);
+
+
+    // ---------------------------------------------------------
+    // Combine in tangent space
+    // ---------------------------------------------------------
+
+    float3 combinedNormal = normalize(float3(
+        baseNormal.xy + detailNormal.xy,
+        baseNormal.z * detailNormal.z
+        ));
+
+
+    // ---------------------------------------------------------    
+    // Tangent -> world
+    // ---------------------------------------------------------
+
+    N = normalize(
+        mul(combinedNormal, TBN)
+    );
 
     float3 L =
         normalize(-lightDirection);
@@ -923,6 +1015,9 @@ float4 PS(PS_INPUT input) : SV_Target
 
     float3 R =
         reflect(I, N);
+
+
+    //return float4(testNormal, 1.0f);
 
     // ---------------------------------------------------------
     // Shadow mapping
@@ -954,6 +1049,10 @@ float4 PS(PS_INPUT input) : SV_Target
             input.worldPos
         );
 
+    float carLampMultiplier = 0.05f;
+
+    lampLight *= carLampMultiplier;
+
     float3 localLighting =
         0.0f;
 
@@ -984,6 +1083,9 @@ float4 PS(PS_INPUT input) : SV_Target
         ) *
         lampLight *
         0.8f;
+
+
+
 
     // ---------------------------------------------------------
     // Emissive materials
@@ -1128,6 +1230,10 @@ float4 PS(PS_INPUT input) : SV_Target
     // Generic fallback material
     // ---------------------------------------------------------
 
+
+      //return float4(1.0f, 1.0f, 1.0f, 1.0f);
+
+      
     float ndotl =
         saturate(
             dot(N, L)
@@ -1142,10 +1248,13 @@ float4 PS(PS_INPUT input) : SV_Target
             material.diffuseColor;
     }
 
+    float modelAmbientMultiplier = 3.0f;
+
     // Ambient remains visible in shadow.
     float3 ambient =
         baseColor *
-        ambientIntensity;
+       ambientIntensity *
+        modelAmbientMultiplier;
 
     // Direct sunlight is blocked by Hannah.
     float3 diffuse =
@@ -1205,10 +1314,7 @@ float4 PS(PS_INPUT input) : SV_Target
         );
 
     // Environment reflections remain visible in shadow.
-    float3 finalMirror =
-        mirrorColor *
-        material.specularColor *
-        fresnel;
+    float3 finalMirror = float3(0.0f, 0.0f, 0.0f);
 
     // ---------------------------------------------------------
     // Direct sunlight specular
@@ -1272,9 +1378,6 @@ float4 PS(PS_INPUT input) : SV_Target
     );
 }
 
-
-
-
 PS_INPUT mainVS(VS_INPUT input) { return VS(input); }
-float4 mainPS(PS_INPUT input) : SV_Target{ return PS(input); }
+
 PS_INPUT main(VS_INPUT input) { return VS(input); }

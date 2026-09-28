@@ -1,455 +1,73 @@
-# Blender 5.1.1 MTL File: 'None'
-# www.blender.org
-
-newmtl 2
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl EXT_Caliper
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/caliper.dds
-
-newmtl EXT_Engine_bulltes
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/engineparts.dds
-
-newmtl EXT_body_plastic
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl EXT_brakedisk
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/Disk_D.dds
-
-newmtl EXT_exhaust
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/exhaust_d.dds
-
-newmtl EXT_gearbox
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/gearboxskin_d.dds
-
-newmtl EXT_nuts_bolts
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl EXT_parts_A
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/exhaust_d.dds
-
-newmtl EXT_sus_metal
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/susp_D.dds
-
-newmtl EXT_susp_paint
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/exterior_parts.dds
-
-newmtl EXT_under_black
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl EXT_under_carbon
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/carbon_cockpit.dds
-
-newmtl EXT_under_composit
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl INT_Parts
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl INT_RollBar
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/int_occ.dds
-
-newmtl INT_metal_nuts_bolts
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl INT_metal_sw
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/int_occ.dds
-
-newmtl INT_plastic_stitching
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl INT_plastic_sw_buttons
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl INT_plastic_sw_textile
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/int_occ.dds
-
-newmtl Material_#359
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/Mirror.DDS
-
-newmtl Material_#360
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/black.dds
-
-newmtl Material_#361
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/black.dds
-
-newmtl Material_#362
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/gearboxskin_d.dds
-
-newmtl Material_#377
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Material_#381
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Material_#382
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/darkgrey.dds
-
-newmtl Material_#410
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/black.dds
-
-newmtl Material_#411
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/interior_seatbelt_diff.dds
-
-newmtl Material_#412
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Material_#414
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/exhaust_d.dds
+# Toyota Minolta 88C-V HYBRID MTL
+# OBJ names preserved exactly.
+# Existing old texture assignments preserved.
+# AC INI lighting/specular values injected where names match.
 
 newmtl Material_#428
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
 Ni 1.500000
 d 1.000000
-illum 1
-
-newmtl Material_#430
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl Material_#457
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
+illum 2
+map_Kd 10.dds
+# matched INI material: Material #428
 
 newmtl Material_#458
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
 Ni 1.500000
 d 1.000000
-illum 1
-
-newmtl Material_#472
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
+illum 2
+map_Kd 13.dds
+# matched INI material: Material #458
 
 newmtl Material_#473
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
+Ka 0.200000 0.200000 0.200000
+Kd 0.300000 0.300000 0.300000
+Ks 0.100000 0.100000 0.100000
+Ns 60.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd n2.dds
+# matched INI material: Material #473
 
-newmtl Material_#541
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
+newmtl plasticint
+Ka 0.100000 0.100000 0.100000
+Kd 0.100000 0.100000 0.100000
+Ks 0.200000 0.200000 0.200000
+Ns 20.000000
 Ni 1.500000
 d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/engineparts.dds
+illum 2
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/PlasticDetail.dds
+# matched INI material: plasticint
 
-newmtl Material_#543
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
+newmtl metalint
+Ka 0.100000 0.100000 0.100000
+Kd 0.300000 0.300000 0.300000
+Ks 0.500000 0.500000 0.500000
+Ns 100.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd Grey.dds
+# matched INI material: metalint
 
-newmtl Material_#568
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
+newmtl Material_#362
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 40.000000
 Ni 1.500000
 d 1.000000
-illum 1
-
-newmtl Material_#569
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl brake_light
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/t1.dds
-
-newmtl head_light
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/reflector_glass.dds
-
-newmtl hlsao
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
+illum 2
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/gearboxskin_d.dds
+# matched INI material: Material #362
 
 newmtl livery
 Ns 0.000000
@@ -461,6 +79,72 @@ d 1.000000
 illum 1
 map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/skin.dds
 
+newmtl metal
+Ka 0.100000 0.100000 0.100000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 30.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/gearboxskin_d.dds
+# matched INI material: metal
+
+newmtl plastic_MGL
+Ka 0.800000 0.800000 0.800000
+Kd 0.800000 0.800000 0.800000
+Ks 0.200000 0.200000 0.200000
+Ns 1.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd rgbaffffffff.dds
+# matched INI material: plastic_MGL
+
+newmtl plastic
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 30.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/black.dds
+# matched INI material: plastic
+
+newmtl EXT_Caliper
+Ka 0.400000 0.400000 0.400000
+Kd 0.300000 0.300000 0.300000
+Ks 0.200000 0.200000 0.200000
+Ns 1.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/caliper.dds
+# matched INI material: EXT_Caliper
+
+newmtl INT_Parts
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.250000 0.250000 0.250000
+Ns 60.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd interior_parts.dds
+# matched INI material: INT_Parts
+
+newmtl Material_#414
+Ka 0.300000 0.300000 0.300000
+Kd 0.100000 0.100000 0.100000
+Ks 12.000000 12.000000 12.000000
+Ns 150.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/exhaust_d.dds
+# matched INI material: Material #414
+
 newmtl livery.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
@@ -471,85 +155,115 @@ d 1.000000
 illum 1
 map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/black.dds
 
-newmtl livery.002
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
+newmtl EXT_brakedisk
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.300000 0.300000 0.300000
+Ns 10.000000
 Ni 1.500000
 d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/skinw.dds
+illum 2
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/Disk_D.dds
+# matched INI material: EXT_brakedisk
 
-newmtl metal
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
+newmtl Material_#568
+Ka 0.100000 0.100000 0.100000
+Kd 0.100000 0.100000 0.100000
+Ks 0.100000 0.100000 0.100000
+Ns 50.000000
 Ni 1.500000
 d 1.000000
-illum 1
+illum 2
+map_Kd cockpit.dds
+# matched INI material: Material #568
+
+newmtl EXT_exhaust
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 1.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/exhaust_d.dds
+# matched INI material: EXT_exhaust
+
+newmtl EXT_nuts_bolts
+Ka 0.600000 0.600000 0.600000
+Kd 1.000000 1.000000 1.000000
+Ks 0.600000 0.600000 0.600000
+Ns 100.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd Bolts_D.dds
+# matched INI material: EXT_nuts_bolts
+
+newmtl EXT_under_black
+Ka 0.800000 0.800000 0.800000
+Kd 0.800000 0.800000 0.800000
+Ks 0.200000 0.200000 0.200000
+Ns 1.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd bottom_d.dds
+# matched INI material: EXT_under_black
+
+newmtl EXT_body_plastic
+Ka 0.300000 0.300000 0.300000
+Kd 0.700000 0.700000 0.700000
+Ks 1.000000 1.000000 1.000000
+Ns 100.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd SKIN_00.dds
+# matched INI material: EXT_body_plastic
+
+newmtl EXT_sus_metal
+Ka 0.200000 0.200000 0.200000
+Kd 0.300000 0.300000 0.300000
+Ks 0.200000 0.200000 0.200000
+Ns 100.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/susp_D.dds
+# matched INI material: EXT_sus_metal
+
+newmtl EXT_Engine_bulltes
+Ka 0.200000 0.200000 0.200000
+Kd 0.100000 0.100000 0.100000
+Ks 0.100000 0.100000 0.100000
+Ns 30.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/engineparts.dds
+# matched INI material: EXT_Engine_bulltes
+
+newmtl EXT_susp_paint
+Ka 0.600000 0.600000 0.600000
+Kd 0.700000 0.700000 0.700000
+Ks 0.300000 0.300000 0.300000
+Ns 100.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/exterior_parts.dds
+# matched INI material: EXT_susp_paint
+
+newmtl EXT_gearbox
+Ka 0.200000 0.200000 0.200000
+Kd 0.300000 0.300000 0.300000
+Ks 0.100000 0.100000 0.100000
+Ns 100.000000
+Ni 1.500000
+d 1.000000
+illum 2
 map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/gearboxskin_d.dds
-
-newmtl metalint
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl plastic
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/black.dds
-
-newmtl plastic_MGL
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl plasticint
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/PlasticDetail.dds
-
-newmtl rivetPainted_007
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-
-newmtl tyre
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
-map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/tyre_d.dds
+# matched INI material: EXT_gearbox
 
 newmtl tyre.001
 Ns 0.000000
@@ -561,12 +275,350 @@ d 1.000000
 illum 1
 map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/rim.dds
 
-newmtl window
+newmtl EXT_under_carbon
+Ka 0.700000 0.700000 0.700000
+Kd 0.700000 0.700000 0.700000
+Ks 0.200000 0.200000 0.200000
+Ns 10.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/carbon_cockpit.dds
+# matched INI material: EXT_under_carbon
+
+newmtl EXT_under_composit
+Ka 0.200000 0.200000 0.200000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd bottom_D.dds
+# matched INI material: EXT_under_composit
+
+newmtl head_light.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
 Ks 0.000000 0.000000 0.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
 illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/reflector_glass.dds
+
+newmtl EXT_parts_A
+Ka 0.300000 0.300000 0.300000
+Kd 0.400000 0.400000 0.400000
+Ks 0.300000 0.300000 0.300000
+Ns 65.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/exhaust_d.dds
+# matched INI material: EXT_parts_A
+
+newmtl Material_#412
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.500000 0.500000 0.500000
+Ns 150.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd reflector_glass.dds
+# matched INI material: Material #412
+
+newmtl hlsao
+Ka 0.100000 0.100000 0.100000
+Kd 0.200000 0.200000 0.200000
+Ks 0.200000 0.200000 0.200000
+Ns 20.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd hlsao.dds
+# matched INI material: hlsao
+
+newmtl rivetPainted_007
+Ka 0.800000 0.800000 0.800000
+Kd 0.800000 0.800000 0.800000
+Ks 0.200000 0.200000 0.200000
+Ns 1.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd rgba020202ff.dds
+# matched INI material: rivetPainted_007
+
+newmtl INT_metal_sw
+Ka 1.500000 1.500000 1.500000
+Kd 0.900000 0.900000 0.900000
+Ks 0.700000 0.700000 0.700000
+Ns 20.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/int_occ.dds
+# matched INI material: INT_metal_sw
+
+newmtl INT_plastic_sw_textile
+Ka 0.100000 0.100000 0.100000
+Kd 0.200000 0.200000 0.200000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/int_occ.dds
+# matched INI material: INT_plastic_sw_textile
+
+newmtl INT_plastic_stitching
+Ka 0.200000 0.200000 0.200000
+Kd 0.400000 0.400000 0.400000
+Ks 0.000000 0.000000 0.000000
+Ns 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd AlfaRomeo_4X_Cuci.png
+# matched INI material: INT_plastic_stitching
+
+newmtl INT_plastic_sw_buttons
+Ka 0.600000 0.600000 0.600000
+Kd 0.700000 0.700000 0.700000
+Ks 1.000000 1.000000 1.000000
+Ns 100.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd Steer_D.dds
+# matched INI material: INT_plastic_sw_buttons
+
+newmtl INT_metal_nuts_bolts
+Ka 0.300000 0.300000 0.300000
+Kd 0.700000 0.700000 0.700000
+Ks 1.000000 1.000000 1.000000
+Ns 100.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd Bolts_D.dds
+# matched INI material: INT_metal_nuts_bolts
+
+newmtl Material_#359
+Ka 0.588000 0.588000 0.588000
+Kd 0.588000 0.588000 0.588000
+Ks 0.900000 0.900000 0.900000
+Ns 10.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/Mirror.DDS
+# matched INI material: Material #359
+
+newmtl Material_#377
+Ka 0.200000 0.200000 0.200000
+Kd 0.300000 0.300000 0.300000
+Ks 0.100000 0.100000 0.100000
+Ns 40.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd detailsmiscparts.dds
+# matched INI material: Material #377
+
+newmtl brake_light.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/t1.dds
+
+newmtl Material_#360
+Ka 0.400000 0.400000 0.400000
+Kd 0.400000 0.400000 0.400000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/black.dds
+# matched INI material: Material #360
+
+newmtl Material_#381
+Ka 0.700000 0.700000 0.700000
+Kd 0.700000 0.700000 0.700000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd 36ao.dds
+# matched INI material: Material #381
+
+newmtl Material_#457
+Ka 0.200000 0.200000 0.200000
+Kd 0.300000 0.300000 0.300000
+Ks 12.000000 12.000000 12.000000
+Ns 150.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd tailao.dds
+# matched INI material: Material #457
+
+newmtl Material_#541
+Ka 0.100000 0.100000 0.100000
+Kd 0.100000 0.100000 0.100000
+Ks 0.100000 0.100000 0.100000
+Ns 50.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/engineparts.dds
+# matched INI material: Material #541
+
+newmtl Material_#543
+Ka 0.200000 0.200000 0.200000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd cockpit.dds
+# matched INI material: Material #543
+
+newmtl Material_#472
+Ka 0.600000 0.600000 0.600000
+Kd 0.500000 0.500000 0.500000
+Ks 0.200000 0.200000 0.200000
+Ns 20.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd planeao.dds
+# matched INI material: Material #472
+
+newmtl Material_#569
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.000000 0.000000 0.000000
+Ns 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd 24.dds
+# matched INI material: Material #569
+
+newmtl Material_#361
+Ka 0.700000 0.700000 0.700000
+Kd 0.700000 0.700000 0.700000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/black.dds
+# matched INI material: Material #361
+
+newmtl INT_RollBar
+Ka 0.200000 0.200000 0.200000
+Kd 0.300000 0.300000 0.300000
+Ks 0.100000 0.100000 0.100000
+Ns 40.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/int_occ.dds
+# matched INI material: INT_RollBar
+
+newmtl Material_#410
+Ka 0.500000 0.500000 0.500000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 20.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/black.dds
+# matched INI material: Material #410
+
+newmtl Material_#411
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.020000 0.020000 0.020000
+Ns 40.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/interior_seatbelt_diff.dds
+# matched INI material: Material #411
+
+newmtl tyre.002
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/tyre_d.dds
+
+newmtl Material_#430
+Ka 0.100000 0.100000 0.100000
+Kd 0.100000 0.100000 0.100000
+Ks 0.000000 0.000000 0.000000
+Ns 40.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd wao.dds
+# matched INI material: Material #430
+
+newmtl window
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 1.000000 1.000000 1.000000
+Ns 650.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd gray.dds
+# matched INI material: window
+
+newmtl 2
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.500000 0.500000 0.500000
+Ns 60.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd wao.dds
+# matched INI material: 2
+
+newmtl livery.002
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/skinw.dds
+
+newmtl Material_#382
+Ka 0.050000 0.050000 0.050000
+Kd 0.050000 0.050000 0.050000
+Ks 0.100000 0.100000 0.100000
+Ns 20.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd C:/Users/Void/Documents/GitHub/Game-Engine-DX11-Playground/Project1/Cars/Toyota_Minolta/textures/darkgrey.dds
+# matched INI material: Material #382

@@ -143,8 +143,7 @@ car.rearTyres.CamberGain = -10.0f;
 car.rearTyres.wheelRadius = 0.345f;
 car.rearTyres.rearWheelInertia = 2.05f; 
 
-    car.audio.basePath =
-        "C:\\Users\\Void\\Documents\\GitHub\\Game-Engine\\Project1\\Cars\\Toyota_Minolta\\sounds\\";
+    car.audio.basePath = "C:\\Users\\Void\\Documents\\GitHub\\Game-Engine-DX11-Playground\\Project1\\Cars\\Toyota_Minolta\\sounds\\";
 
     car.audio.idle = "962c_3_in_idle.wav";
 
@@ -193,6 +192,15 @@ CameraDefinition Minolta::CreateCameraDefinition()
     camera.bumperHeight = 0.7f;
     camera.bumperDistance = 2.2f;
     camera.bumperPitchDeg = 5.0f;
+
+
+    camera.cockpitHeight = 0.15f;
+    camera.cockpitDistance = 0.55f;
+    camera.cockpitPitchDeg = 5.0f;
+
+    camera.cockpitOffsetX = 0.1f;
+    camera.cockpitOffsetY = 0.0f;
+    camera.cockpitOffsetZ = 0.0f;
 
 
     return camera;

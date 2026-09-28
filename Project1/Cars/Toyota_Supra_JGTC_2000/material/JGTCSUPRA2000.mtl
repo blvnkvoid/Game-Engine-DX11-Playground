@@ -1,322 +1,428 @@
-# Blender 5.1.1 MTL File: 'None'
-# www.blender.org
+# Supra JGTC corrected MTL
+# Generated from supra.fbx.ini and matched directly to JGTCSUPRA2000.obj usemtl names.
+# Blender .001-style material suffixes are preserved in newmtl names.
 
 newmtl _supra_brakescaliper
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
+# AC_SOURCE_NAME _supra_brakescaliper
+# AC_SHADER ksPerPixel
+Ka 0.400000 0.400000 0.400000
+Kd 0.500000 0.500000 0.500000
+Ks 0.400000 0.400000 0.400000
+Ns 10.000000
 Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/nodamage_lod0.dds
-map_d C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/nodamage_lod0.dds
-
-newmtl _supra_cockpitdigital_gauge
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/interior_lod0.dds
-map_d C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/interior_lod0.dds
-
-newmtl _supra_lod0carbon_fiber
-Ns 60.000008
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/COMMON_CARBON3_BLACK_DIFFUSE.DDS
-map_d C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/COMMON_CARBON3_BLACK_DIFFUSE.DDS
-
-newmtl _supra_lodainterior
-Ns 60.000008
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/nodamage.dds
-map_d C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/nodamage.dds
-
-newmtl _wheelblur_rim
-Ns 300.000031
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/wheel1.dds
-map_d C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/wheel1.dds
-
-newmtl _wheelrim
-Ns 300.000031
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/wheel.dds
-map_d C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/wheel.dds
-
-newmtl black
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/nodamage_lod0.dds
-map_d C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/nodamage_lod0.dds
-
-newmtl body
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/nodamage_lod0.dds
-map_d C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/nodamage_lod0.dds
-
-newmtl chrome
-Ns 60.000008
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/COMMON_CHROME.DDS
-map_d C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/COMMON_CHROME.DDS
-
-newmtl cockpit_carbon_fiber
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/COMMON_CARBON3_BLACK_DIFFUSE.DDS
-map_d C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/COMMON_CARBON3_BLACK_DIFFUSE.DDS
-
-newmtl cockpitbadge
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/interior_lod0.dds
-map_d C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/interior_lod0.dds
-
-newmtl cockpitheadliner
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/COMMON_ALCANTARA01_BLACK_DIFFUSE.DDS
-map_d C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/COMMON_ALCANTARA01_BLACK_DIFFUSE.DDS
-
-newmtl cockpitmetal
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/interior_lod0.dds
-map_d C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/interior_lod0.dds
+d 1.000000
+illum 2
+map_Kd nodamage_lod0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=nodamage_lod0.dds
 
 newmtl cockpitmirror
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
+# AC_SOURCE_NAME cockpitmirror
+# AC_SHADER ksPerPixel
+Ka 0.317647 0.317647 0.317647
+Kd 0.317647 0.317647 0.317647
+Ks 0.900000 0.900000 0.900000
+Ns 10.000000
 Ke 0.000000 0.000000 0.000000
-Ni 1.500000
 d 1.000000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/MIRROR_PLACEMENT.png
+illum 2
+map_Kd MIRROR_PLACEMENT.png
+# AC_RESOURCE slot=0 name=txDiffuse texture=MIRROR_PLACEMENT.png
 
-newmtl cockpitmottled
-Ns 100.000015
+newmtl glass_interior.001
+# AC_SOURCE_NAME glass_interior
+# AC_SHADER ksWindscreen
 Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
+Kd 0.200000 0.200000 0.200000
+Ks 0.900000 0.900000 0.900000
+Ns 10.000000
 Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/alcantara_black.dds
-map_d C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/alcantara_black.dds
+d 1.000000
+illum 2
+map_Kd windows_inside.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=windows_inside.dds
 
-newmtl cockpitplastic
-Ns 50.000011
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
+newmtl _supra_cockpitdigital_gauge
+# AC_SOURCE_NAME _supra_cockpitdigital_gauge
+# AC_SHADER ksPerPixel
+Ka 0.086275 0.086275 0.086275
+Kd 0.086275 0.086275 0.086275
+Ks 0.900000 0.900000 0.900000
+Ns 10.000000
 Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/COMMON_DASH_PLASTIC01_DIFFUSE.DDS
-map_d C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/COMMON_DASH_PLASTIC01_DIFFUSE.DDS
-
-newmtl cockpitreflector
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/interior_lod0.dds
-map_d C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/interior_lod0.dds
-
-newmtl cockpitsolid
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/interior_lod0.dds
-map_d C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/interior_lod0.dds
-
-newmtl glass
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/glass.dds
-map_d C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/glass.dds
-
-newmtl glass_interior
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/windows_inside.dds
-map_d C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/windows_inside.dds
+d 1.000000
+illum 2
+map_Kd interior_lod0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=interior_lod0.dds
 
 newmtl led_green
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
+# AC_SOURCE_NAME led_green
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.500000 0.500000 0.500000
+Ks 0.900000 0.900000 0.900000
+Ns 10.000000
 Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/dash_mfd_greenlight_on.dds
-map_d C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/dash_mfd_greenlight_on.dds
-
-newmtl led_red
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/dash_mfd_redlight_on.dds
-map_d C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/dash_mfd_redlight_on.dds
+d 1.000000
+illum 2
+map_Kd dash_mfd_greenlight_on.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=dash_mfd_greenlight_on.dds
 
 newmtl led_yellow
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
+# AC_SOURCE_NAME led_yellow
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.500000 0.500000 0.500000
+Ks 0.900000 0.900000 0.900000
+Ns 10.000000
 Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/dash_mfd_yellowlight_on.dds
-map_d C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/dash_mfd_yellowlight_on.dds
+d 1.000000
+illum 2
+map_Kd dash_mfd_yellowlight_on.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=dash_mfd_yellowlight_on.dds
 
-newmtl matte_colors
-Ns 70.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
+newmtl led_red.001
+# AC_SOURCE_NAME led_red
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.500000 0.500000 0.500000
+Ks 0.900000 0.900000 0.900000
+Ns 10.000000
 Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/nodamage_lod0.dds
-map_d C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/nodamage_lod0.dds
+d 1.000000
+illum 2
+map_Kd dash_mfd_redlight_on.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=dash_mfd_redlight_on.dds
+
+newmtl _wheelrim.001
+# AC_SOURCE_NAME _wheelrim
+# AC_SHADER ksPerPixelSimpleRefl
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 1.200000 1.200000 1.200000
+Ns 30.000000
+Ke 0.000000 0.000000 0.000000
+d 1.000000
+illum 2
+map_Kd wheel.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=wheel.dds
+
+newmtl _wheelblur_rim.001
+# AC_SOURCE_NAME _wheelblur_rim
+# AC_SHADER ksPerPixel
+Ka 0.400000 0.400000 0.400000
+Kd 0.400000 0.400000 0.400000
+Ks 1.200000 1.200000 1.200000
+Ns 30.000000
+Ke 0.000000 0.000000 0.000000
+d 1.000000
+illum 2
+map_Kd wheel1.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=wheel1.dds
+
+newmtl tyre_fx.001
+# AC_SOURCE_NAME tyre_fx
+# AC_SHADER ksTyres
+Ka 0.200000 0.200000 0.200000
+Kd 0.300000 0.300000 0.300000
+Ks 0.400000 0.400000 0.400000
+Ns 60.000000
+Ke 0.000000 0.000000 0.000000
+d 1.000000
+illum 2
+map_Kd tyre_d2.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=tyre_d2.dds
+# AC_RESOURCE slot=1 name=txNormal texture=tyre_d2_n.dds
+# AC_RESOURCE slot=2 name=txDirty texture=tire_dirt3.dds
+# AC_RESOURCE slot=3 name=txBlur texture=tyre_d2_blur.dds
+# AC_RESOURCE slot=4 name=txNormalBlur texture=tyre_d2_blur_n.dds
+
+newmtl black.001
+# AC_SOURCE_NAME black
+# AC_SHADER ksPerPixel
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
+Ke 0.000000 0.000000 0.000000
+d 1.000000
+illum 2
+map_Kd nodamage_lod0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=nodamage_lod0.dds
+
+newmtl body.001
+# AC_SOURCE_NAME body
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.400000 0.400000 0.400000
+Kd 0.460000 0.460000 0.460000
+Ks 0.800000 0.800000 0.800000
+Ns 400.000000
+Ke 0.000000 0.000000 0.000000
+d 1.000000
+illum 2
+map_Kd nodamage_lod0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=nodamage_lod0.dds
+# AC_RESOURCE slot=1 name=txNormal texture=FLAT_NM.dds
+# AC_RESOURCE slot=2 name=txMaps texture=body_M_null.dds
+# AC_RESOURCE slot=3 name=txDetail texture=metal_detail.dds
+
+newmtl _supra_lod0carbon_fiber
+# AC_SOURCE_NAME _supra_lod0carbon_fiber
+# AC_SHADER ksPerPixelReflection
+Ka 0.400000 0.400000 0.400000
+Kd 0.400000 0.400000 0.400000
+Ks 0.050000 0.050000 0.050000
+Ns 6.000000
+Ke 0.000000 0.000000 0.000000
+d 1.000000
+illum 2
+map_Kd COMMON_CARBON3_BLACK_DIFFUSE.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=COMMON_CARBON3_BLACK_DIFFUSE.DDS
+
+newmtl chrome.001
+# AC_SOURCE_NAME chrome
+# AC_SHADER ksPerPixelReflection
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 1.000000 1.000000 1.000000
+Ns 6.000000
+Ke 0.000000 0.000000 0.000000
+d 1.000000
+illum 2
+map_Kd COMMON_CHROME.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=COMMON_CHROME.DDS
+
+newmtl textured_reflector.001
+# AC_SOURCE_NAME textured_reflector
+# AC_SHADER ksPerPixelSimpleRefl
+Ka 0.400000 0.400000 0.400000
+Kd 0.400000 0.400000 0.400000
+Ks 0.800000 0.800000 0.800000
+Ns 20.000000
+Ke 0.000000 0.000000 0.000000
+d 1.000000
+illum 2
+map_Kd lights.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=lights.dds
+
+newmtl matte_colors.001
+# AC_SOURCE_NAME matte_colors
+# AC_SHADER ksPerPixel
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.050000 0.050000 0.050000
+Ns 7.000000
+Ke 0.000000 0.000000 0.000000
+d 1.000000
+illum 2
+map_Kd nodamage_lod0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=nodamage_lod0.dds
 
 newmtl misc
-Ns 180.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
+# AC_SOURCE_NAME misc
+# AC_SHADER ksPerPixel
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.500000 0.500000 0.500000
+Ns 18.000000
 Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/nodamage_lod0.dds
-map_d C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/nodamage_lod0.dds
+d 1.000000
+illum 2
+map_Kd nodamage_lod0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=nodamage_lod0.dds
 
-newmtl plastic2
-Ns 79.999985
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
+newmtl weatherstrip.001
+# AC_SOURCE_NAME weatherstrip
+# AC_SHADER ksPerPixel
+Ka 0.500000 0.500000 0.500000
+Kd 0.500000 0.500000 0.500000
+Ks 0.050000 0.050000 0.050000
+Ns 8.000000
 Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/nodamage_lod0.dds
-map_d C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/nodamage_lod0.dds
+d 1.000000
+illum 2
+map_Kd nodamage_lod0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=nodamage_lod0.dds
+
+newmtl plastic2.001
+# AC_SOURCE_NAME plastic2
+# AC_SHADER ksPerPixel
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 8.000000
+Ke 0.000000 0.000000 0.000000
+d 1.000000
+illum 2
+map_Kd nodamage_lod0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=nodamage_lod0.dds
+
+newmtl cockpitbadge.001
+# AC_SOURCE_NAME cockpitbadge
+# AC_SHADER ksPerPixel
+Ka 0.643137 0.643137 0.643137
+Kd 0.643137 0.643137 0.643137
+Ks 0.900000 0.900000 0.900000
+Ns 10.000000
+Ke 0.000000 0.000000 0.000000
+d 1.000000
+illum 2
+map_Kd interior_lod0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=interior_lod0.dds
+
+newmtl cockpitheadliner
+# AC_SOURCE_NAME cockpitheadliner
+# AC_SHADER ksPerPixel
+Ka 0.756863 0.756863 0.756863
+Kd 0.756863 0.756863 0.756863
+Ks 0.900000 0.900000 0.900000
+Ns 10.000000
+Ke 0.000000 0.000000 0.000000
+d 1.000000
+illum 2
+map_Kd COMMON_ALCANTARA01_BLACK_DIFFUSE.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=COMMON_ALCANTARA01_BLACK_DIFFUSE.DDS
+
+newmtl cockpitmetal.001
+# AC_SOURCE_NAME cockpitmetal
+# AC_SHADER ksPerPixelSimpleRefl
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.700000 0.700000 0.700000
+Ns 10.000000
+Ke 0.000000 0.000000 0.000000
+d 1.000000
+illum 2
+map_Kd interior_lod0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=interior_lod0.dds
+
+newmtl cockpitplastic.001
+# AC_SOURCE_NAME cockpitplastic
+# AC_SHADER ksPerPixelNM
+Ka 0.300000 0.300000 0.300000
+Kd 0.400000 0.400000 0.400000
+Ks 0.100000 0.100000 0.100000
+Ns 5.000000
+Ke 0.000000 0.000000 0.000000
+d 1.000000
+illum 2
+map_Kd COMMON_DASH_PLASTIC01_DIFFUSE.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=COMMON_DASH_PLASTIC01_DIFFUSE.DDS
+# AC_RESOURCE slot=1 name=txNormal texture=COMMON_DASH_PLASTIC01_NORMALS.DDS
+
+newmtl cockpitreflector.001
+# AC_SOURCE_NAME cockpitreflector
+# AC_SHADER ksPerPixel
+Ka 0.694118 0.694118 0.694118
+Kd 0.694118 0.694118 0.694118
+Ks 0.900000 0.900000 0.900000
+Ns 10.000000
+Ke 0.000000 0.000000 0.000000
+d 1.000000
+illum 2
+map_Kd interior_lod0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=interior_lod0.dds
 
 newmtl rubber
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
+# AC_SOURCE_NAME rubber
+# AC_SHADER ksPerPixel
+Ka 0.631373 0.631373 0.631373
+Kd 0.631373 0.631373 0.631373
+Ks 0.900000 0.900000 0.900000
+Ns 10.000000
 Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/interior_lod0.dds
-map_d C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/interior_lod0.dds
+d 1.000000
+illum 2
+map_Kd interior_lod0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=interior_lod0.dds
+
+newmtl cockpitsolid.001
+# AC_SOURCE_NAME cockpitsolid
+# AC_SHADER ksPerPixel
+Ka 0.329412 0.329412 0.329412
+Kd 0.329412 0.329412 0.329412
+Ks 0.400000 0.400000 0.400000
+Ns 10.000000
+Ke 0.000000 0.000000 0.000000
+d 1.000000
+illum 2
+map_Kd interior_lod0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=interior_lod0.dds
+
+newmtl cockpit_carbon_fiber.001
+# AC_SOURCE_NAME cockpit_carbon_fiber
+# AC_SHADER ksPerPixelSimpleRefl
+Ka 0.600000 0.600000 0.600000
+Kd 0.600000 0.600000 0.600000
+Ks 1.000000 1.000000 1.000000
+Ns 100.000000
+Ke 0.000000 0.000000 0.000000
+d 1.000000
+illum 2
+map_Kd COMMON_CARBON3_BLACK_DIFFUSE.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=COMMON_CARBON3_BLACK_DIFFUSE.DDS
 
 newmtl rubber_trim
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
+# AC_SOURCE_NAME rubber_trim
+# AC_SHADER ksPerPixel
+Ka 0.952941 0.952941 0.952941
+Kd 0.952941 0.952941 0.952941
+Ks 0.900000 0.900000 0.900000
+Ns 10.000000
 Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/nodamage_lod0.dds
-map_d C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/nodamage_lod0.dds
+d 1.000000
+illum 2
+map_Kd nodamage_lod0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=nodamage_lod0.dds
 
-newmtl textured_reflector
+newmtl cockpitmottled.001
+# AC_SOURCE_NAME cockpitmottled
+# AC_SHADER ksPerPixelNM
+Ka 0.700000 0.700000 0.700000
+Kd 0.700000 0.700000 0.700000
+Ks 0.200000 0.200000 0.200000
+Ns 10.000000
+Ke 0.000000 0.000000 0.000000
+d 1.000000
+illum 2
+map_Kd alcantara_black.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=alcantara_black.dds
+# AC_RESOURCE slot=1 name=txNormal texture=COMMON_ALCANTARA01_NORMALS.DDS
+
+newmtl _supra_lodainterior
+# AC_SOURCE_NAME _supra_lodainterior
+# AC_SHADER ksPerPixel
+Ka 0.600000 0.600000 0.600000
+Kd 0.600000 0.600000 0.600000
+Ks 0.100000 0.100000 0.100000
+Ns 6.000000
+Ke 0.000000 0.000000 0.000000
+d 1.000000
+illum 2
+map_Kd nodamage.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=nodamage.dds
+
+newmtl glass.001
+# AC_SOURCE_NAME glass
+# AC_SHADER ksPerPixelReflection
+Ka 0.500000 0.500000 0.500000
+Kd 0.500000 0.500000 0.500000
+Ks 0.800000 0.800000 0.800000
 Ns 200.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/lights.dds
-map_d C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/lights.dds
+d 1.000000
+illum 2
+map_Kd glass.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=glass.dds
 
-newmtl tyre_fx
-Ns 600.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
+newmtl undercarriage.001
+# AC_SOURCE_NAME undercarriage
+# AC_SHADER ksPerPixel
+Ka 0.800000 0.800000 0.800000
+Kd 0.800000 0.800000 0.800000
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
 Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/tyre_d2.dds
-map_d C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/tyre_d2.dds
-
-newmtl undercarriage
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/undercarriage.dds
-map_d C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/undercarriage.dds
-
-newmtl weatherstrip
-Ns 79.999985
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/nodamage_lod0.dds
-map_d C:/Users/Void/Downloads/CARS/Toyota Supra JGTC 2000/unp_supra.kn5/texture/nodamage_lod0.dds
+d 1.000000
+illum 2
+map_Kd undercarriage.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=undercarriage.dds

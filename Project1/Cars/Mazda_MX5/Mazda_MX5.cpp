@@ -141,7 +141,7 @@ VehicleDefinition Mx5::CreateDefinition()
     car.rearTyres.wheelRadius = 0.30f;
     car.rearTyres.rearWheelInertia = 1.15f;
 
-    car.audio.basePath = "C:\\Users\\Void\\Documents\\GitHub\\Game-Engine\\Project1\\Cars\\Mazda_MX5\\sounds\\";
+    car.audio.basePath = "C:\\Users\\Void\\Documents\\GitHub\\Game-Engine-DX11-Playground\\Project1\\Cars\\Mazda_MX5\\sounds\\";
 
     car.audio.idle =
         "kunos miata idle 850.wav";
@@ -210,6 +210,14 @@ CameraDefinition Mx5::CreateCameraDefinition()
     camera.bumperHeight = 0.7f;
     camera.bumperDistance = 1.7f;
     camera.bumperPitchDeg = 5.0f;
+
+    camera.cockpitHeight = 0.3f;
+    camera.cockpitDistance = -1.0f;
+    camera.cockpitPitchDeg = 5.0f;
+
+    camera.cockpitOffsetX = -0.3f;
+    camera.cockpitOffsetY = 0.0f;
+    camera.cockpitOffsetZ = 0.0f;
 
 
 

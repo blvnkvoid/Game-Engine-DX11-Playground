@@ -1,472 +1,788 @@
-# Blender 5.1.1 MTL File: 'None'
-# www.blender.org
-
-newmtl CarPaint
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/EXT_Skin.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/EXT_Skin.dds
-
-newmtl Carbon
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/carbon_fiber2.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/carbon_fiber2.dds
-
-newmtl Chrome
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/metal_detail_interior.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/metal_detail_interior.dds
-
-newmtl DECALESDRIVERS
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/191.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/191.dds
-
-newmtl DECALS0
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/decal0.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/decal0.dds
-
-newmtl DECALS1
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/decals_1.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/decals_1.dds
-
-newmtl DECALS2
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/decals_2.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/decals_2.dds
-
-newmtl DECALS3
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/decals_3.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/decals_3.dds
-
-newmtl DECALS4
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/01.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/01.dds
-
-newmtl DETAILS
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/141.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/141.dds
-
-newmtl EXHAUSTEMISSIVE
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/black.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/black.dds
-
-newmtl EXT_BANNER
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/ext_banner.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/ext_banner.dds
-
-newmtl EXT_RIM
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/EXT_Rim_Colour.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/EXT_Rim_Colour.dds
-
-newmtl EXT_WINDOW
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/glass.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/glass.dds
-
-newmtl FRONTLIGHT
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/frontlight.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/frontlight.dds
-
-newmtl GLASS
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/Glass_and_lights_front.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/Glass_and_lights_front.dds
-
-newmtl GRID
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/Grid2_D.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/Grid2_D.dds
-
-newmtl HEATSHIELD
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/seamlessgold.dds
-
-newmtl Hose
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/hose.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/hose.dds
-
-newmtl INT_BANNER
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/ext_banner.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/ext_banner.dds
-
-newmtl INT_DECALS
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/int_decals.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/int_decals.dds
-
-newmtl INT_DECALS2
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/int_decals2.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/int_decals2.dds
-
-newmtl INT_DETAILS2
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/details2.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/details2.dds
-
-newmtl INT_Decals_DISPLAY_gain
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 1.000000 1.000000 1.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/P1.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/P1.dds
-
-newmtl INT_ELECTRONICS
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/INT_Electronics_Colour.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/INT_Electronics_Colour.dds
-
-newmtl MIRROR
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/Mirror.DDS
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/Mirror.DDS
+# Converted from Assetto Corsa FBX material INI
+# Source: nsx_gt500_16.fbx.ini
+# AC-specific shader/resource metadata preserved as comments.
 
 newmtl Metallic
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/metal_detail_interior.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/metal_detail_interior.dds
+# AC_SHADER ksPerPixelReflection
+Ka 0.500000 0.500000 0.500000
+Kd 0.500000 0.500000 0.500000
+Ks 0.800000 0.800000 0.800000
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd metal_detail_interior.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=metal_detail_interior.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.2
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.1
+# AC_VAR isAdditive=0.0
+
+newmtl CarPaint
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.450000 0.450000 0.450000
+Kd 0.300000 0.300000 0.300000
+Ks 0.800000 0.800000 0.800000
+Ns 120.000000
+d 1.000000
+illum 2
+map_Kd EXT_Skin.dds
+map_Bump FLAT_NM.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=EXT_Skin.dds
+# AC_RESOURCE slot=1 name=txNormal texture=FLAT_NM.dds
+# AC_RESOURCE slot=3 name=txDetail texture=carbon_fiber2.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.1
+# AC_VAR isAdditive=0.0
 
 newmtl NUMPLATE
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/CARNUM.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/CARNUM.dds
-
-newmtl Plastic
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
+# AC_SHADER ksPerPixelReflection
+Ka 0.400000 0.400000 0.400000
+Kd 0.500000 0.500000 0.500000
+Ks 0.300000 0.300000 0.300000
+Ns 100.000000
 d 1.000000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/PlasticDetail.dds
+illum 2
+map_Kd CARNUM.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=CARNUM.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.2
+# AC_VAR isAdditive=0.0
 
-newmtl RPM_LEDS
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
+newmtl Chrome
+# AC_SHADER ksPerPixelReflection
+Ka 0.400000 0.400000 0.400000
+Kd 0.500000 0.500000 0.500000
 Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/RPM_LED.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/RPM_LED.dds
-
-newmtl Radiators
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/radiator.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/radiator.dds
-
-newmtl STEER_DECAL
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/steer_decals.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/steer_decals.dds
-
-newmtl TAILGLASS
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/taillight_red.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/taillight_red.dds
-
-newmtl TAILLIGHT
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/turnlight.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/turnlight.dds
-
-newmtl Tyre
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/Tyre_Dry_Colour.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/Tyre_Dry_Colour.dds
-
-newmtl Windows
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/Glass_and_lights_front.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/Glass_and_lights_front.dds
-
-newmtl alcantara
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
+Ns 120.000000
 d 1.000000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/alcnt.dds
-
-newmtl badge
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/badge.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/badge.dds
-
-newmtl cloth
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/taillight_red.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/taillight_red.dds
-
-newmtl ext_decals
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/EXT_Decals_Colour.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/EXT_Decals_Colour.dds
-
-newmtl ext_disc
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/DISC.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/DISC.dds
-
-newmtl ext_mechanics
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/EXT_Mechanics_AO.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/EXT_Mechanics_AO.dds
+illum 2
+map_Kd metal_detail_interior.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=metal_detail_interior.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.2
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=1.0
+# AC_VAR isAdditive=0.0
 
 newmtl int_details
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/details.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/details.dds
-
-newmtl scratches
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 6
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/scratches.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/scratches.dds
+# AC_SHADER ksPerPixelNM
+Ka 0.100000 0.100000 0.100000
+Kd 0.200000 0.200000 0.200000
+Ks 0.800000 0.800000 0.800000
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd details.dds
+map_Bump details_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=details.dds
+# AC_RESOURCE slot=1 name=txNormal texture=details_nm.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR isAdditive=0.0
 
 newmtl seatbelt
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/belt.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/belt.dds
+# AC_SHADER ksPerPixelNM
+Ka 0.300000 0.300000 0.300000
+Kd 0.500000 0.500000 0.500000
+Ks 0.800000 0.800000 0.800000
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd belt.dds
+map_Bump belt_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=belt.dds
+# AC_RESOURCE slot=1 name=txNormal texture=belt_nm.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=3.0
+# AC_VAR fresnelMaxLevel=0.0
+# AC_VAR isAdditive=0.0
+
+newmtl Plastic
+# AC_SHADER ksPerPixelReflection
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.300000 0.300000 0.300000
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd PlasticDetail.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=PlasticDetail.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.01
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.1
+# AC_VAR isAdditive=0.0
+
+newmtl alcantara
+# AC_SHADER ksPerPixelNM
+Ka 0.300000 0.300000 0.300000
+Kd 0.800000 0.800000 0.800000
+Ks 0.800000 0.800000 0.800000
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd alcnt.dds
+map_Bump alcnt_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=alcnt.dds
+# AC_RESOURCE slot=1 name=txNormal texture=alcnt_nm.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.001
+# AC_VAR fresnelEXP=3.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR isAdditive=0.0
+
+newmtl scratches
+# AC_SHADER ksPerPixelAlpha
+Ka 0.050876 0.050876 0.050876
+Kd 0.800000 0.800000 0.800000
+Ks 0.800000 0.800000 0.800000
+Ns 10.000000
+d 1.000000
+illum 2
+map_Kd scratches.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=scratches.dds
+# AC_VAR ksEmissive=0.0
+
+newmtl INT_Decals_DISPLAY_gain
+# AC_SHADER ksPerPixel
+Ka 0.020000 0.020000 0.020000
+Kd 0.020000 0.020000 0.020000
+Ks 0.020000 0.020000 0.020000
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd P1.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=P1.dds
+# AC_VAR ksEmissive=0.0
+
+newmtl INT_ELECTRONICS
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.300000 0.300000 0.300000
+Kd 0.400000 0.400000 0.400000
+Ks 0.300000 0.300000 0.300000
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd INT_Electronics_Colour.dds
+map_Bump INT_Electronics_NM.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=INT_Electronics_Colour.dds
+# AC_RESOURCE slot=1 name=txNormal texture=INT_Electronics_NM.dds
+# AC_RESOURCE slot=2 name=txMaps texture=INT_Electronics_Map.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=2.0
+# AC_VAR fresnelMaxLevel=0.2
+# AC_VAR isAdditive=0.0
+
+newmtl RPM_LEDS
+# AC_SHADER ksPerPixelNM
+Ka 0.300000 0.300000 0.300000
+Kd 0.800000 0.800000 0.800000
+Ks 0.100000 0.100000 0.100000
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd RPM_LED.dds
+map_Bump RPM_LED_NM.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=RPM_LED.dds
+# AC_RESOURCE slot=1 name=txNormal texture=RPM_LED_NM.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=1.0
+# AC_VAR fresnelEXP=3.0
+# AC_VAR fresnelMaxLevel=0.1
+# AC_VAR isAdditive=0.0
+
+newmtl Carbon
+# AC_SHADER ksPerPixelNM
+Ka 0.400000 0.400000 0.400000
+Kd 0.300000 0.300000 0.300000
+Ks 0.400000 0.400000 0.400000
+Ns 150.000000
+d 1.000000
+illum 2
+map_Kd carbon_fiber2.dds
+map_Bump carbon_fiber_NM2.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=carbon_fiber2.dds
+# AC_RESOURCE slot=1 name=txNormal texture=carbon_fiber_NM2.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.03
+# AC_VAR fresnelEXP=3.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR isAdditive=0.0
+
+newmtl INT_DECALS
+# AC_SHADER ksPerPixelReflection
+Ka 0.400000 0.400000 0.400000
+Kd 0.500000 0.500000 0.500000
+Ks 0.800000 0.800000 0.800000
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd int_decals.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=int_decals.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.02
+# AC_VAR isAdditive=0.0
+
+newmtl INT_DECALS2
+# AC_SHADER ksPerPixelReflection
+Ka 0.400000 0.400000 0.400000
+Kd 0.300000 0.300000 0.300000
+Ks 0.300000 0.300000 0.300000
+Ns 200.000000
+d 1.000000
+illum 2
+map_Kd int_decals2.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=int_decals2.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.01
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.1
+# AC_VAR isAdditive=0.0
+
+newmtl INT_DETAILS2
+# AC_SHADER ksPerPixelReflection
+Ka 0.050876 0.050876 0.050876
+Kd 0.800000 0.800000 0.800000
+Ks 0.800000 0.800000 0.800000
+Ns 10.000000
+d 1.000000
+illum 2
+map_Kd details2.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=details2.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR fresnelMaxLevel=0.0
+# AC_VAR isAdditive=0.0
+
+newmtl Windows
+# AC_SHADER ksWindscreen
+Ka 0.200000 0.200000 0.200000
+Kd 0.800000 0.800000 0.800000
+Ks 0.400000 0.400000 0.400000
+Ns 200.000000
+d 1.000000
+illum 2
+map_Kd Glass_and_lights_front.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=Glass_and_lights_front.dds
+# AC_VAR ksEmissive=0.0
+
+newmtl MIRROR
+# AC_SHADER ksPerPixelReflection
+Ka 0.300000 0.300000 0.300000
+Kd 0.800000 0.800000 0.800000
+Ks 0.800000 0.800000 0.800000
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd Mirror.DDS
+# AC_RESOURCE slot=0 name=txDiffuse texture=Mirror.DDS
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.2
+# AC_VAR isAdditive=0.0
 
 newmtl sockets
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/socket.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/socket.dds
+# AC_SHADER ksPerPixelNM
+Ka 0.050876 0.050876 0.050876
+Kd 0.800000 0.800000 0.800000
+Ks 0.800000 0.800000 0.800000
+Ns 10.000000
+d 1.000000
+illum 2
+map_Kd socket.dds
+map_Bump socket_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=socket.dds
+# AC_RESOURCE slot=1 name=txNormal texture=socket_nm.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR fresnelMaxLevel=0.0
+# AC_VAR isAdditive=0.0
 
 newmtl steer_leds
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
+# AC_SHADER ksPerPixelReflection
+Ka 0.300000 0.300000 0.300000
+Kd 0.400000 0.400000 0.400000
+Ks 0.800000 0.800000 0.800000
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd steer_leds.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=steer_leds.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=3.0
+# AC_VAR fresnelMaxLevel=0.1
+# AC_VAR isAdditive=0.0
+
+newmtl badge
+# AC_SHADER ksPerPixelNM
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.800000 0.800000 0.800000
+Ns 10.000000
+d 1.000000
+illum 2
+map_Kd badge.dds
+map_Bump badge_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=badge.dds
+# AC_RESOURCE slot=1 name=txNormal texture=badge_nm.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.3
+# AC_VAR isAdditive=0.0
+
+newmtl STEER_DECAL
+# AC_SHADER ksPerPixelReflection
+Ka 0.400000 0.400000 0.400000
+Kd 0.500000 0.500000 0.500000
+Ks 0.300000 0.300000 0.300000
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd steer_decals.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=steer_decals.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.2
+# AC_VAR fresnelEXP=3.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR isAdditive=0.0
+
+newmtl DECALS0
+# AC_SHADER ksPerPixelReflection
+Ka 0.400000 0.400000 0.400000
+Kd 0.500000 0.500000 0.500000
 Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/steer_leds.dds
-map_d C:/Users/Void/Downloads/CARS/Honda NSX Concept-GT GT-500 2016/unp_nsx_gt500_16.kn5/texture/steer_leds.dds
+Ns 120.000000
+d 1.000000
+illum 2
+map_Kd decal0.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=decal0.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR fresnelMaxLevel=0.0
+# AC_VAR isAdditive=0.0
+
+newmtl DECALS1
+# AC_SHADER ksPerPixelReflection
+Ka 0.400000 0.400000 0.400000
+Kd 0.500000 0.500000 0.500000
+Ks 0.300000 0.300000 0.300000
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd decals_1.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=decals_1.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.2
+# AC_VAR isAdditive=0.0
+
+newmtl DECALS2
+# AC_SHADER ksPerPixelReflection
+Ka 0.400000 0.400000 0.400000
+Kd 0.500000 0.500000 0.500000
+Ks 0.400000 0.400000 0.400000
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd decals_2.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=decals_2.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=3.0
+# AC_VAR fresnelMaxLevel=0.1
+# AC_VAR isAdditive=0.0
+
+newmtl DECALS3
+# AC_SHADER ksPerPixelNM
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.400000 0.400000 0.400000
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd decals_3.dds
+map_Bump decals_3_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=decals_3.dds
+# AC_RESOURCE slot=1 name=txNormal texture=decals_3_nm.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.01
+# AC_VAR fresnelEXP=3.0
+# AC_VAR fresnelMaxLevel=0.1
+# AC_VAR isAdditive=0.0
+
+newmtl DECALESDRIVERS
+# AC_SHADER ksPerPixelReflection
+Ka 0.400000 0.400000 0.400000
+Kd 0.300000 0.300000 0.300000
+Ks 0.800000 0.800000 0.800000
+Ns 10.000000
+d 1.000000
+illum 2
+map_Kd 191.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=191.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=3.0
+# AC_VAR fresnelMaxLevel=0.1
+# AC_VAR isAdditive=0.0
+
+newmtl ext_disc
+# AC_SHADER ksBrakeDisc
+Ka 0.300000 0.300000 0.300000
+Kd 0.800000 0.800000 0.800000
+Ks 0.800000 0.800000 0.800000
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd DISC.dds
+map_Bump DISC_NM.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=DISC.dds
+# AC_RESOURCE slot=1 name=txNormal texture=DISC_NM.dds
+# AC_RESOURCE slot=2 name=txGlow texture=DISC_glow.dds
+# AC_RESOURCE slot=3 name=txBlur texture=DISC_BLUR.dds
+# AC_RESOURCE slot=4 name=txNormalBlur texture=DISC_BLUR_NM.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=3.0
+# AC_VAR fresnelMaxLevel=0.1
+# AC_VAR isAdditive=0.0
+
+newmtl EXHAUSTEMISSIVE
+# AC_SHADER ksPerPixelAT_NM_emissive
+Ka 0.200000 0.200000 0.200000
+Kd 0.100000 0.100000 0.100000
+Ks 0.100000 0.100000 0.100000
+Ns 200.000000
+d 1.000000
+illum 2
+map_Kd black.dds
+map_Bump FLAT_NM.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=black.dds
+# AC_RESOURCE slot=1 name=txNormal texture=FLAT_NM.dds
+# AC_RESOURCE slot=2 name=txEmissive texture=black_em.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.01
+# AC_VAR fresnelEXP=1.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR isAdditive=0.0
+
+newmtl EXT_BANNER
+# AC_SHADER ksPerPixelReflection
+Ka 0.800000 0.800000 0.800000
+Kd 0.500000 0.500000 0.500000
+Ks 0.800000 0.800000 0.800000
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd ext_banner.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=ext_banner.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.3
+# AC_VAR isAdditive=0.0
+
+newmtl DETAILS
+# AC_SHADER ksPerPixelReflection
+Ka 0.050876 0.050876 0.050876
+Kd 0.800000 0.800000 0.800000
+Ks 0.800000 0.800000 0.800000
+Ns 10.000000
+d 1.000000
+illum 2
+map_Kd 141.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=141.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR fresnelMaxLevel=0.0
+# AC_VAR isAdditive=0.0
+
+newmtl EXT_WINDOW
+# AC_SHADER ksPerPixelReflection
+Ka 0.500000 0.500000 0.500000
+Kd 0.500000 0.500000 0.500000
+Ks 5.000000 5.000000 5.000000
+Ns 450.000000
+d 1.000000
+illum 2
+map_Kd glass.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=glass.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=2.8
+# AC_VAR fresnelMaxLevel=0.7
+# AC_VAR isAdditive=0.0
+
+newmtl DECALS4
+# AC_SHADER ksPerPixelReflection
+Ka 0.400000 0.400000 0.400000
+Kd 0.500000 0.500000 0.500000
+Ks 0.800000 0.800000 0.800000
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd 01.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=01.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.1
+# AC_VAR isAdditive=0.0
+
+newmtl GLASS
+# AC_SHADER ksPerPixelReflection
+Ka 0.200000 0.200000 0.200000
+Kd 0.500000 0.500000 0.500000
+Ks 0.400000 0.400000 0.400000
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd Glass_and_lights_front.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=Glass_and_lights_front.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.2
+# AC_VAR isAdditive=0.0
+
+newmtl TAILGLASS
+# AC_SHADER ksPerPixelReflection
+Ka 0.200000 0.200000 0.200000
+Kd 0.100000 0.100000 0.100000
+Ks 0.100000 0.100000 0.100000
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd taillight_red.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=taillight_red.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.01
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.2
+# AC_VAR isAdditive=0.0
+
+newmtl GRID
+# AC_SHADER ksPerPixelAT_NM
+Ka 0.200000 0.200000 0.200000
+Kd 0.300000 0.300000 0.300000
+Ks 0.100000 0.100000 0.100000
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd Grid2_D.dds
+map_Bump Grid2_N.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=Grid2_D.dds
+# AC_RESOURCE slot=1 name=txNormal texture=Grid2_N.dds
+# AC_VAR ksEmissive=0.0
+
+newmtl HEATSHIELD
+# AC_SHADER ksPerPixelNM
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd seamlessgold.dds
+map_Bump aluminium_foil_n.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=seamlessgold.dds
+# AC_RESOURCE slot=1 name=txNormal texture=aluminium_foil_n.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.1
+# AC_VAR isAdditive=0.0
+
+newmtl Hose
+# AC_SHADER ksPerPixelNM
+Ka 0.180000 0.180000 0.180000
+Kd 0.300000 0.300000 0.300000
+Ks 0.300000 0.300000 0.300000
+Ns 200.000000
+d 1.000000
+illum 2
+map_Kd hose.dds
+map_Bump hose_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=hose.dds
+# AC_RESOURCE slot=1 name=txNormal texture=hose_nm.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.01
+# AC_VAR fresnelEXP=3.0
+# AC_VAR fresnelMaxLevel=0.1
+# AC_VAR isAdditive=0.0
+
+newmtl FRONTLIGHT
+# AC_SHADER ksPerPixelAT_NM_emissive
+Ka 0.400000 0.400000 0.400000
+Kd 0.800000 0.800000 0.800000
+Ks 0.800000 0.800000 0.800000
+Ns 10.000000
+d 1.000000
+illum 2
+map_Kd frontlight.dds
+map_Bump FLAT_NM.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=frontlight.dds
+# AC_RESOURCE slot=1 name=txNormal texture=FLAT_NM.dds
+# AC_RESOURCE slot=2 name=txEmissive texture=frontlight_em.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=2.0
+# AC_VAR fresnelMaxLevel=1.0
+# AC_VAR isAdditive=0.0
+
+newmtl TAILLIGHT
+# AC_SHADER ksPerPixelAT_NM_emissive
+Ka 0.300000 0.300000 0.300000
+Kd 0.800000 0.800000 0.800000
+Ks 0.800000 0.800000 0.800000
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd turnlight.dds
+map_Bump FLAT_NM.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=turnlight.dds
+# AC_RESOURCE slot=1 name=txNormal texture=FLAT_NM.dds
+# AC_RESOURCE slot=2 name=txEmissive texture=turnlight_em.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.01
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR isAdditive=0.0
+
+newmtl INT_BANNER
+# AC_SHADER ksPerPixel
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd ext_banner.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=ext_banner.dds
+# AC_VAR ksEmissive=0.0
+
+newmtl Radiators
+# AC_SHADER ksPerPixelNM
+Ka 0.050876 0.050876 0.050876
+Kd 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ns 10.000000
+d 1.000000
+illum 2
+map_Kd radiator.dds
+map_Bump radiator_NM.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=radiator.dds
+# AC_RESOURCE slot=1 name=txNormal texture=radiator_NM.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.0
+# AC_VAR fresnelEXP=0.0
+# AC_VAR fresnelMaxLevel=0.0
+# AC_VAR isAdditive=0.0
+
+newmtl ext_decals
+# AC_SHADER ksPerPixelAT_NM
+Ka 0.300000 0.300000 0.300000
+Kd 0.800000 0.800000 0.800000
+Ks 0.800000 0.800000 0.800000
+Ns 10.000000
+d 1.000000
+illum 2
+map_Kd EXT_Decals_Colour.dds
+map_Bump EXT_Decals_NM.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=EXT_Decals_Colour.dds
+# AC_RESOURCE slot=1 name=txNormal texture=EXT_Decals_NM.dds
+# AC_VAR ksEmissive=0.0
+
+newmtl ext_mechanics
+# AC_SHADER ksPerPixelMultiMap
+Ka 0.200000 0.200000 0.200000
+Kd 0.800000 0.800000 0.800000
+Ks 0.100000 0.100000 0.100000
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd EXT_Mechanics_AO.dds
+map_Bump FLAT_NM.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=EXT_Mechanics_AO.dds
+# AC_RESOURCE slot=1 name=txNormal texture=FLAT_NM.dds
+# AC_RESOURCE slot=2 name=txMaps texture=EXT_Mechanics_MAP.dds
+# AC_RESOURCE slot=3 name=txDetail texture=EXT_Mechanics_Colour.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=3.0
+# AC_VAR fresnelMaxLevel=0.1
+# AC_VAR isAdditive=0.0
+
+newmtl cloth
+# AC_SHADER ksPerPixelNM
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 1.000000 1.000000 1.000000
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd taillight_red.dds
+map_Bump alcnt_nm.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=taillight_red.dds
+# AC_RESOURCE slot=1 name=txNormal texture=alcnt_nm.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.01
+# AC_VAR fresnelEXP=1.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR isAdditive=0.0
+
+newmtl EXT_RIM
+# AC_SHADER ksPerPixelReflection
+Ka 0.500000 0.500000 0.500000
+Kd 0.800000 0.800000 0.800000
+Ks 0.800000 0.800000 0.800000
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd EXT_Rim_Colour.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=EXT_Rim_Colour.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.1
+# AC_VAR fresnelEXP=5.0
+# AC_VAR fresnelMaxLevel=0.1
+# AC_VAR isAdditive=0.0
+
+newmtl Tyre
+# AC_SHADER ksTyres
+Ka 0.300000 0.300000 0.300000
+Kd 0.100000 0.100000 0.100000
+Ks 0.800000 0.800000 0.800000
+Ns 120.000000
+d 1.000000
+illum 2
+map_Kd Tyre_Dry_Colour.dds
+map_Bump Tyre_Dry_NM.dds
+# AC_RESOURCE slot=0 name=txDiffuse texture=Tyre_Dry_Colour.dds
+# AC_RESOURCE slot=1 name=txNormal texture=Tyre_Dry_NM.dds
+# AC_RESOURCE slot=2 name=txDirty texture=Tyre_Dry_Dirt.dds
+# AC_RESOURCE slot=3 name=txBlur texture=Tyre_Dry_Colour_Blur.dds
+# AC_RESOURCE slot=4 name=txNormalBlur texture=Tyre_Dry_Blur_NM.dds
+# AC_VAR ksEmissive=0.0
+# AC_VAR fresnelC=0.01
+# AC_VAR fresnelEXP=3.0
+# AC_VAR fresnelMaxLevel=0.01
+# AC_VAR isAdditive=0.0

@@ -61,8 +61,8 @@
     }
 
     void Camera::CycleCameraMode() {
-        m_currentMode = static_cast<CameraMode>((static_cast<int>(m_currentMode) + 1) % 4);
-        const char* modeNames[] = { "FREE ROAM", "CHASE", "ROOF", "BUMPER" };
+        m_currentMode = static_cast<CameraMode>((static_cast<int>(m_currentMode) + 1) % 5);
+        const char* modeNames[] = { "FREE ROAM", "CHASE", "ROOF", "BUMPER", "COCKPIT"};
         switch (m_currentMode) {
         case CameraMode::CHASE:
             height = m_camera.chaseHeight; distance = m_camera.chaseDistance; pitchDeg = m_camera.chasePitchDeg;
@@ -72,6 +72,9 @@
             break;
         case CameraMode::BUMPER:
             height = m_camera.bumperHeight; distance = m_camera.bumperDistance;  pitchDeg = m_camera.bumperPitchDeg;
+            break;        
+        case CameraMode::COCKPIT:
+            height = m_camera.cockpitHeight; distance = m_camera.cockpitDistance;  pitchDeg = m_camera.cockpitPitchDeg;
             break;
         }
     }
@@ -111,14 +114,30 @@
         }
 
         if (m_currentMode == CameraMode::FREE_ROAM) {
-            if (GetAsyncKeyState(VK_LSHIFT))  m_moveSpeed +=  deltaTime * 5.0f;
+           
+
+            static bool shiftWasDown = false;
+            static bool slowMode = false;
+
+            bool shiftDown = (GetAsyncKeyState(VK_LSHIFT) & 0x8000) != 0;
+
+            if (shiftDown && !shiftWasDown)
+            {
+                slowMode = !slowMode;
+            }
+
+            shiftWasDown = shiftDown;
+
+            m_moveSpeed = slowMode ? 0.5f : 5.0f;
+
+
             if (GetAsyncKeyState('W')) m_posVector += lookDir * m_moveSpeed * deltaTime;
             if (GetAsyncKeyState('S')) m_posVector -= lookDir * m_moveSpeed * deltaTime;
             if (GetAsyncKeyState('A')) m_posVector -= rightDir * m_moveSpeed * deltaTime;
             if (GetAsyncKeyState('D')) m_posVector += rightDir * m_moveSpeed * deltaTime;
 
             if (GetAsyncKeyState(VK_SPACE) && XMVectorGetY(m_posVector) <= groundLevel + 0.01f) {
-                yVelocity = 245.0f; // Jump strength
+                yVelocity = 2.0f; // Jump strength
             }
 
             if (XMVectorGetY(m_posVector) > groundLevel || yVelocity > 0) {
@@ -141,6 +160,7 @@
             XMMATRIX mCarRot = m_targetModel->GetModelRotation();
             XMVECTOR vCarPos = XMLoadFloat3(&carPos);
             XMVECTOR vCarForward = mCarRot.r[2]; // Row 2 is typically Forward in DX
+            XMVECTOR vCarRight = mCarRot.r[0];
             vCarUp = mCarRot.r[1];      // Row 1 is Up
       
 
@@ -162,18 +182,76 @@
                 vLookAt = vCarPos + (vCarForward * (5.0f * lookDirection));
                 m_posVector = XMVectorLerp(m_posVector, targetPos, 75.0f * deltaTime);
                 break;
+
             case CameraMode::BUMPER:
-                targetFOV = XMConvertToRadians(52.0f); // Slightly wider
+                targetFOV = XMConvertToRadians(52.0f);
                 vLookAt = vCarPos + (vCarForward * (5.0f * lookDirection));
                 break;
+            case CameraMode::COCKPIT:
+            {
+                targetFOV = XMConvertToRadians(62.0f);
+
+                // Flatten forward so acceleration/braking pitch
+                // doesn't move the cockpit camera backwards/forwards.
+                XMVECTOR flatForward = XMVectorSet(
+                    XMVectorGetX(vCarForward),
+                    0.0f,
+                    XMVectorGetZ(vCarForward),
+                    0.0f
+                );
+
+                flatForward = XMVector3Normalize(flatForward);
+
+                // Same idea for right: keep it horizontal.
+                XMVECTOR flatRight = XMVectorSet(
+                    XMVectorGetX(vCarRight),
+                    0.0f,
+                    XMVectorGetZ(vCarRight),
+                    0.0f
+                );
+
+                flatRight = XMVector3Normalize(flatRight);
+
+                XMVECTOR worldUp = XMVectorSet(0, 1, 0, 0);
+
+                targetPos =
+                    vCarPos
+                    + flatForward * (distance / 4.0f)
+                    + worldUp * height
+
+                    // Per-car cockpit adjustment:
+                    + flatRight * m_camera.cockpitOffsetX
+                    + worldUp * m_camera.cockpitOffsetY
+                    + flatForward * m_camera.cockpitOffsetZ;
+
+                // HARD LOCK. NO CAMERA LERP.
+                m_posVector = targetPos;
+
+                vLookAt =
+                    m_posVector
+                    + flatForward * 10.0f;
+
+                smoothedUp = worldUp;
+
+                break;
+            }
+            }
+
+            if (m_currentMode != CameraMode::COCKPIT)
+            {
+                m_posVector = XMVectorLerp(
+                    m_posVector,
+                    targetPos,
+                    lerpFactor * deltaTime
+                );
             }
 
 
-            m_posVector = XMVectorLerp(m_posVector, targetPos, lerpFactor * deltaTime);
             m_pitch = m_isLookingBack ? 0.0f : XMConvertToRadians(pitchDeg);
             m_yaw = 0.0f;
 
         }
+
        else {
             // Fallback: Just in case there's no model and not in Free Roam
             vLookAt = m_posVector + lookDir;

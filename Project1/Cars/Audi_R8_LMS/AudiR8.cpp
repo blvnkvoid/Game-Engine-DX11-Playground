@@ -141,7 +141,7 @@ VehicleDefinition R8::CreateDefinition()
     car.rearTyres.wheelRadius = 0.345f;
     car.rearTyres.rearWheelInertia = 1.95f;
 
-    car.audio.basePath = "C:\\Users\\Void\\Documents\\GitHub\\Game-Engine\\Project1\\Cars\\Audi_R8_LMS\\sounds\\";
+    car.audio.basePath = "C:\\Users\\Void\\Documents\\GitHub\\Game-Engine-DX11-Playground\\Project1\\Cars\\Audi_R8_LMS\\sounds\\";
 
     car.audio.idle = "idle_1372.wav";
 
@@ -191,6 +191,13 @@ CameraDefinition R8::CreateCameraDefinition()
     camera.bumperDistance = 4.5f;
     camera.bumperPitchDeg = 5.0f;
 
+    camera.cockpitHeight = 0.3f;
+    camera.cockpitDistance = -0.8f;
+    camera.cockpitPitchDeg = 5.0f;
+
+    camera.cockpitOffsetX = -0.3f;
+    camera.cockpitOffsetY = 0.0f;
+    camera.cockpitOffsetZ = 0.0f;
 
     return camera;
 }

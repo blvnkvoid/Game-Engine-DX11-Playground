@@ -1,352 +1,422 @@
-# Blender 5.1.1 MTL File: 'None'
-# www.blender.org
-
-newmtl _gtrlodagrille1
-Ns 300.000031
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/grille1_alpha.dds
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/grille1_alpha.dds
-
-newmtl _nsx-cockpitdigital_gauge
-Ns 300.000031
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
-
-newmtl _nsx-lodainterior
-Ns 200.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/nodamage.dds
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/nodamage.dds
-
-newmtl _nsx-lodarubber_trim
-Ns 180.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/nodamage_lod0.dds
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/nodamage_lod0.dds
-
-newmtl _wheelblur_rim
-Ns 300.000031
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/wheel1.dds
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/wheel1.dds
-
-newmtl _wheelrim
-Ns 300.000031
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/wheel.dds
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/wheel.dds
-
-newmtl black
-Ns 200.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/nodamage_lod0.dds
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/nodamage_lod0.dds
-
-newmtl black_glass
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/COMMON_GLASS_BLACK.DDS
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/COMMON_GLASS_BLACK.DDS
-
-newmtl body
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/nodamage_lod0.dds
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/nodamage_lod0.dds
+# NSX JGTC material library
+# Generated from nsx.fbx.ini
 
 newmtl brakes
-Ns 300.000031
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/rotor0.dds
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/rotor0.dds
-
-newmtl chrome
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/COMMON_CHROME.DDS
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/COMMON_CHROME.DDS
-
-newmtl cockpit_carbon_fiber
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/COMMON_CARBON3_BLACK_DIFFUSE.DDS
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/COMMON_CARBON3_BLACK_DIFFUSE.DDS
-
-newmtl cockpitbadge
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
-
-newmtl cockpitbump_stitching
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
-
-newmtl cockpitmatte_colors
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
-
-newmtl cockpitmetal
-Ns 200.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
-
-newmtl cockpitmottled
-Ns 60.000008
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/alcantara_black.dds
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/alcantara_black.dds
-
-newmtl cockpitplastic
-Ns 50.000011
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
-
-newmtl cockpitplasticnm
-Ns 79.999985
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/COMMON_DASH_PLASTIC01_DIFFUSE.DDS
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/COMMON_DASH_PLASTIC01_DIFFUSE.DDS
-
-newmtl cockpitreflector
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
-
-newmtl cockpitrubber
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
-
-newmtl cockpitsolid
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/interior_lod0.dds
-
-newmtl emblem
-Ns 399.999969
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/nodamage_lod0.dds
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/nodamage_lod0.dds
-
-newmtl frame
-Ns 200.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/bumper_frame.dds
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/bumper_frame.dds
-
-newmtl glass
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/glass.dds
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/glass.dds
-
-newmtl glass_interior
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/windows_inside.dds
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/windows_inside.dds
-
-newmtl led_red
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/dash_mfd_redlight_on.dds
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/dash_mfd_redlight_on.dds
-
-newmtl matte_colors
-Ns 70.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/nodamage_lod0.dds
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/nodamage_lod0.dds
-
-newmtl mirror
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.600000 0.600000 0.600000
+Ns 30.000000
 Ni 1.500000
 d 1.000000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/MIRROR_PLACEMENT.png
+illum 2
+map_Kd rotor0.dds
+# AC shader: ksPerPixel
+# AC alpha blend: 0
 
-newmtl plastic2
-Ns 300.000031
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
+newmtl _wheelrim
+Ka 0.100000 0.100000 0.100000
+Kd 0.150000 0.150000 0.150000
+Ks 0.800000 0.800000 0.800000
+Ns 30.000000
 Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/nodamage_lod0.dds
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/nodamage_lod0.dds
+d 1.000000
+illum 2
+map_Kd wheel.dds
+# AC shader: ksPerPixelSimpleRefl
+# AC alpha blend: 0
 
-newmtl textured_reflector
-Ns 200.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
+newmtl _wheelblur_rim
+Ka 0.400000 0.400000 0.400000
+Kd 0.400000 0.400000 0.400000
+Ks 1.200000 1.200000 1.200000
+Ns 30.000000
 Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/lights_lod0.dds
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/lights_lod0.dds
-
-newmtl textured_reflector_opaque
-Ns 300.000031
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/lights_lod0.dds
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/lights_lod0.dds
+d 1.000000
+illum 2
+map_Kd wheel1.dds
+# AC shader: ksPerPixel
+# AC alpha blend: 1
 
 newmtl tyre_fx
-Ns 600.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
+Ka 0.200000 0.200000 0.200000
+Kd 0.300000 0.300000 0.300000
+Ks 0.400000 0.400000 0.400000
+Ns 60.000000
 Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/tyre_d2.dds
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/tyre_d2.dds
+d 1.000000
+illum 2
+map_Kd tyre_d2.dds
+# AC shader: ksTyres
+# AC alpha blend: 0
+
+newmtl _nsx-lodainterior
+Ka 0.400000 0.400000 0.400000
+Kd 0.400000 0.400000 0.400000
+Ks 0.500000 0.500000 0.500000
+Ns 20.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd nodamage.dds
+# AC shader: ksPerPixel
+# AC alpha blend: 0
+
+newmtl black
+Ka 0.100000 0.100000 0.100000
+Kd 0.100000 0.100000 0.100000
+Ks 0.200000 0.200000 0.200000
+Ns 20.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd nodamage_lod0.dds
+# AC shader: ksPerPixel
+# AC alpha blend: 0
+
+newmtl black_glass
+Ka 0.500000 0.500000 0.500000
+Kd 0.500000 0.500000 0.500000
+Ks 0.800000 0.800000 0.800000
+Ns 100.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd COMMON_GLASS_BLACK.DDS
+# AC shader: ksPerPixelSimpleRefl
+# AC alpha blend: 0
+
+newmtl body
+Ka 0.400000 0.400000 0.400000
+Kd 0.450000 0.450000 0.450000
+Ks 0.800000 0.800000 0.800000
+Ns 400.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd nodamage_lod0.dds
+# AC shader: ksPerPixelMultiMap
+# AC alpha blend: 0
+
+newmtl chrome
+Ka 0.400000 0.400000 0.400000
+Kd 0.400000 0.400000 0.400000
+Ks 0.800000 0.800000 0.800000
+Ns 225.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd COMMON_CHROME.DDS
+# AC shader: ksPerPixelReflection
+# AC alpha blend: 0
+
+newmtl frame
+Ka 0.500000 0.500000 0.500000
+Kd 0.500000 0.500000 0.500000
+Ks 0.500000 0.500000 0.500000
+Ns 20.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd bumper_frame.dds
+# AC shader: ksPerPixel
+# AC alpha blend: 0
+
+newmtl _gtrlodagrille1
+Ka 0.600000 0.600000 0.600000
+Kd 1.000000 1.000000 1.000000
+Ks 0.100000 0.100000 0.100000
+Ns 30.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd grille1_alpha.dds
+# AC shader: ksPerPixel
+# AC alpha blend: 0
+
+newmtl textured_reflector_opaque
+Ka 0.500000 0.500000 0.500000
+Kd 0.500000 0.500000 0.500000
+Ks 0.600000 0.600000 0.600000
+Ns 30.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd lights_lod0.dds
+# AC shader: ksPerPixel
+# AC alpha blend: 0
+
+newmtl textured_reflector
+Ka 0.400000 0.400000 0.400000
+Kd 0.600000 0.600000 0.600000
+Ks 0.600000 0.600000 0.600000
+Ns 20.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd lights_lod0.dds
+# AC shader: ksPerPixelSimpleRefl
+# AC alpha blend: 1
+
+newmtl matte_colors
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.050000 0.050000 0.050000
+Ns 7.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd nodamage_lod0.dds
+# AC shader: ksPerPixel
+# AC alpha blend: 0
+
+newmtl _nsx-lodarubber_trim
+Ka 0.400000 0.400000 0.400000
+Kd 0.400000 0.400000 0.400000
+Ks 0.100000 0.100000 0.100000
+Ns 18.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd nodamage_lod0.dds
+# AC shader: ksPerPixel
+# AC alpha blend: 0
+
+newmtl plastic2
+Ka 0.400000 0.400000 0.400000
+Kd 0.400000 0.400000 0.400000
+Ks 0.100000 0.100000 0.100000
+Ns 30.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd nodamage_lod0.dds
+# AC shader: ksPerPixel
+# AC alpha blend: 0
+
+newmtl glass
+Ka 0.500000 0.500000 0.500000
+Kd 0.500000 0.500000 0.500000
+Ks 0.800000 0.800000 0.800000
+Ns 200.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd glass.dds
+# AC shader: ksPerPixelReflection
+# AC alpha blend: 1
+
+newmtl mirror
+Ka 0.317647 0.317647 0.317647
+Kd 0.317647 0.317647 0.317647
+Ks 0.900000 0.900000 0.900000
+Ns 10.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd MIRROR_PLACEMENT.png
+# AC shader: ksPerPixel
+# AC alpha blend: 0
 
 newmtl undercarriage
-Ns 100.000015
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
+Ka 0.501961 0.501961 0.501961
+Kd 0.501961 0.501961 0.501961
+Ks 0.100000 0.100000 0.100000
+Ns 10.000000
 Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/undercarriage.dds
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/undercarriage.dds
+d 1.000000
+illum 2
+map_Kd undercarriage.dds
+# AC shader: ksPerPixel
+# AC alpha blend: 0
+
+newmtl cockpitmatte_colors
+Ka 0.215686 0.215686 0.215686
+Kd 0.215686 0.215686 0.215686
+Ks 0.900000 0.900000 0.900000
+Ns 10.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd interior_lod0.dds
+# AC shader: ksPerPixel
+# AC alpha blend: 0
+
+newmtl cockpitbadge
+Ka 0.643137 0.643137 0.643137
+Kd 0.643137 0.643137 0.643137
+Ks 0.900000 0.900000 0.900000
+Ns 10.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd interior_lod0.dds
+# AC shader: ksPerPixel
+# AC alpha blend: 1
+
+newmtl cockpit_carbon_fiber
+Ka 0.600000 0.600000 0.600000
+Kd 0.600000 0.600000 0.600000
+Ks 1.000000 1.000000 1.000000
+Ns 100.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd COMMON_CARBON3_BLACK_DIFFUSE.DDS
+# AC shader: ksPerPixelSimpleRefl
+# AC alpha blend: 0
+
+newmtl cockpitmetal
+Ka 0.200000 0.200000 0.200000
+Kd 0.300000 0.300000 0.300000
+Ks 0.500000 0.500000 0.500000
+Ns 20.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd interior_lod0.dds
+# AC shader: ksPerPixelSimpleRefl
+# AC alpha blend: 0
+
+newmtl cockpitplastic
+Ka 0.300000 0.300000 0.300000
+Kd 0.400000 0.400000 0.400000
+Ks 0.100000 0.100000 0.100000
+Ns 5.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd interior_lod0.dds
+# AC shader: ksPerPixel
+# AC alpha blend: 0
+
+newmtl cockpitreflector
+Ka 0.694118 0.694118 0.694118
+Kd 0.694118 0.694118 0.694118
+Ks 0.900000 0.900000 0.900000
+Ns 10.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd interior_lod0.dds
+# AC shader: ksPerPixel
+# AC alpha blend: 0
+
+newmtl cockpitrubber
+Ka 0.631373 0.631373 0.631373
+Kd 0.631373 0.631373 0.631373
+Ks 0.900000 0.900000 0.900000
+Ns 10.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd interior_lod0.dds
+# AC shader: ksPerPixel
+# AC alpha blend: 0
+
+newmtl cockpitsolid
+Ka 0.329412 0.329412 0.329412
+Kd 0.329412 0.329412 0.329412
+Ks 0.400000 0.400000 0.400000
+Ns 10.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd interior_lod0.dds
+# AC shader: ksPerPixel
+# AC alpha blend: 0
+
+newmtl glass_interior
+Ka 1.000000 1.000000 1.000000
+Kd 0.200000 0.200000 0.200000
+Ks 0.900000 0.900000 0.900000
+Ns 10.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd windows_inside.dds
+# AC shader: ksWindscreen
+# AC alpha blend: 1
+
+newmtl cockpitmottled
+Ka 0.750000 0.750000 0.750000
+Kd 0.750000 0.750000 0.750000
+Ks 0.600000 0.600000 0.600000
+Ns 6.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd alcantara_black.dds
+# AC shader: ksPerPixelNM
+# AC alpha blend: 0
+
+newmtl cockpitplasticnm
+Ka 0.150000 0.150000 0.150000
+Kd 0.200000 0.200000 0.200000
+Ks 0.180000 0.180000 0.180000
+Ns 8.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd COMMON_DASH_PLASTIC01_DIFFUSE.DDS
+# AC shader: ksPerPixelNM
+# AC alpha blend: 0
+
+newmtl led_red
+Ka 0.500000 0.500000 0.500000
+Kd 0.500000 0.500000 0.500000
+Ks 0.900000 0.900000 0.900000
+Ns 10.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd dash_mfd_redlight_on.dds
+# AC shader: ksPerPixel
+# AC alpha blend: 0
+
+newmtl cockpitbump_stitching
+Ka 0.600000 0.600000 0.600000
+Kd 0.600000 0.600000 0.600000
+Ks 0.900000 0.900000 0.900000
+Ns 10.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd interior_lod0.dds
+# AC shader: ksPerPixel
+# AC alpha blend: 1
+
+newmtl _nsx-cockpitdigital_gauge
+Ka 0.500000 0.500000 0.500000
+Kd 0.500000 0.500000 0.500000
+Ks 0.400000 0.400000 0.400000
+Ns 30.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd interior_lod0.dds
+# AC shader: ksPerPixel
+# AC alpha blend: 0
+
+newmtl emblem
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.500000 0.500000 0.500000
+Ns 40.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd nodamage_lod0.dds
+# AC shader: ksPerPixelReflection
+# AC alpha blend: 0
 
 newmtl weatherstrip
-Ns 79.999985
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
+Ka 0.500000 0.500000 0.500000
+Kd 0.500000 0.500000 0.500000
+Ks 0.050000 0.050000 0.050000
+Ns 8.000000
 Ni 1.500000
-illum 3
-map_Kd C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/nodamage_lod0.dds
-map_d C:/Users/Void/Downloads/CARS/Honda Arta NSX JGTC 2000/unp_nsx.kn5/texture/nodamage_lod0.dds
+d 1.000000
+illum 2
+map_Kd nodamage_lod0.dds
+# AC shader: ksPerPixel
+# AC alpha blend: 0
