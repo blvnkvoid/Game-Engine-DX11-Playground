@@ -70,6 +70,24 @@ void MaterialLoader::LoadMaterial(const std::string& filename, const std::string
             else
                 m_materialLib[currentMatName].detailTextureName =
                 fullPath;
+        }          
+        
+        else if (prefix == "map_Maps")
+        {
+            std::string fullPath;
+            std::getline(ss, fullPath);
+
+            while (!fullPath.empty() && fullPath[0] == ' ')
+                fullPath.erase(fullPath.begin());
+
+            size_t lastSlash = fullPath.find_last_of("/\\");
+
+            if (lastSlash != std::string::npos)
+                m_materialLib[currentMatName].mapsTextureName =
+                fullPath.substr(lastSlash + 1);
+            else
+                m_materialLib[currentMatName].mapsTextureName =
+                fullPath;
         }        
         
         else if (prefix == "map_NormalDetail")

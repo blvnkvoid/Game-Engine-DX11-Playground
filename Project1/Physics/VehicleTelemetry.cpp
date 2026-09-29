@@ -9,7 +9,7 @@ void VehicleTelemetry::Draw(bool* p_open, Camera* cam, Model* playerModel, MapLo
 
     if (m_font) ImGui::PushFont(m_font);
 
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < 4; i++) {
         m_displaySlipRatio[i] = m_slipRatioAvg[i].AddSample(g_DebugTelemetry.slipRatio[i]);
         m_displayWheelLoad[i] = m_wheelLoadAvg[i].AddSample(g_DebugTelemetry.wheelLoad[i]);
         m_displaywheelLoadSmoothed[i] = m_wheelLoadSmoothed[i].AddSample(g_DebugTelemetry.wheelLoadSmoothed[i]);

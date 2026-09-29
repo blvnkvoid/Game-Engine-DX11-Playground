@@ -26,6 +26,8 @@ struct MeshSubset {
     std::string detailTextureName;
     ID3D11ShaderResourceView* normalDetailTexture = nullptr;
     std::string normalDetailTextureName;
+    ID3D11ShaderResourceView* mapsTexture = nullptr;
+    std::string mapsTextureName;
 };
 
 class Model {
@@ -53,12 +55,14 @@ public:
     void ResolveMaterialTextures(TextureManager* textureManager, ID3D11DeviceContext* context, const std::wstring& textureFolder);
     float DetectMaterialType(const std::string& matName, const MaterialData& mat);
     void CreateFlatNormalTexture(ID3D11Device* device);
+    void CreateDefaultMapsTexture(ID3D11Device* device);
 
 private:
     UINT index_count;
     std::vector<MeshSubset> m_subsets;
     Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_textureRV;    
     Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_flatNormalRV;
+    Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_mapsTextureRV;
     DirectX::XMMATRIX m_rotationMatrix = DirectX::XMMatrixIdentity();
     DirectX::XMFLOAT3 modelposition = { 0.0f, 0.0f, 0.0f };
 };

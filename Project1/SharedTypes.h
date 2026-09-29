@@ -35,6 +35,7 @@ struct MaterialData
     std::string normalTextureName;
     std::string detailTextureName;
     std::string normalDetailTextureName;
+    std::string mapsTextureName;
 };
 
 

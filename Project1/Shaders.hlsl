@@ -97,6 +97,7 @@ Texture2D shadowMap : register(t2);
 Texture2D normalTexture : register(t3);
 Texture2D detailTexture : register(t4);
 Texture2D normalDetailTexture : register(t5);
+Texture2D mapsTexture : register(t6);
 SamplerState samplerLinear : register(s0);
 SamplerComparisonState shadowComparisonSampler : register(s1);
 
@@ -912,6 +913,21 @@ float4 PS(PS_INPUT input) : SV_Target
             input.texCoord
         );
 
+    float alphaMask = texColor.a;
+
+    float diffuseMask = texColor.r;
+
+
+    //float AO = mapsTexture.Sample(samplerLinear, input.texCoord).g;
+
+    float AO =
+        mapsTexture.Sample(
+            samplerLinear,
+            input.texCoord
+        ).r;
+
+
+    //return float4(mapsG, mapsG, mapsG, 1.0f);
 
     float4 detailSample =
         detailTexture.Sample(
@@ -1239,8 +1255,10 @@ float4 PS(PS_INPUT input) : SV_Target
             dot(N, L)
         );
 
-    float3 baseColor =
-        texColor.rgb;
+    //float3 baseColor = texColor.rgb;
+
+    float3 baseColor = material.diffuseColor.rgb; //* diffuseMask * alphaMask;
+
 
     if (length(material.diffuseColor) >= 0.01f)
     {
@@ -1255,6 +1273,8 @@ float4 PS(PS_INPUT input) : SV_Target
         baseColor *
        ambientIntensity *
         modelAmbientMultiplier;
+
+    ambient *= AO;    
 
     // Direct sunlight is blocked by Hannah.
     float3 diffuse =

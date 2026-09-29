@@ -47,6 +47,11 @@ bool Model::LoadOBJ(const std::string& mtlFile, const std::string& objFile, ID3D
         CreateFlatNormalTexture(device);
     }
 
+    if (!m_mapsTextureRV)
+    {
+        CreateDefaultMapsTexture(device);
+    }
+
     std::string line;
 
 
@@ -101,6 +106,7 @@ bool Model::LoadOBJ(const std::string& mtlFile, const std::string& objFile, ID3D
                 newSubset.normalTextureName = mat.normalTextureName;
                 newSubset.detailTextureName = mat.detailTextureName;
                 newSubset.normalDetailTextureName = mat.normalDetailTextureName;
+                newSubset.mapsTextureName = mat.mapsTextureName;
 
                 
 
@@ -333,6 +339,45 @@ bool Model::LoadOBJ(const std::string& mtlFile, const std::string& objFile, ID3D
     return true;
 }
 
+void Model::CreateDefaultMapsTexture(ID3D11Device* device)
+{
+    const uint32_t pixel = 0xFFFFFFFF; // RGBA = 1,1,1,1
+
+    D3D11_TEXTURE2D_DESC textureDesc = {};
+    textureDesc.Width = 1;
+    textureDesc.Height = 1;
+    textureDesc.MipLevels = 1;
+    textureDesc.ArraySize = 1;
+    textureDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+    textureDesc.SampleDesc.Count = 1;
+    textureDesc.Usage = D3D11_USAGE_IMMUTABLE;
+    textureDesc.BindFlags = D3D11_BIND_SHADER_RESOURCE;
+
+    D3D11_SUBRESOURCE_DATA initialData = {};
+    initialData.pSysMem = &pixel;
+    initialData.SysMemPitch = sizeof(uint32_t);
+
+    Microsoft::WRL::ComPtr<ID3D11Texture2D> texture;
+
+    HRESULT hr = device->CreateTexture2D(
+        &textureDesc,
+        &initialData,
+        &texture
+    );
+
+    if (FAILED(hr))
+        return;
+
+    hr = device->CreateShaderResourceView(
+        texture.Get(),
+        nullptr,
+        &m_mapsTextureRV
+    );
+
+    if (FAILED(hr))
+        m_mapsTextureRV.Reset();
+}
+
 
 
 void Model::ResolveMaterialTextures(
@@ -380,6 +425,19 @@ void Model::ResolveMaterialTextures(
                 textureFolder + textureName;
 
             subset.detailTexture =
+                textureManager->GetTexture(fullPath, context);
+        }         
+        
+        if (!subset.mapsTextureName.empty())
+        {
+            std::wstring textureName(
+                subset.mapsTextureName.begin(),
+                subset.mapsTextureName.end());
+
+            std::wstring fullPath =
+                textureFolder + textureName;
+
+            subset.mapsTexture =
                 textureManager->GetTexture(fullPath, context);
         }       
         
@@ -621,6 +679,17 @@ void Model::BindAndDraw(
         context->PSSetShaderResources(
             5, 1,
             &normalDetailSRV);
+
+
+        ID3D11ShaderResourceView* mapsSRV =
+            subset.mapsTexture
+            ? subset.mapsTexture
+            : m_mapsTextureRV.Get();
+
+        context->PSSetShaderResources(
+            6, 1,
+            &mapsSRV);
+
 
 
         context->DrawIndexed(
