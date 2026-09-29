@@ -123,10 +123,10 @@
     <ClCompile Include="Graphics\MapLoader.cpp">
       <Filter>Source Files\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="Graphics\MaterialLoader.cpp">
+    <ClCompile Include="Graphics\MaterialParser.cpp">
       <Filter>Source Files\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="Graphics\Model.cpp">
+    <ClCompile Include="Graphics\CarLoader.cpp">
       <Filter>Source Files\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\TextureManager.cpp">
@@ -249,6 +249,9 @@
     <ClCompile Include="UI\GranTurismoMode.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
+    <ClCompile Include="Graphics\SharedMaterialLoader.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SharedTypes.h">
@@ -326,10 +329,10 @@
     <ClInclude Include="Graphics\MapLoader.h">
       <Filter>Source Files\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="Graphics\MaterialLoader.h">
+    <ClInclude Include="Graphics\MaterialParser.h">
       <Filter>Source Files\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="Graphics\Model.h">
+    <ClInclude Include="Graphics\CarLoader.h">
       <Filter>Source Files\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\TextureManager.h">
@@ -478,6 +481,9 @@
     </ClInclude>
     <ClInclude Include="UI\GranTurismoMode.h">
       <Filter>Source Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\SharedMaterialLoader.h">
+      <Filter>Source Files\Graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

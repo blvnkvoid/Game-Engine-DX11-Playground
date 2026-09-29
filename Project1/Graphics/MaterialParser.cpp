@@ -1,11 +1,15 @@
-#include "MaterialLoader.h"
+#include "MaterialParser.h"
 #include "Model.h"
 
-MaterialLoader::MaterialLoader()
+#include <fstream>
+#include <sstream>
+#include <string>
+
+MaterialParser::MaterialParser()
 {
 
 }
-void MaterialLoader::LoadMaterial(const std::string& filename, const std::string& targetName, std::map<std::string, MaterialData>& m_materialLib) {
+void MaterialParser::LoadMaterial(const std::string& filename, const std::string& targetName, std::map<std::string, MaterialData>& m_materialLib) {
     std::ifstream file(filename);
     if (!file.is_open()) return;
     std::string line;

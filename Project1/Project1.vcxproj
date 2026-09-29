@@ -180,8 +180,9 @@
     <ClCompile Include="Events\RaceGrid.cpp" />
     <ClCompile Include="Graphics\GraphicsEngine.cpp" />
     <ClCompile Include="Graphics\MapLoader.cpp" />
-    <ClCompile Include="Graphics\MaterialLoader.cpp" />
-    <ClCompile Include="Graphics\Model.cpp" />
+    <ClCompile Include="Graphics\MaterialParser.cpp" />
+    <ClCompile Include="Graphics\CarLoader.cpp" />
+    <ClCompile Include="Graphics\SharedMaterialLoader.cpp" />
     <ClCompile Include="Graphics\TextureManager.cpp" />
     <ClCompile Include="Imgui\imgui.cpp" />
     <ClCompile Include="Imgui\imgui_demo.cpp" />
@@ -253,8 +254,9 @@
     <ClInclude Include="Graphics\GraphicsEngine.h" />
     <ClInclude Include="Graphics\MapLoader.h" />
     <ClInclude Include="Graphics\MaterialClassifier.h" />
-    <ClInclude Include="Graphics\MaterialLoader.h" />
-    <ClInclude Include="Graphics\Model.h" />
+    <ClInclude Include="Graphics\MaterialParser.h" />
+    <ClInclude Include="Graphics\CarLoader.h" />
+    <ClInclude Include="Graphics\SharedMaterialLoader.h" />
     <ClInclude Include="Graphics\TextureManager.h" />
     <ClInclude Include="Input\Input.h" />
     <ClInclude Include="LogitechSteeringWheelLib.h" />

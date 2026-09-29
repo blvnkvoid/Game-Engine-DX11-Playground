@@ -1,12 +1,12 @@
 #pragma once
 
 
-#include "../Graphics/Model.h"
+#include "../Graphics/CarLoader.h"
 
 class alignas(16) GameObject {
 protected:
     ID3D11ShaderResourceView* m_textureRV = nullptr;
-    Model* m_model = nullptr;
+    CarLoader* m_model = nullptr;
     Microsoft::WRL::ComPtr<ID3D11Buffer> vertex_buffer;
     Microsoft::WRL::ComPtr<ID3D11Buffer> index_buffer;
     DirectX::XMMATRIX world_matrix;
@@ -14,7 +14,7 @@ protected:
     UINT stride;
 public:
     void Draw(ID3D11DeviceContext* context);
-    void SetModel(Model* model) { m_model = model; }
+    void SetModel(CarLoader* model) { m_model = model; }
     void SetMaterial(SharedMaterial mat) { m_material = mat; }
     void SetWorldMatrix(DirectX::XMMATRIX matrix) { world_matrix = matrix; }
     void SetRotationMatrix(DirectX::XMMATRIX rotationMatrix) { this->rotation_matrix = rotationMatrix; }
@@ -27,7 +27,7 @@ public:
         return m_textureRV;
     }
     GameObject(UINT vertex_size);
-    Model* GetModel() { return m_model; }
+    CarLoader* GetModel() { return m_model; }
     DirectX::XMMATRIX GetWorldMatrix();
     UINT GetIndexCount() const { return index_count; }
     SharedMaterial GetMaterial() { return m_material; }

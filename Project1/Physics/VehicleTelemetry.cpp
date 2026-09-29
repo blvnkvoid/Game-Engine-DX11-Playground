@@ -1,10 +1,10 @@
 ﻿#include "VehicleTelemetry.h"
 #include "../Scene/Camera.h"
-#include "../Graphics/Model.h"
+#include "../Graphics/CarLoader.h"
 #include "../LogitechSteeringWheelLib.h"
 #include "../SharedVehicleTypes.h"
 
-void VehicleTelemetry::Draw(bool* p_open, Camera* cam, Model* playerModel, MapLoader* map) {
+void VehicleTelemetry::Draw(bool* p_open, Camera* cam, CarLoader* playerModel, MapLoader* map) {
     if (!*p_open) return;
 
     if (m_font) ImGui::PushFont(m_font);

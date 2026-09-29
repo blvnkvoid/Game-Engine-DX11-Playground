@@ -3,8 +3,8 @@
 #include "../SharedTypes.h"
 #include <map>
 
-class MaterialLoader {
+class MaterialParser {
 public:
-    MaterialLoader();
+    MaterialParser();
     static  void LoadMaterial(const std::string& path, const std::string& targetName, std::map<std::string, MaterialData>& m_materialLib);
 };

@@ -200,15 +200,15 @@ void VehicleRegistry::RegisterVehicle(
 {
     VehicleAsset asset;
 
-    asset.model = std::make_unique<Model>();
+    asset.model = std::make_unique<CarLoader>();
     asset.object = std::make_unique<GameObject>(0);
 
-    asset.model->LoadOBJ(mtlPath, objPath, device);
-    asset.model->LoadTexture(device, L"white.png");
-    asset.model->ResolveMaterialTextures(
-        textureManager,
-        context,
-        textureFolder);
+    asset.model->LoadOBJ(objPath, device);
+    //asset.model->LoadTexture(device, L"missingTexture.png");
+    //asset.model->ResolveMaterialTextures(
+      //  textureManager,
+        //context,
+        //textureFolder);
 
     asset.object->SetModel(asset.model.get());
 

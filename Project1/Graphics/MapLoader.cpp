@@ -311,25 +311,11 @@ void MapLoader::Draw(ID3D11DeviceContext* context,
             continue;
         }
 
-        sceneData.material = subset.material;
         D3D11_MAPPED_SUBRESOURCE mapped{};
         context->Map(cbb, 0, D3D11_MAP_WRITE_DISCARD, 0, &mapped);
         memcpy(mapped.pData, &sceneData, sizeof(sceneData));
         context->Unmap(cbb, 0);
 
-        ID3D11ShaderResourceView* srv = nullptr;
-        if (subset.materialIndex >= 0 &&
-            subset.materialIndex < (int)m_materialSRVs.size())
-        {
-            srv = m_materialSRVs[subset.materialIndex];
-        }
-        if (!srv)
-        {
-            if (!m_materialSRVs.empty())
-                srv = m_materialSRVs[0];
-        }
-
-        context->PSSetShaderResources(0, 1, &srv); 
         context->VSSetConstantBuffers(0, 1, &cbb);
         context->PSSetConstantBuffers(0, 1, &cbb);
 
@@ -538,36 +524,15 @@ bool MapLoader::LoadWorld(const std::string& filename,
     m_allVertices.clear();
     m_allIndices.clear();
     m_subsets.clear();
-    m_materialSRVs.clear();
-
+     
     size_t lastSlash = filename.find_last_of("\\/");
     std::string directory =
-        (lastSlash != std::string::npos) ?
+        (lastSlash != std::string::npos) ?  
         filename.substr(0, lastSlash + 1) : "";
 
 
     m_stats.m_totalVertices = 0;
     m_stats.m_totalTriangles = 0;
-
-    for (unsigned int i = 0; i < scene->mNumMaterials; i++)
-    {
-        aiString texPath;
-        ID3D11ShaderResourceView* srv = nullptr;
-
-        if (scene->mMaterials[i]->GetTexture(aiTextureType_DIFFUSE, 0, &texPath) == AI_SUCCESS)
-        {
-            std::string textureName = texPath.C_Str();
-            std::string file = textureName.substr(textureName.find_last_of("/\\") + 1);
-
-            std::wstring wpath(directory.begin(), directory.end());
-            wpath += std::wstring(file.begin(), file.end());
-
-            if (m_texMgr)
-                srv = m_texMgr->GetTexture(wpath, context);
-        }
-
-        m_materialSRVs.push_back(srv);
-    }
 
     m_stats.m_meshes = scene->mNumMeshes;
 
@@ -584,33 +549,13 @@ bool MapLoader::LoadWorld(const std::string& filename,
         MapMeshSubset  subset{};
         subset.startIndex = (UINT)m_allIndices.size();
         subset.indexCount = 0;
-        subset.materialIndex = mesh->mMaterialIndex;
-
 
         std::string meshName = mesh->mName.C_Str();
 
         std::string n = meshName;
         std::transform(n.begin(), n.end(), n.begin(), ::tolower);
 
-        if (n.find("road") != std::string::npos ||
-            n.find("asphalt") != std::string::npos ||
-            n.find("grass") != std::string::npos)
-        {
-            // OutputDebugStringA(("Asphalt: " + meshName + "\n").c_str());
-            subset.material.materialType = static_cast<float>(MaterialType::MATERIAL_ASPHALT);
-        }
 
-        if (n.find("tree") != std::string::npos || meshName.find("KSTREE") != std::string::npos)
-        {
-            //   OutputDebugStringA(("Tree: " + meshName + "\n").c_str());
-            subset.material.materialType = static_cast<float>(MaterialType::MATERIAL_TREE);
-        }
-
-        if (n.find("bulb") != std::string::npos || n.find("tunnel_lamps") != std::string::npos || n.find("lightemitter") != std::string::npos || n.find("streetlamp_sub1") != std::string::npos)
-        {
-            //OutputDebugStringA(("Lamp: " + meshName + "\n").c_str());
-            subset.material.materialType = static_cast<float>(MaterialType::MATERIAL_LAMP);
-        }
 
         if (meshName == "GRID")
         {
@@ -643,11 +588,6 @@ bool MapLoader::LoadWorld(const std::string& filename,
             //OutputDebugStringA(msg.c_str());
         }
 
-        subset.material.diffuseColor = XMFLOAT3(1, 1, 1);
-        subset.material.ambientColor = { 0.3f,0.3f,0.3f };
-        subset.material.specularColor = { 0.1f,0.1f,0.1f };
-        subset.material.specularPower = 32.0f;
-        subset.material.d = 1.0f;
 
         aiVector3D minP(FLT_MAX, FLT_MAX, FLT_MAX);
         aiVector3D maxP(-FLT_MAX, -FLT_MAX, -FLT_MAX);

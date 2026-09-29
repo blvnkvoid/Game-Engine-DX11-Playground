@@ -8,7 +8,7 @@
 
 using namespace DirectX;
 
-class Model; // Forward declaration
+class CarLoader; // Forward declaration
 
 enum class CameraMode {
     FREE_ROAM,
@@ -27,7 +27,7 @@ public:
     }
     void AdjustPosition(float x, float y, float z) { rotation = { x, y, z }; }// For movement
     void AdjustRotation(float dx, float dy);    // For looking around
-    void SetFollowTarget(Model* target) { m_targetModel = target; }
+    void SetFollowTarget(CarLoader* target) { m_targetModel = target; }
     void CycleCameraMode(); // This will replace ToggleChaseCam
     void ReverseCamera(bool active);
     bool IsInManualMode() const { return m_currentMode == CameraMode::FREE_ROAM; }
@@ -101,7 +101,7 @@ private:
     float yVelocity = 0.0f;
     float gravity = -9.81f;
     float groundLevel = 1.0f;
-    Model* m_targetModel = nullptr;
+    CarLoader* m_targetModel = nullptr;
     CameraMode m_currentMode = CameraMode::CHASE;
     DirectX::XMFLOAT3 m_pos = { 0.0f, 0.0f, -5.0f };
     DirectX::XMVECTOR m_posVector;

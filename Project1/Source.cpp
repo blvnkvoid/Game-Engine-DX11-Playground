@@ -19,7 +19,7 @@
 #pragma warning(disable : 26439) 
 #include <bullet/btBulletCollisionCommon.h>
 #pragma warning(pop)
-#include "Graphics/Model.h"
+#include "Graphics/CarLoader.h"
 #include <iostream>
 #include "Scene/Scene.h"
 #include "LogitechSteeringWheelLib.h"
@@ -131,7 +131,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     m_mapTrack = new MapLoader();
     VehicleRegistry vehicleRegistry;
     bool assetsLoaded = false;
-    Model* playerModel = nullptr;
+    CarLoader* playerModel = nullptr;
     GameObject* playerObject = nullptr;         
     std::vector<GameObject*> aiObjects;
 

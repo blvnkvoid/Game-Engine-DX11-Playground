@@ -2,17 +2,17 @@
 
 #include <vector>
 #include "GameObject.h"
-#include "../Graphics/Model.h"
+#include "../Graphics/CarLoader.h"
 
 class Scene {
 public:
     std::vector<GameObject*> gameObjects;
-    Model* chaseTarget = nullptr; // The "Star" of the show
+    CarLoader* chaseTarget = nullptr; // The "Star" of the show
 
     void AddObject(GameObject* obj) { gameObjects.push_back(obj); }
 
-    void SetChaseTarget(Model* m) { chaseTarget = m; }
-    Model* GetChaseTarget() { return chaseTarget; }
+    void SetChaseTarget(CarLoader* m) { chaseTarget = m; }
+    CarLoader* GetChaseTarget() { return chaseTarget; }
 
     void Clear() {
         // We don't 'delete' the objects here because WinMain is handling that.

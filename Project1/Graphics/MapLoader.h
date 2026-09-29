@@ -55,9 +55,6 @@ struct MapMeshSubset
 {
     UINT startIndex = 0;
     UINT indexCount = 0;
-    int materialIndex = -1;
-
-    SharedMaterial material;
     DirectX::BoundingBox bounds;
 };
 
@@ -79,6 +76,7 @@ public:
     const std::vector<SharedVertex>& GetVertices() const { return m_allVertices; }
     const std::vector<UINT>& GetIndices() const { return m_allIndices; }
     const std::vector<MapMarker>& GetMarkers() const { return m_markers; }
+    
     
     void Draw(ID3D11DeviceContext* context,
         ID3D11Buffer* cbb,
@@ -145,7 +143,6 @@ public:
      Microsoft::WRL::ComPtr<ID3D11SamplerState> m_samplerState;
      Microsoft::WRL::ComPtr<ID3D11Buffer> vertex_buffer;
      Microsoft::WRL::ComPtr<ID3D11Buffer> index_buffer;
-     std::vector<ID3D11ShaderResourceView*> m_materialSRVs;
      std::vector<MapMeshSubset> m_subsets;
      std::vector<SharedVertex> m_allVertices;
      std::vector<UINT> m_allIndices;

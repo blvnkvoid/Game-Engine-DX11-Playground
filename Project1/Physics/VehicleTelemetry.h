@@ -11,7 +11,7 @@ public:
     void SetFont(ImFont* font) { m_font = font; }
 
     // This handles the entire Debug UI logic
-    void Draw(bool* p_open, class Camera* cam, class Model* playerModel, class MapLoader* map);
+    void Draw(bool* p_open, class Camera* cam, class CarLoader* playerModel, class MapLoader* map);
 
 
 

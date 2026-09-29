@@ -755,7 +755,7 @@ void GraphicsEngine::RenderObject(GameObject* obj, Camera* cam)
     if (!obj)
         return;
 
-    Model* model = obj->GetModel();
+    CarLoader* model = obj->GetModel();
 
     if (!model)
     {
@@ -777,14 +777,11 @@ void GraphicsEngine::RenderObject(GameObject* obj, Camera* cam)
         world,
         view,
         projection,
-        cam,
-        m_sceneData.brakeAmount,
         m_depthWriteOnState.Get(),
         m_depthWriteOffState.Get(),
         m_alphaBlendState.Get(),
         GetLampConstantBuffer(),
         GetLampResourceView(),
-        m_sceneData.time,
         m_sceneData
     );
 }
