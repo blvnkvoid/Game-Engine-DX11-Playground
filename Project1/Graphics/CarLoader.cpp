@@ -452,7 +452,11 @@ void CarLoader::BindAndDraw(
         drawData.material = material.gpuMaterial;
         drawData.world = XMMatrixTranspose(world);
         drawData.view = XMMatrixTranspose(view);
-        drawData.projection = XMMatrixTranspose(projection);
+        drawData.projection = XMMatrixTranspose(projection);    
+
+        drawData.material.hasDiffuseTexture = material.carTextures.diffuse ? 1.0f : 0.0f;
+        drawData.material.hasDetailTexture = material.carTextures.detail ? 1.0f : 0.0f;
+        drawData.material.isMapMaterial = 0.0f;
 
         bool isGlass =
             static_cast<int>(material.gpuMaterial.materialType) ==
@@ -527,10 +531,19 @@ void CarLoader::BindAndDraw(
         ID3D11ShaderResourceView* detailSRV =
             material.carTextures.detail
             ? material.carTextures.detail.Get()
-            : m_textureRV.Get();
+            : m_mapsTextureRV.Get();
 
         context->PSSetShaderResources(4, 1, &detailSRV);
 
+      /*  if (material.carTextures.detail)
+        {
+            OutputDebugStringA("REAL DETAIL\n");
+        }
+        else
+        {
+            OutputDebugStringA("WHITE DETAIL FALLBACK\n");
+        }
+        */
 
         ID3D11ShaderResourceView* normalDetailSRV =
             material.carTextures.normalDetail

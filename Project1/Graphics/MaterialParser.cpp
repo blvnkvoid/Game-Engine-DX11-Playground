@@ -24,6 +24,8 @@ void MaterialParser::LoadMaterial(const std::string& filename, const std::string
         }
         if (prefix == "Kd") {   
             ss >> m_materialLib[currentMatName].gpuMaterial.diffuseColor.x >> m_materialLib[currentMatName].gpuMaterial.diffuseColor.y >> m_materialLib[currentMatName].gpuMaterial.diffuseColor.z;
+
+            m_materialLib[currentMatName].gpuMaterial.hasDiffuseColor = 1.0f;
         }
         else if (prefix == "Ns") {
             ss >> m_materialLib[currentMatName].gpuMaterial.specularPower;

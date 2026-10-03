@@ -7,6 +7,11 @@ struct SharedMaterial {
     float  specularPower;
     float3 ambientColor;
     float d;
+
+    float hasDiffuseTexture;
+    float hasDetailTexture;
+    float hasDiffuseColor; 
+    float isMapMaterial;
 };
 
 cbuffer SharedSceneData : register(b0)
@@ -168,9 +173,8 @@ float4 detailSample =
         input.texCoord * 60.0f
     );
 
-float leatherDetail =
-    detailSample.r;
-
+float leatherDetail = detailSample.r;
+//float leatherDetail = 1.0f;
 
 // ---------------------------------------------------------
 // MAP TEXTURE DATA

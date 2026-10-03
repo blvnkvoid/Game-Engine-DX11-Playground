@@ -325,6 +325,8 @@ void MapLoader::Draw(ID3D11DeviceContext* context,
 
         drawData.material = material.gpuMaterial;
 
+        drawData.material.isMapMaterial = 1.0f;
+
         if (subset.materialType != MaterialType::MATERIAL_DEFAULT)
         {
             drawData.material.materialType =

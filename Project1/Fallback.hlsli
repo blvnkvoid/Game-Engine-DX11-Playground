@@ -7,17 +7,31 @@ saturate(
     dot(N, L)
 );
 
+float3 baseColor;
 
-float3 baseColor = texColor.rgb;
-
-
-if (length(material.diffuseColor) >= 0.01f)
+if (material.isMapMaterial > 0.5f)
 {
-    baseColor *=
-        material.diffuseColor;
+    // MAP pipeline:
+    // map_Kd is the visible surface texture.
+    baseColor = texColor.rgb;
+}
+else
+{
+    // CAR pipeline:
+    if (material.hasDiffuseColor > 0.5f)
+    {
+        baseColor = material.diffuseColor;
+    }
+    else
+    {
+        baseColor = texColor.rgb;
+    }
 }
 
-
+if (material.hasDetailTexture > 0.5f)
+{
+    baseColor *= leatherDetail;
+}
 // ---------------------------------------------------------
 // DETAIL TEST
 //
@@ -40,19 +54,14 @@ if (length(material.diffuseColor) >= 0.01f)
 // baseColor *= mapDetail;
 
 
-float modelAmbientMultiplier =
-3.0f;
+float modelAmbientMultiplier = 3.0f;
 
 
 // ---------------------------------------------------------
 // Ambient
 // ---------------------------------------------------------
 
-float3 ambient =
-baseColor *
-ambientIntensity *
-modelAmbientMultiplier;
-
+float3 ambient = baseColor * ambientIntensity * modelAmbientMultiplier;
 
 // ---------------------------------------------------------
 // CAR AO
@@ -63,18 +72,11 @@ modelAmbientMultiplier;
 
 ambient *= AO;
 
-
 // ---------------------------------------------------------
 // Direct sunlight
 // ---------------------------------------------------------
 
-float3 diffuse =
-baseColor *
-lightColor.rgb *
-ndotl *
-0.9f *
-shadowFactor;
-
+float3 diffuse = baseColor * lightColor.rgb * ndotl * 0.9f * shadowFactor;
 
 // ---------------------------------------------------------
 // Non-specular material
@@ -82,15 +84,8 @@ shadowFactor;
 
 if (material.specularPower == 0.0f)
 {
-    float3 finalColor =
-        ambient +
-        diffuse +
-        localLighting;
-
-    return float4(
-        finalColor,
-        1.0f
-        );
+    float3 finalColor = ambient + diffuse + localLighting;
+    return float4(finalColor, 1.0f);
 }
 
 
@@ -98,15 +93,7 @@ if (material.specularPower == 0.0f)
 // Fresnel
 // ---------------------------------------------------------
 
-float fresnel =
-pow(
-    1.0f -
-    saturate(
-        dot(N, V)
-    ),
-    64.0f
-);
-
+float fresnel = pow(1.0f - saturate(dot(N, V)), 64.0f);
 
 // ---------------------------------------------------------
 // Fake sky reflection

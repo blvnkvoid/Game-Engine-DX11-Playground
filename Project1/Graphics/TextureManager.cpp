@@ -46,16 +46,40 @@ ID3D11ShaderResourceView* TextureManager::GetTexture(std::wstring filename, ID3D
     }
 
     if (SUCCEEDED(hr) && srv != nullptr) {
+
+        wchar_t buffer[2048];
+
+        swprintf_s(
+            buffer,
+            L"[TEXTURE OK] %s\n",
+            filename.c_str()
+        );
+
+        OutputDebugStringW(buffer);
+
         if (!isDDS) {
             context->GenerateMips(srv);
         }
 
         m_textures[filename] = srv;
     }   
-    else {     
-        return nullptr; 
-    }
+    else
+    {
+        wchar_t buffer[2048];
 
+        swprintf_s(
+            buffer,
+            L"[TEXTURE LOAD FAILED]\n"
+            L"File: %s\n"
+            L"HRESULT: 0x%08X\n",
+            filename.c_str(),
+            static_cast<unsigned int>(hr)
+        );
+
+        OutputDebugStringW(buffer);
+
+        return nullptr;
+    }
     return srv;
 }
 

@@ -26,6 +26,10 @@ static_assert(sizeof(SharedVertex) % 16 == 0, "DANGER!");
         DirectX::XMFLOAT3 ambientColor;     // 12 bytes
         float d; // Change whatever was here to 'd' [cite: 2026-01-03]// 4 bytes (Final Alignment!)
 
+        float hasDiffuseTexture = 0.0f;
+        float hasDetailTexture = 0.0f;
+        float hasDiffuseColor = 0.0f;   // NEW: explicit Kd existed in MTL
+        float isMapMaterial = 0.0f;
     };
 
     static_assert(sizeof(SharedMaterial) % 16 == 0, "DANGER!");
@@ -48,6 +52,8 @@ struct MaterialData
     std::string normalDetailTextureName;
     std::string mapsTextureName;
 
+
+    float hasDiffuseTexture = 0.0f;
     MaterialTextures carTextures;
     MaterialTextures mapTextures;
 };
