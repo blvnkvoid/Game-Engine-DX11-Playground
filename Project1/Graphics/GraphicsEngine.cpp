@@ -267,9 +267,9 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
         hr = D3D11CreateDeviceAndSwapChain(nullptr, D3D_DRIVER_TYPE_HARDWARE, nullptr, 0, featureLevels, 2,
             D3D11_SDK_VERSION, &sd, &swapChain, &device, nullptr, &context);
         if (FAILED(hr)) return false;
-        hr = D3DCompileFromFile(L"Shaders.hlsl", nullptr, nullptr, "main", "vs_5_0", 0, 0, &vsBlob, nullptr);
+        hr = D3DCompileFromFile(L"Shaders.hlsl", nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, "main", "vs_5_0", 0, 0, &vsBlob, nullptr);
         if (FAILED(hr)) return false;
-        hr = D3DCompileFromFile(L"Shaders.hlsl", nullptr, nullptr, "PS", "ps_5_0", 0, 0, &psBlob, nullptr);
+        hr = D3DCompileFromFile(L"Shaders.hlsl", nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, "PS", "ps_5_0", 0, 0, &psBlob, nullptr);
         if (FAILED(hr)) return false;
         hr = swapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&pBackBuffer);
         if (FAILED(hr)) return false;
@@ -770,6 +770,7 @@ void GraphicsEngine::RenderObject(GameObject* obj, Camera* cam)
     XMMATRIX world = obj->GetWorldMatrix();
     XMMATRIX view = cam->GetViewMatrix();
     XMMATRIX projection = cam->GetProjectionMatrix();
+
 
     model->BindAndDraw(
         context.Get(),

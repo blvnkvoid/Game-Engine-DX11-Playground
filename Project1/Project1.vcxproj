@@ -299,11 +299,36 @@
     <ClInclude Include="UI\Upgrades.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="BrakeLightMask.hlsli" />
+    <None Include="CalculateShadeFactor.hlsli" />
+    <None Include="Fallback.hlsli" />
+    <None Include="GetSkyReflection.hlsli" />
+    <None Include="HeadlightMask.hlsli" />
+    <None Include="LampLightMask.hlsli" />
+    <None Include="LocalLighting.hlsli" />
+    <None Include="Materials.hlsli" />
+    <None Include="MaterialTypes.hlsli" />
+    <None Include="NormalMapping.hlsli" />
+    <None Include="PaceBodyMask.hlsli" />
+    <None Include="PaceCarLightColor.hlsli" />
+    <None Include="PaceLightMask.hlsli" />
+    <None Include="ShadeAlcantara.hlsli" />
+    <None Include="ShadeAsphalt.hlsli" />
+    <None Include="ShadeBrakeLight.hlsli" />
+    <None Include="ShadeCarLivery.hlsli" />
+    <None Include="ShadeCarPaint.hlsli" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Clouds.hlsl" />
     <FxCompile Include="Shaders.hlsl" />
+    <None Include="ShadeDecalText.hlsli" />
+    <None Include="ShadeGlass.hlsli" />
+    <None Include="ShadeHeadLight.hlsli" />
+    <None Include="ShadeLampGlow.hlsli" />
+    <None Include="ShadePaceLight.hlsli" />
+    <None Include="ShadeRubber.hlsli" />
+    <None Include="ShadeSafetyCarPaint.hlsli" />
     <None Include="ShadowDebugPS.hlsl">
       <FileType>Document</FileType>
     </None>

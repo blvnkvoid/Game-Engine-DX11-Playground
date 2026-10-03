@@ -4,6 +4,8 @@
 #include <vector>
 #include <windows.h>
 #include <string>
+#include <wrl/client.h>
+#include <d3d11.h>
 
 struct SharedVertex {
     DirectX::XMFLOAT3 pos;       // 12 bytes
@@ -28,6 +30,15 @@ static_assert(sizeof(SharedVertex) % 16 == 0, "DANGER!");
 
     static_assert(sizeof(SharedMaterial) % 16 == 0, "DANGER!");
 
+    struct MaterialTextures
+    {
+        Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> diffuse;
+        Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> normal;
+        Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> detail;
+        Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> normalDetail;
+        Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> maps;
+    };
+
 struct MaterialData
 {
     SharedMaterial gpuMaterial;
@@ -36,6 +47,9 @@ struct MaterialData
     std::string detailTextureName;
     std::string normalDetailTextureName;
     std::string mapsTextureName;
+
+    MaterialTextures carTextures;
+    MaterialTextures mapTextures;
 };
 
 

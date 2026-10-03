@@ -9,7 +9,8 @@
     #include "../SharedTypes.h"
     #include "../SharedVehicleTypes.h"
     #include "../Graphics/TextureManager.h"
-#include "VehicleRegistryEntry.h"
+    #include "VehicleRegistryEntry.h"
+
 
     struct VehicleSelectionHash
     {
@@ -29,13 +30,15 @@
             VehicleSelection selection,
             ID3D11Device* device,
             ID3D11DeviceContext* context,
-            TextureManager* textureManager);
+            TextureManager* textureManager,
+            SharedMaterialLoader& materialLoader);
         
 
         void RegisterAllVehicles(
             ID3D11Device* device,
             ID3D11DeviceContext* context,
-            TextureManager* textureManager);
+            TextureManager* textureManager,
+            SharedMaterialLoader& materialLoader);
 
         void RegisterVehicle(
             VehicleSelection selection,
@@ -43,7 +46,8 @@
             const std::string& fileBaseName,
             ID3D11Device* device,
             ID3D11DeviceContext* context,
-            TextureManager* textureManager);
+            TextureManager* textureManager,
+            SharedMaterialLoader& materialLoader);
 
         void RegisterVehicle    (
             VehicleSelection selection,
@@ -52,7 +56,8 @@
             const std::wstring& textureFolder,
             ID3D11Device* device,
             ID3D11DeviceContext* context,
-            TextureManager* textureManager);
+            TextureManager* textureManager,
+            SharedMaterialLoader& materialLoader);
 
         VehicleDefinition CreateDefinition(VehicleSelection selection);
         CameraDefinition CreateCameraDefinition(VehicleSelection selection);

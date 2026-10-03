@@ -35,7 +35,8 @@ public:
         ID3D11Device* device,
         ID3D11DeviceContext* context,
         TextureManager* textureManager,
-        VehicleSelection fallbackPlayer);
+        VehicleSelection fallbackPlayer,
+        SharedMaterialLoader& materialLoader);
 
     VehicleSelection GetPlayerSelection(
         const EventDefinition& event,

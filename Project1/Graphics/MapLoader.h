@@ -14,6 +14,7 @@
 #include <DirectXCollision.h>
 #include "../Scene/Camera.h"
 #include <sstream>
+#include "SharedMaterialLoader.h"
 
 struct MapMarker
 {
@@ -55,6 +56,9 @@ struct MapMeshSubset
 {
     UINT startIndex = 0;
     UINT indexCount = 0;
+    unsigned int materialIndex;
+
+    MaterialType materialType = MaterialType::MATERIAL_DEFAULT;
     DirectX::BoundingBox bounds;
 };
 
@@ -120,7 +124,19 @@ public:
     {
         return m_stats;
     }
+
+    void SetMaterialLoader(SharedMaterialLoader& materialLoader);
+    const std::string& GetMaterialLibraryPath() const { return m_materialLibraryPath; }
+
+    void SetMaterialLibraryPath(const std::string& path)
+    {
+        m_materialLibraryPath = path;
+    }
+
     
+    
+     std::vector<Microsoft::WRL::ComPtr<ID3D11ShaderResourceView>> m_materialSRVs;
+
 
  private:
      void ProcessNode(
@@ -143,7 +159,7 @@ public:
      Microsoft::WRL::ComPtr<ID3D11SamplerState> m_samplerState;
      Microsoft::WRL::ComPtr<ID3D11Buffer> vertex_buffer;
      Microsoft::WRL::ComPtr<ID3D11Buffer> index_buffer;
-     std::vector<MapMeshSubset> m_subsets;
+
      std::vector<SharedVertex> m_allVertices;
      std::vector<UINT> m_allIndices;
 
@@ -154,4 +170,9 @@ public:
      MapRendererStats m_stats;
      bool m_lightsEnabled = true;
 
+
+     SharedMaterialLoader* m_materialLoader = nullptr;
+     std::vector<MapMeshSubset> m_mapSubsets;
+     std::vector<std::string> m_mapMaterialNames;
+     std::string m_materialLibraryPath;
 };

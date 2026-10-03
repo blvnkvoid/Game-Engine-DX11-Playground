@@ -30,7 +30,8 @@ VehicleSelection RaceGrid::Build(
     ID3D11Device* device,
     ID3D11DeviceContext* context,
     TextureManager* textureManager,
-    VehicleSelection fallbackPlayer)
+    VehicleSelection fallbackPlayer,
+    SharedMaterialLoader& materialLoader)
 {
     Clear();
 
@@ -43,7 +44,8 @@ VehicleSelection RaceGrid::Build(
                 carEntry.vehicle,
                 device,
                 context,
-                textureManager);
+                textureManager,
+                materialLoader);
 
 
         const MapMarker& marker = markers[carEntry.gridPosition];

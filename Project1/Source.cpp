@@ -58,6 +58,7 @@
 #include "Sky/SkyEngine.h"
 #include "Sky/Sun.h"
 #include "Sky/Clouds.h"
+#include "Graphics/SharedMaterialLoader.h"
 
 using namespace DirectX;
 
@@ -80,6 +81,7 @@ Settings settings;
 SkyEngine skyEngine;
 Clouds clouds;
 SharedSceneData sceneData;
+SharedMaterialLoader loader;
 
 TrackEntry* activeTrackEntry = nullptr;
 
@@ -374,6 +376,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                     physics->SetVehicleDefinition(car);
                     physics->Initialize();
 
+                    
 
                     // ---------------------------------------------------------
                     // Load track + collision
@@ -422,7 +425,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                             engine->GetDevice(),
                             engine->GetContext(),
                             engine->GetTextureManager(),
-                            garage.m_PreviewSelection);
+                            garage.m_PreviewSelection,
+                            engine->GetMaterialLoader()
+                            );
                     }
                     else if (menu.m_GameMode == GameMode::Arcade)
                     {
@@ -450,7 +455,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                         playerSelection,
                         engine->GetDevice(),
                         engine->GetContext(),
-                        engine->GetTextureManager());
+                        engine->GetTextureManager(),
+                        engine->GetMaterialLoader());
 
                     VehicleAsset& vehicle =
                         vehicleRegistry.GetVehicle(
@@ -614,6 +620,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
                 if (m_mapTrack)
                 {
+                    m_mapTrack->SetMaterialLibraryPath("Tracks\\ElCapitan\\ElCapitan.mtl");
+                    loader.LoadMaterialLibrary(m_mapTrack->GetMaterialLibraryPath());
+                    m_mapTrack->SetMaterialLoader(loader);
 
 
                     sceneData.view =
@@ -632,6 +641,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                         camera->GetFrustum(),
                         camera
                     );
+
 
                     m_mapTrack->Draw(
                         engine->GetContext(),

@@ -1,6 +1,13 @@
 #include "MapLoader.h"
 #include <chrono>
 
+void MapLoader::SetMaterialLoader(
+    SharedMaterialLoader& materialLoader)
+{
+    m_materialLoader = &materialLoader;
+}
+
+
 void MapLoader::UpdateVisibleLights(
     ID3D11DeviceContext* context,
     ID3D11Buffer* lampStructuredBuffer,
@@ -95,6 +102,7 @@ void MapLoader::DrawShadow(
 {
     SharedSceneData sceneData = engineSceneData;
 
+
     m_stats.m_shadowDrawCallsCulled = 0;
     m_stats.m_shadowdrawCalls = 0;
 
@@ -177,7 +185,7 @@ void MapLoader::DrawShadow(
 
     const auto start = std::chrono::high_resolution_clock::now();
 
-    for (const auto& subset : m_subsets)
+    for (const auto& subset : m_mapSubsets)
     {
         if (subset.indexCount == 0)
         {
@@ -213,6 +221,10 @@ void MapLoader::DrawShadow(
 
 }
 
+
+
+
+
 void MapLoader::Draw(ID3D11DeviceContext* context,
     ID3D11Buffer* cbb,
     ID3D11Buffer* lampInfoBuffer,
@@ -222,6 +234,7 @@ void MapLoader::Draw(ID3D11DeviceContext* context,
     ID3D11DepthStencilState* depthWriteOn)
 {
     SharedSceneData sceneData = engineSceneData;
+    SharedSceneData drawData = sceneData;
     m_stats.m_drawCalls = 0;
     m_stats.m_culledDrawCalls = 0;
 
@@ -302,26 +315,80 @@ void MapLoader::Draw(ID3D11DeviceContext* context,
     }
     fWasPressed = fPressed;
 
-
-    for (const auto& subset : m_subsets)
+    for (size_t i = 0; i < m_mapSubsets.size(); ++i)
     {
-        if (m_enableFrustumCulling && (!frustum.Intersects(subset.bounds)))
+        const auto& subset = m_mapSubsets[i];
+
+        const MaterialData& material =
+            m_materialLoader->ResolveMapMaterial(
+                m_mapMaterialNames[i]);
+
+        drawData.material = material.gpuMaterial;
+
+        if (subset.materialType != MaterialType::MATERIAL_DEFAULT)
+        {
+            drawData.material.materialType =
+                static_cast<float>(subset.materialType);
+        }
+
+        ID3D11ShaderResourceView* diffuseSRV = nullptr;
+
+        // 1. Explicit texture loaded by our material/MTL system
+        if (material.mapTextures.diffuse)
+        {
+            diffuseSRV = material.mapTextures.diffuse.Get();
+        }
+
+        // 2. Otherwise use the texture referenced by the FBX material
+        else if (subset.materialIndex < m_materialSRVs.size())
+        {
+            diffuseSRV = m_materialSRVs[subset.materialIndex].Get();
+        }
+
+        context->PSSetShaderResources(0, 1, &diffuseSRV);
+
+        ID3D11ShaderResourceView* normalSRV = material.mapTextures.normal.Get();
+        context->PSSetShaderResources(8, 1, &normalSRV);
+
+        ID3D11ShaderResourceView* detailSRV = material.mapTextures.detail.Get();
+        context->PSSetShaderResources(9, 1, &detailSRV);
+
+        ID3D11ShaderResourceView* normalDetailSRV = material.mapTextures.normalDetail.Get();
+        context->PSSetShaderResources(10, 1, &normalDetailSRV);
+
+        ID3D11ShaderResourceView* mapsSRV = material.mapTextures.maps.Get();
+        context->PSSetShaderResources(11, 1, &mapsSRV);
+
+        if (m_enableFrustumCulling &&
+            !frustum.Intersects(subset.bounds))
         {
             m_stats.m_culledDrawCalls++;
             continue;
         }
 
         D3D11_MAPPED_SUBRESOURCE mapped{};
-        context->Map(cbb, 0, D3D11_MAP_WRITE_DISCARD, 0, &mapped);
-        memcpy(mapped.pData, &sceneData, sizeof(sceneData));
+        context->Map(
+            cbb,
+            0,
+            D3D11_MAP_WRITE_DISCARD,
+            0,
+            &mapped);
+
+        memcpy(mapped.pData,&drawData,sizeof(drawData));
+
         context->Unmap(cbb, 0);
 
         context->VSSetConstantBuffers(0, 1, &cbb);
         context->PSSetConstantBuffers(0, 1, &cbb);
 
         m_stats.m_drawCalls++;
-        context->DrawIndexed(subset.indexCount, subset.startIndex, 0);
+
+        context->DrawIndexed(
+            subset.indexCount,
+            subset.startIndex,
+            0);
     }
+
     // OutputDebugStringA(("Draw calls: " + std::to_string(m_drawCalls) + "\n").c_str());
 }
 
@@ -498,6 +565,8 @@ DirectX::XMFLOAT3 MapLoader::CalculateMeshCenter(const aiMesh* mesh)
     return center;
 }
 
+
+
 bool MapLoader::LoadWorld(const std::string& filename,
     ID3D11Device* device,
     ID3D11DeviceContext* context)
@@ -523,7 +592,8 @@ bool MapLoader::LoadWorld(const std::string& filename,
 
     m_allVertices.clear();
     m_allIndices.clear();
-    m_subsets.clear();
+    m_mapSubsets.clear();
+    m_mapMaterialNames.clear();
      
     size_t lastSlash = filename.find_last_of("\\/");
     std::string directory =
@@ -535,6 +605,39 @@ bool MapLoader::LoadWorld(const std::string& filename,
     m_stats.m_totalTriangles = 0;
 
     m_stats.m_meshes = scene->mNumMeshes;
+
+    for (unsigned int i = 0; i < scene->mNumMaterials; i++)
+    {
+        aiString texPath;
+        ID3D11ShaderResourceView* srv = nullptr;
+
+        if (scene->mMaterials[i]->GetTexture(
+            aiTextureType_DIFFUSE,
+            0,
+            &texPath) == AI_SUCCESS)
+        {
+            std::string textureName = texPath.C_Str();
+
+            std::string file =
+                textureName.substr(
+                    textureName.find_last_of("/\\") + 1);
+
+            std::wstring wpath(
+                directory.begin(),
+                directory.end());
+
+            wpath += std::wstring(
+                file.begin(),
+                file.end());
+
+            if (m_texMgr)
+                srv = m_texMgr->GetTexture(
+                    wpath,
+                    context);
+        }
+
+        m_materialSRVs.push_back(srv);
+    }
 
     for (unsigned int i = 0; i < scene->mNumMeshes; i++)
     {
@@ -550,12 +653,59 @@ bool MapLoader::LoadWorld(const std::string& filename,
         subset.startIndex = (UINT)m_allIndices.size();
         subset.indexCount = 0;
 
+        std::string materialName;
+
+        if (mesh->mMaterialIndex < scene->mNumMaterials)
+        {
+            aiMaterial* aiMat =
+                scene->mMaterials[mesh->mMaterialIndex];
+
+
+            subset.materialIndex = mesh->mMaterialIndex;
+
+            aiString aiMatName;
+
+            if (aiMat->Get(AI_MATKEY_NAME, aiMatName) == AI_SUCCESS)
+            {
+                materialName = aiMatName.C_Str();
+            }
+        }
+
         std::string meshName = mesh->mName.C_Str();
 
         std::string n = meshName;
         std::transform(n.begin(), n.end(), n.begin(), ::tolower);
 
 
+        // ---------------------------------------------------------
+        // Map material classification
+        // ---------------------------------------------------------
+
+        if (n.find("road") != std::string::npos ||
+            n.find("asphalt") != std::string::npos ||
+            n.find("grass") != std::string::npos)
+        {
+            subset.materialType =
+                MaterialType::MATERIAL_ASPHALT;
+        }
+
+
+        if (n.find("tree") != std::string::npos ||
+            n.find("kstree") != std::string::npos)
+        {
+            subset.materialType =
+                MaterialType::MATERIAL_TREE;
+        }
+
+
+        if (n.find("bulb") != std::string::npos ||
+            n.find("tunnel_lamps") != std::string::npos ||
+            n.find("lightemitter") != std::string::npos ||
+            n.find("streetlamp_sub1") != std::string::npos)
+        {
+            subset.materialType =
+                MaterialType::MATERIAL_LAMP;
+        }
 
         if (meshName == "GRID")
         {
@@ -676,7 +826,8 @@ bool MapLoader::LoadWorld(const std::string& filename,
             subset.indexCount += 3;
         }
 
-        m_subsets.push_back(subset);
+        m_mapSubsets.push_back(subset);
+        m_mapMaterialNames.push_back(materialName);
     }
 
     m_lampLights.clear();

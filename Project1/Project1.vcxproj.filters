@@ -494,6 +494,81 @@
     <None Include="ShadowDebugVS.hlsl">
       <Filter>Source Files</Filter>
     </None>
+    <None Include="ShadeCarPaint.hlsli">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="ShadeSafetyCarPaint.hlsli">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="ShadeCarLivery.hlsli">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="ShadeAlcantara.hlsli">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="CalculateShadeFactor.hlsli">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="ShadeDecalText.hlsli">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="ShadeHeadLight.hlsli">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="ShadeAsphalt.hlsli">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="ShadeLampGlow.hlsli">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="BrakeLightMask.hlsli">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="HeadlightMask.hlsli">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="LampLightMask.hlsli">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="PaceBodyMask.hlsli">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="PaceCarLightColor.hlsli">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="PaceLightMask.hlsli">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="ShadeBrakeLight.hlsli">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="ShadeGlass.hlsli">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="ShadePaceLight.hlsli">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="ShadeRubber.hlsli">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="GetSkyReflection.hlsli">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="MaterialTypes.hlsli">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="NormalMapping.hlsli">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="Materials.hlsli">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="Fallback.hlsli">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="LocalLighting.hlsli">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shaders.hlsl">

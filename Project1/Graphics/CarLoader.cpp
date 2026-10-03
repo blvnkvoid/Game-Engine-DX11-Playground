@@ -20,6 +20,38 @@ struct VertexKey {
     }
 };
 
+void CarLoader::SetMaterialLoader(
+    SharedMaterialLoader& materialLoader)
+{
+    m_materialLoader = &materialLoader;
+}
+
+
+void CarLoader::SetMaterialLibraryPath(
+    const std::string& path)
+{
+    m_materialLibraryPath = path;
+}
+
+void CarLoader::CheckCarMaterial(size_t index)
+{
+    if (!m_materialLoader)
+        return;
+
+    if (index >= m_carMaterialNames.size())
+        return;
+
+    const std::string& materialName =
+        m_carMaterialNames[index];
+
+    const MaterialData& material =
+        m_materialLoader->ResolveCarMaterial(
+            materialName
+        );
+
+    // breakpoint
+}
+
 bool CarLoader::LoadOBJ(const std::string& objFile, ID3D11Device* device) {
    
         
@@ -42,7 +74,7 @@ bool CarLoader::LoadOBJ(const std::string& objFile, ID3D11Device* device) {
     startSubset.startIndex = 0;
 
     
-    m_subsets.push_back(startSubset);
+    m_carSubsets.push_back(startSubset);
 
 
     while (std::getline(file, line)) {
@@ -55,14 +87,18 @@ bool CarLoader::LoadOBJ(const std::string& objFile, ID3D11Device* device) {
         // 1. MATERIAL CHANGE
         if (prefix == "usemtl") {   
 
-            if (!m_subsets.empty())
+            if (!m_carSubsets.empty())
             {
-                m_subsets.back().indexCount =
-                    (unsigned int)indices.size() - m_subsets.back().startIndex;
+                m_carSubsets.back().indexCount =
+                    (unsigned int)indices.size() -
+                    m_carSubsets.back().startIndex;
 
-                if (m_subsets.back().indexCount == 0)
+                if (m_carSubsets.back().indexCount == 0)
                 {
-                    m_subsets.pop_back();
+                    m_carSubsets.pop_back();
+
+                    if (!m_carMaterialNames.empty())
+                        m_carMaterialNames.pop_back();
                 }
             }
 
@@ -73,9 +109,10 @@ bool CarLoader::LoadOBJ(const std::string& objFile, ID3D11Device* device) {
             std::string matName;
             ss >> matName;
 
-            newSubset.materialName = matName;
 
-            m_subsets.push_back(newSubset);
+
+            m_carSubsets.push_back(newSubset);
+            m_carMaterialNames.push_back(matName);
         }
         // 2. GEOMETRY DATA
         else if (prefix == "v") {
@@ -146,8 +183,8 @@ bool CarLoader::LoadOBJ(const std::string& objFile, ID3D11Device* device) {
     }
 
     // Finalize the last subset
-    if (!m_subsets.empty()) {
-        m_subsets.back().indexCount = (unsigned int)indices.size() - m_subsets.back().startIndex;
+    if (!m_carSubsets.empty()) {
+        m_carSubsets.back().indexCount = (unsigned int)indices.size() - m_carSubsets.back().startIndex;
     }
 
     if (vertices.empty()) return false;
@@ -282,9 +319,88 @@ bool CarLoader::LoadOBJ(const std::string& objFile, ID3D11Device* device) {
 
     device->CreateBuffer(&cbd, nullptr, m_constantBuffer.GetAddressOf());
 
-    this->index_count = (UINT)indices.size();    
+    this->index_count = (UINT)indices.size();  
+
     return true;
 }
+
+void CarLoader::CreateDefaultMapsTexture(ID3D11Device* device)
+{
+    const uint32_t pixel = 0xFFFFFFFF; // RGBA = 1,1,1,1
+
+    D3D11_TEXTURE2D_DESC textureDesc = {};
+    textureDesc.Width = 1;
+    textureDesc.Height = 1;
+    textureDesc.MipLevels = 1;
+    textureDesc.ArraySize = 1;
+    textureDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+    textureDesc.SampleDesc.Count = 1;
+    textureDesc.Usage = D3D11_USAGE_IMMUTABLE;
+    textureDesc.BindFlags = D3D11_BIND_SHADER_RESOURCE;
+
+    D3D11_SUBRESOURCE_DATA initialData = {};
+    initialData.pSysMem = &pixel;
+    initialData.SysMemPitch = sizeof(uint32_t);
+
+    Microsoft::WRL::ComPtr<ID3D11Texture2D> texture;
+
+    HRESULT hr = device->CreateTexture2D(
+        &textureDesc,
+        &initialData,
+        &texture
+    );
+
+    if (FAILED(hr))
+        return;
+
+    hr = device->CreateShaderResourceView(
+        texture.Get(),
+        nullptr,
+        &m_mapsTextureRV
+    );
+
+    if (FAILED(hr))
+        m_mapsTextureRV.Reset();
+}
+
+
+void CarLoader::CreateFlatNormalTexture(ID3D11Device* device)
+{
+    const unsigned char pixel[4] = { 128, 128, 255, 255 };
+
+    D3D11_TEXTURE2D_DESC desc{};
+    desc.Width = 1;
+    desc.Height = 1;
+    desc.MipLevels = 1;
+    desc.ArraySize = 1;
+    desc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+    desc.SampleDesc.Count = 1;
+    desc.Usage = D3D11_USAGE_IMMUTABLE;
+    desc.BindFlags = D3D11_BIND_SHADER_RESOURCE;
+
+    D3D11_SUBRESOURCE_DATA data{};
+    data.pSysMem = pixel;
+    data.SysMemPitch = 4;
+
+    Microsoft::WRL::ComPtr<ID3D11Texture2D> texture;
+
+    HRESULT hr = device->CreateTexture2D(
+        &desc,
+        &data,
+        texture.GetAddressOf());
+
+    if (FAILED(hr))
+        return;
+
+    hr = device->CreateShaderResourceView(
+        texture.Get(),
+        nullptr,
+        m_flatNormalRV.GetAddressOf());
+
+    if (FAILED(hr))
+        m_flatNormalRV.Reset();
+}
+
 
 void CarLoader::BindAndDraw(
     ID3D11DeviceContext* context,
@@ -322,20 +438,50 @@ void CarLoader::BindAndDraw(
         1, 1,
         &lampLightsSRV);
 
-    for (const auto& subset : m_subsets)
+    for (size_t i = 0; i < m_carSubsets.size(); i++)
     {
 
+        const MeshSubset& subset = m_carSubsets[i];
 
+        const MaterialData& material =
+            m_materialLoader->ResolveCarMaterial(
+                m_carMaterialNames[i]
+            );
+
+
+        drawData.material = material.gpuMaterial;
         drawData.world = XMMatrixTranspose(world);
         drawData.view = XMMatrixTranspose(view);
         drawData.projection = XMMatrixTranspose(projection);
 
+        bool isGlass =
+            static_cast<int>(material.gpuMaterial.materialType) ==
+            static_cast<int>(MaterialType::MATERIAL_GLASS);
 
-        // TEMP: until SharedMaterialLoader supplies material state
-        context->OMSetBlendState(
-            nullptr,
-            nullptr,
-            0xffffffff);
+        if (isGlass)
+        {
+            float blendFactor[4] = { 0, 0, 0, 0 };
+
+            context->OMSetBlendState(
+                alphaBlendState,
+                blendFactor,
+                0xffffffff);
+
+            context->OMSetDepthStencilState(
+                depthWriteOff,
+                0);
+        }
+        else
+        {
+            context->OMSetBlendState(
+                nullptr,
+                nullptr,
+                0xffffffff);
+
+            context->OMSetDepthStencilState(
+                depthWriteOn,
+                0);
+        }
 
 
         D3D11_MAPPED_SUBRESOURCE mappedResource;
@@ -366,11 +512,46 @@ void CarLoader::BindAndDraw(
             0, 1,
             m_constantBuffer.GetAddressOf());
 
+        ID3D11ShaderResourceView* diffuseSRV = material.carTextures.diffuse ? material.carTextures.diffuse.Get() : m_textureRV.Get();
+        context->PSSetShaderResources(0, 1, &diffuseSRV);
+
+
+        ID3D11ShaderResourceView* normalSRV =
+            material.carTextures.normal
+            ? material.carTextures.normal.Get()
+            : m_flatNormalRV.Get();
+
+        context->PSSetShaderResources(3, 1, &normalSRV);
+
+
+        ID3D11ShaderResourceView* detailSRV =
+            material.carTextures.detail
+            ? material.carTextures.detail.Get()
+            : m_textureRV.Get();
+
+        context->PSSetShaderResources(4, 1, &detailSRV);
+
+
+        ID3D11ShaderResourceView* normalDetailSRV =
+            material.carTextures.normalDetail
+            ? material.carTextures.normalDetail.Get()
+            : m_flatNormalRV.Get();
+
+        context->PSSetShaderResources(5, 1, &normalDetailSRV);
+
+
+        ID3D11ShaderResourceView* mapsSRV =
+            material.carTextures.maps
+            ? material.carTextures.maps.Get()
+            : m_mapsTextureRV.Get();
+
+        context->PSSetShaderResources(6, 1, &mapsSRV);
+
         context->DrawIndexed(
             subset.indexCount,
             subset.startIndex,
             0);
-    
+
     }
     context->OMSetDepthStencilState(depthWriteOn, 0);
 }

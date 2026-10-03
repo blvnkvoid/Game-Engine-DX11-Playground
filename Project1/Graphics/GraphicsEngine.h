@@ -11,6 +11,7 @@
 #include "../Sky/Sun.h"
 #include "../Sky/Clouds.h"
 #include "../Tracks/TrackTable.h"
+#include "SharedMaterialLoader.h"
 
 class Scene; // Forward declaration (keeps the header light!)
 class Camera;
@@ -48,6 +49,7 @@ public:
         float(&clearColor)[4]);
     void ApplyEnvironmentDefinition(const EnvironmentDefinition& def);
     EnvironmentDefinition DefaultEnvironment();
+
 
     Time& GetTime();
     void ConfigureUIScale(float renderWidth, float renderHeight);
@@ -110,6 +112,11 @@ public:
 
     void PrepareShadowPass(SharedSceneData& sceneData, TrackEntry& track);
     void DrawShadowDebugView();
+
+    SharedMaterialLoader& GetMaterialLoader()
+    {
+        return loader;
+    }
 private:
     Sun m_sun;
     Clouds m_clouds;
@@ -183,4 +190,6 @@ private:
 
     ImFont* m_telemetryFont = nullptr;
     UIContext m_uiContext;
+
+    SharedMaterialLoader loader;    
 };

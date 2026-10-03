@@ -56,7 +56,8 @@ VehicleAsset& VehicleRegistry::GetOrLoadVehicle(
     VehicleSelection selection,
     ID3D11Device* device,
     ID3D11DeviceContext* context,
-    TextureManager* textureManager)
+    TextureManager* textureManager,
+    SharedMaterialLoader& materialLoader)
 {
     auto it = vehicles.find(selection);
 
@@ -70,7 +71,8 @@ VehicleAsset& VehicleRegistry::GetOrLoadVehicle(
             entry.fileName,
             device,
             context,
-            textureManager);
+            textureManager,
+            materialLoader);
 
         it = vehicles.find(selection);
     }
@@ -196,19 +198,23 @@ void VehicleRegistry::RegisterVehicle(
     const std::wstring& textureFolder,
     ID3D11Device* device,
     ID3D11DeviceContext* context,
-    TextureManager* textureManager)
+    TextureManager* textureManager,
+    SharedMaterialLoader& materialLoader)
 {
     VehicleAsset asset;
 
     asset.model = std::make_unique<CarLoader>();
     asset.object = std::make_unique<GameObject>(0);
-
+    asset.model->SetMaterialLibraryPath(mtlPath);
     asset.model->LoadOBJ(objPath, device);
-    //asset.model->LoadTexture(device, L"missingTexture.png");
-    //asset.model->ResolveMaterialTextures(
-      //  textureManager,
-        //context,
-        //textureFolder);
+    materialLoader.LoadMaterialLibrary(asset.model->GetMaterialLibraryPath());
+    asset.model->SetMaterialLoader(materialLoader);
+    materialLoader.ResolveCarTextures(textureManager,context,textureFolder);
+
+
+   
+   //asset.model->LoadTexture(device, L"missingTexture.png");
+   //asset.model->ResolveMaterialTextures(textureManager,context,textureFolder);
 
     asset.object->SetModel(asset.model.get());
 
@@ -221,7 +227,8 @@ void VehicleRegistry::RegisterVehicle(
     const std::string& fileBaseName,
     ID3D11Device* device,
     ID3D11DeviceContext* context,
-    TextureManager* textureManager)
+    TextureManager* textureManager,
+    SharedMaterialLoader& materialLoader)
 {
     std::string mtlPath =
         carFolder + "material/" + fileBaseName + ".mtl";
@@ -243,14 +250,16 @@ void VehicleRegistry::RegisterVehicle(
         textureFolder,
         device,
         context,
-        textureManager);
+        textureManager,
+        materialLoader);
 }
 
 
 void VehicleRegistry::RegisterAllVehicles(
     ID3D11Device* device,
     ID3D11DeviceContext* context,
-    TextureManager* textureManager)
+    TextureManager* textureManager,
+    SharedMaterialLoader& materialLoader)
 {
     for (const auto& vehicle : vehicleTable)
     {
@@ -260,6 +269,7 @@ void VehicleRegistry::RegisterAllVehicles(
             vehicle.fileName,
             device,
             context,
-            textureManager);
+            textureManager,
+            materialLoader);
     }
 }

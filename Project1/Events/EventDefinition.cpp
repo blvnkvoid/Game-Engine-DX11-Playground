@@ -4,13 +4,16 @@
 EventDefinition CreateSundayCup_Tsukuba()
 {
     EventDefinition event;
-    event.track = TrackSelection::RouteX;
+    event.track = TrackSelection::TestCourse;
     event.environment.startTime = 45.0f;
     event.environment.dynamicTime = false;
     event.totalLaps = 100;
     event.cars =
     {
-        { VehicleSelection::JGTCNSX2000, true,0 }
+        { VehicleSelection::JGTCNSX2000, true,0 },
+        { VehicleSelection::MX5, false,1 },
+        { VehicleSelection::COPEN, false,2 },
+        { VehicleSelection::XSARA, false,3 }
     };
 
     return event;
