@@ -116,7 +116,7 @@ PS_INPUT VS(VS_INPUT input) {
 #include "ShadeCarPaint.hlsli"
 #include "PaceCarLightColor.hlsli"
 #include "PaceBodyMask.hlsli"
-#include "ShadeSafetyCarPaint.hlsli"
+c#include "ShadeSafetyCarPaint.hlsli"
 #include "ShadeGlass.hlsli"
 #include "ShadeRubber.hlsli"
 #include "HeadlightMask.hlsli"
@@ -248,6 +248,8 @@ float shadowFactor =
 
 #include "LocalLighting.hlsli"
 
+
+
 // ---------------------------------------------------------
 // Material dispatch
 // ---------------------------------------------------------
@@ -258,7 +260,9 @@ float shadowFactor =
 // Fallback
 // ---------------------------------------------------------
 
+
 #include "Fallback.hlsli"
+
 }
 PS_INPUT mainVS(VS_INPUT input) { return VS(input); }
 

@@ -218,12 +218,7 @@ void MapLoader::DrawShadow(
 
     m_stats.shadowCpuMs = shadowCpuMs;
 
-
 }
-
-
-
-
 
 void MapLoader::Draw(ID3D11DeviceContext* context,
     ID3D11Buffer* cbb,
@@ -325,6 +320,12 @@ void MapLoader::Draw(ID3D11DeviceContext* context,
 
         drawData.material = material.gpuMaterial;
 
+        drawData.material.diffuseColor = { 1,1,1 };
+        drawData.material.ambientColor = { 0.3f,0.3f,0.3f };
+        drawData.material.specularColor = { 0.1f,0.1f,0.1f };
+        drawData.material.specularPower = 32.0f;
+        drawData.material.d = 1.0f;
+
         drawData.material.isMapMaterial = 1.0f;
 
         if (subset.materialType != MaterialType::MATERIAL_DEFAULT)
@@ -339,14 +340,47 @@ void MapLoader::Draw(ID3D11DeviceContext* context,
         if (material.mapTextures.diffuse)
         {
             diffuseSRV = material.mapTextures.diffuse.Get();
+
+            std::string debug =
+                "[DIFFUSE SOURCE: MTL] "
+                "subset=" + std::to_string(i) +
+                " | name=" + m_mapMaterialNames[i] +
+                " | texture=" + material.diffuseTextureName +
+                " | matIndex=" + std::to_string(subset.materialIndex) +
+                "\n";
+
+         //   OutputDebugStringA(debug.c_str());
         }
 
         // 2. Otherwise use the texture referenced by the FBX material
         else if (subset.materialIndex < m_materialSRVs.size())
         {
             diffuseSRV = m_materialSRVs[subset.materialIndex].Get();
+
+            std::string debug =
+                "[DIFFUSE SOURCE: FBX] "
+                "subset=" + std::to_string(i) +
+                " | name=" + m_mapMaterialNames[i] +
+                " | MTL texture=" + material.diffuseTextureName +
+                " | matIndex=" + std::to_string(subset.materialIndex) +
+                " | SRV=" + (diffuseSRV ? "YES" : "NULL") +
+                "\n";
+
+          // OutputDebugStringA(debug.c_str());
+        }
+        else
+        {
+            std::string debug =
+                "[DIFFUSE SOURCE: NONE] "
+                "subset=" + std::to_string(i) +
+                " | name=" + m_mapMaterialNames[i] +
+                " | matIndex=" + std::to_string(subset.materialIndex) +
+                "\n";
+
+           // OutputDebugStringA(debug.c_str());
         }
 
+        context->PSSetShaderResources(0, 1, &diffuseSRV);
         context->PSSetShaderResources(0, 1, &diffuseSRV);
 
         ID3D11ShaderResourceView* normalSRV = material.mapTextures.normal.Get();
@@ -693,7 +727,8 @@ bool MapLoader::LoadWorld(const std::string& filename,
 
 
         if (n.find("tree") != std::string::npos ||
-            n.find("kstree") != std::string::npos)
+            n.find("kstree") != std::string::npos ||
+            n.find("bush") != std::string::npos)
         {
             subset.materialType =
                 MaterialType::MATERIAL_TREE;

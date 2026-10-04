@@ -1,0 +1,1772 @@
+# Generated from rt_bathurst.fbx.ini
+# DX11 Lab compatibility MTL
+# Materials: 153
+
+newmtl 72
+# AC shader: ksPerPixelReflection
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.100000 0.100000 0.100000
+Ns 250.000000
+d 1.000000
+map_Kd rydgeshotel_glass.dds
+map_d rydgeshotel_glass.dds
+
+newmtl 11
+# AC shader: ksPerPixelReflection
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.010000 0.010000 0.010000
+Ns 250.000000
+d 1.000000
+map_Kd rydgeshotel_glass.dds
+map_d rydgeshotel_glass.dds
+
+newmtl 112
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.010000 0.010000 0.010000
+Ns 16.000000
+d 1.000000
+map_Kd mp_garages_a.dds
+map_Bump MP_Garages_NMfix.dds
+
+newmtl 99
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.010000 0.010000 0.010000
+Ns 16.000000
+d 1.000000
+map_Kd tribuna_1_a.dds
+map_Bump tribuna_1_anrm.dds
+
+newmtl 90
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.010000 0.010000 0.010000
+Ns 16.000000
+d 1.000000
+map_Kd Garage_Colour.dds
+map_Bump wall_box_NMfix.dds
+
+newmtl 7
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.100000 0.100000 0.100000
+Ns 16.000000
+d 1.000000
+map_Kd sponsors_bilobards_b.dds
+map_Bump NM_MIRROR.dds
+
+newmtl 37
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.200000 0.200000 0.200000
+Kd 0.100000 0.100000 0.100000
+Ks 0.010000 0.010000 0.010000
+Ns 16.000000
+d 1.000000
+map_Kd circuithouses_at_dif.dds
+map_Bump circuithouses_difnrm.dds
+
+newmtl 18
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.010000 0.010000 0.010000
+Ns 16.000000
+d 1.000000
+map_Kd sponsors_bilobards_a.dds
+map_Bump sign_bath_mtnstrt_signlrga_001_nrml.dds
+
+newmtl 50
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.010000 0.010000 0.010000
+Ns 16.000000
+d 1.000000
+map_Kd sponsors_bilobards_a.dds
+map_Bump sign_bath_mtnstrt_signlrga_001_nrml.dds
+
+newmtl 62
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.010000 0.010000 0.010000
+Ns 16.000000
+d 1.000000
+map_Kd sponsors_bilobards_b2020.dds
+map_Bump sign_bath_mtnstrt_signlrga_001_nrml.dds
+
+newmtl 114
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.200000 0.200000 0.200000
+Kd 0.100000 0.100000 0.100000
+Ks 0.010000 0.010000 0.010000
+Ns 60.000000
+d 1.000000
+map_Kd circuitobjects_dif.dds
+map_Bump CircuitObjects_NMfix.dds
+
+newmtl blackmetalfence
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.400000 0.400000 0.400000
+Kd 0.200000 0.200000 0.200000
+Ks 0.010000 0.010000 0.010000
+Ns 16.000000
+d 1.000000
+map_Kd metal_galvanizedblack_diffuse2.dds
+map_Bump metal_galvanized_002_nrml.dds
+
+newmtl 106
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.200000 0.200000 0.200000
+Kd 0.100000 0.100000 0.100000
+Ks 0.010000 0.010000 0.010000
+Ns 16.000000
+d 1.000000
+map_Kd bldg_box_seamedwall_001_diff.dds
+map_Bump metal_galvanized_002_nrml.dds
+
+newmtl TIRES
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.030000 0.030000 0.030000
+Ns 10.000000
+d 1.000000
+map_Kd tires.dds
+map_Bump tiresNRM.dds
+
+newmtl 117
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.200000 0.200000 0.200000
+Kd 0.100000 0.100000 0.100000
+Ks 0.010000 0.010000 0.010000
+Ns 16.000000
+d 1.000000
+map_Kd tyres_wall.dds
+map_Bump tyres_wall_NM_fix.dds
+
+newmtl 48
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.010000 0.010000 0.010000
+Ns 40.000000
+d 1.000000
+map_Kd tyre_cover_plastic_dif.dds
+map_Bump tyre_cover_plastic_difNRM.dds
+
+newmtl 105.001
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.010000 0.010000 0.010000
+Ns 30.000000
+d 1.000000
+map_Kd wall_sponsors_c_dif.dds
+map_Bump Wall_Sponsors_C_NMfix.dds
+
+newmtl Walls_B
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.010000 0.010000 0.010000
+Ns 30.000000
+d 1.000000
+map_Kd wall_sponsors_a_dif.dds
+map_Bump wall_sponsors_c_difnrm.dds
+
+newmtl 51
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.010000 0.010000 0.010000
+Ns 40.000000
+d 1.000000
+map_Kd tyre_cover_plastic_dif.dds
+map_Bump tyre_cover_plastic_difNRM.dds
+
+newmtl decal2.001
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.040000 0.040000 0.040000
+Ns 16.000000
+d 1.000000
+map_Kd roadtechmarine_decal.dds
+map_Bump special_wallsnrm.dds
+
+newmtl 43
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.010000 0.010000 0.010000
+Ns 40.000000
+d 1.000000
+map_Kd tyre_cover_plastic_dif.dds
+map_Bump tyre_cover_plastic_difNRM.dds
+
+newmtl 21
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.010000 0.010000 0.010000
+Ns 30.000000
+d 1.000000
+map_Kd special_walls.dds
+map_Bump special_wallsnrm.dds
+
+newmtl 29
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.250000 0.250000 0.250000
+Kd 0.200000 0.200000 0.200000
+Ks 0.040000 0.040000 0.040000
+Ns 16.000000
+d 1.000000
+map_Kd roadtechmarine_decal.dds
+map_Bump metal_galvanized_002_nrml.dds
+
+newmtl 13
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.100000 0.100000 0.100000
+Ns 16.000000
+d 1.000000
+map_Kd special_walls.dds
+map_Bump special_wallsnrm.dds
+
+newmtl sbanc2
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.150000 0.150000 0.150000
+Kd 0.150000 0.150000 0.150000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd sbanc2DESATTWEAK4.dds
+map_Bump sbanc2_NMfix.dds
+
+newmtl Material #4
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.010000 0.010000 0.010000
+Ns 30.000000
+d 1.000000
+map_Kd wall_sponsors_b_dif.dds
+map_Bump Wall_Sponsors_B_NMfix.dds
+
+newmtl 73
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.010000 0.010000 0.010000
+Ns 40.000000
+d 1.000000
+map_Kd tyre_cover_plastic_dif.dds
+map_Bump tyre_cover_plastic_difNRM.dds
+
+newmtl 85
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.010000 0.010000 0.010000
+Ns 16.000000
+d 1.000000
+map_Kd wall_box.dds
+map_Bump wall_box_NMfix.dds
+
+newmtl 105
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.010000 0.010000 0.010000
+Ns 30.000000
+d 1.000000
+map_Kd wall_sponsors_c_dif.dds
+map_Bump Wall_Sponsors_C_NMfix.dds
+
+newmtl Material #5
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.010000 0.010000 0.010000
+Ns 30.000000
+d 1.000000
+map_Kd wall_sponsors_a_dif.dds
+map_Bump Wall_sponsors_A_NMfix.dds
+
+newmtl 66
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.070000 0.070000 0.070000
+Ns 50.000000
+d 1.000000
+map_Kd curbs.dds
+map_Bump curbs_NMfix.dds
+
+newmtl 12
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.170000 0.170000 0.170000
+Kd 0.120000 0.120000 0.120000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd sbanc2DESATTWEAK4.dds
+map_Bump sbanc2_NMfix.dds
+
+newmtl 71
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.010000 0.010000 0.010000
+Ns 16.000000
+d 1.000000
+map_Kd signs.dds
+map_Bump signs_NMfix.dds
+
+newmtl 107
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.170000 0.170000 0.170000
+Kd 0.120000 0.120000 0.120000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd sbanc4greener.dds
+map_Bump sbanc4_NMfix.dds
+
+newmtl 27
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.170000 0.170000 0.170000
+Kd 0.120000 0.120000 0.120000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd sbanc2greener.dds
+map_Bump sbanc2_NMfix.dds
+
+newmtl 86
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.130000 0.130000 0.130000
+Kd 0.130000 0.130000 0.130000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd sbanc3greaner.dds
+map_Bump sbanc3_NMfix.dds
+
+newmtl 78
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.170000 0.170000 0.170000
+Kd 0.120000 0.120000 0.120000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd sbanc2greener.dds
+map_Bump sbanc2_NMfix.dds
+
+newmtl 49
+# AC shader: ksPerPixelNM
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.150000 0.150000 0.150000
+Kd 0.130000 0.130000 0.130000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd sbanc2greener.dds
+map_Bump sbanc2_NMfix.dds
+
+newmtl 36
+# AC shader: ksPerPixelMultiMap_NMDetail
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.400000 0.400000 0.400000
+Ns 10.000000
+d 1.000000
+map_Kd sand_base.dds
+map_Bump sand_base_NM.dds
+map_Detail GRAVEL-03.dds
+map_Maps sand_base_MAP.dds
+map_NormalDetail GRAVEL-03_NM.dds
+
+newmtl Structures_AT
+# AC shader: ksPerPixelMultiMap
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.200000 0.200000 0.200000
+Kd 0.100000 0.100000 0.100000
+Ks 0.010000 0.010000 0.010000
+Ns 250.000000
+d 1.000000
+map_Kd structures_at_dif.dds
+map_Bump Structures_AT_NMfixalpha.dds
+map_Detail off_white.dds
+map_Maps structures_at_difreflecmap.dds
+
+newmtl 116
+# AC shader: ksPerPixelMultiMap
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.010000 0.010000 0.010000
+Ns 250.000000
+d 1.000000
+map_Kd mount_panorama_MORETEX.dds
+map_Bump Mount_Panorama_NMfixbrickfix.dds
+map_Detail off_white.dds
+map_Maps Mount_Panorama_MAPreflecfix2.dds
+
+newmtl 67
+# AC shader: ksPerPixelMultiMap
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 250.000000
+d 1.000000
+map_Kd structures_house_a_dif.dds
+map_Bump Structures_house_A_NMfixmm.dds
+map_Detail off_white.dds
+map_Maps Structures_house_A_MAPrflec.dds
+
+newmtl 108
+# AC shader: ksPerPixelMultiMap
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.040000 0.040000 0.040000
+Ns 250.000000
+d 1.000000
+map_Kd structures_house_a_dif.dds
+map_Bump Structures_house_A_NMfixmm.dds
+map_Detail off_white.dds
+map_Maps Structures_house_A_MAPrflec.dds
+
+newmtl 100
+# AC shader: ksPerPixelMultiMap
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.050000 0.050000 0.050000
+Ns 250.000000
+d 1.000000
+map_Kd circuithouses_dif.dds
+map_Bump CircuitHouses_NMfixmm.dds
+map_Detail off_white.dds
+map_Maps circuithouses_difreflec.dds
+
+newmtl 103
+# AC shader: ksPerPixelMultiMap
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.050000 0.050000 0.050000
+Ns 250.000000
+d 1.000000
+map_Kd structures_house_b_dif.dds
+map_Bump Structures_house_B_NMfixmm.dds
+map_Detail off_white.dds
+map_Maps Structures_house_B_MAPreflec.dds
+
+newmtl VEG_Plant_Ivy_A_Leaf
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.050876 0.050876 0.050876
+Kd 0.800000 0.800000 0.800000
+Ks 0.800000 0.800000 0.800000
+Ns 10.000000
+d 1.000000
+map_Kd veg_plant_ivy_a_001_diff.dds
+
+newmtl VEG_Tree_Maple_A_Tall_Bark_001_veg_bush_hedge_a_trimmed_25ec91a
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.050876 0.050876 0.050876
+Kd 0.800000 0.800000 0.800000
+Ks 0.800000 0.800000 0.800000
+Ns 10.000000
+d 1.000000
+map_Kd veg_bush_hedge_a_trimmed_treecard_001_diff.dds
+
+newmtl 57
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.010000 0.010000 0.010000
+Ns 10.000000
+d 1.000000
+map_Kd car_post.dds
+
+newmtl 32
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.050876 0.050876 0.050876
+Kd 0.800000 0.800000 0.800000
+Ks 0.800000 0.800000 0.800000
+Ns 10.000000
+d 1.000000
+map_Kd white01.dds
+
+newmtl 109
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.010000 0.010000 0.010000
+Ns 16.000000
+d 1.000000
+map_Kd houses_b.dds
+
+newmtl 52
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.100000 0.100000 0.100000
+Ns 16.000000
+d 1.000000
+map_Kd tribuna_1_a.dds
+
+newmtl 44
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.050876 0.050876 0.050876
+Kd 0.800000 0.800000 0.800000
+Ks 0.800000 0.800000 0.800000
+Ns 10.000000
+d 1.000000
+map_Kd white01.dds
+
+newmtl 92
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.010000 0.010000 0.010000
+Ns 16.000000
+d 1.000000
+map_Kd strutture_pubblicitarie_ponti.dds
+
+newmtl 75
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.010000 0.010000 0.010000
+Ns 16.000000
+d 1.000000
+map_Kd mp_garages_a.dds
+
+newmtl 34
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.010000 0.010000 0.010000
+Ns 16.000000
+d 1.000000
+map_Kd sponsors_bilobards_a.dds
+
+newmtl 5
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.050876 0.050876 0.050876
+Kd 0.800000 0.800000 0.800000
+Ks 0.800000 0.800000 0.800000
+Ns 10.000000
+d 1.000000
+map_Kd null.dds
+
+newmtl 45
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd start_positions.dds
+
+newmtl TENNIS
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.020000 0.020000 0.020000
+Ns 16.000000
+d 1.000000
+map_Kd tennis.dds
+
+newmtl 22
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.100000 0.100000 0.100000
+Ns 16.000000
+d 1.000000
+map_Kd mp_garages_a.dds
+
+newmtl 20
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.010000 0.010000 0.010000
+Ns 10.000000
+d 1.000000
+map_Kd Lights_Emissive_DIF.dds
+
+newmtl 2
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.010000 0.010000 0.010000
+Ns 16.000000
+d 1.000000
+map_Kd wall_underpass.dds
+
+newmtl 111
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.010000 0.010000 0.010000
+Ns 16.000000
+d 1.000000
+map_Kd houses_a.dds
+
+newmtl 6
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.060000 0.060000 0.060000
+Ns 16.000000
+d 1.000000
+map_Kd null.dds
+
+newmtl 61
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.100000 0.100000 0.100000
+Ns 16.000000
+d 1.000000
+map_Kd Lights_Emissive_DIF.dds
+
+newmtl 15
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.050876 0.050876 0.050876
+Kd 0.800000 0.800000 0.800000
+Ks 0.800000 0.800000 0.800000
+Ns 10.000000
+d 1.000000
+map_Kd null.dds
+
+newmtl strutture_pubblicitarie_ponti
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.010000 0.010000 0.010000
+Ns 16.000000
+d 1.000000
+map_Kd strutture_pubblicitarie_ponti.dds
+
+newmtl 14
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.050876 0.050876 0.050876
+Kd 0.800000 0.800000 0.800000
+Ks 0.800000 0.800000 0.800000
+Ns 10.000000
+d 1.000000
+map_Kd null.dds
+
+newmtl 9
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.050876 0.050876 0.050876
+Kd 0.800000 0.800000 0.800000
+Ks 0.800000 0.800000 0.800000
+Ns 10.000000
+d 1.000000
+map_Kd null.dds
+
+newmtl 4
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.010000 0.010000 0.010000
+Ns 16.000000
+d 1.000000
+map_Kd sponsors_bilobards_a.dds
+
+newmtl 95
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.050876 0.050876 0.050876
+Kd 0.800000 0.800000 0.800000
+Ks 0.800000 0.800000 0.800000
+Ns 10.000000
+d 1.000000
+map_Kd ash_custom9_atlas_tex.dds
+
+newmtl 77
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.010000 0.010000 0.010000
+Ns 16.000000
+d 1.000000
+map_Kd circuitobjects_dif.dds
+
+newmtl 35
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.010000 0.010000 0.010000
+Ns 16.000000
+d 1.000000
+map_Kd null.dds
+
+newmtl 74
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.010000 0.010000 0.010000
+Ns 16.000000
+d 1.000000
+map_Kd circuitobjects_dif.dds
+
+newmtl 63
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+d 1.000000
+map_Kd null.dds
+
+newmtl DECALSSMASH
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.250000 0.250000 0.250000
+Kd 0.200000 0.200000 0.200000
+Ks 0.010000 0.010000 0.010000
+Ns 10.000000
+d 1.000000
+map_Kd hit_decal1.dds
+
+newmtl 30
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.010000 0.010000 0.010000
+Ns 16.000000
+d 1.000000
+map_Kd wall_underpass.dds
+
+newmtl 3
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd wall_box.dds
+
+newmtl 8
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.100000 0.100000 0.100000
+Ns 16.000000
+d 1.000000
+map_Kd special_walls.dds
+
+newmtl 17
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.100000 0.100000 0.100000
+Ns 16.000000
+d 1.000000
+map_Kd jaycar.dds
+
+newmtl 54
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.010000 0.010000 0.010000
+Ns 16.000000
+d 1.000000
+map_Kd wall_box.dds
+
+newmtl 38
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.200000 0.200000 0.200000
+Kd 0.100000 0.100000 0.100000
+Ks 0.010000 0.010000 0.010000
+Ns 16.000000
+d 1.000000
+map_Kd dead_grey_green_grass.dds
+
+newmtl 41
+# AC shader: ksMultilayer_fresnel_nm
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 1.000000 1.000000 1.000000
+Ns 20.000000
+d 1.000000
+map_Kd pitlane.dds
+map_Detail tarmac_detail_7.dds
+map_NormalDetail tarmac_detail_7_NM.dds
+# AC_RESOURCE txMask asph_MASK.dds
+# AC_RESOURCE txDetailG tarmac_detail_7.dds
+# AC_RESOURCE txDetailB tarmac_detail_7.dds
+# AC_RESOURCE txDetailA tarmac_detail_7.dds
+
+newmtl 96
+# AC shader: ksMultilayer_fresnel_nm
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.250000 0.250000 0.250000
+Kd 0.250000 0.250000 0.250000
+Ks 1.000000 1.000000 1.000000
+Ns 20.000000
+d 1.000000
+map_Kd asph_mid_dark2.dds
+map_Detail tarmac_detail_7.dds
+map_NormalDetail tarmac_detail_7_NM.dds
+# AC_RESOURCE txMask asph_MASK.dds
+# AC_RESOURCE txDetailG tarmac_detail_7.dds
+# AC_RESOURCE txDetailB tarmac_detail_7.dds
+# AC_RESOURCE txDetailA tarmac_detail_7.dds
+
+newmtl 65
+# AC shader: ksMultilayer_fresnel_nm
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.250000 0.250000 0.250000
+Kd 0.250000 0.250000 0.250000
+Ks 1.000000 1.000000 1.000000
+Ns 20.000000
+d 1.000000
+map_Kd asph_mid_dark2.dds
+map_Detail tarmac_detail_7.dds
+map_NormalDetail tarmac_detail_7_NM.dds
+# AC_RESOURCE txMask asph_MASK.dds
+# AC_RESOURCE txDetailG tarmac_detail_7.dds
+# AC_RESOURCE txDetailB tarmac_detail_7.dds
+# AC_RESOURCE txDetailA tarmac_detail_7.dds
+
+newmtl 88
+# AC shader: ksMultilayer_fresnel_nm
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd top.dds
+map_Detail grass_green1DESAT.dds
+map_NormalDetail waterbump2.dds
+# AC_RESOURCE txMask top_mask_newalphafix.dds
+# AC_RESOURCE txDetailG grass_worn.dds
+# AC_RESOURCE txDetailB tarmac_detail_7outfieldbluetweak.dds
+# AC_RESOURCE txDetailA grass_full.dds
+
+newmtl 83
+# AC shader: ksMultilayer_fresnel_nm
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd top.dds
+map_Detail grass_green1DESAT.dds
+map_NormalDetail waterbump2.dds
+# AC_RESOURCE txMask top_mask_newalphafix.dds
+# AC_RESOURCE txDetailG grass_worn.dds
+# AC_RESOURCE txDetailB tarmac_detail_7outfieldbluetweak.dds
+# AC_RESOURCE txDetailA grass_full.dds
+
+newmtl 82nograss
+# AC shader: ksMultilayer_fresnel_nm
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd top.dds
+map_Detail grass_green1DESAT.dds
+map_NormalDetail waterbump2.dds
+# AC_RESOURCE txMask top_mask_newalphafix.dds
+# AC_RESOURCE txDetailG grass_worn.dds
+# AC_RESOURCE txDetailB tarmac_detail_7outfieldbluetweak.dds
+# AC_RESOURCE txDetailA grass_full.dds
+
+newmtl 81
+# AC shader: ksMultilayer_fresnel_nm
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd top.dds
+map_Detail grass_green1DESAT.dds
+map_NormalDetail waterbump2.dds
+# AC_RESOURCE txMask top_mask_newalphafix.dds
+# AC_RESOURCE txDetailG grass_worn.dds
+# AC_RESOURCE txDetailB tarmac_detail_7outfieldbluetweak.dds
+# AC_RESOURCE txDetailA grass_full.dds
+
+newmtl 70
+# AC shader: ksMultilayer_fresnel_nm
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd top.dds
+map_Detail grass_green1DESAT.dds
+map_NormalDetail waterbump2.dds
+# AC_RESOURCE txMask top_mask_newalphafix.dds
+# AC_RESOURCE txDetailG grass_worn.dds
+# AC_RESOURCE txDetailB tarmac_detail_7outfieldbluetweak.dds
+# AC_RESOURCE txDetailA grass_full.dds
+
+newmtl 60
+# AC shader: ksMultilayer_fresnel_nm
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd top.dds
+map_Detail grass_green1DESAT.dds
+map_NormalDetail waterbump2.dds
+# AC_RESOURCE txMask top_mask_newalphafix.dds
+# AC_RESOURCE txDetailG grass_worn.dds
+# AC_RESOURCE txDetailB tarmac_detail_7outfieldbluetweak.dds
+# AC_RESOURCE txDetailA grass_full.dds
+
+newmtl 42
+# AC shader: ksMultilayer_fresnel_nm
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.400000 0.400000 0.400000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd top2.dds
+map_Detail grass_green1DESATLIGHT.dds
+map_NormalDetail waterbump2.dds
+# AC_RESOURCE txMask top1_mask.dds
+# AC_RESOURCE txDetailG grass_worn.dds
+# AC_RESOURCE txDetailB grasspatch.dds
+# AC_RESOURCE txDetailA grass_full.dds
+
+newmtl 24
+# AC shader: ksMultilayer_fresnel_nm
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.400000 0.400000 0.400000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd top2.dds
+map_Detail grass_green1DESATLIGHT.dds
+map_NormalDetail waterbump2.dds
+# AC_RESOURCE txMask top1_mask.dds
+# AC_RESOURCE txDetailG grass_worn.dds
+# AC_RESOURCE txDetailB grasspatch.dds
+# AC_RESOURCE txDetailA grass_full.dds
+
+newmtl 76
+# AC shader: ksMultilayer_fresnel_nm
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.250000 0.250000 0.250000
+Kd 0.250000 0.250000 0.250000
+Ks 1.000000 1.000000 1.000000
+Ns 20.000000
+d 1.000000
+map_Kd asph_mid_dark2.dds
+map_Detail tarmac_detail_7.dds
+map_NormalDetail tarmac_detail_7_NM.dds
+# AC_RESOURCE txMask asph_MASK.dds
+# AC_RESOURCE txDetailG tarmac_detail_7.dds
+# AC_RESOURCE txDetailB tarmac_detail_7.dds
+# AC_RESOURCE txDetailA tarmac_detail_7.dds
+
+newmtl 91
+# AC shader: ksMultilayer_fresnel_nm
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd top.dds
+map_Detail grass_green1DESAT.dds
+map_NormalDetail waterbump2.dds
+# AC_RESOURCE txMask top_mask_newalphafix.dds
+# AC_RESOURCE txDetailG grass_worn.dds
+# AC_RESOURCE txDetailB tarmac_detail_7outfieldbluetweak.dds
+# AC_RESOURCE txDetailA grass_full.dds
+
+newmtl 113
+# AC shader: ksMultilayer_fresnel_nm
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.250000 0.250000 0.250000
+Kd 0.250000 0.250000 0.250000
+Ks 1.000000 1.000000 1.000000
+Ns 20.000000
+d 1.000000
+map_Kd asph_mid_dark2.dds
+map_Detail tarmac_detail_7.dds
+map_NormalDetail tarmac_detail_7_NM.dds
+# AC_RESOURCE txMask asph_MASK.dds
+# AC_RESOURCE txDetailG tarmac_detail_7.dds
+# AC_RESOURCE txDetailB tarmac_detail_7.dds
+# AC_RESOURCE txDetailA tarmac_detail_7.dds
+
+newmtl 87
+# AC shader: ksMultilayer_fresnel_nm
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd sbanc1.dds
+map_Detail grass_green1DESAT.dds
+map_NormalDetail sbanc1_NMfix.dds
+# AC_RESOURCE txMask sbanc1_maskRGBfix.dds
+# AC_RESOURCE txDetailG off_white.dds
+# AC_RESOURCE txDetailB backroaddarker.dds
+# AC_RESOURCE txDetailA grass_green1DESATLIGHT.dds
+
+newmtl 82
+# AC shader: ksMultilayer_fresnel_nm
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd top.dds
+map_Detail grass_green1DESAT.dds
+map_NormalDetail waterbump2.dds
+# AC_RESOURCE txMask top_mask_newalphafix.dds
+# AC_RESOURCE txDetailG grass_worn.dds
+# AC_RESOURCE txDetailB tarmac_detail_7outfieldbluetweak.dds
+# AC_RESOURCE txDetailA grass_full.dds
+
+newmtl 59
+# AC shader: ksMultilayer_fresnel_nm
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd bathgrounddesat.dds
+map_Detail grass_green1DESATLIGHT.dds
+map_NormalDetail waterbump2.dds
+# AC_RESOURCE txMask top1_mask.dds
+# AC_RESOURCE txDetailG grass_worn.dds
+# AC_RESOURCE txDetailB grass_worn.dds
+# AC_RESOURCE txDetailA grass_full.dds
+
+newmtl Prototype_VEG_X_Tree_A_001
+# AC shader: ksTree
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd veg_nurb_x_tree_oak_c_large_001_diff_packmaskDARKER.dds
+map_d veg_nurb_x_tree_oak_c_large_001_diff_packmaskDARKER.dds
+
+newmtl VEG_X_Bush_Shrub_B_GroundCover_001
+# AC shader: ksTree
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd veg_bush_shrub_b_groundcover_treecard_001_diff.dds
+map_d veg_bush_shrub_b_groundcover_treecard_001_diff.dds
+
+newmtl VEG_Bush_Shrub_A_GroundCover_Leaves_001
+# AC shader: ksTree
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.400000 0.400000 0.400000
+Kd 0.400000 0.400000 0.400000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd veg_bush_shrub_a_groundcover_leaf_001_diff.dds
+map_d veg_bush_shrub_a_groundcover_leaf_001_diff.dds
+
+newmtl Tree_Tropical_Pruned
+# AC shader: ksTree
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd veg_nurb_x_tree_common_c_medium_002_diff_packmaskFIXED.dds
+map_d veg_nurb_x_tree_common_c_medium_002_diff_packmaskFIXED.dds
+
+newmtl Oak_Monterrey_001
+# AC shader: ksTree
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd veg_fm6_x_oak_monterrey_001_diff_packmaskNEW.dds
+map_d veg_fm6_x_oak_monterrey_001_diff_packmaskNEW.dds
+
+newmtl VEG_FM6_X_Plant_Flower_A_GroundCover_Leaves_001
+# AC shader: ksTree
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.400000 0.400000 0.400000
+Kd 0.400000 0.400000 0.400000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd veg_plant_flower_a_groundcover2_treecard_001_diff.dds
+map_d veg_plant_flower_a_groundcover2_treecard_001_diff.dds
+
+newmtl Veg_Nurb_Tree_Pine_B_Xlarge_Background_002
+# AC shader: ksTree
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd veg_nurb_tree_pine_b_xlarge_background_002_diff_packmaskNEW.dds
+map_d veg_nurb_tree_pine_b_xlarge_background_002_diff_packmaskNEW.dds
+
+newmtl VEG_Nurb_X_Bush_Common_B_Medium_001
+# AC shader: ksTree
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd veg_nurb_x_bush_common_b_medium__001_diff_packmaskNEW.dds
+map_d veg_nurb_x_bush_common_b_medium__001_diff_packmaskNEW.dds
+
+newmtl VEG_Nurb_X_Bush_Small_B_Wide_001
+# AC shader: ksTree
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd veg_fm6_x_oak_monterrey_001_diff_packmaskNEW.dds
+map_d veg_fm6_x_oak_monterrey_001_diff_packmaskNEW.dds
+
+newmtl VEG_Nurb_X_Tree_Common_A_Medium
+# AC shader: ksTree
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd veg_nurb_x_tree_common_a_medium_001_diff_packmask.dds
+map_d veg_nurb_x_tree_common_a_medium_001_diff_packmask.dds
+
+newmtl VEG_Nurb_X_Tree_Common_C_Medium_002
+# AC shader: ksTree
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd veg_nurb_x_tree_common_c_medium_002_diff_packmaskNEW.dds
+map_d veg_nurb_x_tree_common_c_medium_002_diff_packmaskNEW.dds
+
+newmtl VEG_Nurb_X_tree_Oak_C_Large_001
+# AC shader: ksTree
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd veg_nurb_x_tree_oak_c_large_001_diff_packmaskDARKER.dds
+map_d veg_nurb_x_tree_oak_c_large_001_diff_packmaskDARKER.dds
+
+newmtl VEG_Nurb_X_Tree_Pine_A_Thick_001
+# AC shader: ksTree
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd veg_nurb_x_tree_pine_a_thick_001_diff_packmaskNEW.dds
+map_d veg_nurb_x_tree_pine_a_thick_001_diff_packmaskNEW.dds
+
+newmtl VEG_Nurb_X_Tree_Pine_A_Thin_001
+# AC shader: ksTree
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd veg_nurb_x_tree_pine_a_thin_001_diff_packmaskALT.dds
+map_d veg_nurb_x_tree_pine_a_thin_001_diff_packmaskALT.dds
+
+newmtl Veg_Nurb_x_Tree_Pine_B_Xlarge_001
+# AC shader: ksTree
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd veg_nurb_x_tree_pine_b_xlarge_001_diff_packmaskNEW.dds
+map_d veg_nurb_x_tree_pine_b_xlarge_001_diff_packmaskNEW.dds
+
+newmtl VEG_Nurb_X_Tree_Poplar_C_Background_001
+# AC shader: ksTree
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd veg_nurb_x_tree_poplar_c_background_001_diff_packmaskNEW.dds
+map_d veg_nurb_x_tree_poplar_c_background_001_diff_packmaskNEW.dds
+
+newmtl VEG_X_Bush_A_001
+# AC shader: ksTree
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.400000 0.400000 0.400000
+Kd 0.400000 0.400000 0.400000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd veg_x_bush_a_001_diff.dds
+map_d veg_x_bush_a_001_diff.dds
+
+newmtl VEG_X_Bush_A_002
+# AC shader: ksTree
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd veg_x_bush_a_002_diff.dds
+map_d veg_x_bush_a_002_diff.dds
+
+newmtl VEG_X_Bush_Common_A_Large_001
+# AC shader: ksTree
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd veg_bush_common_a_large_card_001_diffNEW.dds
+map_d veg_bush_common_a_large_card_001_diffNEW.dds
+
+newmtl VEG_X_Bush_Common_C_Large_001
+# AC shader: ksTree
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.400000 0.400000 0.400000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd veg_x_bush_common_c_large_001_diffNEW.dds
+map_d veg_x_bush_common_c_large_001_diffNEW.dds
+
+newmtl VEG_X_Bush_Leafy_A_Medium_001
+# AC shader: ksTree
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd veg_bush_leafy_a_medium_card_001_diffNEW.dds
+map_d veg_bush_leafy_a_medium_card_001_diffNEW.dds
+
+newmtl VEG_X_Bush_Leafy_D_Medium_001
+# AC shader: ksTree
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd veg_bush_leafy_d_medium_card_001_diffNEW.dds
+map_d veg_bush_leafy_d_medium_card_001_diffNEW.dds
+
+newmtl VEG_X_Bush_Pine_B_001
+# AC shader: ksTree
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.400000 0.400000 0.400000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd veg_x_bush_pine_b_diff.dds
+map_d veg_x_bush_pine_b_diff.dds
+
+newmtl VEG_X_Tree_Oak_B_Large_001
+# AC shader: ksTree
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd veg_x_tree_oak_b_large_001_diff_packmaskNEW.dds
+map_d veg_x_tree_oak_b_large_001_diff_packmaskNEW.dds
+
+newmtl VEG_X_Tree_Pine_B_Tall_Sparse
+# AC shader: ksTree
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.400000 0.400000 0.400000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd veg_x_tree_pine_b_tall_sparse_diffNEW.dds
+map_d veg_x_tree_pine_b_tall_sparse_diffNEW.dds
+
+newmtl VEG_X_Tree_Pine_B_Stone_001
+# AC shader: ksTree
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd veg_x_veg_tree_pine_b_stone_001_diff_packmaskALTNEW.dds
+map_d veg_x_veg_tree_pine_b_stone_001_diff_packmaskALTNEW.dds
+
+newmtl VEG_X_Tree_Pine_C_Stone_001
+# AC shader: ksTree
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.250000 0.250000 0.250000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd veg_x_tree_pine_c_stone_001_diff_packmaskALTNEW.dds
+map_d veg_x_tree_pine_c_stone_001_diff_packmaskALTNEW.dds
+
+newmtl VEG_X_Tree_Pine_D_Stone_001
+# AC shader: ksTree
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.250000 0.250000 0.250000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd veg_x_tree_pine_d_stone_001_diff_packmaskALTNEW.dds
+map_d veg_x_tree_pine_d_stone_001_diff_packmaskALTNEW.dds
+
+newmtl VEG_BUSH_Leafy_A_Trimmed_001
+# AC shader: ksTree
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.400000 0.400000 0.400000
+Kd 0.400000 0.400000 0.400000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd veg_bush_leafy_a_trimmed_leaf_001_diff.dds
+map_d veg_bush_leafy_a_trimmed_leaf_001_diff.dds
+
+newmtl VEG_Bush_Hedge_A_Trimmed_Leaf_001_veg_bush_hedge_a_trim_b4cd947
+# AC shader: ksTree
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.600000 0.600000 0.600000
+Kd 0.500000 0.500000 0.500000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd veg_bush_hedge_a_trimmed_leaf_001_diff.dds
+map_d veg_bush_hedge_a_trimmed_leaf_001_diff.dds
+
+newmtl VEG_Nurb_X_Tree_Pine_A_001
+# AC shader: ksTree
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd veg_nurb_x_tree_pine_a_001_diff_packmaskNEW.dds
+map_d veg_nurb_x_tree_pine_a_001_diff_packmaskNEW.dds
+
+newmtl VEG_X_Plant_Flower_A_GroundCover_001
+# AC shader: ksTree
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.400000 0.400000 0.400000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd veg_plant_flower_a_groundcover2_treecard_001_diff.dds
+map_d veg_plant_flower_a_groundcover2_treecard_001_diff.dds
+
+newmtl VEG_Bush_Hedge_A_Trimmed_001_VEG_Bush_Hedge_A_Trimmed_Leaf_001
+# AC shader: ksTree
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd ivy0009_1_seamless_s_desat.dds
+map_d ivy0009_1_seamless_s_desat.dds
+
+newmtl 84
+# AC shader: ksPerPixelMultiMap_AT
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.200000 0.200000 0.200000
+Kd 0.100000 0.100000 0.100000
+Ks 0.010000 0.010000 0.010000
+Ns 250.000000
+d 1.000000
+map_Kd structures_at_dif.dds
+map_d structures_at_dif.dds
+map_Bump Structures_AT_NMfixalpha.dds
+map_Detail off_white.dds
+map_Maps structures_at_difreflecmap.dds
+
+newmtl 56
+# AC shader: ksPerPixelMultiMap_AT
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.010000 0.010000 0.010000
+Ns 250.000000
+d 1.000000
+map_Kd structures_at_dif.dds
+map_d structures_at_dif.dds
+map_Bump Structures_AT_NMfixalpha.dds
+map_Detail off_white.dds
+map_Maps structures_at_difreflecmap.dds
+
+newmtl 80
+# AC shader: ksPerPixelAT_NM
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.200000 0.200000 0.200000
+Kd 0.150000 0.150000 0.150000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd grape.dds
+map_d grape.dds
+map_Bump grapenrm.dds
+
+newmtl 47
+# AC shader: ksPerPixelAT_NM
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.200000 0.200000 0.200000
+Kd 0.100000 0.100000 0.100000
+Ks 0.010000 0.010000 0.010000
+Ns 16.000000
+d 1.000000
+map_Kd structures_at_dif.dds
+map_d structures_at_dif.dds
+map_Bump Structures_AT_NMfix.dds
+
+newmtl blackgridfence
+# AC shader: ksPerPixelAT_NM
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.100000 0.100000 0.100000
+Kd 0.100000 0.100000 0.100000
+Ks 0.050000 0.050000 0.050000
+Ns 16.000000
+d 1.000000
+map_Kd gridfence.dds
+map_d gridfence.dds
+map_Bump gridfencenm.dds
+
+newmtl 46
+# AC shader: ksPerPixelAT_NM
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.010000 0.010000 0.010000
+Ns 16.000000
+d 1.000000
+map_Kd circuithouses_at_dif.dds
+map_d circuithouses_at_dif.dds
+map_Bump CircuitHouses_AT_NMfix.dds
+
+newmtl 89
+# AC shader: ksPerPixelAT_NM
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.010000 0.010000 0.010000
+Ns 16.000000
+d 1.000000
+map_Kd gridfence.dds
+map_d gridfence.dds
+map_Bump gridfencenm.dds
+
+newmtl 53
+# AC shader: ksPerPixelAT_NM
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.100000 0.100000 0.100000
+Ks 0.040000 0.040000 0.040000
+Ns 16.000000
+d 1.000000
+map_Kd grdr_rail_01.dds
+map_d grdr_rail_01.dds
+map_Bump grdr_rail_01nm.dds
+
+newmtl 110
+# AC shader: ksPerPixelAT_NM
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.200000 0.200000 0.200000
+Kd 0.100000 0.100000 0.100000
+Ks 0.030000 0.030000 0.030000
+Ns 16.000000
+d 1.000000
+map_Kd bathfencetallalpha.dds
+map_d bathfencetallalpha.dds
+map_Bump bathfencetallalphanm.dds
+
+newmtl KERBDECAL
+# AC shader: ksPerPixelAT_NM
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.800000 0.800000 0.800000
+Kd 0.900000 0.900000 0.900000
+Ks 0.040000 0.040000 0.040000
+Ns 10.000000
+d 1.000000
+map_Kd decal1_mask.dds
+map_d decal1_mask.dds
+map_Bump decal1_NM.dds
+
+newmtl REDLINE
+# AC shader: ksPerPixelAT_NM
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.070000 0.070000 0.070000
+Ns 16.000000
+d 1.000000
+map_Kd redline2.dds
+map_d redline2.dds
+map_Bump line2nrm.dds
+
+newmtl yellowline
+# AC shader: ksPerPixelAT_NM
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 16.000000
+d 1.000000
+map_Kd yellowline2.dds
+map_d yellowline2.dds
+map_Bump line2nrm.dds
+
+newmtl 26
+# AC shader: ksPerPixelAT_NM
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.500000 0.500000 0.500000
+Kd 0.400000 0.400000 0.400000
+Ks 0.100000 0.100000 0.100000
+Ns 16.000000
+d 1.000000
+map_Kd decal_start.dds
+map_d decal_start.dds
+map_Bump tarmac_detail_7_NM.dds
+
+newmtl 101
+# AC shader: ksPerPixelAT_NM
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.150000 0.150000 0.150000
+Kd 0.100000 0.100000 0.100000
+Ks 0.050000 0.050000 0.050000
+Ns 16.000000
+d 1.000000
+map_Kd road_filler.dds
+map_d road_filler.dds
+map_Bump road_fillernrm.dds
+
+newmtl 58
+# AC shader: ksPerPixelAT_NM
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.200000 0.200000 0.200000
+Ks 0.100000 0.100000 0.100000
+Ns 16.000000
+d 1.000000
+map_Kd start_positions.dds
+map_d start_positions.dds
+map_Bump tarmac_detail_7_NM.dds
+
+newmtl 79
+# AC shader: ksPerPixelAT_NM
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.100000 0.100000 0.100000
+Ns 16.000000
+d 1.000000
+map_Kd line2.dds
+map_d line2.dds
+map_Bump line2nrm.dds
+
+newmtl 69
+# AC shader: ksPerPixelAT_NM
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.200000 0.200000 0.200000
+Kd 0.200000 0.200000 0.200000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd grassedgetestnew.dds
+map_d grassedgetestnew.dds
+map_Bump grassedgetest2nrm.dds
+
+newmtl NEW_SKYRING2
+# AC shader: ksPerPixelAT_NM
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.400000 0.400000 0.400000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 1.000000
+d 1.000000
+map_Kd bathurst_skydome_01_dif03.dds
+map_d bathurst_skydome_01_dif03.dds
+map_Bump bathurst_skydome_01_dif03nm.dds
+
+newmtl SANDEDGES
+# AC shader: ksPerPixelAT_NM
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.160000 0.160000 0.160000
+Kd 0.150000 0.150000 0.150000
+Ks 0.010000 0.010000 0.010000
+Ns 16.000000
+d 1.000000
+map_Kd grass-brd3newgrasshfixthinalphafix.dds
+map_d grass-brd3newgrasshfixthinalphafix.dds
+map_Bump sand_bord_NM2.dds
+
+newmtl Treewall_Cap
+# AC shader: ksGrass
+# ALPHATEST=1 ALPHABLEND=0
+Ka 0.300000 0.300000 0.300000
+Kd 0.300000 0.300000 0.300000
+Ks 0.000000 0.000000 0.000000
+Ns 16.000000
+d 1.000000
+map_Kd veg__bath_treewall_c_001_diff.dds
+map_d veg__bath_treewall_c_001_diff.dds
+# AC_RESOURCE txVariation grass-var.dds
+
+newmtl REDSTARTLIGHTS
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.100000 0.100000 0.100000
+Kd 0.100000 0.100000 0.100000
+Ks 0.010000 0.010000 0.010000
+Ns 10.000000
+d 1.000000
+map_Kd texture_trafficlight_red.dds
+
+newmtl 16
+# AC shader: ksPerPixel
+# ALPHATEST=0 ALPHABLEND=0
+Ka 0.100000 0.100000 0.100000
+Kd 0.100000 0.100000 0.100000
+Ks 0.010000 0.010000 0.010000
+Ns 10.000000
+d 1.000000
+map_Kd texture_trafficlight_green.dds

@@ -10,6 +10,7 @@ MaterialParser::MaterialParser()
 
 }
 void MaterialParser::LoadMaterial(const std::string& filename, const std::string& targetName, std::map<std::string, MaterialData>& m_materialLib) {
+    int cunt = 0;
     std::ifstream file(filename);
     if (!file.is_open()) return;
     std::string line;

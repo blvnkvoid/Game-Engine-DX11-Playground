@@ -32,16 +32,6 @@ if (material.hasDetailTexture > 0.5f)
 {
     baseColor *= leatherDetail;
 }
-// ---------------------------------------------------------
-// DETAIL TEST
-//
-// Keep OFF for now.
-//
-// This uses CAR t4.
-// ---------------------------------------------------------
-
-//baseColor *= leatherDetail;
-
 
 // ---------------------------------------------------------
 // MAP DETAIL TEST
@@ -51,10 +41,10 @@ if (material.hasDetailTexture > 0.5f)
 // This uses MAP t9.
 // ---------------------------------------------------------
 
-// baseColor *= mapDetail;
+//baseColor *= mapDetail;
 
 
-float modelAmbientMultiplier = 3.0f;
+float modelAmbientMultiplier = 1.0f;
 
 
 // ---------------------------------------------------------
@@ -70,13 +60,15 @@ float3 ambient = baseColor * ambientIntensity * modelAmbientMultiplier;
 // Keep this in mind during the map test.
 // ---------------------------------------------------------
 
-ambient *= AO;
+//ambient *= AO;
 
 // ---------------------------------------------------------
 // Direct sunlight
 // ---------------------------------------------------------
 
-float3 diffuse = baseColor * lightColor.rgb * ndotl * 0.9f * shadowFactor;
+float3 diffuse = baseColor * lightColor.rgb  * 0.9f;
+
+diffuse *= shadowFactor;
 
 // ---------------------------------------------------------
 // Non-specular material
@@ -188,7 +180,6 @@ if (material.d < 0.9f)
 // ---------------------------------------------------------
 
 float3 finalColor =
-baseColor +
 ambient +
 diffuse +
 reflection +
