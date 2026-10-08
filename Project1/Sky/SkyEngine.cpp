@@ -47,10 +47,10 @@ bool SkyEngine::Initialize(ID3D11Device* device)
     Microsoft::WRL::ComPtr<ID3DBlob> psBlob;
 
 
-    hr = D3DCompileFromFile(L"Sun.hlsl", nullptr, nullptr, "main", "vs_5_0", 0, 0, &vsBlob, nullptr);
+    hr = D3DCompileFromFile(L"Shaders\\Sun.hlsl", nullptr, nullptr, "main", "vs_5_0", 0, 0, &vsBlob, nullptr);
     if (FAILED(hr)) return false;
 
-    hr = D3DCompileFromFile(L"Sun.hlsl", nullptr, nullptr, "SunPS", "ps_5_0", 0, 0, &psBlob, nullptr);
+    hr = D3DCompileFromFile(L"Shaders\\Sun.hlsl", nullptr, nullptr, "SunPS", "ps_5_0", 0, 0, &psBlob, nullptr);
 
     if (FAILED(hr)) return false;
 
@@ -197,7 +197,7 @@ bool SkyEngine::Initialize(ID3D11Device* device)
     Microsoft::WRL::ComPtr<ID3DBlob> cloudVSBlob;
 
     hr = (D3DCompileFromFile(
-        L"Clouds.hlsl",
+        L"Shaders\\Clouds.hlsl",
         nullptr,
         D3D_COMPILE_STANDARD_FILE_INCLUDE,
         "main",
@@ -228,7 +228,7 @@ bool SkyEngine::Initialize(ID3D11Device* device)
     Microsoft::WRL::ComPtr<ID3DBlob> cloudPSBlob;
 
     hr = (D3DCompileFromFile(
-        L"Clouds.hlsl",
+        L"Shaders\\Clouds.hlsl",
         nullptr,
         D3D_COMPILE_STANDARD_FILE_INCLUDE,
         "PSMain",

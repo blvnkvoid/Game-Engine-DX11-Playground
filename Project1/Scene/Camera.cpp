@@ -85,6 +85,47 @@
     }
 
 
+    void Camera::GetFrustumSliceCorners(
+        float nearDistance,
+        float farDistance,
+        DirectX::XMFLOAT3 corners[8]) const
+    {
+        const float aspectRatio =
+            static_cast<float>(settings.width) /
+            static_cast<float>(settings.height);
+
+        DirectX::XMMATRIX sliceProjection =
+            DirectX::XMMatrixPerspectiveFovLH(
+                m_fov,
+                aspectRatio,
+                nearDistance,
+                farDistance
+            );
+
+        DirectX::BoundingFrustum sliceFrustum;
+
+        DirectX::BoundingFrustum::CreateFromMatrix(
+            sliceFrustum,
+            sliceProjection
+        );
+
+        DirectX::XMMATRIX inverseView =
+            DirectX::XMMatrixInverse(
+                nullptr,
+                viewMatrix
+            );
+
+        DirectX::BoundingFrustum worldSlice;
+
+        sliceFrustum.Transform(
+            worldSlice,
+            inverseView
+        );
+
+        worldSlice.GetCorners(corners);
+    }
+
+
     void Camera::Update(float deltaTime, const TrackEntry& activeTrackEntry) {
 
         XMMATRIX camRotation = XMMatrixRotationRollPitchYaw(m_pitch, m_yaw, 0);
@@ -246,7 +287,7 @@
                 );
             }
 
-
+            m_fov = targetFOV;
             m_pitch = m_isLookingBack ? 0.0f : XMConvertToRadians(pitchDeg);
             m_yaw = 0.0f;
 
@@ -275,7 +316,7 @@
         m_right = XMVector3Normalize(XMVector3Cross(m_forward, smoothedUp));
         m_up = XMVector3Normalize(XMVector3Cross(m_right, m_forward));
 
-        this->projectionMatrix = XMMatrixPerspectiveFovLH(targetFOV, aspectRatio, activeTrackEntry.renderSettings.nearPlane, activeTrackEntry.renderSettings.farPlane);
+        this->projectionMatrix = XMMatrixPerspectiveFovLH(m_fov, aspectRatio, activeTrackEntry.renderSettings.nearPlane, activeTrackEntry.renderSettings.farPlane);
 
         UpdateFrustum();
 

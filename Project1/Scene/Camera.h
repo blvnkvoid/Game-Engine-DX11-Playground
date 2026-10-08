@@ -46,12 +46,16 @@ public:
 
     float m_farPlane;
 
+    float m_fov = XM_PIDIV4;
+
     float m_nearPlane;
 
     float GetFarPlane() const
     {
         return m_farPlane;
     }    
+
+    void GetFrustumSliceCorners(float nearDistance, float farDistance, DirectX::XMFLOAT3 corners[8]) const;
     
     float GetNearPlane() const
     {

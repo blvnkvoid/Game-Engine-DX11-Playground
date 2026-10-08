@@ -13,8 +13,7 @@ cbuffer SharedSceneData : register(b0)
     matrix view;
     matrix projection;
 
-    matrix lightView;
-    matrix lightProjection;
+    matrix lightViewProjection[3];
 
     float4 lightDirection;
     float4 lightColor;
@@ -61,7 +60,7 @@ VSOutput main(VSInput input)
 
     // Preserve triangle position and shape,
     // but force all rasterized geometry to depth 0.5.
-    output.position.z = 0.5f * output.position.w;
+    //output.position.z = 0.5f * output.position.w;
 
     return output;
 

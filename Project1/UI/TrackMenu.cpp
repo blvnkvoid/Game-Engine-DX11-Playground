@@ -115,6 +115,11 @@ void TrackMenu::Draw(const UIContext& ui)
         if (ImGui::Selectable("Bayview", m_selectedTrack == TrackSelection::Bayview))
         {
             m_selectedTrack = TrackSelection::Bayview;
+        }        
+        
+        if (ImGui::Selectable("Costa Di Amalfi", m_selectedTrack == TrackSelection::CostaDiAmalfi))
+        {
+            m_selectedTrack = TrackSelection::CostaDiAmalfi;
         }
 
 

@@ -1,8 +1,28 @@
 
+// ---------------------------------------------------------
+// T E S T (asphalt)
+// ---------------------------------------------------------
+
+/*if (matType == MATERIAL_ASPHALT)
+{
+    return ShadeAsphalt(
+        texColor,
+        N,
+        L,
+        input.worldPos,
+        ambientIntensity,
+        headlightIntensity,
+        H,
+        V,
+        shadowFactor
+    );
+}*/
+
 
 // ---------------------------------------------------------
 // Emissive materials
 // ---------------------------------------------------------
+
 
 if (matType == MATERIAL_BRAKE_LIGHT)
 {
@@ -78,19 +98,7 @@ if (matType == MATERIAL_RUBBER)
 }
 
 
-if (matType == MATERIAL_ASPHALT)
-{
-    return ShadeAsphalt(
-        texColor,
-        N,
-        L,
-        input.worldPos,
-        ambientIntensity,
-        headlightIntensity,
-        H,
-        V
-    );
-}
+
 
 
 if (matType == MATERIAL_LIVERY)
@@ -139,7 +147,6 @@ if (matType == MATERIAL_SAFETYCAR_PAINT)
         input.localPos
     );
 }
-
 
 // ---------------------------------------------------------
 // Alpha-tested trees

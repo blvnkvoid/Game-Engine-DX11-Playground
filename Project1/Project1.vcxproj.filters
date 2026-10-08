@@ -52,6 +52,9 @@
     <Filter Include="Source Files\Sky">
       <UniqueIdentifier>{3cf58a9b-ffbb-426f-97bd-ff1d72f7aa58}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Shaders">
+      <UniqueIdentifier>{ba6eb0d6-4f0f-4505-867a-96102b0444ba}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -488,105 +491,105 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="ShadowDebugPS.hlsl">
-      <Filter>Source Files</Filter>
+    <None Include="Shaders\BrakeLightMask.hlsli">
+      <Filter>Source Files\Shaders</Filter>
     </None>
-    <None Include="ShadowDebugVS.hlsl">
-      <Filter>Source Files</Filter>
+    <None Include="Shaders\CalculateShadeFactor.hlsli">
+      <Filter>Source Files\Shaders</Filter>
     </None>
-    <None Include="ShadeCarPaint.hlsli">
-      <Filter>Source Files</Filter>
+    <None Include="Shaders\Fallback.hlsli">
+      <Filter>Source Files\Shaders</Filter>
     </None>
-    <None Include="ShadeSafetyCarPaint.hlsli">
-      <Filter>Source Files</Filter>
+    <None Include="Shaders\GetSkyReflection.hlsli">
+      <Filter>Source Files\Shaders</Filter>
     </None>
-    <None Include="ShadeCarLivery.hlsli">
-      <Filter>Source Files</Filter>
+    <None Include="Shaders\HeadlightMask.hlsli">
+      <Filter>Source Files\Shaders</Filter>
     </None>
-    <None Include="ShadeAlcantara.hlsli">
-      <Filter>Source Files</Filter>
+    <None Include="Shaders\LampLightMask.hlsli">
+      <Filter>Source Files\Shaders</Filter>
     </None>
-    <None Include="CalculateShadeFactor.hlsli">
-      <Filter>Source Files</Filter>
+    <None Include="Shaders\LocalLighting.hlsli">
+      <Filter>Source Files\Shaders</Filter>
     </None>
-    <None Include="ShadeDecalText.hlsli">
-      <Filter>Source Files</Filter>
+    <None Include="Shaders\Materials.hlsli">
+      <Filter>Source Files\Shaders</Filter>
     </None>
-    <None Include="ShadeHeadLight.hlsli">
-      <Filter>Source Files</Filter>
+    <None Include="Shaders\MaterialTypes.hlsli">
+      <Filter>Source Files\Shaders</Filter>
     </None>
-    <None Include="ShadeAsphalt.hlsli">
-      <Filter>Source Files</Filter>
+    <None Include="Shaders\NormalMapping.hlsli">
+      <Filter>Source Files\Shaders</Filter>
     </None>
-    <None Include="ShadeLampGlow.hlsli">
-      <Filter>Source Files</Filter>
+    <None Include="Shaders\PaceBodyMask.hlsli">
+      <Filter>Source Files\Shaders</Filter>
     </None>
-    <None Include="BrakeLightMask.hlsli">
-      <Filter>Source Files</Filter>
+    <None Include="Shaders\PaceCarLightColor.hlsli">
+      <Filter>Source Files\Shaders</Filter>
     </None>
-    <None Include="HeadlightMask.hlsli">
-      <Filter>Source Files</Filter>
+    <None Include="Shaders\PaceLightMask.hlsli">
+      <Filter>Source Files\Shaders</Filter>
     </None>
-    <None Include="LampLightMask.hlsli">
-      <Filter>Source Files</Filter>
+    <None Include="Shaders\ShadeAlcantara.hlsli">
+      <Filter>Source Files\Shaders</Filter>
     </None>
-    <None Include="PaceBodyMask.hlsli">
-      <Filter>Source Files</Filter>
+    <None Include="Shaders\ShadeAsphalt.hlsli">
+      <Filter>Source Files\Shaders</Filter>
     </None>
-    <None Include="PaceCarLightColor.hlsli">
-      <Filter>Source Files</Filter>
+    <None Include="Shaders\ShadeBrakeLight.hlsli">
+      <Filter>Source Files\Shaders</Filter>
     </None>
-    <None Include="PaceLightMask.hlsli">
-      <Filter>Source Files</Filter>
+    <None Include="Shaders\ShadeCarLivery.hlsli">
+      <Filter>Source Files\Shaders</Filter>
     </None>
-    <None Include="ShadeBrakeLight.hlsli">
-      <Filter>Source Files</Filter>
+    <None Include="Shaders\ShadeCarPaint.hlsli">
+      <Filter>Source Files\Shaders</Filter>
     </None>
-    <None Include="ShadeGlass.hlsli">
-      <Filter>Source Files</Filter>
+    <None Include="Shaders\ShadeDecalText.hlsli">
+      <Filter>Source Files\Shaders</Filter>
     </None>
-    <None Include="ShadePaceLight.hlsli">
-      <Filter>Source Files</Filter>
+    <None Include="Shaders\ShadeGlass.hlsli">
+      <Filter>Source Files\Shaders</Filter>
     </None>
-    <None Include="ShadeRubber.hlsli">
-      <Filter>Source Files</Filter>
+    <None Include="Shaders\ShadeHeadLight.hlsli">
+      <Filter>Source Files\Shaders</Filter>
     </None>
-    <None Include="GetSkyReflection.hlsli">
-      <Filter>Source Files</Filter>
+    <None Include="Shaders\ShadeLampGlow.hlsli">
+      <Filter>Source Files\Shaders</Filter>
     </None>
-    <None Include="MaterialTypes.hlsli">
-      <Filter>Source Files</Filter>
+    <None Include="Shaders\ShadePaceLight.hlsli">
+      <Filter>Source Files\Shaders</Filter>
     </None>
-    <None Include="NormalMapping.hlsli">
-      <Filter>Source Files</Filter>
+    <None Include="Shaders\ShadeRubber.hlsli">
+      <Filter>Source Files\Shaders</Filter>
     </None>
-    <None Include="Materials.hlsli">
-      <Filter>Source Files</Filter>
+    <None Include="Shaders\ShadeSafetyCarPaint.hlsli">
+      <Filter>Source Files\Shaders</Filter>
     </None>
-    <None Include="Fallback.hlsli">
-      <Filter>Source Files</Filter>
-    </None>
-    <None Include="LocalLighting.hlsli">
-      <Filter>Source Files</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <FxCompile Include="Shaders.hlsl">
-      <Filter>Source Files</Filter>
-    </FxCompile>
-    <FxCompile Include="Sun.hlsl">
-      <Filter>Source Files</Filter>
-    </FxCompile>
-    <FxCompile Include="Clouds.hlsl">
-      <Filter>Source Files</Filter>
-    </FxCompile>
-    <FxCompile Include="Shadows.hlsl">
-      <Filter>Source Files</Filter>
-    </FxCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Setup Template.txt">
       <Filter>Source Files\Cars</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Shaders\Clouds.hlsl">
+      <Filter>Source Files\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Shaders\Shaders.hlsl">
+      <Filter>Source Files\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Shaders\ShadowDebugPS.hlsl">
+      <Filter>Source Files\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Shaders\ShadowDebugVS.hlsl">
+      <Filter>Source Files\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Shaders\Shadows.hlsl">
+      <Filter>Source Files\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Shaders\Sun.hlsl">
+      <Filter>Source Files\Shaders</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

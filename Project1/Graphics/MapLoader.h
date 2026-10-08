@@ -60,6 +60,8 @@ struct MapMeshSubset
 
     MaterialType materialType = MaterialType::MATERIAL_DEFAULT;
     DirectX::BoundingBox bounds;
+
+    const MaterialData* resolvedMaterial = nullptr;
 };
 
 struct LampLight
@@ -81,7 +83,8 @@ public:
     const std::vector<UINT>& GetIndices() const { return m_allIndices; }
     const std::vector<MapMarker>& GetMarkers() const { return m_markers; }
     
-    
+    void ResolveMaterials();
+
     void Draw(ID3D11DeviceContext* context,
         ID3D11Buffer* cbb,
         ID3D11Buffer* lampInfoBuffer,

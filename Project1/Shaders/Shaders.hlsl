@@ -20,8 +20,7 @@ cbuffer SharedSceneData : register(b0)
     matrix view;
     matrix projection;
 
-    matrix lightView;
-    matrix lightProjection;
+    matrix lightViewProjection[3];
 
     float4 lightDirection;
     float4 lightColor;
@@ -66,19 +65,25 @@ struct VS_INPUT {
     
 };
 
-struct PS_INPUT {
+    struct PS_INPUT
+{
     float4 position : SV_POSITION;
-    float2 texCoord : TEXCOORD;
+    float2 texCoord : TEXCOORD0;
     float3 normal   : TEXCOORD1;
     float3 worldPos : TEXCOORD2;
     float3 localPos : TEXCOORD3;
-    float4 lightSpacePos : TEXCOORD4;
-    float clipW : TEXCOORD5;
-    float3 tangent : TEXCOORD6;
+
+    float4 lightSpacePos0 : TEXCOORD4;
+    float4 lightSpacePos1 : TEXCOORD5;
+    float4 lightSpacePos2 : TEXCOORD6;
+
+    float4 tangentClipW : TEXCOORD7;
 };
 
 Texture2D objTexture : register(t0);
-Texture2D shadowMap : register(t2);
+Texture2D shadowMap0 : register(t2);
+Texture2D shadowMap1 : register(t12);
+Texture2D shadowMap2 : register(t13);
 Texture2D normalTexture : register(t3);
 Texture2D detailTexture : register(t4);
 Texture2D normalDetailTexture : register(t5);
@@ -92,23 +97,44 @@ SamplerState samplerLinear : register(s0);
 SamplerComparisonState shadowComparisonSampler : register(s1);
 
 // --- Vertex Shader ---
-PS_INPUT VS(VS_INPUT input) {
-    PS_INPUT output;
-    float4 worldPosition = mul(float4(input.position, 1.0f), world);
-    output.lightSpacePos = mul(worldPosition, lightView);
-    output.lightSpacePos = mul(output.lightSpacePos, lightProjection);
+PS_INPUT VS(VS_INPUT input)
+{
+    PS_INPUT output = (PS_INPUT)0;
+
+    float4 worldPosition =
+        mul(float4(input.position, 1.0f), world);
+
+    output.lightSpacePos0 =
+        mul(worldPosition, lightViewProjection[0]);
+
+    output.lightSpacePos1 =
+        mul(worldPosition, lightViewProjection[1]);
+
+    output.lightSpacePos2 =
+        mul(worldPosition, lightViewProjection[2]);
+
     output.worldPos = worldPosition.xyz;
-    output.position = mul(mul(worldPosition, view), projection);
-    output.normal = normalize(mul((float3x3)world, input.normal));
-    output.texCoord = input.texCoord;
-    output.localPos = input.position.xyz;
-    output.tangent =  normalize(mul((float3x3)world, input.tangent.xyz));
-    float4 clipPos = mul(mul(worldPosition, view), projection);
+
+    float4 clipPos =
+        mul(mul(worldPosition, view), projection);
 
     output.position = clipPos;
-    output.clipW = clipPos.w;
+
+    output.normal =
+        normalize(mul((float3x3)world, input.normal));
+
+    output.texCoord = input.texCoord;
+    output.localPos = input.position.xyz;
+
+    output.tangentClipW.xyz =
+        normalize(mul((float3x3)world, input.tangent.xyz));
+
+    output.tangentClipW.w = clipPos.w;
+
     return output;
 }
+
+
 
 #include "GetSkyReflection.hlsli"
 #include "ShadeAlcantara.hlsli"
@@ -116,19 +142,22 @@ PS_INPUT VS(VS_INPUT input) {
 #include "ShadeCarPaint.hlsli"
 #include "PaceCarLightColor.hlsli"
 #include "PaceBodyMask.hlsli"
-c#include "ShadeSafetyCarPaint.hlsli"
+#include "ShadeSafetyCarPaint.hlsli"
 #include "ShadeGlass.hlsli"
 #include "ShadeRubber.hlsli"
+#include "LampLightMask.hlsli"
 #include "HeadlightMask.hlsli"
 #include "BrakeLightMask.hlsli"
+#include "PaceLightMask.hlsli"
 #include "ShadeBrakeLight.hlsli"
 #include "ShadePaceLight.hlsli"
-#include "PaceLightMask.hlsli"
-#include "LampLightMask.hlsli"
 #include "ShadeLampGlow.hlsli"
-#include "ShadeAsphalt.hlsli"
+//#include "ShadeAsphalt.hlsli"
 #include "ShadeHeadLight.hlsli"
 #include "ShadeDecalText.hlsli"
+
+
+
 #include "CalculateShadeFactor.hlsli"
 
 // --- Pixel Shader ---
@@ -234,13 +263,59 @@ float3 R =
 // ---------------------------------------------------------
 // Shadow mapping
 // ---------------------------------------------------------
+float viewDepth =
+dot(
+    input.worldPos - cameraPosition.xyz,
+    cameraDirection.xyz
+);
 
-float shadowFactor =
-    CalculateShadowFactor(
-        input.lightSpacePos,
-        N,
-        L
-    );
+
+float shadowFactor = 1.0f;
+
+
+if (viewDepth < 50.0f)
+{
+    shadowFactor =
+        CalculateShadowFactor(
+            input.lightSpacePos0,
+            N,
+            L,
+            0
+        );
+}
+else if (viewDepth < 200.0f)
+{
+    shadowFactor =
+        CalculateShadowFactor(
+            input.lightSpacePos1,
+            N,
+            L,
+            1
+        );
+}
+else if (viewDepth < 800.0f)
+{
+    shadowFactor =
+        CalculateShadowFactor(
+            input.lightSpacePos2,
+            N,
+            L,
+            2
+        );
+}
+
+/*
+if (viewDepth < 50.0f)
+    return float4(1, 0, 0, 1); // C0 RED
+
+if (viewDepth < 200.0f)
+    return float4(0, 1, 0, 1); // C1 GREEN
+
+if (viewDepth < 800.0f)
+    return float4(0, 0, 1, 1); // C2 BLUE
+    */
+
+
 
 // ---------------------------------------------------------
 // Local lighting
@@ -259,9 +334,14 @@ float shadowFactor =
 // ---------------------------------------------------------
 // Fallback
 // ---------------------------------------------------------
-
-
+/*
+if (abs(viewDepth - 50.0f) < 0.5f)
+{
+    return float4(1.0f, 1.0f, 0.0f, 1.0f);
+}*/
 #include "Fallback.hlsli"
+
+
 
 }
 PS_INPUT mainVS(VS_INPUT input) { return VS(input); }

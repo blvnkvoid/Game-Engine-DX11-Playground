@@ -7,7 +7,7 @@ float3 N =
 normalize(input.normal);
 
 float3 T =
-normalize(input.tangent);
+normalize(input.tangentClipW);
 
 T =
 normalize(

@@ -64,11 +64,8 @@ struct SharedSceneData
     DirectX::XMMATRIX world;
     DirectX::XMMATRIX view;
     DirectX::XMMATRIX projection;
-
-    DirectX::XMMATRIX lightView;
-    DirectX::XMMATRIX lightProjection;
-
-
+    
+    DirectX::XMMATRIX lightViewProjection[3];
     DirectX::XMFLOAT4 lightDirection;
     DirectX::XMFLOAT4 lightColor;
     DirectX::XMFLOAT4 cameraPosition;
@@ -232,7 +229,8 @@ enum class TyresUpgradeSelection
         Suzuka,
         SanAndreas,
         Bayview,
-        Bathurst
+        Bathurst,
+        CostaDiAmalfi
     };
 
 

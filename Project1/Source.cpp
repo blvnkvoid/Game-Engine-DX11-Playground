@@ -59,6 +59,8 @@
 #include "Sky/Sun.h"
 #include "Sky/Clouds.h"
 #include "Graphics/SharedMaterialLoader.h"
+#include <tracy/Tracy.hpp>
+
 
 using namespace DirectX;
 
@@ -118,7 +120,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     LapTimer g_LapTimer;
 
     engine->ConfigureUIScale(1920.0f, 1080.0f);
-    ImGuiIO& io = ImGui::GetIO();   
+    ImGuiIO& io = ImGui::GetIO();
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;
 
@@ -133,8 +135,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     m_mapTrack = new MapLoader();
     VehicleRegistry vehicleRegistry;
     bool assetsLoaded = false;
+    bool materialLoaded = false;
     CarLoader* playerModel = nullptr;
-    GameObject* playerObject = nullptr;         
+    GameObject* playerObject = nullptr;
     std::vector<GameObject*> aiObjects;
 
     ID3D11Buffer* cb = engine->GetConstantBuffer();
@@ -147,7 +150,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
     POINT centerPos = { 1920 / 2, 1080 / 2 };
     ClientToScreen(hWnd, &centerPos);
-   
+
 
     MSG msg = {};
     while (msg.message != WM_QUIT) {
@@ -156,10 +159,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
             DispatchMessage(&msg);
         }
         else {
-                LARGE_INTEGER timeCur;
-                QueryPerformanceCounter(&timeCur);
-                float deltaTime = (float)(timeCur.QuadPart - timeStart.QuadPart) / (float)frequency.QuadPart;
-                timeStart = timeCur;
+            LARGE_INTEGER timeCur;
+            QueryPerformanceCounter(&timeCur);
+            float deltaTime = (float)(timeCur.QuadPart - timeStart.QuadPart) / (float)frequency.QuadPart;
+            timeStart = timeCur;
+
 
             if (!io.WantCaptureMouse) {
                 POINT currentMousePos;
@@ -207,13 +211,14 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
             if (menu.g_CurrentState == EngineState::MAIN_MENU) {
                 if (assetsLoaded) {
-                    mainScene->Clear();        
+                    mainScene->Clear();
 
-                    camera->SetFollowTarget(nullptr);       
+                    camera->SetFollowTarget(nullptr);
                     delete m_mapTrack;
                     m_mapTrack = nullptr;
                     activeTrackEntry = nullptr;
                     assetsLoaded = false;
+                    materialLoaded = false;
                 }
 
                 engine->BeginFrame(
@@ -222,7 +227,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                     camera->projectionMatrix,
                     deltaTime,
                     camera);
-   
+
 
                 audio.StopJukebox();
 
@@ -376,7 +381,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                     physics->SetVehicleDefinition(car);
                     physics->Initialize();
 
-                    
+
 
                     // ---------------------------------------------------------
                     // Load track + collision
@@ -417,6 +422,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                     {
                         // Build complete Event grid.
 
+                        
+
                         raceGrid.Build(
                             event,
                             markers,
@@ -427,7 +434,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                             engine->GetTextureManager(),
                             garage.m_PreviewSelection,
                             engine->GetMaterialLoader()
-                            );
+                        );
                     }
                     else if (menu.m_GameMode == GameMode::Arcade)
                     {
@@ -467,7 +474,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
                     playerObject =
                         vehicle.object.get();
-
 
                     // ---------------------------------------------------------
                     // Vehicle camera
@@ -545,47 +551,20 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
                     assetsLoaded = true;
                 }
-           
-                sceneData =
-                    engine->BuildSceneData(
-                        camera,
-                        playerObject,
-                        XMMatrixIdentity()
-                    );
-
-
-                engine->BeginShadowPass();
-
-
-                engine->PrepareShadowPass(sceneData, *activeTrackEntry);
-
-
-                m_mapTrack->DrawShadow(
-                    engine->GetContext(),
-                    cb,
-                    sceneData,
-                    engine->GetLightFrustum(),
-                    engine->GetDepthStencilState()
-                );
-
-
-                engine->BeginFrame(hWnd, camera->viewMatrix, camera->projectionMatrix, deltaTime, camera);
-
-                sceneData =
-                    engine->BuildSceneData(
-                        camera,
-                        playerObject,
-                        XMMatrixIdentity()
-                    );
 
                 telemetryUI.Draw(&g_ShowDebugUI, camera, playerModel, m_mapTrack);
-                physics->Update(deltaTime, Input::GetCurrentInputs());
-                g_LapTimer.Update(deltaTime);
+                {
+                    ZoneScopedN("Physics");
+
+                    physics->Update(deltaTime, Input::GetCurrentInputs());
+                    g_LapTimer.Update(deltaTime);
 
 
-                if (physics->CheckAndResetPassedStartMeta()) g_LapTimer.TriggerStartMeta();
-                if (physics->CheckAndResetPassedSector1())   g_LapTimer.TriggerSector1();
-                if (physics->CheckAndResetPassedSector2())   g_LapTimer.TriggerSector2();
+                    if (physics->CheckAndResetPassedStartMeta()) g_LapTimer.TriggerStartMeta();
+                    if (physics->CheckAndResetPassedSector1())   g_LapTimer.TriggerSector1();
+                    if (physics->CheckAndResetPassedSector2())   g_LapTimer.TriggerSector2();
+                }
+
 
 
                 if (g_LapTimer.HasFinishedRace())
@@ -596,81 +575,182 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                         menu.g_CurrentState = EngineState::MAIN_MENU;
                 }
 
-                btTransform trans;
-                physics->GetCarTransform(trans);
-                XMMATRIX physicsWorld = physics->btTransformToXMMATRIX(trans);
+                {
+                    ZoneScopedN("Transforms + Camera");
 
-               if (playerModel && playerObject) {
-                    XMMATRIX finalWorld = XMMatrixTranslation(0.0f, -0.64f, 0.0f) * physicsWorld;
-                    playerObject->SetWorldMatrix(finalWorld);
-                    playerModel->SetModelPosition(trans.getOrigin().x(), trans.getOrigin().y(), trans.getOrigin().z());
-                    playerModel->SetModelRotation(physicsWorld);
+                    btTransform trans;
+                    physics->GetCarTransform(trans);
+                    XMMATRIX physicsWorld = physics->btTransformToXMMATRIX(trans);
+
+                    if (playerModel && playerObject) {
+                        XMMATRIX finalWorld = XMMatrixTranslation(0.0f, -0.64f, 0.0f) * physicsWorld;
+                        playerObject->SetWorldMatrix(finalWorld);
+                        playerModel->SetModelPosition(trans.getOrigin().x(), trans.getOrigin().y(), trans.getOrigin().z());
+                        playerModel->SetModelRotation(physicsWorld);
+                    }
+                    camera->Update(deltaTime, *activeTrackEntry);
                 }
-                camera->Update(deltaTime, *activeTrackEntry);
+
+
+                {
+                    ZoneScopedN("Shadow Pass");
+
+                    sceneData =
+                        engine->BuildSceneData(
+                            camera,
+                            playerObject,
+                            XMMatrixIdentity()
+                        );
+                    TracyD3D11Zone(engine->GetTracyGpuContext(), "Shadow Pass GPU");
+
+                    for (int cascade = 0; cascade < 3; cascade++)
+                    {
+                        engine->BeginShadowPass(cascade);
+
+
+                        engine->PrepareShadowPass(sceneData, *activeTrackEntry, cascade, *camera);
+
+
+                        m_mapTrack->DrawShadow(
+                            engine->GetContext(),
+                            cb,
+                            sceneData,
+                            engine->GetLightFrustum(cascade),
+                            engine->GetDepthStencilState()
+                        );
+                    }
+
+                    sceneData =
+                        engine->BuildSceneData(
+                            camera,
+                            playerObject,
+                            XMMatrixIdentity()
+                        );
+                }
+
+
+                {
+                    ZoneScopedN("Begin Frame");
+
+                    engine->BeginFrame(hWnd, camera->viewMatrix, camera->projectionMatrix, deltaTime, camera);
+
+                    sceneData =
+                        engine->BuildSceneData(
+                            camera,
+                            playerObject,
+                            XMMatrixIdentity()
+                        );
+                }
+
+
 
                 devConsole.Draw();
                 devConsole.ExecuteCommand(*engine, *physics);
-        
-                engine->RenderObject(playerObject, camera);
 
-
-                
-
-                raceGrid.Render(*engine, *camera);
-
-                if (m_mapTrack)
                 {
-                    m_mapTrack->SetMaterialLibraryPath("Tracks\\ElCapitan\\ElCapitan.mtl");
-                    loader.LoadMaterialLibrary(m_mapTrack->GetMaterialLibraryPath());
-                    m_mapTrack->SetMaterialLoader(loader);
+                    ZoneScopedN("Cars");
+
+                    engine->RenderObject(playerObject, camera);
 
 
-                    sceneData.view =
-                        XMMatrixTranspose(camera->viewMatrix);
-
-                    sceneData.projection =
-                        XMMatrixTranspose(camera->projectionMatrix);
-
-                    sceneData.world =
-                        XMMatrixTranspose(XMMatrixIdentity());
-
-                    m_mapTrack->UpdateVisibleLights(
-                        engine->GetContext(),
-                        engine->GetLampStructuredBuffer(),
-                        engine->GetLampConstantBuffer(),
-                        camera->GetFrustum(),
-                        camera
-                    );
 
 
-                    m_mapTrack->Draw(
-                        engine->GetContext(),
-                        cb,
-                        engine->GetLampConstantBuffer(),
-                        engine->GetLampResourceView(),
-                        sceneData,
-                        camera->GetFrustum(),
-                        engine->GetDepthStencilState()
-                    );
+                    raceGrid.Render(*engine, *camera);
                 }
-  
-
-                engine->GetSun().Render(engine->GetContext(), camera, skyEngine);
-                engine->GetClouds().Render(engine->GetContext(), skyEngine, *engine, camera);
-
 
                 
-            }
-            engine->DrawShadowDebugView();
-            
-            audio.Update(menu.g_CurrentState, g_DebugTelemetry.rpm, g_DebugTelemetry.throttle, g_DebugTelemetry.speed, g_DebugTelemetry.avgSlipRatio, g_DebugTelemetry.avgSlipAngle);
-            ImGui::Render();
-            ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
+                {
+                    ZoneScopedN("Map");
 
-            engine->EndFrame();
+                    if (m_mapTrack)
+                    {
+                        TracyD3D11Zone(engine->GetTracyGpuContext(), "Map Zone GPU")
+                        if (!materialLoaded)
+                        {
+                            std::string materialPath = activeTrackEntry->path;
+
+                            materialPath.replace(
+                                materialPath.size() - 4,
+                                4,
+                                ".mtl"
+                            );
+
+                            m_mapTrack->SetMaterialLibraryPath(materialPath);
+                            loader.LoadMaterialLibrary(m_mapTrack->GetMaterialLibraryPath());
+                            m_mapTrack->SetMaterialLoader(loader);
+
+                            m_mapTrack->ResolveMaterials();
+
+                            materialLoaded = true;
+                        }
+
+
+
+                        sceneData.view =
+                            XMMatrixTranspose(camera->viewMatrix);
+
+                        sceneData.projection =
+                            XMMatrixTranspose(camera->projectionMatrix);
+
+                        sceneData.world =
+                            XMMatrixTranspose(XMMatrixIdentity());
+
+                        m_mapTrack->UpdateVisibleLights(
+                            engine->GetContext(),
+                            engine->GetLampStructuredBuffer(),
+                            engine->GetLampConstantBuffer(),
+                            camera->GetFrustum(),
+                            camera
+                        );
+
+
+                        m_mapTrack->Draw(
+                            engine->GetContext(),
+                            cb,
+                            engine->GetLampConstantBuffer(),
+                            engine->GetLampResourceView(),
+                            sceneData,
+                            camera->GetFrustum(),
+                            engine->GetDepthStencilState()
+                        );
+                    }
+                }
+
+
+
+                {
+                    ZoneScopedN("Sky");
+
+                    engine->GetSun().Render(engine->GetContext(), camera, skyEngine);
+                    engine->GetClouds().Render(engine->GetContext(), skyEngine, *engine, camera);
+                }
+
+
+
+
+            }
+            {
+                ZoneScopedN("UI");
+
+//                engine->DrawShadowDebugView();
+                ImGui::Render();
+                ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
+            }
+
+            {
+                ZoneScopedN("Audio");
+                audio.Update(menu.g_CurrentState, g_DebugTelemetry.rpm, g_DebugTelemetry.throttle, g_DebugTelemetry.speed, g_DebugTelemetry.avgSlipRatio, g_DebugTelemetry.avgSlipAngle);
+            }
+
+            {
+                ZoneScopedN("EndFrame / Present");
+                engine->EndFrame();
+            }
+            engine->CollectTracyGpu();
+            FrameMark;
         }
-    
-     }
+
+    }
 
     audio.ShutdownAudio();
     LogiSteeringShutdown();

@@ -116,7 +116,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;TRACY_ENABLE;TRACY_NO_CALLSTACK;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\Dev\FMOD\FMOD Studio API Windows\api\studio\inc;C:\Dev\FMOD\FMOD Studio API Windows\api\core\inc;C:\Dev\LogitechSteeringWheelSDK_8.75.30\Include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
@@ -124,8 +124,8 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;LogitechSteeringWheelLib.lib;fmodL_vc.lib;fmod_vc.lib;fmodstudio_vc.lib;fmodstudioL_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Dev\FMOD\FMOD Studio API Windows\api\studio\lib\x64;C:\Dev\FMOD\FMOD Studio API Windows\api\core\lib\x64;C:\Dev\LogitechSteeringWheelSDK_8.75.30\Lib\x64</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;LogitechSteeringWheelLib.lib;fmodL_vc.lib;fmod_vc.lib;fmodstudio_vc.lib;fmodstudioL_vc.lib;TracyClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Dev\VCPkg\installed\x64-windows\lib;C:\Dev\FMOD\FMOD Studio API Windows\api\studio\lib\x64;C:\Dev\FMOD\FMOD Studio API Windows\api\core\lib\x64;C:\Dev\LogitechSteeringWheelSDK_8.75.30\Lib\x64</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -134,7 +134,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;TRACY_ENABLE;TRACY_NO_CALLSTACK;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
@@ -147,8 +147,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>LogitechSteeringWheelLib.lib;fmodL_vc.lib;fmod_vc.lib;fmodstudio_vc.lib;fmodstudioL_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Dev\FMOD\FMOD Studio API Windows\api\studio\lib\x64;C:\Dev\FMOD\FMOD Studio API Windows\api\core\lib\x64;C:\Dev\LogitechSteeringWheelSDK_8.75.30\Lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>LogitechSteeringWheelLib.lib;fmodL_vc.lib;fmod_vc.lib;fmodstudio_vc.lib;fmodstudioL_vc.lib;TracyClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Dev\VCPkg\installed\x64-windows\lib;C:\Dev\FMOD\FMOD Studio API Windows\api\studio\lib\x64;C:\Dev\FMOD\FMOD Studio API Windows\api\core\lib\x64;C:\Dev\LogitechSteeringWheelSDK_8.75.30\Lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -299,47 +299,57 @@
     <ClInclude Include="UI\Upgrades.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="BrakeLightMask.hlsli" />
-    <None Include="CalculateShadeFactor.hlsli" />
-    <None Include="Fallback.hlsli" />
-    <None Include="GetSkyReflection.hlsli" />
-    <None Include="HeadlightMask.hlsli" />
-    <None Include="LampLightMask.hlsli" />
-    <None Include="LocalLighting.hlsli" />
-    <None Include="Materials.hlsli" />
-    <None Include="MaterialTypes.hlsli" />
-    <None Include="NormalMapping.hlsli" />
-    <None Include="PaceBodyMask.hlsli" />
-    <None Include="PaceCarLightColor.hlsli" />
-    <None Include="PaceLightMask.hlsli" />
-    <None Include="ShadeAlcantara.hlsli" />
-    <None Include="ShadeAsphalt.hlsli" />
-    <None Include="ShadeBrakeLight.hlsli" />
-    <None Include="ShadeCarLivery.hlsli" />
-    <None Include="ShadeCarPaint.hlsli" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <FxCompile Include="Clouds.hlsl" />
-    <FxCompile Include="Shaders.hlsl" />
-    <None Include="ShadeDecalText.hlsli" />
-    <None Include="ShadeGlass.hlsli" />
-    <None Include="ShadeHeadLight.hlsli" />
-    <None Include="ShadeLampGlow.hlsli" />
-    <None Include="ShadePaceLight.hlsli" />
-    <None Include="ShadeRubber.hlsli" />
-    <None Include="ShadeSafetyCarPaint.hlsli" />
-    <None Include="ShadowDebugPS.hlsl">
-      <FileType>Document</FileType>
-    </None>
-    <None Include="ShadowDebugVS.hlsl">
-      <FileType>Document</FileType>
-    </None>
-    <FxCompile Include="Shadows.hlsl" />
-    <FxCompile Include="Sun.hlsl" />
+    <None Include="Shaders\BrakeLightMask.hlsli" />
+    <None Include="Shaders\CalculateShadeFactor.hlsli" />
+    <None Include="Shaders\Fallback.hlsli" />
+    <None Include="Shaders\GetSkyReflection.hlsli" />
+    <None Include="Shaders\HeadlightMask.hlsli" />
+    <None Include="Shaders\LampLightMask.hlsli" />
+    <None Include="Shaders\LocalLighting.hlsli" />
+    <None Include="Shaders\Materials.hlsli" />
+    <None Include="Shaders\MaterialTypes.hlsli" />
+    <None Include="Shaders\NormalMapping.hlsli" />
+    <None Include="Shaders\PaceBodyMask.hlsli" />
+    <None Include="Shaders\PaceCarLightColor.hlsli" />
+    <None Include="Shaders\PaceLightMask.hlsli" />
+    <None Include="Shaders\ShadeAlcantara.hlsli" />
+    <None Include="Shaders\ShadeAsphalt.hlsli" />
+    <None Include="Shaders\ShadeBrakeLight.hlsli" />
+    <None Include="Shaders\ShadeCarLivery.hlsli" />
+    <None Include="Shaders\ShadeCarPaint.hlsli" />
+    <None Include="Shaders\ShadeDecalText.hlsli" />
+    <None Include="Shaders\ShadeGlass.hlsli" />
+    <None Include="Shaders\ShadeHeadLight.hlsli" />
+    <None Include="Shaders\ShadeLampGlow.hlsli" />
+    <None Include="Shaders\ShadePaceLight.hlsli" />
+    <None Include="Shaders\ShadeRubber.hlsli" />
+    <None Include="Shaders\ShadeSafetyCarPaint.hlsli" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Setup Template.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Shaders\Clouds.hlsl" />
+    <FxCompile Include="Shaders\Shaders.hlsl" />
+    <FxCompile Include="Shaders\ShadowDebugPS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
+    </FxCompile>
+    <FxCompile Include="Shaders\ShadowDebugVS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
+    </FxCompile>
+    <FxCompile Include="Shaders\Shadows.hlsl" />
+    <FxCompile Include="Shaders\Sun.hlsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -11,6 +11,7 @@
 #include "../Sky/Sun.h"
 #include "../Sky/Clouds.h"
 #include "../Tracks/TrackTable.h"
+#include <tracy/TracyD3D11.hpp>
 #include "SharedMaterialLoader.h"
 
 class Scene; // Forward declaration (keeps the header light!)
@@ -29,7 +30,7 @@ public:
     void EndFrame();
     void SetActiveCamera(Camera* camera) { activeCamera = camera; }
     void SetScene(Scene* scene) { m_activeScene = scene; }
-    void BeginShadowPass();
+    void BeginShadowPass(int cascade);
     bool m_isWireframe = false;
     bool m_gWasPressed = false;
     bool Init(HWND hWnd, int width, int height);
@@ -105,22 +106,39 @@ public:
         return m_clouds;
     }
 
-    const BoundingFrustum& GetLightFrustum() const
+    const BoundingFrustum& GetLightFrustum(int cascade) const
     {
-        return m_lightFrustum;
+        return m_lightFrustum[cascade];
     }
 
-    void PrepareShadowPass(SharedSceneData& sceneData, TrackEntry& track);
+    void PrepareShadowPass(SharedSceneData& sceneData, TrackEntry& track, int cascade, Camera& camera);
     void DrawShadowDebugView();
 
     SharedMaterialLoader& GetMaterialLoader()
     {
         return loader;
     }
+
+    const UINT shadowResolution[3] =
+    {
+        4096,
+        2048,
+        2048
+    };
+
+    TracyD3D11Ctx GetTracyGpuContext() const
+    {
+        return m_tracyGpu;
+    }
+
+    void CollectTracyGpu()
+    {
+        TracyD3D11Collect(m_tracyGpu);
+    }
 private:
     Sun m_sun;
     Clouds m_clouds;
-
+    TracyD3D11Ctx m_tracyGpu = nullptr;
     SharedSceneData m_sceneData;
     SharedSceneData cb; // [cite: 2026-01-03]
     Camera* activeCamera = nullptr;
@@ -154,12 +172,14 @@ private:
     Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_lampSRV;
     Microsoft::WRL::ComPtr<ID3D11DepthStencilState> m_depthWriteOnState;
     Microsoft::WRL::ComPtr<ID3D11DepthStencilState> m_depthWriteOffState;
+    Microsoft::WRL::ComPtr<ID3D11Texture2D> m_shadowTexture[3];
+    Microsoft::WRL::ComPtr<ID3D11DepthStencilView> m_shadowDSV[3];
+    Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_shadowSRV[3];
+    D3D11_VIEWPORT m_shadowViewport[3];
+
     ID3D11VertexShader* m_shadowVertexShader = nullptr;
     ID3D11InputLayout* m_shadowInputLayout = nullptr;
     // Shadow map resources
-    ID3D11Texture2D* m_shadowMapTexture = nullptr;
-    ID3D11DepthStencilView* m_shadowMapDSV = nullptr;
-    ID3D11ShaderResourceView* m_shadowMapSRV = nullptr;
 
 
     ID3D11VertexShader* m_shadowDebugVS = nullptr;
@@ -169,11 +189,10 @@ private:
     ID3D11DepthStencilState* m_debugDepthDisabled = nullptr;
 
     // Shadow rendering
-    D3D11_VIEWPORT            m_shadowViewport = {};
 
     // Sun camera
-    XMMATRIX m_lightView = XMMatrixIdentity();
-    XMMATRIX m_lightProj = XMMatrixIdentity();
+    XMMATRIX m_lightView[3];
+    XMMATRIX m_lightProj[3];
     XMMATRIX m_lightViewProj = XMMatrixIdentity();
     DirectX::XMMATRIX mView;
     DirectX::XMMATRIX mProj;
@@ -186,7 +205,7 @@ private:
     UINT quality = 0;
     EnvironmentDefinition def;
 
-    BoundingFrustum m_lightFrustum;
+    BoundingFrustum m_lightFrustum[3];
 
     ImFont* m_telemetryFont = nullptr;
     UIContext m_uiContext;

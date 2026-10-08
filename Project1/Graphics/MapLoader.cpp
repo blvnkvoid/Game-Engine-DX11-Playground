@@ -314,9 +314,21 @@ void MapLoader::Draw(ID3D11DeviceContext* context,
     {
         const auto& subset = m_mapSubsets[i];
 
+        if (m_enableFrustumCulling &&
+            !frustum.Intersects(subset.bounds))
+        {
+            m_stats.m_culledDrawCalls++;
+            continue;
+        }
+
+
+
+        assert(subset.resolvedMaterial != nullptr);
+
         const MaterialData& material =
-            m_materialLoader->ResolveMapMaterial(
-                m_mapMaterialNames[i]);
+            *subset.resolvedMaterial;
+
+  
 
         drawData.material = material.gpuMaterial;
 
@@ -341,13 +353,13 @@ void MapLoader::Draw(ID3D11DeviceContext* context,
         {
             diffuseSRV = material.mapTextures.diffuse.Get();
 
-            std::string debug =
+           /* std::string debug =
                 "[DIFFUSE SOURCE: MTL] "
                 "subset=" + std::to_string(i) +
                 " | name=" + m_mapMaterialNames[i] +
                 " | texture=" + material.diffuseTextureName +
                 " | matIndex=" + std::to_string(subset.materialIndex) +
-                "\n";
+                "\n";*/
 
          //   OutputDebugStringA(debug.c_str());
         }
@@ -357,7 +369,7 @@ void MapLoader::Draw(ID3D11DeviceContext* context,
         {
             diffuseSRV = m_materialSRVs[subset.materialIndex].Get();
 
-            std::string debug =
+           /* std::string debug =
                 "[DIFFUSE SOURCE: FBX] "
                 "subset=" + std::to_string(i) +
                 " | name=" + m_mapMaterialNames[i] +
@@ -365,22 +377,21 @@ void MapLoader::Draw(ID3D11DeviceContext* context,
                 " | matIndex=" + std::to_string(subset.materialIndex) +
                 " | SRV=" + (diffuseSRV ? "YES" : "NULL") +
                 "\n";
-
+                */
           // OutputDebugStringA(debug.c_str());
         }
         else
         {
-            std::string debug =
+          /*  std::string debug =
                 "[DIFFUSE SOURCE: NONE] "
                 "subset=" + std::to_string(i) +
                 " | name=" + m_mapMaterialNames[i] +
                 " | matIndex=" + std::to_string(subset.materialIndex) +
                 "\n";
 
-           // OutputDebugStringA(debug.c_str());
+           // OutputDebugStringA(debug.c_str());*/
         }
 
-        context->PSSetShaderResources(0, 1, &diffuseSRV);
         context->PSSetShaderResources(0, 1, &diffuseSRV);
 
         ID3D11ShaderResourceView* normalSRV = material.mapTextures.normal.Get();
@@ -395,12 +406,6 @@ void MapLoader::Draw(ID3D11DeviceContext* context,
         ID3D11ShaderResourceView* mapsSRV = material.mapTextures.maps.Get();
         context->PSSetShaderResources(11, 1, &mapsSRV);
 
-        if (m_enableFrustumCulling &&
-            !frustum.Intersects(subset.bounds))
-        {
-            m_stats.m_culledDrawCalls++;
-            continue;
-        }
 
         D3D11_MAPPED_SUBRESOURCE mapped{};
         context->Map(
@@ -428,6 +433,19 @@ void MapLoader::Draw(ID3D11DeviceContext* context,
     // OutputDebugStringA(("Draw calls: " + std::to_string(m_drawCalls) + "\n").c_str());
 }
 
+
+void MapLoader::ResolveMaterials()
+{
+    assert(m_materialLoader != nullptr);
+
+    for (size_t i = 0; i < m_mapSubsets.size(); ++i)
+    {
+        m_mapSubsets[i].resolvedMaterial =
+            &m_materialLoader->ResolveMapMaterial(
+                m_mapMaterialNames[i]
+            );
+    }
+}
 
 void MapLoader::ProcessNode(
     const aiNode* node,

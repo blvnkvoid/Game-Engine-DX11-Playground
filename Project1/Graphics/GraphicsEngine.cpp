@@ -17,8 +17,8 @@
 #pragma warning(pop)
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "d3dcompiler.lib")
+#include <cfloat>
 #include "../UI/Settings.h"
-
 GraphicsEngine::GraphicsEngine()
 {
 
@@ -70,11 +70,13 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     rasterWireframeCullBack.DepthClipEnable = TRUE;
 
     D3D11_RASTERIZER_DESC shadowrasterSolidCullBack = {};
-    shadowrasterSolidCullBack.FillMode = D3D11_FILL_SOLID; // Or D3D11_FILL_WIREFRAME for a cool matrix look!
-    shadowrasterSolidCullBack.CullMode = D3D11_CULL_BACK;  // <--- THE CULL KILLER
-    shadowrasterSolidCullBack.DepthClipEnable = true;
-
-
+    shadowrasterSolidCullBack.FillMode = D3D11_FILL_SOLID;
+    shadowrasterSolidCullBack.CullMode = D3D11_CULL_FRONT;
+    shadowrasterSolidCullBack.FrontCounterClockwise = true;
+    shadowrasterSolidCullBack.DepthClipEnable = TRUE;
+    shadowrasterSolidCullBack.DepthBias = 0;
+    shadowrasterSolidCullBack.SlopeScaledDepthBias = 0.0f;
+    shadowrasterSolidCullBack.DepthBiasClamp = 0.0f;
 
     D3D11_BUFFER_DESC bd = {};
     D3D11_SUBRESOURCE_DATA init = {};
@@ -167,33 +169,6 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     srvDesc2.Texture2D.MostDetailedMip = 0;
     srvDesc2.Texture2D.MipLevels = 1;
 
-
-    D3D11_TEXTURE2D_DESC shadowTexDesc = {};
-    shadowTexDesc.Width = 8192;
-    shadowTexDesc.Height = 8192;
-    shadowTexDesc.MipLevels = 1;
-    shadowTexDesc.ArraySize = 1;
-    shadowTexDesc.Format = DXGI_FORMAT_R24G8_TYPELESS;
-    shadowTexDesc.SampleDesc.Count = 1;
-    shadowTexDesc.SampleDesc.Quality = 0;
-    shadowTexDesc.CPUAccessFlags = 0;
-    shadowTexDesc.BindFlags =
-        D3D11_BIND_DEPTH_STENCIL |
-        D3D11_BIND_SHADER_RESOURCE;
-    shadowTexDesc.Usage = D3D11_USAGE_DEFAULT;
-    shadowTexDesc.MiscFlags = 0;
-
-    D3D11_DEPTH_STENCIL_VIEW_DESC shadowDSVDesc = {};
-    shadowDSVDesc.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
-    shadowDSVDesc.ViewDimension = D3D11_DSV_DIMENSION_TEXTURE2D;
-    shadowDSVDesc.Texture2D.MipSlice = 0;   
-    
-    D3D11_SHADER_RESOURCE_VIEW_DESC shadowSRVDesc = {};
-    shadowSRVDesc.Format = DXGI_FORMAT_R24_UNORM_X8_TYPELESS;
-    shadowSRVDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
-    shadowSRVDesc.Texture2D.MostDetailedMip = 0;
-    shadowSRVDesc.Texture2D.MipLevels = 1;
-
     D3D11_SAMPLER_DESC shadowSamplerDesc = {};
 
     shadowSamplerDesc.Filter =
@@ -203,8 +178,7 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     shadowSamplerDesc.AddressV = D3D11_TEXTURE_ADDRESS_BORDER;
     shadowSamplerDesc.AddressW = D3D11_TEXTURE_ADDRESS_BORDER;
 
-    shadowSamplerDesc.ComparisonFunc =
-        D3D11_COMPARISON_LESS_EQUAL;
+    shadowSamplerDesc.ComparisonFunc = D3D11_COMPARISON_LESS_EQUAL;
 
     shadowSamplerDesc.MinLOD = 0.0f;
     shadowSamplerDesc.MaxLOD = D3D11_FLOAT32_MAX;
@@ -214,14 +188,6 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     shadowSamplerDesc.BorderColor[1] = 1.0f;
     shadowSamplerDesc.BorderColor[2] = 1.0f;
     shadowSamplerDesc.BorderColor[3] = 1.0f;
-
-    m_shadowViewport = {};
-    m_shadowViewport.TopLeftX = 0.0f;
-    m_shadowViewport.TopLeftY = 0.0f;
-    m_shadowViewport.Width = 8192.0f;
-    m_shadowViewport.Height = 8192.0f;
-    m_shadowViewport.MinDepth = 0.0f;
-    m_shadowViewport.MaxDepth = 1.0f;
 
     ID3DBlob* shadowVSBlob = nullptr;
     ID3DBlob* errorBlob = nullptr;
@@ -267,9 +233,9 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
         hr = D3D11CreateDeviceAndSwapChain(nullptr, D3D_DRIVER_TYPE_HARDWARE, nullptr, 0, featureLevels, 2,
             D3D11_SDK_VERSION, &sd, &swapChain, &device, nullptr, &context);
         if (FAILED(hr)) return false;
-        hr = D3DCompileFromFile(L"Shaders.hlsl", nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, "main", "vs_5_0", 0, 0, &vsBlob, nullptr);
+        hr = D3DCompileFromFile(L"Shaders\\Shaders.hlsl", nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, "main", "vs_5_0", 0, 0, &vsBlob, nullptr);
         if (FAILED(hr)) return false;
-        hr = D3DCompileFromFile(L"Shaders.hlsl", nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, "PS", "ps_5_0", 0, 0, &psBlob, nullptr);
+        hr = D3DCompileFromFile(L"Shaders\\Shaders.hlsl", nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, "PS", "ps_5_0", 0, 0, &psBlob, nullptr);
         if (FAILED(hr)) return false;
         hr = swapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&pBackBuffer);
         if (FAILED(hr)) return false;
@@ -310,14 +276,8 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
         hr = device->CreateDepthStencilState(&depthOn, m_depthWriteOnState.GetAddressOf());
         if (FAILED(hr)) return false;   
         hr = device->CreateShaderResourceView(m_lampStructuredBuffer.Get(), &srvDesc, m_lampSRV.GetAddressOf());
-        if (FAILED(hr)) return false;    
-        hr = device->CreateTexture2D(&shadowTexDesc, nullptr, &m_shadowMapTexture);
-        if (FAILED(hr)) return false;
-        hr = device->CreateDepthStencilView(m_shadowMapTexture, &shadowDSVDesc, &m_shadowMapDSV);
-        if (FAILED(hr)) return false;
-        hr = device->CreateShaderResourceView(m_shadowMapTexture, &shadowSRVDesc, &m_shadowMapSRV);
-        if (FAILED(hr)) return false;
-        hr = D3DCompileFromFile(L"Shadows.hlsl", nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, "main", "vs_5_0", 0, 0, &shadowVSBlob, &errorBlob);
+        if (FAILED(hr)) return false;      
+        hr = D3DCompileFromFile(L"Shaders\\Shadows.hlsl", nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, "main", "vs_5_0", 0, 0, &shadowVSBlob, &errorBlob);
         if (FAILED(hr)) return false;
         hr = device->CreateVertexShader(shadowVSBlob->GetBufferPointer(), shadowVSBlob->GetBufferSize(), nullptr, &m_shadowVertexShader);
         if (FAILED(hr)) return false;
@@ -325,9 +285,9 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
         if (FAILED(hr)) return false;
         hr = device->CreateSamplerState(&samplerDesc, &m_shadowDebugSampler);
         if (FAILED(hr)) return false;
-        hr = D3DCompileFromFile(L"ShadowDebugPS.hlsl", nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, "main", "ps_5_0", 0, 0, &shadowDebugPSBlob, &errorPSBlob);
+        hr = D3DCompileFromFile(L"Shaders\\ShadowDebugPS.hlsl", nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, "main", "ps_5_0", 0, 0, &shadowDebugPSBlob, &errorPSBlob);
         if (FAILED(hr)) return false;
-        hr = D3DCompileFromFile(L"ShadowDebugVS.hlsl", nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, "main", "vs_5_0", 0, 0, &shadowDebugVSBlob, &errorVSBlob);
+        hr = D3DCompileFromFile(L"Shaders\\ShadowDebugVS.hlsl", nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, "main", "vs_5_0", 0, 0, &shadowDebugVSBlob, &errorVSBlob);
         if (FAILED(hr)) return false;
         hr = device->CreatePixelShader(shadowDebugPSBlob->GetBufferPointer(), shadowDebugPSBlob->GetBufferSize(), nullptr, &m_shadowDebugPS);
         if (FAILED(hr)) return false;
@@ -337,6 +297,49 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
         if (FAILED(hr)) return false;
         hr = device->CreateSamplerState(&shadowSamplerDesc, &m_shadowComparisonSampler);
         if (FAILED(hr)) return false;
+        for (int cascade = 0; cascade < 3; ++cascade)
+        {
+            const UINT resolution = shadowResolution[cascade];
+
+            D3D11_TEXTURE2D_DESC texDesc = {};
+            texDesc.Width = resolution;
+            texDesc.Height = resolution;
+            texDesc.MipLevels = 1;
+            texDesc.ArraySize = 1;
+            texDesc.Format = DXGI_FORMAT_R24G8_TYPELESS;
+            texDesc.SampleDesc.Count = 1;
+            texDesc.Usage = D3D11_USAGE_DEFAULT;
+            texDesc.BindFlags =
+                D3D11_BIND_DEPTH_STENCIL |
+                D3D11_BIND_SHADER_RESOURCE;
+
+            hr = device->CreateTexture2D(&texDesc, nullptr, m_shadowTexture[cascade].GetAddressOf());
+            if (FAILED(hr)) return false;
+
+
+            D3D11_DEPTH_STENCIL_VIEW_DESC dsvDesc = {};
+            dsvDesc.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
+            dsvDesc.ViewDimension = D3D11_DSV_DIMENSION_TEXTURE2D;
+            dsvDesc.Texture2D.MipSlice = 0;
+            hr = device->CreateDepthStencilView(m_shadowTexture[cascade].Get(), &dsvDesc, m_shadowDSV[cascade].GetAddressOf());
+            if (FAILED(hr)) return false;
+            D3D11_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
+            srvDesc.Format = DXGI_FORMAT_R24_UNORM_X8_TYPELESS;
+            srvDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
+            srvDesc.Texture2D.MostDetailedMip = 0;
+            srvDesc.Texture2D.MipLevels = 1;
+            hr = device->CreateShaderResourceView(m_shadowTexture[cascade].Get(), &srvDesc, m_shadowSRV[cascade].GetAddressOf());
+            if (FAILED(hr)) return false;
+            m_shadowViewport[cascade] = {};
+            m_shadowViewport[cascade].TopLeftX = 0.0f;
+            m_shadowViewport[cascade].TopLeftY = 0.0f;
+            m_shadowViewport[cascade].Width =
+                static_cast<float>(resolution);
+            m_shadowViewport[cascade].Height =
+                static_cast<float>(resolution);
+            m_shadowViewport[cascade].MinDepth = 0.0f;
+            m_shadowViewport[cascade].MaxDepth = 1.0f;
+        }
 
         shadowVSBlob->Release();
         shadowVSBlob = nullptr;
@@ -359,6 +362,7 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
             errorVSBlob->Release();
         }
 
+        m_tracyGpu = TracyD3D11Context(device.Get(),context.Get());
 
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
@@ -368,6 +372,11 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     style.WindowRounding = 5.0f;                                          // Sleek rounded corners
     style.FrameRounding = 3.0f;
 
+    for (int i = 0; i < 3; ++i)
+    {
+        m_lightView[i] = XMMatrixIdentity();
+        m_lightProj[i] = XMMatrixIdentity();
+    }
     m_textureManager = std::make_unique<TextureManager>(device.Get());
 
     // Setup Platform/Renderer backends
@@ -431,12 +440,17 @@ void GraphicsEngine::DrawShadowDebugView()
         0
     );
 
-    ID3D11ShaderResourceView* shadowSRV = m_shadowMapSRV;
+    ID3D11ShaderResourceView* shadowSRVs[3] =
+    {
+        m_shadowSRV[0].Get(),
+        m_shadowSRV[1].Get(),
+        m_shadowSRV[2].Get()
+    };
 
     context->PSSetShaderResources(
         0,
         1,
-        &shadowSRV
+        shadowSRVs
     );
 
     context->PSSetSamplers(
@@ -507,8 +521,17 @@ SharedSceneData GraphicsEngine::BuildSceneData(Camera* cam, GameObject* player, 
     sd.ambientIntensity = m_sceneData.ambientIntensity;
     sd.headlightIntensity = m_sceneData.headlightIntensity;
 
-    sd.lightView = XMMatrixTranspose(m_lightView);
-    sd.lightProjection = XMMatrixTranspose(m_lightProj);
+    for (int cascade = 0; cascade < 3; ++cascade)
+    {
+        XMMATRIX lightViewProjection =
+            XMMatrixMultiply(
+                m_lightView[cascade],
+                m_lightProj[cascade]
+            );
+
+        sd.lightViewProjection[cascade] =
+            XMMatrixTranspose(lightViewProjection);
+    }   
 
     XMFLOAT3 camPos = cam->GetPosition();
     sd.cameraPosition = XMFLOAT4(camPos.x, camPos.y, camPos.z, 1.0f);
@@ -554,47 +577,86 @@ void GraphicsEngine::ApplyEnvironmentDefinition(const EnvironmentDefinition& def
     m_time.PauseTime(!def.dynamicTime);
 }
 
-void GraphicsEngine::BeginShadowPass()
+void GraphicsEngine::BeginShadowPass(int cascade)
 {
-    context->ClearDepthStencilView(m_shadowMapDSV, D3D11_CLEAR_DEPTH, 1.0f, 0);
-    context->OMSetRenderTargets(0, nullptr, m_shadowMapDSV);
-    context->RSSetViewports(1, &m_shadowViewport);
+    ID3D11ShaderResourceView* nullSRV = nullptr;
+    context->PSSetShaderResources(2, 1, &nullSRV);
+    context->PSSetShaderResources(12, 1, &nullSRV);
+    context->PSSetShaderResources(13, 1, &nullSRV);
+    context->ClearDepthStencilView(m_shadowDSV[cascade].Get(), D3D11_CLEAR_DEPTH, 1.0f, 0);
+    context->OMSetRenderTargets(0, nullptr, m_shadowDSV[cascade].Get());
+    context->RSSetViewports(1, &m_shadowViewport[cascade]);
 }
 
-void GraphicsEngine::PrepareShadowPass(SharedSceneData& sceneData, TrackEntry& track)
+void GraphicsEngine::PrepareShadowPass(
+    SharedSceneData& sceneData,
+    TrackEntry& track,    
+    int cascade,
+    Camera& camera)
 {
+    // ---------------------------------------------------------
+    // 1. Cascade distances in CAMERA space
+    // ---------------------------------------------------------
+
+    const float cascadeSplits[4] =
+    {
+        camera.GetNearPlane(),
+        50.0f,
+        200.0f,
+        800.0f
+    };
+
+    const float cascadeNear = cascadeSplits[cascade];
+    const float cascadeFar = cascadeSplits[cascade + 1];
+
+
+    // ---------------------------------------------------------
+    // 2. Get this cascade's 8 world-space frustum corners
+    // ---------------------------------------------------------
+
+    XMFLOAT3 corners[8];
+
+    camera.GetFrustumSliceCorners(
+        cascadeNear,
+        cascadeFar,
+        corners
+    );
+
+
+    // ---------------------------------------------------------
+    // 3. Find world-space center of this cascade
+    // ---------------------------------------------------------
+
+    XMVECTOR cascadeCenter = XMVectorZero();
+
+    for (int i = 0; i < 8; ++i)
+    {
+        cascadeCenter =
+            XMVectorAdd(
+                cascadeCenter,
+                XMLoadFloat3(&corners[i])
+            );
+    }
+
+    cascadeCenter =
+        XMVectorScale(
+            cascadeCenter,
+            1.0f / 8.0f
+        );
+
+
+    // ---------------------------------------------------------
+    // 4. Build THIS cascade's light view
+    // ---------------------------------------------------------
+
     XMVECTOR lightDirection =
         XMVector3Normalize(
-            XMLoadFloat4(
-                &sceneData.lightDirection
-            )
+            XMLoadFloat4(&sceneData.lightDirection)
         );
-
-    XMVECTOR carPosition =
-        XMLoadFloat4(
-            &sceneData.carPosition
-        );
-
-    XMVECTOR carForward =
-        XMVector3Normalize(
-            XMLoadFloat4(
-                &sceneData.carForward
-            )
-        );
-
-    XMVECTOR target =
-        XMVectorAdd(
-            carPosition,
-            XMVectorScale(
-                carForward,
-                track.renderSettings.shadowForwardOffset
-            )
-        );
-
 
     XMVECTOR lightPosition =
         XMVectorSubtract(
-            target,
+            cascadeCenter,
             XMVectorScale(
                 lightDirection,
                 track.renderSettings.lightDistance
@@ -602,42 +664,123 @@ void GraphicsEngine::PrepareShadowPass(SharedSceneData& sceneData, TrackEntry& t
         );
 
     XMVECTOR up =
-        XMVectorSet(
-            0.0f,
-            1.0f,
-            0.0f,
-            0.0f
-        );
+        XMVectorSet(0, 1, 0, 0);
 
-    m_lightView =
+    m_lightView[cascade] =
         XMMatrixLookAtLH(
             lightPosition,
-            target,
+            cascadeCenter,
             up
         );
 
 
-    m_lightProj = XMMatrixOrthographicLH(
-        track.renderSettings.shadowAreaSize,
-        track.renderSettings.shadowAreaSize,
-        track.renderSettings.shadowCameraNearClip,
-        track.renderSettings.shadowCameraFarClip
+    // ---------------------------------------------------------
+    // 5. Transform cascade corners into THIS light's view space
+    // ---------------------------------------------------------
+
+    float minX = FLT_MAX;
+    float minY = FLT_MAX;
+    float minZ = FLT_MAX;
+
+    float maxX = -FLT_MAX;
+    float maxY = -FLT_MAX;
+    float maxZ = -FLT_MAX;
+
+    for (int i = 0; i < 8; ++i)
+    {
+        XMVECTOR worldCorner =
+            XMLoadFloat3(&corners[i]);
+
+        XMVECTOR lightCorner =
+            XMVector3TransformCoord(
+                worldCorner,
+                m_lightView[cascade]
+            );
+
+        const float x = XMVectorGetX(lightCorner);
+        const float y = XMVectorGetY(lightCorner);
+        const float z = XMVectorGetZ(lightCorner);
+
+        minX = min(minX, x);
+        minY = min(minY, y);
+        minZ = min(minZ, z);
+
+        maxX = max(maxX, x);
+        maxY = max(maxY, y);
+        maxZ = max(maxZ, z);
+    }
+
+    /*
+    char buffer[512];
+
+    sprintf_s(
+        buffer,
+        "CSM %d: X %.3f -> %.3f  size=%.3f | "
+        "Y %.3f -> %.3f  size=%.3f | "
+        "Z %.3f -> %.3f  size=%.3f\n",
+        cascade,
+        minX, maxX, maxX - minX,
+        minY, maxY, maxY - minY,
+        minZ, maxZ, maxZ - minZ
     );
 
-    BoundingFrustum viewFrustum;
+    OutputDebugStringA(buffer);
+
+    float texelX = (maxX - minX) / 8192.0f;
+    float texelY = (maxY - minY) / 8192.0f;
+
+    sprintf_s(
+        buffer,
+        "CSM %d texel: X=%.6f Y=%.6f\n",
+        cascade,
+        texelX,
+        texelY
+    );
+
+    OutputDebugStringA(buffer);
+    */
+
+    // ---------------------------------------------------------
+    // 6. Build THIS cascade's fitted orthographic projection
+    // ---------------------------------------------------------
+
+    m_lightProj[cascade] =
+        XMMatrixOrthographicOffCenterLH(
+            minX,
+            maxX,
+            minY,
+            maxY,
+            minZ,
+            maxZ
+        );
+
+
+    // ---------------------------------------------------------
+    // 7. Build THIS cascade's world-space culling frustum
+    // ---------------------------------------------------------
+
+    BoundingFrustum lightViewFrustum;
 
     BoundingFrustum::CreateFromMatrix(
-        viewFrustum,
-        m_lightProj
+        lightViewFrustum,
+        m_lightProj[cascade]
     );
 
     XMMATRIX inverseLightView =
-        XMMatrixInverse(nullptr, m_lightView);
+        XMMatrixInverse(
+            nullptr,
+            m_lightView[cascade]
+        );
 
-    viewFrustum.Transform(
-        m_lightFrustum,
+    lightViewFrustum.Transform(
+        m_lightFrustum[cascade],
         inverseLightView
     );
+
+
+    // ---------------------------------------------------------
+    // 8. Feed THIS cascade to the shadow-generation shader
+    // ---------------------------------------------------------
 
     sceneData.world =
         XMMatrixTranspose(
@@ -646,13 +789,18 @@ void GraphicsEngine::PrepareShadowPass(SharedSceneData& sceneData, TrackEntry& t
 
     sceneData.view =
         XMMatrixTranspose(
-            m_lightView
+            m_lightView[cascade]
         );
 
     sceneData.projection =
         XMMatrixTranspose(
-            m_lightProj
+            m_lightProj[cascade]
         );
+
+
+    // ---------------------------------------------------------
+    // 9. Shadow pipeline
+    // ---------------------------------------------------------
 
     context->VSSetShader(
         m_shadowVertexShader,
@@ -680,7 +828,6 @@ void GraphicsEngine::PrepareShadowPass(SharedSceneData& sceneData, TrackEntry& t
         shadowrasterState.Get()
     );
 }
-
 
 void GraphicsEngine::BeginFrame(HWND hWnd, DirectX::XMMATRIX view, DirectX::XMMATRIX projection, float deltaTime, Camera* cam)
 {
@@ -711,8 +858,14 @@ void GraphicsEngine::BeginFrame(HWND hWnd, DirectX::XMMATRIX view, DirectX::XMMA
 
     context->OMSetRenderTargets(1, renderTargetView.GetAddressOf(), depthStencilView.Get());
 
-    ID3D11ShaderResourceView* shadowSRV = m_shadowMapSRV;
-    context->PSSetShaderResources(2, 1, &shadowSRV);
+
+    ID3D11ShaderResourceView* shadow0 = m_shadowSRV[0].Get();
+    ID3D11ShaderResourceView* shadow1 = m_shadowSRV[1].Get();
+    ID3D11ShaderResourceView* shadow2 = m_shadowSRV[2].Get();
+
+    context->PSSetShaderResources(2, 1, &shadow0);
+    context->PSSetShaderResources(12, 1, &shadow1);
+    context->PSSetShaderResources(13, 1, &shadow2);
 
 
     if (m_isWireframe) {
@@ -794,6 +947,11 @@ void GraphicsEngine::EndFrame()
 
 GraphicsEngine::~GraphicsEngine()
 {
+    if (m_tracyGpu)
+    {
+        TracyD3D11Destroy(m_tracyGpu);
+        m_tracyGpu = nullptr;
+    }
 
     // 1. Clear the state of the context so no resources are "bound"
     if (context) {

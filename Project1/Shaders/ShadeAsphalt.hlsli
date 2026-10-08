@@ -1,5 +1,5 @@
 
-float4 ShadeAsphalt(float4 texColor, float3 N, float3 L, float3 worldPos, float ambient, float headlightIntensity, float3 H, float3 V)
+float4 ShadeAsphalt(float4 texColor, float3 N, float3 L, float3 worldPos, float ambient, float headlightIntensity, float3 H, float3 V, float shadowFactor)
 {
     float ndotl =
         saturate(dot(N, L));
@@ -11,8 +11,9 @@ float4 ShadeAsphalt(float4 texColor, float3 N, float3 L, float3 worldPos, float 
     float3 sunDiffuse =
         texColor.rgb *
         lightColor.rgb *
-        ndotl *
-        0.55f;
+        //ndotl *
+        0.55f *
+        shadowFactor;
 
     // Ambient remains visible underneath shadows.
     float3 ambientDiffuse =
@@ -60,7 +61,7 @@ float4 ShadeAsphalt(float4 texColor, float3 N, float3 L, float3 worldPos, float 
     finalColor +=
         lampColor *
         lampLight *
-        0.8f;
+        0.8f * shadowFactor;
 
     // ---------------------------------------------------------
     // Brake-light spill

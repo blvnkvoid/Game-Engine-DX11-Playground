@@ -4,7 +4,7 @@
     {
         { TrackSelection::AutumnRing,      "Tracks/AutumnRing/AutumnRing.fbx",          TrackRenderSettings     { 0.25f, 1000.0f, 350.0f, 800.0f, 1500.0f, 50.0f, 2000.0f } },
         { TrackSelection::ElCapitan,       "Tracks/ElCapitan/ElCapitan.fbx",            TrackRenderSettings     { 0.25f, 5000.0f, 350.0f, 800.0f, 1500.0f, 50.0f, 2000.0f } },
-        { TrackSelection::Spa,             "Tracks/SpaFrancorshamps/Spa3.fbx",            TrackRenderSettings   { 0.25f, 5000.0f, 350.0f, 800.0f, 1500.0f, 50.0f, 2000.0f } },
+        { TrackSelection::Spa,             "Tracks/SpaFrancorshamps/Spa3.fbx",            TrackRenderSettings   { 0.25f, 5000.0f, 50.0f,  200.0f, 1500.0f, 50.0f, 2000.0f } },
         { TrackSelection::GrandValley,     "Tracks/GrandValleySpeedway/GrandValley.fbx", TrackRenderSettings    { 0.25f, 1000.0f, 350.0f, 800.0f, 1500.0f, 50.0f, 2000.0f } },
         { TrackSelection::TrialMountain,   "Tracks/TrialMountain/TrialMountain.fbx",    TrackRenderSettings     { 0.25f, 1000.0f, 350.0f, 800.0f, 1500.0f, 50.0f, 2000.0f } },
         { TrackSelection::HighSpeedRing,   "Tracks/HighSpeedRing/HighSpeedRing.fbx",  TrackRenderSettings       { 0.25f, 1000.0f, 350.0f, 800.0f, 1500.0f, 50.0f, 2000.0f } },
@@ -18,8 +18,9 @@
         { TrackSelection::LeMans,          "Tracks/LeMans/LeMans.fbx",                 TrackRenderSettings      { 0.25f, 1000.0f, 350.0f, 800.0f, 1500.0f, 50.0f, 2000.0f } },
         { TrackSelection::DeepForest,      "Tracks/DeepForestRaceway/DeepForestRaceway.fbx",TrackRenderSettings { 0.25f, 1000.0f, 350.0f, 800.0f, 1500.0f, 50.0f, 2000.0f } },
         { TrackSelection::SSR5, "Tracks/SpecialStageRoute5/SSR5.fbx",     TrackRenderSettings    {  0.25f, 5000.0f, 350.0f, 800.0f, 1500.0f, 50.0f, 2000.0f } },
-        { TrackSelection::SanAndreas, "Tracks/SanAndreas/SanAndreas.fbx",  TrackRenderSettings{  0.25f, 5000.0f, 350.0f, 800.0f, 1500.0f, 50.0f, 2000.0f } },
+        { TrackSelection::SanAndreas, "Tracks/SanAndreas/SanAndreas.fbx",  TrackRenderSettings{  0.25f, 1500.0f, 350.0f, 800.0f, 1500.0f, 50.0f, 2000.0f } },
         { TrackSelection::Suzuka,            "Tracks/Suzuka/Suzuka.fbx",       TrackRenderSettings        {  0.25f, 5000.0f, 350.0f, 800.0f, 1500.0f, 50.0f, 2000.0f } },
         { TrackSelection::Bayview, "Tracks/Bayview/Bayview.fbx",          TrackRenderSettings      {  0.25f, 5000.0f, 350.0f, 800.0f, 1500.0f, 50.0f, 2000.0f } },
         { TrackSelection::Bathurst, "Tracks/Bathurst/Bathurst.fbx",          TrackRenderSettings    {  0.25f, 5000.0f, 350.0f, 800.0f, 1500.0f, 50.0f, 2000.0f } },
+        { TrackSelection::CostaDiAmalfi, "Tracks/CostaDiAmalfi/CostaDiAmalfi.fbx",          TrackRenderSettings    {  0.25f, 1000.0f, 350.0f, 800.0f, 1500.0f, 50.0f, 5000.0f } },
     };

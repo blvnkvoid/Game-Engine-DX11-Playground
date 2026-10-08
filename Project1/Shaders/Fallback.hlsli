@@ -2,6 +2,7 @@
 // Generic fallback material
 // ---------------------------------------------------------
 
+
 float ndotl =
 saturate(
     dot(N, L)
@@ -76,7 +77,7 @@ diffuse *= shadowFactor;
 
 if (material.specularPower == 0.0f)
 {
-    float3 finalColor = ambient + diffuse + localLighting;
+    float3 finalColor = ambient + diffuse;
     return float4(finalColor, 1.0f);
 }
 
@@ -165,15 +166,12 @@ if (material.d < 0.9f)
     float3 finalColor =
         ambient +
         reflection +
-        finalMirror * 2.0f +
-        localLighting;
-
+        finalMirror * 2.0f;
     return float4(
         finalColor,
         material.d
         );
 }
-
 
 // ---------------------------------------------------------
 // Opaque fallback
