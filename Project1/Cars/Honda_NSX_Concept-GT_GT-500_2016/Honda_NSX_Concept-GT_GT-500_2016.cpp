@@ -13,11 +13,18 @@ VehicleDefinition NSX_GT500::CreateDefinition()
     car.pitchInertiaScale = 1.10f;
     car.rollInertiaScale = 1.10f;
     car.yawDamping = 4500.0f;
+    car.bodyLength = 4.67f;
+    car.Offset_X = 0.95f;
+    car.Offset_Y = 0.15f;
+    car.Offset_Z_Front = 1.914f;
+    car.Offset_Z_Back = 1.386f;
+    car.Offset_Z = car.Offset_Z_Front + car.Offset_Z_Back;
 
-    car.wheelOffsets[0] = btVector3(-0.95f, -0.15f, 1.65f);
-    car.wheelOffsets[1] = btVector3(0.95f, -0.15f, 1.65f);
-    car.wheelOffsets[2] = btVector3(-0.95f, -0.15f, -1.65f);
-    car.wheelOffsets[3] = btVector3(0.95f, -0.15f, -1.65f);
+    car.wheelOffsets[0] = btVector3(-(car.Offset_X), -(car.Offset_Y), car.Offset_Z_Front);
+    car.wheelOffsets[1] = btVector3(car.Offset_X, -(car.Offset_Y), car.Offset_Z_Front);
+    car.wheelOffsets[2] = btVector3(-(car.Offset_X), -(car.Offset_Y), -(car.Offset_Z_Back));
+    car.wheelOffsets[3] = btVector3(car.Offset_X, -(car.Offset_Y), -(car.Offset_Z_Back));
+
 
     // ---------------------------------------------------------
     // 2. Aero
@@ -121,20 +128,20 @@ VehicleDefinition NSX_GT500::CreateDefinition()
     // ---------------------------------------------------------
     // 9. Tyres
     // ---------------------------------------------------------
-    car.frontTyres.frictionCoeff = 1.65f;
-    car.frontTyres.loadSmoothing = 10.0f;
-    car.frontTyres.relaxationRate = 34.0f;
-    car.frontTyres.stiffness = 22500.0f;
+    car.frontTyres.frictionCoeff = 1.30f;
+    car.frontTyres.loadSmoothing = 14.0f;
+    car.frontTyres.relaxationRate = 26.0f;
+    car.frontTyres.stiffness = 15500.0f;
     car.frontTyres.staticCamber = -2.7f;
     car.frontTyres.camberGripStrength = 0.10f;
     car.frontTyres.CamberGain = -18.0f;
     car.frontTyres.wheelRadius = 0.34f;
     car.frontTyres.frontWheelInertia = 1.45f;
 
-    car.rearTyres.frictionCoeff = 1.70f;
-    car.rearTyres.loadSmoothing = 10.0f;
-    car.rearTyres.relaxationRate = 31.0f;
-    car.rearTyres.stiffness = 24000.0f;
+    car.rearTyres.frictionCoeff = 1.30f;
+    car.rearTyres.loadSmoothing = 14.0f;
+    car.rearTyres.relaxationRate = 26.0f;
+    car.rearTyres.stiffness = 15500.0f;
     car.rearTyres.staticCamber = -3.0f;
     car.rearTyres.camberGripStrength = 0.10f;
     car.rearTyres.CamberGain = -20.0f;

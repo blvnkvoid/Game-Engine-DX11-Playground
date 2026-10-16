@@ -13,11 +13,17 @@ VehicleDefinition Mx5::CreateDefinition()
     car.pitchInertiaScale = 1.10f;
     car.rollInertiaScale = 1.10f;
     car.yawDamping = 2000.0f;
+    car.bodyLength = 3.970f;
+    car.Offset_X = 0.72f;
+    car.Offset_Y = 0.13f;
+    car.Offset_Z_Front = 1.109f;
+    car.Offset_Z_Back = 1.113f;
+    car.Offset_Z = car.Offset_Z_Front + car.Offset_Z_Back;
 
-    car.wheelOffsets[0] = btVector3(-0.72f, -0.13f, 1.109f);
-    car.wheelOffsets[1] = btVector3(0.72f, -0.13f, 1.109f);
-    car.wheelOffsets[2] = btVector3(-0.72f, -0.13f, -1.13f);
-    car.wheelOffsets[3] = btVector3(0.72f, -0.13f, -1.13f);
+    car.wheelOffsets[0] = btVector3(-(car.Offset_X), -(car.Offset_Y), car.Offset_Z_Front);
+    car.wheelOffsets[1] = btVector3(car.Offset_X, -(car.Offset_Y), car.Offset_Z_Front);
+    car.wheelOffsets[2] = btVector3(-(car.Offset_X), -(car.Offset_Y), -(car.Offset_Z_Back));
+    car.wheelOffsets[3] = btVector3(car.Offset_X, -(car.Offset_Y), -(car.Offset_Z_Back));
 
     // ---------------------------------------------------------
     // 2. Aero
@@ -121,8 +127,8 @@ VehicleDefinition Mx5::CreateDefinition()
     // ---------------------------------------------------------
     // 9. Tyres
     // ---------------------------------------------------------
-    car.frontTyres.frictionCoeff = 1.25f;
-    car.frontTyres.loadSmoothing = 10.0f;
+    car.frontTyres.frictionCoeff = 1.30f;
+    car.frontTyres.loadSmoothing = 14.0f;
     car.frontTyres.relaxationRate = 26.0f;
     car.frontTyres.stiffness = 15500.0f;
     car.frontTyres.staticCamber = -1.1f;
@@ -132,9 +138,9 @@ VehicleDefinition Mx5::CreateDefinition()
     car.frontTyres.frontWheelInertia = 1.10f;
 
     car.rearTyres.frictionCoeff = 1.30f;
-    car.rearTyres.loadSmoothing = 10.0f;
-    car.rearTyres.relaxationRate = 23.0f;
-    car.rearTyres.stiffness = 17000.0f;
+    car.rearTyres.loadSmoothing = 14.0f;
+    car.rearTyres.relaxationRate = 26.0f;
+    car.rearTyres.stiffness = 15500.0f;
     car.rearTyres.staticCamber = -1.4f;
     car.rearTyres.camberGripStrength = 0.06f;
     car.rearTyres.CamberGain = -10.0f;

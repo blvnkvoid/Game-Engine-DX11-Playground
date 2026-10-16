@@ -1,7 +1,7 @@
 #pragma once
 #include "../../SharedVehicleTypes.h"
 #include "../../SharedTypes.h"
-
+#include "../TyreCompounds.h"
 
 
 class R8

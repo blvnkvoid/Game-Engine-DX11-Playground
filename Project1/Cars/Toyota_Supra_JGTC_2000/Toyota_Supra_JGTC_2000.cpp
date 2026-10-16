@@ -11,12 +11,19 @@ VehicleDefinition SUPRA_JGTC2000::CreateDefinition()
     car.yawInertiaScale = 1.20f;
     car.pitchInertiaScale = 1.10f;
     car.rollInertiaScale = 1.10f;
-    car.yawDamping = 5000.0f;
+    car.yawDamping = 500.0f;
+    car.bodyLength = 4.52f;
+    car.Offset_X = 0.80f;
+    car.Offset_Y = 0.15f;
+    car.Offset_Z_Front = 1.250f;
+    car.Offset_Z_Back = 1.301f;
+    car.Offset_Z = car.Offset_Z_Front + car.Offset_Z_Back;
 
-    car.wheelOffsets[0] = btVector3(-0.800f, -0.15f, 1.250f);
-    car.wheelOffsets[1] = btVector3(0.800f, -0.15f, 1.250f);
-    car.wheelOffsets[2] = btVector3(-0.795f, -0.15f, -1.301f);
-    car.wheelOffsets[3] = btVector3(0.795f, -0.15f, -1.301f);
+    car.wheelOffsets[0] = btVector3(-(car.Offset_X), -(car.Offset_Y), car.Offset_Z_Front);
+    car.wheelOffsets[1] = btVector3(car.Offset_X, -(car.Offset_Y), car.Offset_Z_Front);
+    car.wheelOffsets[2] = btVector3(-(car.Offset_X), -(car.Offset_Y), -(car.Offset_Z_Back));
+    car.wheelOffsets[3] = btVector3(car.Offset_X, -(car.Offset_Y), -(car.Offset_Z_Back));
+
 
     // ---------------------------------------------------------
     // 2. Aero
@@ -120,20 +127,18 @@ VehicleDefinition SUPRA_JGTC2000::CreateDefinition()
     // ---------------------------------------------------------
     // 9. Tyres
     // ---------------------------------------------------------
-    car.frontTyres.frictionCoeff = 1.65f;
-    car.frontTyres.loadSmoothing = 10.0f;
-    car.frontTyres.relaxationRate = 34.0f;
-    car.frontTyres.stiffness = 22500.0f;
+    ApplyTyreCompound(car.frontTyres, TyreCompound::R3_RacingMedium);
+
+
     car.frontTyres.staticCamber = -2.7f;
     car.frontTyres.camberGripStrength = 0.10f;
     car.frontTyres.CamberGain = -18.0f;
     car.frontTyres.wheelRadius = 0.34f;
     car.frontTyres.frontWheelInertia = 1.45f;
 
-    car.rearTyres.frictionCoeff = 1.70f;
-    car.rearTyres.loadSmoothing = 10.0f;
-    car.rearTyres.relaxationRate = 31.0f;
-    car.rearTyres.stiffness = 24000.0f;
+    ApplyTyreCompound(car.rearTyres, TyreCompound::R3_RacingMedium);
+
+
     car.rearTyres.staticCamber = -3.0f;
     car.rearTyres.camberGripStrength = 0.10f;
     car.rearTyres.CamberGain = -20.0f;

@@ -169,6 +169,7 @@
     <ClCompile Include="Cars\Porsche_911_Carrera_S\Porsche911.cpp" />
     <ClCompile Include="Cars\Toyota_Minolta\Minolta.cpp" />
     <ClCompile Include="Cars\Toyota_Supra_JGTC_2000\Toyota_Supra_JGTC_2000.cpp" />
+    <ClCompile Include="Cars\TyreCompounds.cpp" />
     <ClCompile Include="Cars\VehicleRegistry.cpp" />
     <ClCompile Include="DevConsole\DevConsole.cpp" />
     <ClCompile Include="Environment\Time.cpp" />
@@ -195,6 +196,7 @@
     <ClCompile Include="Physics\Handling.cpp" />
     <ClCompile Include="Physics\PhysicsEngine.cpp" />
     <ClCompile Include="Physics\Spawner.cpp" />
+    <ClCompile Include="Physics\TelemetryRecorder.cpp" />
     <ClCompile Include="Physics\TorqueManager.cpp" />
     <ClCompile Include="Physics\Tyres.cpp" />
     <ClCompile Include="Physics\VehicleTelemetry.cpp" />
@@ -237,6 +239,7 @@
     <ClInclude Include="Cars\Porsche_911_Carrera_S\Porsche911.h" />
     <ClInclude Include="Cars\Toyota_Minolta\Minolta.h" />
     <ClInclude Include="Cars\Toyota_Supra_JGTC_2000\Toyota_Supra_JGTC_2000.h" />
+    <ClInclude Include="Cars\TyreCompounds.h" />
     <ClInclude Include="Cars\VehicleAsset.h" />
     <ClInclude Include="Cars\VehicleRegistry.h" />
     <ClInclude Include="Cars\VehicleRegistryEntry.h" />
@@ -260,12 +263,6 @@
     <ClInclude Include="Graphics\TextureManager.h" />
     <ClInclude Include="Input\Input.h" />
     <ClInclude Include="LogitechSteeringWheelLib.h" />
-    <ClInclude Include="Physics\Handling.h" />
-    <ClInclude Include="Physics\PhysicsEngine.h" />
-    <ClInclude Include="Physics\Spawner.h" />
-    <ClInclude Include="Physics\TorqueManager.h" />
-    <ClInclude Include="Physics\Tyres.h" />
-    <ClInclude Include="Physics\VehicleTelemetry.h" />
     <ClInclude Include="Imgui\imconfig.h" />
     <ClInclude Include="Imgui\imgui.h" />
     <ClInclude Include="Imgui\imgui_impl_dx11.h" />
@@ -274,6 +271,13 @@
     <ClInclude Include="Imgui\imstb_rectpack.h" />
     <ClInclude Include="Imgui\imstb_textedit.h" />
     <ClInclude Include="Imgui\imstb_truetype.h" />
+    <ClInclude Include="Physics\Handling.h" />
+    <ClInclude Include="Physics\PhysicsEngine.h" />
+    <ClInclude Include="Physics\Spawner.h" />
+    <ClInclude Include="Physics\TelemetryRecorder.h" />
+    <ClInclude Include="Physics\TorqueManager.h" />
+    <ClInclude Include="Physics\Tyres.h" />
+    <ClInclude Include="Physics\VehicleTelemetry.h" />
     <ClInclude Include="Scene\Camera.h" />
     <ClInclude Include="Scene\GameObject.h" />
     <ClInclude Include="Scene\Scene.h" />

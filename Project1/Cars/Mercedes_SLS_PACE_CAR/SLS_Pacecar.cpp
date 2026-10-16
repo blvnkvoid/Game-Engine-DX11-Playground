@@ -16,11 +16,17 @@ VehicleDefinition SLS_Pacecar::CreateDefinition()
 
     // Current physics scale - old 0.92 value was from the old system.
     car.yawDamping = 5200.0f;
+    car.bodyLength = 4.638f;
+    car.Offset_X = 0.86f;
+    car.Offset_Y = 0.34f;
+    car.Offset_Z_Front = 1.34f;
+    car.Offset_Z_Back = 1.32f;
+    car.Offset_Z = car.Offset_Z_Front + car.Offset_Z_Back;
 
-    car.wheelOffsets[0] = btVector3(-0.86f, -0.34f, 1.34f);
-    car.wheelOffsets[1] = btVector3(0.86f, -0.34f, 1.34f);
-    car.wheelOffsets[2] = btVector3(-0.86f, -0.34f, -1.32f);
-    car.wheelOffsets[3] = btVector3(0.86f, -0.34f, -1.32f);
+    car.wheelOffsets[0] = btVector3(-(car.Offset_X), -(car.Offset_Y), car.Offset_Z_Front);
+    car.wheelOffsets[1] = btVector3(car.Offset_X, -(car.Offset_Y), car.Offset_Z_Front);
+    car.wheelOffsets[2] = btVector3(-(car.Offset_X), -(car.Offset_Y), -(car.Offset_Z_Back));
+    car.wheelOffsets[3] = btVector3(car.Offset_X, -(car.Offset_Y), -(car.Offset_Z_Back));
 
     // ---------------------------------------------------------
     // 2. Aero
@@ -160,11 +166,10 @@ VehicleDefinition SLS_Pacecar::CreateDefinition()
     // tyre model.
 
     // Front tyres
-    car.frontTyres.frictionCoeff = 1.32f;
-    car.frontTyres.loadSmoothing = 10.0f;
-    car.frontTyres.relaxationRate = 31.0f;
-
-    car.frontTyres.stiffness = 21000.0f;
+    car.frontTyres.frictionCoeff = 1.30f;
+    car.frontTyres.loadSmoothing = 14.0f;
+    car.frontTyres.relaxationRate = 26.0f;
+    car.frontTyres.stiffness = 15500.0f;
 
     car.frontTyres.staticCamber = -1.4f;
     car.frontTyres.camberGripStrength = 0.09f;
@@ -174,11 +179,10 @@ VehicleDefinition SLS_Pacecar::CreateDefinition()
     car.frontTyres.frontWheelInertia = 1.55f;
 
     // Rear tyres
-    car.rearTyres.frictionCoeff = 1.36f;
-    car.rearTyres.loadSmoothing = 10.0f;
-    car.rearTyres.relaxationRate = 29.0f;
-
-    car.rearTyres.stiffness = 22000.0f;
+    car.rearTyres.frictionCoeff = 1.30f;
+    car.rearTyres.loadSmoothing = 14.0f;
+    car.rearTyres.relaxationRate = 26.0f;
+    car.rearTyres.stiffness = 15500.0f;
 
     car.rearTyres.staticCamber = -1.8f;
     car.rearTyres.camberGripStrength = 0.09f;

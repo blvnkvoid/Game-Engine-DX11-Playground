@@ -1,4 +1,4 @@
-﻿ #pragma warning(push)
+﻿#pragma warning(push)
 #pragma warning(disable : 26451) // Arithmetic overflow (the one you just found)
 #pragma warning(disable : 26495) // Uninitialized member variable
 #pragma warning(disable : 26812) // Prefer 'enum class' over 'enum'
@@ -8,6 +8,7 @@
 #include <bullet/btBulletDynamicsCommon.h>
 #pragma warning(pop)
 #include "Handling.h"
+#include "../Input/Input.h"
 
 #define LERP(a, b, t) (a + t * (b - a))
 #define clamp(val, low, high) ((val) < (low) ? (low) : ((val) > (high) ? (high) : (val)))
@@ -102,8 +103,7 @@ float Handling::CalculateSlipRatioGrip(float slipRatio)
     return 0.60f;
 }
     
-SuspensionResults Handling::CalculateSuspension() {
-    float internalDelta = 1.0f / 300.0f;
+SuspensionResults Handling::CalculateSuspension(float deltaTime) {
     SuspensionResults results;
     btTransform tr;
     m_carBody->getMotionState()->getWorldTransform(tr);
@@ -128,7 +128,7 @@ SuspensionResults Handling::CalculateSuspension() {
         float springVel =
             ((m_wheels[i].compression - m_wheels[i].lastCompression)
                 * m_vehicle.suspensionRestLength)
-            / internalDelta;
+            / deltaTime;
         m_wheels[i].suspensionRelativeVelocity = springVel;
 
         float vel = m_wheels[i].suspensionRelativeVelocity; 
@@ -218,11 +218,10 @@ SuspensionResults Handling::CalculateSuspension() {
 }
 
 
-PhysicsAdvice Handling::CalculateFriction(float steeringInput, const btTransform& tr, float currentSpeed, float carMass, float throttle, float brake) {
+PhysicsAdvice Handling::CalculateFriction(float steeringInput, const btTransform& tr, float currentSpeed, float carMass, float throttle, float brake, float deltaTime) {
 
     PhysicsAdvice advice;
-    float internalDelta = 1.0f / 300.0f;
-
+    
     float speedKMH = currentSpeed;
     float lowSpeedAngle = m_vehicle.lowSpeedSteerAngle;
     float highSpeedAngle = m_vehicle.highSpeedSteerAngle;
@@ -236,7 +235,7 @@ PhysicsAdvice Handling::CalculateFriction(float steeringInput, const btTransform
 
     float steeringSmoothSpeed = (abs(steeringInput) < 0.1f) ? returnSpeed : steerInSpeed;
 
-    float steeringAlpha = clamp(steeringSmoothSpeed * internalDelta, 0.0f, 1.0f);
+    float steeringAlpha = clamp(steeringSmoothSpeed * deltaTime, 0.0f, 1.0f);
 
     smoothedSteering = LERP(smoothedSteering, steeringInput, steeringAlpha);
     
@@ -330,7 +329,7 @@ PhysicsAdvice Handling::CalculateFriction(float steeringInput, const btTransform
             dynamicDelta * m_vehicle.loadTransferStrength;
 
         float loadResponseRate = m_vehicle.loadResponseRate;
-        float loadAlpha = 1.0f - exp(-loadResponseRate * internalDelta);
+        float loadAlpha = 1.0f - exp(-loadResponseRate * deltaTime);
 
         float effectiveLoad = clamp(rawLoad, 400.0f, 45000.0f);
 
@@ -396,11 +395,7 @@ PhysicsAdvice Handling::CalculateFriction(float steeringInput, const btTransform
         camberDeg += compressionTravel * camberGain;
 
 
-        float frictionForceScalar = m_tyres[i].Update(tyreLoad, slipAngle, speedKMH, currentVx, currentVy, currentWheelTheta, currentWheelMu, telemetryVx, telemetryVy, camberDeg, i, slipRatio);
-      
-        float slipGrip = CalculateSlipRatioGrip(slipRatio);
-
-        frictionForceScalar *= slipGrip;    
+        float frictionForceScalar = m_tyres[i].Update(tyreLoad, slipAngle, speedKMH, currentVx, currentVy, currentWheelTheta, currentWheelMu, telemetryVx, telemetryVy, camberDeg, i, slipRatio, deltaTime);
 
         m_wheels[i].lateralForce = frictionForceScalar;
 
@@ -445,11 +440,10 @@ PhysicsAdvice Handling::CalculateFriction(float steeringInput, const btTransform
         g_DebugTelemetry.wheelVx[i] = telemetryVx;
         g_DebugTelemetry.wheelVy[i] = telemetryVy;
         g_DebugTelemetry.slipRatio[i] = slipRatio;
-        g_DebugTelemetry.slipGrip[i] = slipGrip;
         g_DebugTelemetry.mass = m_vehicle.mass;
         g_DebugTelemetry.yawRate = yawRateDeg;
 
-        float gAlpha = 1.0f - exp(-12.0f * internalDelta);
+        float gAlpha = 1.0f - exp(-12.0f * deltaTime);
         g_DebugTelemetry.lateralG += (lateralG - g_DebugTelemetry.lateralG) * gAlpha;
         g_DebugTelemetry.longitudinalG += (longitudinalG - g_DebugTelemetry.longitudinalG) * gAlpha;
 
@@ -473,9 +467,9 @@ float Handling::CalculateLoadSensitiveMu(float normalLoad, float baseMu)
 
 float Handling::CalculateLongitudinalForce(float slipRatio, float normalLoad, float mu)
 {
-    float s = abs(slipRatio);   
+   /* float s = abs(slipRatio);
     float effectiveMu = CalculateLoadSensitiveMu(normalLoad, mu);
-    float peakSlip = 0.22f;
+    float peakSlip = 0.25f;
     float peakForce = normalLoad * effectiveMu;
 
     float force = 0.0f;
@@ -486,19 +480,20 @@ float Handling::CalculateLongitudinalForce(float slipRatio, float normalLoad, fl
     else
     {
         float falloff = (s - peakSlip) / 1.0f;
-        force = peakForce * (1.0f - 0.65f * falloff);
+        force = peakForce * (1.0f - 0.58f * falloff);
         force = clamp(force, peakForce * 0.40f, peakForce);
     }
 
     force = clamp(force, 0.0f, peakForce);
 
     return (slipRatio >= 0.0f) ? force : -force;
+    */
 }
 
 void Handling::ApplyFrontLimitedSlipDifferential(
     float& frontLeftTorque,
     float& frontRightTorque,
-    float internalDelta)
+    float deltaTime)
 {
     float diffSpeed =
         m_wheels[0].angularVelocity -
@@ -528,7 +523,7 @@ void Handling::ApplyFrontLimitedSlipDifferential(
         m_vehicle.diffMaxLockTorque);
 
     float lockAlpha =
-        1.0f - exp(-18.0f * internalDelta);
+        1.0f - exp(-18.0f * deltaTime);
 
     m_currentFrontLockTorque +=
         (targetLockTorque - m_currentFrontLockTorque) * lockAlpha;
@@ -567,7 +562,7 @@ void Handling::ApplyFrontLimitedSlipDifferential(
 void Handling::ApplyRearLimitedSlipDifferential(
     float& rearLeftTorque,
     float& rearRightTorque,
-    float internalDelta)
+    float deltaTime)
 {
     float diffSpeed =
         m_wheels[2].angularVelocity -
@@ -597,7 +592,7 @@ void Handling::ApplyRearLimitedSlipDifferential(
         m_vehicle.diffMaxLockTorque);
 
     float lockAlpha =
-        1.0f - exp(-18.0f * internalDelta);
+        1.0f - exp(-18.0f * deltaTime);
         
     m_currentRearLockTorque +=
         (targetLockTorque - m_currentRearLockTorque) * lockAlpha;
@@ -632,11 +627,13 @@ void Handling::ApplyRearLimitedSlipDifferential(
     g_DebugTelemetry.diffTotalTorque = totalDiffTorque;
 }
 
-PhysicsAdvice Handling::CalculateDrivingForces(float throttle, float brake, const btTransform& tr, float currentSpeed)
+PhysicsAdvice Handling::CalculateDrivingForces(float throttle, float brake, const btTransform& tr, float currentSpeed, float deltaTime)
 {
     PhysicsAdvice advice;
 
-    const float internalDelta = 1.0f / 300.0f;
+    const bool handbrake = Input::GetCurrentInputs().handbrake;
+    
+
     const float speedMps = currentSpeed / 3.6f;
 
     for (int i = 0; i < 4; i++)
@@ -645,15 +642,13 @@ PhysicsAdvice Handling::CalculateDrivingForces(float throttle, float brake, cons
             ? m_vehicle.frontTyres.wheelRadius
             : m_vehicle.rearTyres.wheelRadius;
 
-        if (abs(m_wheels[i].angularVelocity) < 0.001f)
-            m_wheels[i].angularVelocity = speedMps / wheelRadius;
+        //if (abs(m_wheels[i].angularVelocity) < 0.001f)
+         //   m_wheels[i].angularVelocity = speedMps / wheelRadius;
     }
 
-    float frontDrivenAngularVel =
-        (abs(m_wheels[0].angularVelocity) + abs(m_wheels[1].angularVelocity)) * 0.5f;
+    float frontDrivenAngularVel = (abs(m_wheels[0].angularVelocity) + abs(m_wheels[1].angularVelocity)) * 0.5f;
 
-    float rearDrivenAngularVel =
-        (abs(m_wheels[2].angularVelocity) + abs(m_wheels[3].angularVelocity)) * 0.5f;
+    float rearDrivenAngularVel =  (abs(m_wheels[2].angularVelocity) + abs(m_wheels[3].angularVelocity)) * 0.5f;
 
 
     float drivenWheelAngularVel =
@@ -662,11 +657,9 @@ PhysicsAdvice Handling::CalculateDrivingForces(float throttle, float brake, cons
 
 
     TorqueOutput torque =   
-        m_torqueManager.Update(throttle, drivenWheelAngularVel, internalDelta); 
+        m_torqueManager.Update(throttle, drivenWheelAngularVel, deltaTime); 
 
     float totalDriveTorque = torque.wheelTorque[2] + torque.wheelTorque[3];
-
-
 
     float frontAxleTorque = totalDriveTorque * m_vehicle.frontTorqueDistribution;
     float rearAxleTorque =  totalDriveTorque * m_vehicle.rearTorqueDistribution;
@@ -682,7 +675,7 @@ PhysicsAdvice Handling::CalculateDrivingForces(float throttle, float brake, cons
         ApplyFrontLimitedSlipDifferential(
             frontLeftTorque,
             frontRightTorque,
-            internalDelta);
+            deltaTime);
     }
 
     if (m_vehicle.rearTorqueDistribution > 0.0f)
@@ -690,7 +683,7 @@ PhysicsAdvice Handling::CalculateDrivingForces(float throttle, float brake, cons
         ApplyRearLimitedSlipDifferential(
             rearLeftTorque,
             rearRightTorque,
-            internalDelta);
+            deltaTime);
     }
 
     float wheelDriveTorque[4] = {};
@@ -714,8 +707,14 @@ PhysicsAdvice Handling::CalculateDrivingForces(float throttle, float brake, cons
         m_wheels[i].driveTorque = wheelDriveTorque[i];
 
 
-        m_wheels[i].brakeTorque =
-            brake * m_vehicle.brakeTorqueStrength * axleBrakeBias * wheelRadius * wheelDir;
+        float brakeTorque =  brake * m_vehicle.brakeTorqueStrength * axleBrakeBias * wheelRadius;
+
+        if (handbrake && i >= 2)
+        {
+            brakeTorque += 3000.0f;
+        }
+
+        m_wheels[i].brakeTorque = brakeTorque * wheelDir;
 
 
         float netTorque =
@@ -723,11 +722,23 @@ PhysicsAdvice Handling::CalculateDrivingForces(float throttle, float brake, cons
             - m_wheels[i].brakeTorque
             - m_wheels[i].tireReactionTorque;
 
+        float driveTorque = m_wheels[i].driveTorque;        
+        float tireReactionTorque = m_wheels[i].tireReactionTorque;
+
         m_wheels[i].angularAcceleration =
             netTorque / m_wheels[i].wheelInertia;
 
         m_wheels[i].angularVelocity +=
-            m_wheels[i].angularAcceleration * internalDelta;
+            m_wheels[i].angularAcceleration * deltaTime;
+
+        if (m_wheels[i].brakeTorque != 0.0f)
+        {
+            if (m_wheels[i].angularVelocity * wheelDir < 0.0f)
+            {
+                m_wheels[i].angularVelocity = 0.0f;
+            }
+        }
+
 
         if (m_wheels[i].isGrounded)
         {
@@ -735,17 +746,34 @@ PhysicsAdvice Handling::CalculateDrivingForces(float throttle, float brake, cons
             float roadAngularVel =
                 wheelForwardSpeed / wheelRadius;
 
-            float coupling = 0.025f;
+            //const float couplingRate = (brake > 0.01f) ? 20.410997f : 12.658904f;
 
-            if (brake > 0.01f)
-                coupling = 0.04f;
+            const float couplingRate = 0.0f;
+
+            const float couplingAlpha =
+                1.0f - exp(-couplingRate * deltaTime);
 
             m_wheels[i].angularVelocity +=
-                (roadAngularVel - m_wheels[i].angularVelocity) * coupling;
+                (roadAngularVel - m_wheels[i].angularVelocity) * couplingAlpha;
         }
 
         m_wheels[i].angularVelocity =
             clamp(m_wheels[i].angularVelocity, -500.0f, 500.0f);
+
+        g_DebugTelemetry.wheelAngularVelocity[i] =
+            m_wheels[i].angularVelocity;
+
+        float roadAngularVelocity =
+            m_wheels[i].localVelocity.z() / wheelRadius;
+
+        g_DebugTelemetry.roadAngularVelocity[i] =
+            roadAngularVelocity;
+
+        g_DebugTelemetry.wheelNetTorque[i] = netTorque;
+        g_DebugTelemetry.driveTorque[i] = driveTorque;
+        g_DebugTelemetry.brakeTorque[i] = brakeTorque;
+        g_DebugTelemetry.tireReactionTorque[i] = tireReactionTorque;
+        g_DebugTelemetry.wheelAngularAcceleration[i] = m_wheels[i].angularAcceleration;
     }
 
     // 2. Actual longitudinal forces
@@ -768,10 +796,9 @@ PhysicsAdvice Handling::CalculateDrivingForces(float throttle, float brake, cons
         float engineBrakeForce = 0.0f;
 
         float slipResponseRate = m_vehicle.slipResponseRate;
-        float slipAlpha = 1.0f - exp(-slipResponseRate * internalDelta);
+        float slipAlpha = 1.0f - exp(-slipResponseRate * deltaTime);
 
-        m_wheels[i].filteredSlipRatio +=
-            (m_wheels[i].slipRatio - m_wheels[i].filteredSlipRatio) * slipAlpha;
+        m_wheels[i].filteredSlipRatio += (m_wheels[i].slipRatio - m_wheels[i].filteredSlipRatio) * slipAlpha;
 
         float wheelRadius = (i < 2)
             ? m_vehicle.frontTyres.wheelRadius
@@ -779,51 +806,28 @@ PhysicsAdvice Handling::CalculateDrivingForces(float throttle, float brake, cons
       
         float torqueForce = m_wheels[i].driveTorque / wheelRadius;
 
-            float slipForce = CalculateLongitudinalForce(
-                m_wheels[i].filteredSlipRatio,
-                m_wheels[i].normalLoad,
-                g_DebugTelemetry.surfaceMu[i]
-            );
 
-            float launchBlend =
-                clamp(abs(forwardVel) / 5.0f, 0.0f, 1.0f);
-
-
-            if (throttle < 0.05f && torque.currentGear > 0)
-            {
-                float engineBrakeTorque =
-                    m_vehicle.engineBrakeTorque * (torque.engineRPM / m_vehicle.engine.redlineRPM);
-
-                drivingForce = -engineBrakeTorque / wheelRadius;
-            }
-            else
-            {
-                drivingForce =
-                    torqueForce * (1.0f - launchBlend) +
-                    slipForce * launchBlend;
-            }
-       
-
-        float brakeForceMag =
-            brake * m_vehicle.brakeForceStrength * axleBrake;
-
+        const float peakForce = m_wheels[i].normalLoad * CalculateLoadSensitiveMu(m_wheels[i].normalLoad, g_DebugTelemetry.surfaceMu[i]);
+        g_DebugTelemetry.longitudinalPeakForce[i] = peakForce;
+        drivingForce = m_tyres[i].GetLongitudinalForce();       
+        float t = clamp((throttle - 0.02f) / 0.06f, 0.0f, 1.0f);
+        float blend = t * t * (3.0f - 2.0f * t);           
+        float brakeForceMag = brake * m_vehicle.brakeForceStrength * axleBrake;
         float finalBrakeForce = 0.0f;
+
 
         if (abs(forwardVel) > 0.1f)
         {
-            float brakeDir =
-                (forwardVel > 0.0f) ? -1.0f : 1.0f;
+            float brakeDir = (forwardVel > 0.0f) ? -1.0f : 1.0f;
 
-            float forceToStop =
-                (m_vehicle.mass * 0.25f * abs(forwardVel)) / internalDelta;
+            float forceToStop = (m_vehicle.mass * 0.25f * abs(forwardVel)) / deltaTime;
 
-            finalBrakeForce =
-                min(brakeForceMag, forceToStop) * brakeDir;
+            finalBrakeForce = min(brakeForceMag, forceToStop) * brakeDir;
         }
 
-        float totalForce =
-            drivingForce + finalBrakeForce;
+        float totalForce = drivingForce;
 
+        /*
         if (currentGear > 0)
         {
             if (forwardVel < 0.1f && totalForce < 0.0f)
@@ -841,11 +845,15 @@ PhysicsAdvice Handling::CalculateDrivingForces(float throttle, float brake, cons
                     totalForce = 0.0f;
             }
         }
+        */
+        //if (drivingForce > 0.0f)
+            //m_wheels[i].tireReactionTorque = drivingForce * wheelRadius;
+            
+        m_wheels[i].tireReactionTorque = drivingForce * wheelRadius;
 
-        if (drivingForce > 0.0f)
-            m_wheels[i].tireReactionTorque = drivingForce * wheelRadius;
-        else
-            m_wheels[i].tireReactionTorque = 0.0f;
+
+        //else
+          //  m_wheels[i].tireReactionTorque = 0.0f;
 
         m_wheels[i].longitudinalForce = totalForce;
 
@@ -856,6 +864,8 @@ PhysicsAdvice Handling::CalculateDrivingForces(float throttle, float brake, cons
             tr.getBasis() * m_wheels[i].localOffset;
 
         advice.friction[i].active = true;
+
+        g_DebugTelemetry.drivingForce[i] = drivingForce;
         g_DebugTelemetry.longitudinalForce[i] = totalForce;
         g_DebugTelemetry.wheelTorque[i] = m_wheels[i].driveTorque;
         g_DebugTelemetry.throttle = throttle;
@@ -886,17 +896,18 @@ PhysicsAdvice Handling::CombinedForces(
     float currentSpeed,
     float carMass,
     float throttle,
-    float brake)
+    float brake,
+    float deltaTime)
 {
 
     ApplyYawDamping();
 
 
     PhysicsAdvice lateralAdvice = CalculateFriction(
-        steeringInput, tr, currentSpeed, carMass, throttle, brake);
+        steeringInput, tr, currentSpeed, carMass, throttle, brake, deltaTime);
 
     PhysicsAdvice driveAdvice = CalculateDrivingForces(
-        throttle, brake, tr, currentSpeed);
+        throttle, brake, tr, currentSpeed, deltaTime);
 
     PhysicsAdvice combinedAdvice = {};
 
@@ -926,16 +937,8 @@ PhysicsAdvice Handling::CombinedForces(
 
     
         float total = sqrt(latMag * latMag + longMag * longMag);
+       
 
-        if (total > maxGrip && total > 0.001f)
-        {
-            float scale = maxGrip / total;
-            lateralForce *= scale;
-            longForce *= scale;
-        }
-
-        g_DebugTelemetry.combinedGripScale[i] =
-            (total > maxGrip && total > 0.001f) ? maxGrip / total : 1.0f;
 
         g_DebugTelemetry.combinedMaxGrip[i] = maxGrip;
         g_DebugTelemetry.combinedTotalForce[i] = total;
@@ -949,6 +952,41 @@ PhysicsAdvice Handling::CombinedForces(
             : driveAdvice.friction[i].offset;
 
         combinedAdvice.friction[i].active = true;
+
+        // Requested forces before combined-grip limiting
+        g_DebugTelemetry.rawLongitudinalForce[i] =
+            driveAdvice.friction[i].force.dot(tr.getBasis().getColumn(2));
+
+        g_DebugTelemetry.rawLateralForce[i] =
+            lateralAdvice.friction[i].force.length();
+
+        // Actual forces after combined-grip limiting
+        g_DebugTelemetry.finalLongitudinalForce[i] =
+            longForce.dot(tr.getBasis().getColumn(2));
+
+        g_DebugTelemetry.finalLateralForce[i] =
+            lateralForce.length();
+
+        // Grip utilization, before limiting
+        const float gripDenominator = max(maxGrip, 0.001f);
+
+        g_DebugTelemetry.longitudinalGripUtilization[i] =
+            longMag / gripDenominator;
+
+        g_DebugTelemetry.lateralGripUtilization[i] =
+            latMag / gripDenominator;
+
+        g_DebugTelemetry.combinedGripUtilization[i] =
+            total / gripDenominator;
+
+        // Difference between wheel reaction and applied chassis force
+        const float wheelRadius = (i < 2)
+            ? m_vehicle.frontTyres.wheelRadius
+            : m_vehicle.rearTyres.wheelRadius;
+
+        g_DebugTelemetry.reactionTorqueForceMismatch[i] =
+            (m_wheels[i].tireReactionTorque / wheelRadius)
+            - g_DebugTelemetry.finalLongitudinalForce[i];
     }
 
     return combinedAdvice;

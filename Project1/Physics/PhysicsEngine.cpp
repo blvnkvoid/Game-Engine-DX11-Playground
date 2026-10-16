@@ -12,7 +12,9 @@
 #include "../Input/Input.h"
 #include "../SharedVehicleTypes.h"
 #include "Spawner.h"
-
+#include <chrono>
+#include <cstdio>
+#include <Windows.h>
 
 
 PhysicsEngine::PhysicsEngine()
@@ -104,7 +106,16 @@ void PhysicsEngine::CreatePhysicsWorld() {
 
     m_groundBody = nullptr;
 
-    btBoxShape* box = new btBoxShape(btVector3(0.925f, 0.64f, 2.275f));
+    const float bodyWidthPadding = 0.05f;
+
+    const float halfWidth = m_vehicle.Offset_X + bodyWidthPadding;
+
+    const float halfLength = m_vehicle.bodyLength * 0.5f;
+
+    btBoxShape* box = new btBoxShape(
+        btVector3(halfWidth, 0.64f, halfLength)
+    );
+
     m_collisionShapes.push_back(box);
 
     btCompoundShape* compound = new btCompoundShape();
@@ -240,7 +251,45 @@ auto HorizontalDistance = [](const btVector3& a, const btVector3& b)
 };
 
 void PhysicsEngine::Update(float deltaTime, SharedVehicleInputs inputs) {
-    float internalDelta = 1.0f / 300.0f;
+
+    using Clock = std::chrono::steady_clock;
+
+    static auto previousCall = Clock::now();
+    static auto previousReport = Clock::now();
+    static int updateCount = 0;
+
+    const auto now = Clock::now();
+
+    const float measuredDelta =
+        std::chrono::duration<float>(now - previousCall).count();
+
+    previousCall = now;
+    ++updateCount;
+
+    const float reportSeconds =
+        std::chrono::duration<float>(now - previousReport).count();
+
+    if (reportSeconds >= 1.0f)
+    {
+        char buffer[256];
+
+        snprintf(
+            buffer,
+            sizeof(buffer),
+            "Physics: %.1f Hz | Passed dt: %.3f ms | Measured dt: %.3f ms\n",
+            updateCount / reportSeconds,
+            deltaTime * 1000.0f,
+            measuredDelta * 1000.0f
+        );
+
+        OutputDebugStringA(buffer);
+
+        updateCount = 0;
+        previousReport = now;
+    }
+
+
+
 
     if (m_handling->CheckResetRequested()) m_needsReset = true;
     if (m_needsReset) {
@@ -303,6 +352,36 @@ void PhysicsEngine::Update(float deltaTime, SharedVehicleInputs inputs) {
         btCollisionWorld::ClosestRayResultCallback rayCallback(rayStart, rayEnd);
         m_dynamicsWorld->rayTest(rayStart, rayEnd, rayCallback);
 
+        float hitType = 0.0f;
+
+        if (rayCallback.hasHit())
+        {
+            const btCollisionObject* hitObject =
+                rayCallback.m_collisionObject;
+
+            if (hitObject == m_carBody)
+            {
+                hitType = 2.0f;
+            }
+            else
+            {
+                bool isTrack = false;
+
+                for (const btRigidBody* trackBody : m_trackBodies)
+                {
+                    if (hitObject == trackBody)
+                    {
+                        isTrack = true;
+                        break;
+                    }
+                }
+
+                hitType = isTrack ? 1.0f : 3.0f;
+            }
+        }
+
+        g_DebugTelemetry.raycastHitType[i] = hitType;
+
         WheelRayHit hit;
         hit.isGrounded = rayCallback.hasHit();
 
@@ -330,11 +409,20 @@ void PhysicsEngine::Update(float deltaTime, SharedVehicleInputs inputs) {
             float rawHitDist = (rayCallback.m_hitPointWorld - rayStart).length() - raycastOffsetUp;
             hit.hitDist = rawHitDist;
             hit.hitPointWorld = rayCallback.m_hitPointWorld;
+
+            btVector3 wheelWorldPos = tr * localOff;
+
+            float heightDifference =
+                wheelWorldPos.y() - rayCallback.m_hitPointWorld.y();
+
+            g_DebugTelemetry.tyreForceHeightError[i] =
+                hit.isGrounded ? heightDifference : 0.0f;
         }
         else {
             hit.hitDist = restLength + droopExtension;
             hit.wheelVelocity = btVector3(0, 0, 0);
             hit.hitPointWorld = btVector3(0, 0, 0);
+            g_DebugTelemetry.tyreForceHeightError[i] = 0.0f;
         }
 
         m_handling->ProcessSuspensionData(i, hit);
@@ -344,7 +432,7 @@ void PhysicsEngine::Update(float deltaTime, SharedVehicleInputs inputs) {
     btVector3 carCenter = tr.getOrigin();
     const float MAX_PHYSICS_FORCE = 40000.0f;
 
-    SuspensionResults suspension = m_handling->CalculateSuspension();
+    SuspensionResults suspension = m_handling->CalculateSuspension(deltaTime);
 
 
     for (int i = 0; i < 4; i++) {
@@ -362,7 +450,8 @@ void PhysicsEngine::Update(float deltaTime, SharedVehicleInputs inputs) {
         speedKmh,
         m_carBody->getMass(),
         inputs.throttle,
-        inputs.brake
+        inputs.brake,
+        deltaTime
     );
 
 
@@ -424,6 +513,23 @@ void PhysicsEngine::Update(float deltaTime, SharedVehicleInputs inputs) {
     if (m_dynamicsWorld) {
         m_dynamicsWorld->stepSimulation(deltaTime, 40, 1.0f / 1000.0f);
     }
+
+
+    static bool previousF9 = false;
+
+    bool currentF9 = (GetAsyncKeyState(VK_F9) & 0x8000) != 0;
+
+    if (currentF9 && !previousF9)
+    {
+        m_telemetryRecorder.Toggle("telemetry.csv");
+    }
+
+    previousF9 = currentF9;
+
+    // Called every physics update, regardless of F9 state
+    m_telemetryRecorder.Record(deltaTime, inputs);
+
+    
 }
 
 void PhysicsEngine::Cleanup() {

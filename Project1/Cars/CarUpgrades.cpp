@@ -40,34 +40,6 @@ const WeightReductionUpgrade WeightReductionStage3 =
     0.85f
 };
 
-const TyresUpgrade StockTyres =
-{
-    1.0f,
-    1.0f,
-    1.0f
-};
-
-const TyresUpgrade SportTyres =
-{
-    1.03f,
-    1.05f,
-    1.05f
-};
-
-const TyresUpgrade SemiSlicks =
-{
-    1.08f,
-    1.12f,
-    1.15f
-};
-
-const TyresUpgrade RacingTyres =
-{
-    1.15f,
-    1.25f,
-    1.30f
-};
-
 
 
 
@@ -111,28 +83,6 @@ const WeightReductionUpgrade& GetWeightReductionUpgrade(WeightReductionSelection
     }
 }
 
-const TyresUpgrade& GetTyresUpgrade(TyresUpgradeSelection selection)
-{
-    switch (selection)
-    {
-    case TyresUpgradeSelection::StockTyres:
-        return StockTyres;
-
-
-    case TyresUpgradeSelection::SportTyres:
-        return SportTyres;
-
-    case TyresUpgradeSelection::SemiSlicks:
-        return SemiSlicks;
-
-    case TyresUpgradeSelection::RacingTyres:
-        return RacingTyres;
-
-    default:
-        return StockTyres;
-    }
-}
-
 
 
 
@@ -155,14 +105,8 @@ void ApplyWeightReductionUpgrade(
 
 void ApplyTyresUpgrade(
     VehicleDefinition& car,
-    const TyresUpgrade& upgrade)
+    TyreCompound compound)
 {
-    car.frontTyres.frictionCoeff *= upgrade.frictionMultiplier;
-    car.rearTyres.frictionCoeff *= upgrade.frictionMultiplier;
-
-    car.frontTyres.stiffness *= upgrade.stiffnessMultiplier;
-    car.rearTyres.stiffness *= upgrade.stiffnessMultiplier;
-
-    car.frontTyres.relaxationRate *= upgrade.relaxationRateMultiplier;
-    car.rearTyres.relaxationRate *= upgrade.relaxationRateMultiplier;
+    ApplyTyreCompound(car.frontTyres, compound);
+    ApplyTyreCompound(car.rearTyres, compound);
 }

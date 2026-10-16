@@ -6,6 +6,7 @@
 #include <bullet/btBulletDynamicsCommon.h>
 #include <bullet/BulletCollision/CollisionDispatch/btInternalEdgeUtility.h>
 #include "../UI/TrackTiming.h"
+#include "TelemetryRecorder.h"
 
 #pragma warning(push)
 #pragma warning(disable : 26451) // Arithmetic overflow (the one you just found)
@@ -65,6 +66,16 @@ public:
         const btVector3& approximatePosition,
         float clearance = 0.6f) const;
 
+    void ToggleTelemetryRecording(const std::string& filename)
+    {
+        m_telemetryRecorder.Toggle(filename);
+    }
+
+    bool IsTelemetryRecording() const
+    {
+        return m_telemetryRecorder.IsRecording();
+    }
+
     private:
     btDefaultCollisionConfiguration* m_collisionConfig;
     btCollisionDispatcher* m_dispatcher;
@@ -84,4 +95,5 @@ public:
     VehicleDefinition m_vehicle;
     TrackTimingEntry m_timing;
 
+    TelemetryRecorder m_telemetryRecorder;
 };

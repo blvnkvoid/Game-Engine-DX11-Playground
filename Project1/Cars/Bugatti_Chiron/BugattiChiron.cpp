@@ -15,12 +15,19 @@ VehicleDefinition Chiron::CreateDefinition()
     car.rollInertiaScale = 1.08f;
 
     car.yawDamping = 5200.0f;
+    car.bodyLength = 4.544f;
+    car.Offset_X = 0.95f;
+    car.Offset_Y = 0.15f;
+    car.Offset_Z_Front = 1.65f;
+    car.Offset_Z_Back = 1.65f;
+    car.Offset_Z = car.Offset_Z_Front + car.Offset_Z_Back;
 
-    car.wheelOffsets[0] = btVector3(-0.95f, -0.15f, 1.65f);
-    car.wheelOffsets[1] = btVector3(0.95f, -0.15f, 1.65f);
-    car.wheelOffsets[2] = btVector3(-0.95f, -0.15f, -1.65f);
-    car.wheelOffsets[3] = btVector3(0.95f, -0.15f, -1.65f);
+    car.wheelOffsets[0] = btVector3(-(car.Offset_X), -(car.Offset_Y), car.Offset_Z_Front);
+    car.wheelOffsets[1] = btVector3(car.Offset_X, -(car.Offset_Y), car.Offset_Z_Front);
+    car.wheelOffsets[2] = btVector3(-(car.Offset_X), -(car.Offset_Y), -(car.Offset_Z_Back));
+    car.wheelOffsets[3] = btVector3(car.Offset_X, -(car.Offset_Y), -(car.Offset_Z_Back));
 
+    
     // ---------------------------------------------------------
     // 2. Aero
     // ---------------------------------------------------------

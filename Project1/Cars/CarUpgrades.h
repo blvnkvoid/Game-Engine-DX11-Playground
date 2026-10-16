@@ -2,6 +2,7 @@
 
 #include "../SharedVehicleTypes.h"
 #include "../SharedTypes.h"
+#include "TyreCompounds.h"
 
 struct EngineUpgrade
 {
@@ -14,12 +15,6 @@ struct WeightReductionUpgrade
     float massMultiplier = 1.0f;
 };
 
-struct TyresUpgrade
-{
-    float frictionMultiplier = 1.0f;
-    float stiffnessMultiplier = 1.0f;
-    float relaxationRateMultiplier = 1.0f;
-};
 
 
 
@@ -34,10 +29,6 @@ extern const WeightReductionUpgrade WeightReductionStage2;
 extern const WeightReductionUpgrade WeightReductionStage3;
 
 
-extern const TyresUpgrade StockTyres;
-extern const TyresUpgrade SportTyres;
-extern const TyresUpgrade SemiSlicks;
-extern const TyresUpgrade RacingTyres;
 
 
 void ApplyEngineUpgrade(
@@ -50,7 +41,7 @@ void ApplyWeightReductionUpgrade(
 
 void ApplyTyresUpgrade(
     VehicleDefinition& car,
-    const TyresUpgrade& upgrade);
+    TyreCompound compound);
 
 const EngineUpgrade& GetEngineUpgrade(
     EngineUpgradeSelection selection);
@@ -59,5 +50,3 @@ const EngineUpgrade& GetEngineUpgrade(
 const WeightReductionUpgrade& GetWeightReductionUpgrade(
     WeightReductionSelection selection);
 
-const TyresUpgrade& GetTyresUpgrade(
-    TyresUpgradeSelection selection);

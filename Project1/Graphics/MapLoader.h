@@ -30,6 +30,26 @@ struct MapMarker
     float rotW;
 };
 
+struct BVHNode
+{
+    DirectX::BoundingBox bounds;
+
+    int left = -1;
+    int right = -1;
+
+    uint32_t first = 0;
+    uint32_t count = 0;
+
+    uint64_t totalIndices = 0;
+
+    bool IsLeaf() const
+    {
+        return left == -1;
+    }
+};
+
+
+
 struct MapRendererStats
 {
     uint32_t  m_drawCalls = 0;
@@ -81,6 +101,7 @@ public:
     void SetTextureManager(TextureManager* texMgr) { m_texMgr = texMgr; }
     const std::vector<SharedVertex>& GetVertices() const { return m_allVertices; }
     const std::vector<UINT>& GetIndices() const { return m_allIndices; }
+    const std::vector<UINT>& GetCollisionIndices() const { return m_collisionIndices; }
     const std::vector<MapMarker>& GetMarkers() const { return m_markers; }
     
     void ResolveMaterials();
@@ -136,9 +157,26 @@ public:
         m_materialLibraryPath = path;
     }
 
+    void DrawShadowBVHNode(
+        int nodeIndex,
+        ID3D11DeviceContext* context,
+        const DirectX::BoundingFrustum& frustum
+    );
+
+    void CollectVisibleBVH(
+        int nodeIndex,
+        const DirectX::BoundingFrustum& frustum,
+        std::vector<uint32_t>& visible
+    );
     
     
      std::vector<Microsoft::WRL::ComPtr<ID3D11ShaderResourceView>> m_materialSRVs;
+
+     std::vector<BVHNode> m_bvhNodes;
+     std::vector<uint32_t> m_bvhIndices;
+
+     int BuildBVHNode(uint32_t first, uint32_t count);
+     void BuildBVH();
 
 
  private:
@@ -165,6 +203,7 @@ public:
 
      std::vector<SharedVertex> m_allVertices;
      std::vector<UINT> m_allIndices;
+     std::vector<UINT> m_collisionIndices;
 
      std::vector<MapMarker> m_markers;
      std::vector<LampLight> m_visibleLampLights;
@@ -178,4 +217,5 @@ public:
      std::vector<MapMeshSubset> m_mapSubsets;
      std::vector<std::string> m_mapMaterialNames;
      std::string m_materialLibraryPath;
+
 };

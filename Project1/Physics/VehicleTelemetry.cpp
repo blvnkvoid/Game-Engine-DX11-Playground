@@ -1,4 +1,5 @@
 ﻿#include "VehicleTelemetry.h"
+#include <type_traits>
 #include "../Scene/Camera.h"
 #include "../Graphics/CarLoader.h"
 #include "../LogitechSteeringWheelLib.h"
@@ -9,25 +10,100 @@ void VehicleTelemetry::Draw(bool* p_open, Camera* cam, CarLoader* playerModel, M
 
     if (m_font) ImGui::PushFont(m_font);
 
-    for (int i = 0; i < 4; i++) {
-        m_displaySlipRatio[i] = m_slipRatioAvg[i].AddSample(g_DebugTelemetry.slipRatio[i]);
-        m_displayWheelLoad[i] = m_wheelLoadAvg[i].AddSample(g_DebugTelemetry.wheelLoad[i]);
-        m_displaywheelLoadSmoothed[i] = m_wheelLoadSmoothed[i].AddSample(g_DebugTelemetry.wheelLoadSmoothed[i]);
-        m_displayDiff[i] = m_diff[i].AddSample(g_DebugTelemetry.diff[i]);
-        m_displayComp[i] = m_comp[i].AddSample(g_DebugTelemetry.compression[i]);
-        m_displayslipGrip[i] = m_slipGrip[i].AddSample(g_DebugTelemetry.slipGrip[i]);
-        m_displayLateralForce[i] = m_lateralForceAvg[i].AddSample(g_DebugTelemetry.lateralForce[i]);
-        m_displaylongitudinalForce[i] = m_longitudinalForce[i].AddSample(g_DebugTelemetry.longitudinalForce[i]);
-        m_displaydiffLockTorque[i] = m_diffLockTorque[i].AddSample(g_DebugTelemetry.diffLockTorque[i]);
-        m_displaydriveTorqueLeft = m_driveTorqueLeft.AddSample(g_DebugTelemetry.driveTorque[2]);
-        m_displaydriveTorqueRight = m_driveTorqueRight.AddSample(g_DebugTelemetry.driveTorque[3]);
+    // UI-only telemetry snapshot. Physics and the CSV recorder still use raw g_DebugTelemetry.
+    // A held snapshot prevents numbers from changing on every rendered frame.
+    using TelemetrySnapshot = std::decay_t<decltype(g_DebugTelemetry)>;
+    static TelemetrySnapshot shownTelemetry{};
+    static bool shownInitialized = false;
+    static double nextTelemetryRefresh = 0.0;
+    const double now = ImGui::GetTime();
+    const bool refreshTelemetry = !shownInitialized || now >= nextTelemetryRefresh;
+    if (refreshTelemetry) {
+        if (!shownInitialized) {
+            shownTelemetry = g_DebugTelemetry;
+            shownInitialized = true;
+        }
+        else {
+            // Copy raw data first so discrete fields stay discrete. Blend only
+            // numerical fields actually shown in the vehicle tabs.
+            const auto previous = shownTelemetry;
+            shownTelemetry = g_DebugTelemetry;
+            const auto blend = [](float oldValue, float newValue, float alpha) {
+                return oldValue + alpha * (newValue - oldValue);
+            };
+            // 0.25 for noisy force/torque/slip channels; 0.45 elsewhere.
+#define SMOOTH_WHEEL(field, alpha) for (int wheel = 0; wheel < 4; ++wheel) { shownTelemetry.field[wheel] = blend(previous.field[wheel], g_DebugTelemetry.field[wheel], alpha); }
+#define SMOOTH_GLOBAL(field, alpha) shownTelemetry.field = blend(previous.field, g_DebugTelemetry.field, alpha)
+            SMOOTH_WHEEL(dampingForce, 0.25f);
+            SMOOTH_WHEEL(wheelAngularAcceleration, 0.25f);
+            SMOOTH_WHEEL(slip, 0.25f);
+            SMOOTH_WHEEL(tyreTheta, 0.25f);
+            SMOOTH_WHEEL(lateralForce, 0.25f);
+            SMOOTH_WHEEL(longitudinalForce, 0.25f);
+            SMOOTH_WHEEL(drivingForce, 0.25f);
+            SMOOTH_WHEEL(tireReactionTorque, 0.25f);
+            SMOOTH_WHEEL(wheelNetTorque, 0.25f);
+            SMOOTH_WHEEL(reactionTorqueForceMismatch, 0.25f);
+            SMOOTH_WHEEL(combinedTotalForce, 0.25f);
+            SMOOTH_WHEEL(diffLockTorque, 0.25f);
+            SMOOTH_WHEEL(wheelTorque, 0.25f);
+            SMOOTH_WHEEL(driveTorque, 0.25f);
+            SMOOTH_WHEEL(brakeTorque, 0.25f);
+            SMOOTH_WHEEL(wheelAngularVelocity, 0.45f);
+            SMOOTH_WHEEL(roadAngularVelocity, 0.45f);
+            SMOOTH_WHEEL(wheelVx, 0.45f);
+            SMOOTH_WHEEL(wheelVy, 0.45f);
+            SMOOTH_WHEEL(localForwardVel, 0.45f);
+            SMOOTH_WHEEL(localSideVel, 0.45f);
+            SMOOTH_WHEEL(bodyForwardVel, 0.45f);
+            SMOOTH_WHEEL(bodySideVel, 0.45f);
+            SMOOTH_WHEEL(bodySlipAngle, 0.45f);
+            SMOOTH_WHEEL(camberDeg, 0.45f);
+            SMOOTH_WHEEL(camberCompression, 0.45f);
+            SMOOTH_WHEEL(steeringAngle, 0.45f);
+            SMOOTH_WHEEL(combinedMaxGrip, 0.45f);
+            SMOOTH_WHEEL(longitudinalPeakForce, 0.45f);
+            SMOOTH_WHEEL(tyreForceHeightError, 0.45f);
+            SMOOTH_GLOBAL(lateralG, 0.45f);
+            SMOOTH_GLOBAL(longitudinalG, 0.45f);
+            SMOOTH_GLOBAL(yawRate, 0.45f);
+            SMOOTH_GLOBAL(diffSpeed, 0.25f);
+            SMOOTH_GLOBAL(diffTargetTorque, 0.25f);
+            SMOOTH_GLOBAL(diffLoadBiasTorque, 0.25f);
+            SMOOTH_GLOBAL(diffTotalTorque, 0.25f);
+            SMOOTH_GLOBAL(dragMagnitude, 0.45f);
+            SMOOTH_GLOBAL(downforceMagnitude, 0.45f);
+            SMOOTH_GLOBAL(frontDownforce, 0.45f);
+            SMOOTH_GLOBAL(rearDownforce, 0.45f);
+#undef SMOOTH_WHEEL
+#undef SMOOTH_GLOBAL
+        }
+        // Avoid displaying tiny +/- damping noise when the car is at rest.
+        for (int wheel = 0; wheel < 4; ++wheel) {
+            if (shownTelemetry.dampingForce[wheel] > -5.0f && shownTelemetry.dampingForce[wheel] < 5.0f)
+                shownTelemetry.dampingForce[wheel] = 0.0f;
+        }
+        nextTelemetryRefresh = now + 0.20; // 10 Hz
+    }
+
+    if (refreshTelemetry) for (int i = 0; i < 4; i++) {
+        m_displaySlipRatio[i] = m_slipRatioAvg[i].AddSample(shownTelemetry.slipRatio[i]);
+        m_displayWheelLoad[i] = m_wheelLoadAvg[i].AddSample(shownTelemetry.wheelLoad[i]);
+        m_displaywheelLoadSmoothed[i] = m_wheelLoadSmoothed[i].AddSample(shownTelemetry.wheelLoadSmoothed[i]);
+        m_displayDiff[i] = m_diff[i].AddSample(shownTelemetry.diff[i]);
+        m_displayComp[i] = m_comp[i].AddSample(shownTelemetry.compression[i]);
+        m_displayLateralForce[i] = m_lateralForceAvg[i].AddSample(shownTelemetry.lateralForce[i]);
+        m_displaylongitudinalForce[i] = m_longitudinalForce[i].AddSample(shownTelemetry.longitudinalForce[i]);
+        m_displaydiffLockTorque[i] = m_diffLockTorque[i].AddSample(shownTelemetry.diffLockTorque[i]);
+        m_displaydriveTorqueLeft = m_driveTorqueLeft.AddSample(shownTelemetry.driveTorque[2]);
+        m_displaydriveTorqueRight = m_driveTorqueRight.AddSample(shownTelemetry.driveTorque[3]);
     }
 
     if (ImGui::Begin("911 Lab - Debug System", p_open)) {
         ImGuiStyle& style = ImGui::GetStyle();
         style.Colors[ImGuiCol_WindowBg].w = 0.1f;
 
-       
+
 
 
         if (ImGui::CollapsingHeader("Input State")) {
@@ -76,178 +152,248 @@ void VehicleTelemetry::Draw(bool* p_open, Camera* cam, CarLoader* playerModel, M
         if (ImGui::CollapsingHeader("Car Telemetry")) {
             if (playerModel != nullptr) {
                 const char* labels[] = { "FL", "FR", "RL", "RR" };
-
-                ImGui::TextColored(ImVec4(0.3f, 0.8f, 1.0f, 1.0f), "--- SUSPENSION OVERVIEW ---");
-
-                if (ImGui::BeginTable("SuspensionTable", 11, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg)) {
-                    ImGui::TableSetupColumn("Wheel", ImGuiTableColumnFlags_WidthFixed, 50.0f);
-                    ImGui::TableSetupColumn("Comp (%)");
-                    ImGui::TableSetupColumn("Diff (M)");
-                    ImGui::TableSetupColumn("Load (N)");
-                    ImGui::TableSetupColumn("Smoothed Load (N)");
-                    ImGui::TableSetupColumn("Steering Angle (rad)");
-                    ImGui::TableSetupColumn("Wheel Torque (N)");
-                    ImGui::TableSetupColumn("Damping Force (N)");
-                    ImGui::TableSetupColumn("Lateral G");
-                    ImGui::TableSetupColumn("Longitudinal G");
-                    ImGui::TableSetupColumn("Yaw rate");
-
-                    ImGui::TableHeadersRow();
-
-                    for (int i = 0; i < 4; i++) {
-                        ImGui::TableNextRow();
-
-                        ImGui::TableNextColumn();
-                        ImGui::Text("%s", labels[i]);
-
-                        ImGui::TableNextColumn();
-                        ImGui::Text("%.1f%%", m_displayComp[i] * 100.0f);
-
-                        ImGui::TableNextColumn();
-                        ImGui::Text("%.3f", m_displayDiff[i]);
-
-                        ImGui::TableNextColumn();
-                        ImGui::Text("%.0f", m_displayWheelLoad[i]);
-
-                        ImGui::TableNextColumn();
-                        ImGui::Text("%.0f", m_displaywheelLoadSmoothed[i]);
-
-                        ImGui::TableNextColumn();
-                        ImGui::Text("%.1f", g_DebugTelemetry.steeringAngle[i]);
-
-                        ImGui::TableNextColumn();
-                        ImGui::Text("%.0f", g_DebugTelemetry.wheelTorque[i]);
-
-                        ImGui::TableNextColumn();
-                        ImGui::Text("%.0f", g_DebugTelemetry.dampingForce[i]);
-
-                        ImGui::TableNextColumn();
-                        ImGui::Text("%.1f", g_DebugTelemetry.lateralG);
-
-                        ImGui::TableNextColumn();
-                        ImGui::Text("%.1f", g_DebugTelemetry.longitudinalG);                        
-                        
-                        ImGui::TableNextColumn();
-                        ImGui::Text("%.1f", g_DebugTelemetry.yawRate);
+                if (ImGui::BeginTabBar("VehicleTelemetryTabs", ImGuiTabBarFlags_FittingPolicyScroll)) {
+                    if (ImGui::BeginTabItem("Vehicle Dynamics")) {
+                        ImGui::Text("Lateral G: %.2f", shownTelemetry.lateralG);
+                        ImGui::Text("Longitudinal G: %.2f", shownTelemetry.longitudinalG);
+                        ImGui::Text("Yaw Rate: %.2f", shownTelemetry.yawRate);
+                        ImGui::Text("Mass (kg): %.0f", shownTelemetry.mass);
+                        if (ImGui::BeginTable("VehicleDynamicsTable", 2, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollX)) {
+                            ImGui::TableSetupColumn("Wheel", ImGuiTableColumnFlags_WidthFixed, 50.0f);
+                            ImGui::TableSetupColumn("Body Slip (deg)");
+                            ImGui::TableHeadersRow();
+                            for (int i = 0; i < 4; ++i) {
+                                ImGui::TableNextRow();
+                                ImGui::TableNextColumn(); ImGui::Text("%s", labels[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.2f", shownTelemetry.bodySlipAngle[i]);
+                            }
+                            ImGui::EndTable();
+                        }
+                        ImGui::EndTabItem();
                     }
-                    ImGui::EndTable();
-                }
-
-                ImGui::Spacing();
-                ImGui::Separator();
-                ImGui::Spacing();
-
-
-                ImGui::TextColored(ImVec4(1.0f, 0.6f, 0.2f, 1.0f), "--- TYRES & FRICTION LAB ---");
-
-                if (ImGui::BeginTable("TyresTable", 21, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg)) {
-                    ImGui::TableSetupColumn("Wheel", ImGuiTableColumnFlags_WidthFixed, 50.0f);
-                    ImGui::TableSetupColumn("Slip Angle");
-                    ImGui::TableSetupColumn("Tire Theta");
-                    ImGui::TableSetupColumn("Friction Coefficient");
-                    ImGui::TableSetupColumn("Lat Force (N)");
-                    ImGui::TableSetupColumn("Slip Grip");
-                    ImGui::TableSetupColumn("Side Stiffness");
-                    ImGui::TableSetupColumn("Longitudinal Vel (m/s)");
-                    ImGui::TableSetupColumn("Lateral Vel (m/s)");
-                    ImGui::TableSetupColumn("Slip Ratio");
-                    ImGui::TableSetupColumn("Longitudinal Force");
-                    ImGui::TableSetupColumn("Local Forward Vel");
-                    ImGui::TableSetupColumn("Local Side Vel");
-                    ImGui::TableSetupColumn("Body Side Vel");
-                    ImGui::TableSetupColumn("Body Forward Vel");
-                    ImGui::TableSetupColumn("Body Slip Angle");
-                    ImGui::TableSetupColumn("Camber Angle");
-                    ImGui::TableSetupColumn("Camber Compression ");
-                    ImGui::TableSetupColumn("Combined Grip Scale ");
-                    ImGui::TableSetupColumn("Combined Max Grip ");
-                    ImGui::TableSetupColumn("Combined Total Force ");
-                    ImGui::TableHeadersRow();
-
-                    for (int i = 0; i < 4; i++) {
-                        ImGui::TableNextRow();
-                        ImGui::TableNextColumn(); ImGui::Text("%s", labels[i]);
-                        ImGui::TableNextColumn(); ImGui::Text("%.1f", g_DebugTelemetry.slip[i]);
-                        ImGui::TableNextColumn(); ImGui::Text("%.1f", g_DebugTelemetry.tyreTheta[i]);
-                        ImGui::TableNextColumn(); ImGui::Text("%.1f", g_DebugTelemetry.surfaceMu[i]);
-                        ImGui::TableNextColumn(); ImGui::Text("%.1f", m_displayLateralForce[i]);
-                        ImGui::TableNextColumn(); ImGui::Text("%.1f", g_DebugTelemetry.slipGrip[i]);
-                        ImGui::TableNextColumn(); ImGui::Text("%.0f", g_DebugTelemetry.tyreSideStiffness[i]);
-                        ImGui::TableNextColumn(); ImGui::Text("%.1f", g_DebugTelemetry.wheelVx[i]);
-                        ImGui::TableNextColumn(); ImGui::Text("%.1f", g_DebugTelemetry.wheelVy[i]);
-                        ImGui::TableNextColumn(); ImGui::Text("%.3f", m_displaySlipRatio[i]);
-                        ImGui::TableNextColumn(); ImGui::Text("%.0f", m_displaylongitudinalForce[i]);
-                        ImGui::TableNextColumn(); ImGui::Text("%.0f", g_DebugTelemetry.localForwardVel[i]);
-                        ImGui::TableNextColumn(); ImGui::Text("%.0f", g_DebugTelemetry.localSideVel[i]);
-                        ImGui::TableNextColumn(); ImGui::Text("%.0f", g_DebugTelemetry.bodySideVel[i]);
-                        ImGui::TableNextColumn(); ImGui::Text("%.0f", g_DebugTelemetry.bodyForwardVel[i]);
-                        ImGui::TableNextColumn(); ImGui::Text("%.0f", g_DebugTelemetry.bodySlipAngle[i]);
-                        ImGui::TableNextColumn(); ImGui::Text("%.2f", g_DebugTelemetry.camberDeg[i]);
-                        ImGui::TableNextColumn(); ImGui::Text("%.2f", g_DebugTelemetry.camberCompression[i]);
-                        ImGui::TableNextColumn(); ImGui::Text("%.2f", g_DebugTelemetry.combinedGripScale[i]);
-                        ImGui::TableNextColumn(); ImGui::Text("%.2f", g_DebugTelemetry.combinedMaxGrip[i]);
-                        ImGui::TableNextColumn(); ImGui::Text("%.2f", g_DebugTelemetry.combinedTotalForce[i]);
+                    if (ImGui::BeginTabItem("Suspension")) {
+                        if (ImGui::BeginTable("SuspensionTable", 4, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollX)) {
+                            ImGui::TableSetupColumn("Wheel", ImGuiTableColumnFlags_WidthFixed, 50.0f);
+                            ImGui::TableSetupColumn("Compression (%)");
+                            ImGui::TableSetupColumn("Travel Diff (m)");
+                            ImGui::TableSetupColumn("Damping (N)");
+                            ImGui::TableHeadersRow();
+                            for (int i = 0; i < 4; ++i) {
+                                ImGui::TableNextRow();
+                                ImGui::TableNextColumn(); ImGui::Text("%s", labels[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.1f", m_displayComp[i] * 100.0f);
+                                ImGui::TableNextColumn(); ImGui::Text("%.3f", m_displayDiff[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.0f", shownTelemetry.dampingForce[i]);
+                            }
+                            ImGui::EndTable();
+                        }
+                        ImGui::EndTabItem();
                     }
-                    ImGui::EndTable();
-                }
-
-                ImGui::TextColored(ImVec4(1.0f, 0.6f, 0.2f, 1.0f), "--- LSD / Engine / Gearbox Data ---");
-                if (ImGui::BeginTable("EngineTable", 7, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg)) {
-                    ImGui::TableSetupColumn("Wheel");
-                    ImGui::TableSetupColumn("Differential Lock Torque");
-                    ImGui::TableSetupColumn("Diff Speed");
-                    ImGui::TableSetupColumn("Target Torque");
-                    ImGui::TableSetupColumn("diffLoadBiasTorque");
-                    ImGui::TableSetupColumn("diffTotalTorque");
-                    ImGui::TableSetupColumn("Car Weight");
-                    ImGui::TableHeadersRow();
-                    for (int i = 0; i < 4; i++) {
-                        ImGui::TableNextRow();
-                        ImGui::TableNextColumn(); ImGui::Text("%s", labels[i]);
-                        ImGui::TableNextColumn(); ImGui::Text("%.0f", g_DebugTelemetry.diffLockTorque[i]);
-                        ImGui::TableNextColumn(); ImGui::Text("%.0f", g_DebugTelemetry.diffSpeed);
-                        ImGui::TableNextColumn(); ImGui::Text("%.0f", g_DebugTelemetry.diffTargetTorque);
-                        ImGui::TableNextColumn(); ImGui::Text("%.0f", g_DebugTelemetry.diffLoadBiasTorque);
-                        ImGui::TableNextColumn(); ImGui::Text("%.0f", g_DebugTelemetry.diffTotalTorque);
-                        ImGui::TableNextColumn(); ImGui::Text("%.0f", g_DebugTelemetry.mass);
+                    if (ImGui::BeginTabItem("Wheel Loads")) {
+                        if (ImGui::BeginTable("WheelLoadsTable", 3, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollX)) {
+                            ImGui::TableSetupColumn("Wheel", ImGuiTableColumnFlags_WidthFixed, 50.0f);
+                            ImGui::TableSetupColumn("Load (N)");
+                            ImGui::TableSetupColumn("Smoothed Load (N)");
+                            ImGui::TableHeadersRow();
+                            for (int i = 0; i < 4; ++i) {
+                                ImGui::TableNextRow();
+                                ImGui::TableNextColumn(); ImGui::Text("%s", labels[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.0f", m_displayWheelLoad[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.0f", m_displaywheelLoadSmoothed[i]);
+                            }
+                            ImGui::EndTable();
+                        }
+                        ImGui::EndTabItem();
                     }
-                    ImGui::EndTable();
-                }
-
-                ImGui::TextColored(ImVec4(1.0f, 0.6f, 0.2f, 1.0f), "--- Aero data ---");
-                if (ImGui::BeginTable("EngineTable", 5, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg)) {
-                    ImGui::TableSetupColumn("Wheel");
-                    ImGui::TableSetupColumn("Drag Magnitude");
-                    ImGui::TableSetupColumn("Downforce Magnitude");
-                    ImGui::TableSetupColumn("Front Downforce");
-                    ImGui::TableSetupColumn("Rear Downforce");
-                    ImGui::TableHeadersRow();
-                    for (int i = 2; i < 4; i++) {
-                        ImGui::TableNextRow();
-                        ImGui::TableNextColumn(); ImGui::Text("%s", labels[i]);
-                        ImGui::TableNextColumn(); ImGui::Text("%.0f", g_DebugTelemetry.dragMagnitude);
-                        ImGui::TableNextColumn(); ImGui::Text("%.0f", g_DebugTelemetry.downforceMagnitude);
-                        ImGui::TableNextColumn(); ImGui::Text("%.0f", g_DebugTelemetry.frontDownforce);
-                        ImGui::TableNextColumn(); ImGui::Text("%.0f", g_DebugTelemetry.rearDownforce);
+                    if (ImGui::BeginTabItem("Steering & Geometry")) {
+                        if (ImGui::BeginTable("SteeringAndGeometryTable", 4, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollX)) {
+                            ImGui::TableSetupColumn("Wheel", ImGuiTableColumnFlags_WidthFixed, 50.0f);
+                            ImGui::TableSetupColumn("Steering Angle (rad)");
+                            ImGui::TableSetupColumn("Camber (deg)");
+                            ImGui::TableSetupColumn("Camber Compression");
+                            ImGui::TableHeadersRow();
+                            for (int i = 0; i < 4; ++i) {
+                                ImGui::TableNextRow();
+                                ImGui::TableNextColumn(); ImGui::Text("%s", labels[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.2f", shownTelemetry.steeringAngle[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.2f", shownTelemetry.camberDeg[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.3f", shownTelemetry.camberCompression[i]);
+                            }
+                            ImGui::EndTable();
+                        }
+                        ImGui::EndTabItem();
                     }
-                    ImGui::EndTable();
+                    if (ImGui::BeginTabItem("Tyre Slip")) {
+                        if (ImGui::BeginTable("TyreSlipTable", 4, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollX)) {
+                            ImGui::TableSetupColumn("Wheel", ImGuiTableColumnFlags_WidthFixed, 50.0f);
+                            ImGui::TableSetupColumn("Slip Angle");
+                            ImGui::TableSetupColumn("Slip Ratio");
+                            ImGui::TableSetupColumn("Tyre Theta");
+                            ImGui::TableHeadersRow();
+                            for (int i = 0; i < 4; ++i) {
+                                ImGui::TableNextRow();
+                                ImGui::TableNextColumn(); ImGui::Text("%s", labels[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.2f", shownTelemetry.slip[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.3f", m_displaySlipRatio[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.2f", shownTelemetry.tyreTheta[i]);
+                            }
+                            ImGui::EndTable();
+                        }
+                        ImGui::EndTabItem();
+                    }
+                    if (ImGui::BeginTabItem("Tyre Forces")) {
+                        if (ImGui::BeginTable("TyreForcesTable", 4, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollX)) {
+                            ImGui::TableSetupColumn("Wheel", ImGuiTableColumnFlags_WidthFixed, 50.0f);
+                            ImGui::TableSetupColumn("Lateral Force (N)");
+                            ImGui::TableSetupColumn("Longitudinal Force (N)");
+                            ImGui::TableSetupColumn("Driving Force (N)");
+                            ImGui::TableHeadersRow();
+                            for (int i = 0; i < 4; ++i) {
+                                ImGui::TableNextRow();
+                                ImGui::TableNextColumn(); ImGui::Text("%s", labels[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.0f", m_displayLateralForce[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.0f", m_displaylongitudinalForce[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.0f", shownTelemetry.drivingForce[i]);
+                            }
+                            ImGui::EndTable();
+                        }
+                        ImGui::EndTabItem();
+                    }
+                    if (ImGui::BeginTabItem("Grip & Friction")) {
+                        if (ImGui::BeginTable("GripAndFrictionTable", 6, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollX)) {
+                            ImGui::TableSetupColumn("Wheel", ImGuiTableColumnFlags_WidthFixed, 50.0f);
+                            ImGui::TableSetupColumn("Surface Mu");
+                            ImGui::TableSetupColumn("Side Stiffness");
+                            ImGui::TableSetupColumn("Combined Max Grip (N)");
+                            ImGui::TableSetupColumn("Combined Total Force (N)");
+                            ImGui::TableSetupColumn("Longitudinal Peak Force (N)");
+                            ImGui::TableHeadersRow();
+                            for (int i = 0; i < 4; ++i) {
+                                ImGui::TableNextRow();
+                                ImGui::TableNextColumn(); ImGui::Text("%s", labels[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.2f", shownTelemetry.surfaceMu[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.0f", shownTelemetry.tyreSideStiffness[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.0f", shownTelemetry.combinedMaxGrip[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.0f", shownTelemetry.combinedTotalForce[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.0f", shownTelemetry.longitudinalPeakForce[i]);
+                            }
+                            ImGui::EndTable();
+                        }
+                        ImGui::EndTabItem();
+                    }
+                    if (ImGui::BeginTabItem("Wheel Kinematics")) {
+                        if (ImGui::BeginTable("WheelKinematicsTable", 10, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollX)) {
+                            ImGui::TableSetupColumn("Wheel", ImGuiTableColumnFlags_WidthFixed, 50.0f);
+                            ImGui::TableSetupColumn("Wheel Vx (m/s)");
+                            ImGui::TableSetupColumn("Wheel Vy (m/s)");
+                            ImGui::TableSetupColumn("Local Forward (m/s)");
+                            ImGui::TableSetupColumn("Local Side (m/s)");
+                            ImGui::TableSetupColumn("Body Forward (m/s)");
+                            ImGui::TableSetupColumn("Body Side (m/s)");
+                            ImGui::TableSetupColumn("Wheel Omega");
+                            ImGui::TableSetupColumn("Road Omega");
+                            ImGui::TableSetupColumn("Angular Acceleration");
+                            ImGui::TableHeadersRow();
+                            for (int i = 0; i < 4; ++i) {
+                                ImGui::TableNextRow();
+                                ImGui::TableNextColumn(); ImGui::Text("%s", labels[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.2f", shownTelemetry.wheelVx[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.2f", shownTelemetry.wheelVy[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.2f", shownTelemetry.localForwardVel[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.2f", shownTelemetry.localSideVel[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.2f", shownTelemetry.bodyForwardVel[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.2f", shownTelemetry.bodySideVel[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.2f", shownTelemetry.wheelAngularVelocity[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.2f", shownTelemetry.roadAngularVelocity[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.2f", shownTelemetry.wheelAngularAcceleration[i]);
+                            }
+                            ImGui::EndTable();
+                        }
+                        ImGui::EndTabItem();
+                    }
+                    if (ImGui::BeginTabItem("Wheel Torque")) {
+                        if (ImGui::BeginTable("WheelTorqueTable", 6, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollX)) {
+                            ImGui::TableSetupColumn("Wheel", ImGuiTableColumnFlags_WidthFixed, 50.0f);
+                            ImGui::TableSetupColumn("Wheel Torque");
+                            ImGui::TableSetupColumn("Drive Torque");
+                            ImGui::TableSetupColumn("Brake Torque");
+                            ImGui::TableSetupColumn("Tyre Reaction Torque");
+                            ImGui::TableSetupColumn("Net Torque");
+                            ImGui::TableHeadersRow();
+                            for (int i = 0; i < 4; ++i) {
+                                ImGui::TableNextRow();
+                                ImGui::TableNextColumn(); ImGui::Text("%s", labels[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.0f", shownTelemetry.wheelTorque[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.0f", shownTelemetry.driveTorque[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.0f", shownTelemetry.brakeTorque[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.0f", shownTelemetry.tireReactionTorque[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.0f", shownTelemetry.wheelNetTorque[i]);
+                            }
+                            ImGui::EndTable();
+                        }
+                        ImGui::EndTabItem();
+                    }
+                    if (ImGui::BeginTabItem("Differential / LSD")) {
+                        ImGui::Text("Diff Speed: %.2f", shownTelemetry.diffSpeed);
+                        ImGui::Text("Target Torque: %.0f", shownTelemetry.diffTargetTorque);
+                        ImGui::Text("Load Bias Torque: %.0f", shownTelemetry.diffLoadBiasTorque);
+                        ImGui::Text("Total Diff Torque: %.0f", shownTelemetry.diffTotalTorque);
+                        if (ImGui::BeginTable("DifferentialLSDTable", 2, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollX)) {
+                            ImGui::TableSetupColumn("Wheel", ImGuiTableColumnFlags_WidthFixed, 50.0f);
+                            ImGui::TableSetupColumn("Diff Lock Torque");
+                            ImGui::TableHeadersRow();
+                            for (int i = 0; i < 4; ++i) {
+                                ImGui::TableNextRow();
+                                ImGui::TableNextColumn(); ImGui::Text("%s", labels[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.0f", shownTelemetry.diffLockTorque[i]);
+                            }
+                            ImGui::EndTable();
+                        }
+                        ImGui::EndTabItem();
+                    }
+                    if (ImGui::BeginTabItem("Contact Diagnostics")) {
+                        if (ImGui::BeginTable("ContactDiagnosticsTable", 4, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollX)) {
+                            ImGui::TableSetupColumn("Wheel", ImGuiTableColumnFlags_WidthFixed, 50.0f);
+                            ImGui::TableSetupColumn("Ray Hit");
+                            ImGui::TableSetupColumn("Tyre Force Height Error");
+                            ImGui::TableSetupColumn("Reaction Torque Force Mismatch");
+                            ImGui::TableHeadersRow();
+                            for (int i = 0; i < 4; ++i) {
+                                ImGui::TableNextRow();
+                                ImGui::TableNextColumn(); ImGui::Text("%s", labels[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.0f", shownTelemetry.raycastHitType[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.3f", shownTelemetry.tyreForceHeightError[i]);
+                                ImGui::TableNextColumn(); ImGui::Text("%.3f", shownTelemetry.reactionTorqueForceMismatch[i]);
+                            }
+                            ImGui::EndTable();
+                        }
+                        ImGui::EndTabItem();
+                    }
+                    if (ImGui::BeginTabItem("Aerodynamics")) {
+                        ImGui::Text("Drag Magnitude: %.0f", shownTelemetry.dragMagnitude);
+                        ImGui::Text("Downforce Magnitude: %.0f", shownTelemetry.downforceMagnitude);
+                        ImGui::Text("Front Downforce: %.0f", shownTelemetry.frontDownforce);
+                        ImGui::Text("Rear Downforce: %.0f", shownTelemetry.rearDownforce);
+                        ImGui::EndTabItem();
+                    }
+                    ImGui::EndTabBar();
                 }
             }
         }
-    }
-        if(playerModel == nullptr)
-        { 
+        if (playerModel == nullptr)
+        {
 
             ImGui::TextColored(ImVec4(1, 1, 0, 1), "No car model loaded.");
-            }
-            else {
+        }
+        else {
 
             DirectX::XMFLOAT3 pos = playerModel->GetModelPosition();
-                ImGui::Text("World Pos: X: %.2f | Y: %.2f | Z: %.2f", pos.x, pos.y, pos.z);
-            }
-        
+            ImGui::Text("World Pos: X: %.2f | Y: %.2f | Z: %.2f", pos.x, pos.y, pos.z);
+        }
 
-    ImGui::End();
 
-    if (m_font) ImGui::PopFont();
+        ImGui::End();
+
+        if (m_font) ImGui::PopFont();
+    }
 }

@@ -1,4 +1,5 @@
-#include "Xsara_KitCar.h"
+    #include "Xsara_KitCar.h"
+    #include "../TyreCompounds.h"
 
 VehicleDefinition Xsara::CreateDefinition()
 {
@@ -12,12 +13,18 @@ VehicleDefinition Xsara::CreateDefinition()
     car.yawInertiaScale = 1.25f;
     car.pitchInertiaScale = 1.10f;
     car.rollInertiaScale = 1.10f;
-    car.yawDamping = 2000.0f;
+    car.yawDamping = 500.0f;
+    car.bodyLength = 4.17f;
+    car.Offset_X = 0.823f;
+    car.Offset_Y = 0.14f;
+    car.Offset_Z_Front = 1.252f;
+    car.Offset_Z_Back = 1.303f;
+    car.Offset_Z = car.Offset_Z_Front + car.Offset_Z_Back;
 
-    car.wheelOffsets[0] = btVector3(-0.823f, -0.14f, 1.252f);
-    car.wheelOffsets[1] = btVector3(0.823f, -0.14f, 1.252f);
-    car.wheelOffsets[2] = btVector3(-0.810f, -0.14f, -1.303f);
-    car.wheelOffsets[3] = btVector3(0.810f, -0.14f, -1.303f);
+    car.wheelOffsets[0] = btVector3(-(car.Offset_X), -(car.Offset_Y), car.Offset_Z_Front);
+    car.wheelOffsets[1] = btVector3(car.Offset_X, -(car.Offset_Y), car.Offset_Z_Front);
+    car.wheelOffsets[2] = btVector3(-(car.Offset_X), -(car.Offset_Y), -(car.Offset_Z_Back));
+    car.wheelOffsets[3] = btVector3(car.Offset_X, -(car.Offset_Y), -(car.Offset_Z_Back));
 
     // ---------------------------------------------------------
     // 2. Aero
@@ -33,7 +40,7 @@ VehicleDefinition Xsara::CreateDefinition()
     car.engine.redlineRPM = 8500.0f;
     car.engine.limiterRPM = 8700.0f;
     car.engine.maxTorque = 260.0f;
-    car.engineBrakeTorque = 120.0f;
+    car.engineBrakeTorque = 125.0f;
 
     car.engine.torqueCurveCount = 6;
     car.engine.torqueCurve[0] = { 1500.0f, 0.42f };
@@ -116,25 +123,21 @@ VehicleDefinition Xsara::CreateDefinition()
 
     car.suspension.bumpStopRate = 60000.0f;
     car.suspension.bumpStopStart = 0.82f;
-    car.suspension.dampingScale = 0.60f;
+    car.suspension.dampingScale = 1.00f;
 
     // ---------------------------------------------------------
     // 9. Tyres
     // ---------------------------------------------------------
-    car.frontTyres.frictionCoeff = 1.45f;
-    car.frontTyres.loadSmoothing = 10.0f;
-    car.frontTyres.relaxationRate = 30.0f;
-    car.frontTyres.stiffness = 18500.0f;
+
+    ApplyTyreCompound(car.frontTyres, TyreCompound::R3_RacingMedium);
     car.frontTyres.staticCamber = -2.2f;
     car.frontTyres.camberGripStrength = 0.08f;
     car.frontTyres.CamberGain = -12.0f;
     car.frontTyres.wheelRadius = 0.315f;
     car.frontTyres.frontWheelInertia = 1.25f;
 
-    car.rearTyres.frictionCoeff = 1.50f;
-    car.rearTyres.loadSmoothing = 10.0f;
-    car.rearTyres.relaxationRate = 27.0f;
-    car.rearTyres.stiffness = 20000.0f;
+
+    ApplyTyreCompound(car.rearTyres, TyreCompound::R3_RacingMedium);
     car.rearTyres.staticCamber = -1.8f;
     car.rearTyres.camberGripStrength = 0.08f;
     car.rearTyres.CamberGain = -10.0f;

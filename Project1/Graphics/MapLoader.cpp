@@ -1,10 +1,224 @@
 #include "MapLoader.h"
 #include <chrono>
+#include <algorithm>
+#include <numeric>
+#include <cfloat>
 
 void MapLoader::SetMaterialLoader(
     SharedMaterialLoader& materialLoader)
 {
     m_materialLoader = &materialLoader;
+}
+
+void MapLoader::CollectVisibleBVH(
+    int nodeIndex,
+    const DirectX::BoundingFrustum& frustum,
+    std::vector<uint32_t>& visible)
+{
+    const BVHNode& node = m_bvhNodes[nodeIndex];
+
+    if (!frustum.Intersects(node.bounds))
+    {
+        m_stats.m_culledDrawCalls += node.count;
+        return;
+    }
+
+    if (!node.IsLeaf())
+    {
+        CollectVisibleBVH(node.left, frustum, visible);
+        CollectVisibleBVH(node.right, frustum, visible);
+        return;
+    }
+
+    for (uint32_t j = node.first;
+        j < node.first + node.count;
+        ++j)
+    {
+        const uint32_t subsetIndex = m_bvhIndices[j];
+        const auto& subset = m_mapSubsets[subsetIndex];
+
+        if (!frustum.Intersects(subset.bounds))
+        {
+            m_stats.m_culledDrawCalls++;
+            continue;
+        }
+
+        visible.push_back(subsetIndex);
+    }
+}
+
+void MapLoader::BuildBVH()
+{
+    m_bvhNodes.clear();
+    m_bvhIndices.clear();
+
+    for (uint32_t i = 0; i < m_mapSubsets.size(); ++i)
+    {
+        if (m_mapSubsets[i].indexCount > 0)
+            m_bvhIndices.push_back(i);
+    }
+
+    if (m_bvhIndices.empty())
+        return;
+
+    m_bvhNodes.reserve(m_bvhIndices.size() * 2);
+
+    BuildBVHNode(
+        0,
+        static_cast<uint32_t>(m_bvhIndices.size())
+    );
+
+    OutputDebugStringA(
+        ("BVH built: " +
+            std::to_string(m_bvhNodes.size()) +
+            " nodes, " +
+            std::to_string(m_bvhIndices.size()) +
+            " subsets\n").c_str()
+    );
+}
+
+void MapLoader::DrawShadowBVHNode(
+    int nodeIndex,
+    ID3D11DeviceContext* context,
+    const DirectX::BoundingFrustum& frustum)
+{
+    const BVHNode& node = m_bvhNodes[nodeIndex];
+
+    // Entire branch rejected.
+    if (!frustum.Intersects(node.bounds))
+    {
+        m_stats.m_shadowDrawCallsCulled += node.count;
+        m_stats.culledIndices += node.totalIndices;
+        return;
+    }
+
+    // Internal node.
+    if (!node.IsLeaf())
+    {
+        DrawShadowBVHNode(node.left, context, frustum);
+        DrawShadowBVHNode(node.right, context, frustum);
+        return;
+    }
+
+    // Leaf: test individual subsets.
+    for (uint32_t i = node.first;
+        i < node.first + node.count;
+        ++i)
+    {
+        const auto& subset =
+            m_mapSubsets[m_bvhIndices[i]];
+
+        if (!frustum.Intersects(subset.bounds))
+        {
+            m_stats.m_shadowDrawCallsCulled++;
+            m_stats.culledIndices += subset.indexCount;
+            continue;
+        }
+
+        context->DrawIndexed(
+            subset.indexCount,
+            subset.startIndex,
+            0
+        );
+
+        m_stats.m_shadowdrawCalls++;
+        m_stats.renderedIndices += subset.indexCount;
+    }
+}
+
+int MapLoader::BuildBVHNode(uint32_t first, uint32_t count)
+{
+    const int nodeIndex =
+        static_cast<int>(m_bvhNodes.size());
+
+    m_bvhNodes.emplace_back();
+
+    DirectX::XMFLOAT3 minP{
+        FLT_MAX, FLT_MAX, FLT_MAX
+    };
+
+    DirectX::XMFLOAT3 maxP{
+        -FLT_MAX, -FLT_MAX, -FLT_MAX
+    };
+    uint64_t totalIndices = 0;
+
+    for (uint32_t i = first; i < first + count; ++i)
+    {
+        const auto& subset =
+            m_mapSubsets[m_bvhIndices[i]];
+
+        const auto& bounds = subset.bounds;
+
+        totalIndices += subset.indexCount;
+        minP.x = min(minP.x, bounds.Center.x - bounds.Extents.x);
+        minP.y = min(minP.y, bounds.Center.y - bounds.Extents.y);
+        minP.z = min(minP.z, bounds.Center.z - bounds.Extents.z);
+
+        maxP.x = max(maxP.x, bounds.Center.x + bounds.Extents.x);
+        maxP.y = max(maxP.y, bounds.Center.y + bounds.Extents.y);
+        maxP.z = max(maxP.z, bounds.Center.z + bounds.Extents.z);
+    }
+
+    DirectX::BoundingBox nodeBounds;
+
+    DirectX::BoundingBox::CreateFromPoints(
+        nodeBounds,
+        DirectX::XMLoadFloat3(&minP),
+        DirectX::XMLoadFloat3(&maxP)
+    );
+
+    m_bvhNodes[nodeIndex].bounds = nodeBounds;
+    m_bvhNodes[nodeIndex].first = first;
+    m_bvhNodes[nodeIndex].count = count;
+    m_bvhNodes[nodeIndex].totalIndices = totalIndices;
+
+    constexpr uint32_t leafSize = 16;
+
+    if (count <= leafSize)
+        return nodeIndex;
+
+    const float sizeX = maxP.x - minP.x;
+    const float sizeY = maxP.y - minP.y;
+    const float sizeZ = maxP.z - minP.z;
+
+    int axis = 0;
+
+    if (sizeY > sizeX && sizeY > sizeZ)
+        axis = 1;
+    else if (sizeZ > sizeX)
+        axis = 2;
+
+    const uint32_t middle = first + count / 2;
+
+    auto centerAxis = [&](uint32_t subsetIndex)
+    {
+        const auto& c = m_mapSubsets[subsetIndex].bounds.Center;
+
+        if (axis == 0) return c.x;
+        if (axis == 1) return c.y;
+        return c.z;
+    };
+
+    std::nth_element(
+        m_bvhIndices.begin() + first,
+        m_bvhIndices.begin() + middle,
+        m_bvhIndices.begin() + first + count,
+        [&](uint32_t a, uint32_t b)
+        {
+            return centerAxis(a) < centerAxis(b);
+        }
+    );
+
+    const int left =
+        BuildBVHNode(first, middle - first);
+
+    const int right =
+        BuildBVHNode(middle, count - (middle - first));
+
+    m_bvhNodes[nodeIndex].left = left;
+    m_bvhNodes[nodeIndex].right = right;
+
+    return nodeIndex;
 }
 
 
@@ -185,30 +399,35 @@ void MapLoader::DrawShadow(
 
     const auto start = std::chrono::high_resolution_clock::now();
 
-    for (const auto& subset : m_mapSubsets)
+    if (m_enableFrustumCulling && !m_bvhNodes.empty())
     {
-        if (subset.indexCount == 0)
-        {
-            m_stats.zeroIndexSubsets++;
-            continue;
-        }
-
-        if (m_enableFrustumCulling &&
-            !frustum.Intersects(subset.bounds))
-        {
-            m_stats.m_shadowDrawCallsCulled++;
-            m_stats.culledIndices += subset.indexCount;
-            continue;
-        }
-
-        context->DrawIndexed(
-            subset.indexCount,
-            subset.startIndex,
-            0
+        // H ON: BVH shadow culling
+        DrawShadowBVHNode(
+            0,
+            context,
+            frustum
         );
+    }
+    else
+    {
+        // H OFF: draw every shadow subset
+        for (const auto& subset : m_mapSubsets)
+        {
+            if (subset.indexCount == 0)
+            {
+                m_stats.zeroIndexSubsets++;
+                continue;
+            }
 
-        m_stats.m_shadowdrawCalls++;
-        m_stats.renderedIndices += subset.indexCount;
+            context->DrawIndexed(
+                subset.indexCount,
+                subset.startIndex,
+                0
+            );
+
+            m_stats.m_shadowdrawCalls++;
+            m_stats.renderedIndices += subset.indexCount;
+        }
     }
 
     const auto end = std::chrono::high_resolution_clock::now();
@@ -310,16 +529,40 @@ void MapLoader::Draw(ID3D11DeviceContext* context,
     }
     fWasPressed = fPressed;
 
-    for (size_t i = 0; i < m_mapSubsets.size(); ++i)
+
+        std::vector<uint32_t> visibleSubsets;
+
+    if (m_enableFrustumCulling && !m_bvhNodes.empty())
+    {
+        CollectVisibleBVH(
+            0,
+            frustum,
+            visibleSubsets
+        );
+
+        // Preserve original subset draw order.
+        std::sort(
+            visibleSubsets.begin(),
+            visibleSubsets.end()
+        );
+    }
+    else
+    {
+        // Original behavior when culling is disabled,
+        // or when no BVH has been built.
+        visibleSubsets.reserve(m_mapSubsets.size());
+
+        for (uint32_t i = 0;
+            i < m_mapSubsets.size();
+            ++i)
+        {
+            visibleSubsets.push_back(i);
+        }
+    }
+
+    for (uint32_t i : visibleSubsets)
     {
         const auto& subset = m_mapSubsets[i];
-
-        if (m_enableFrustumCulling &&
-            !frustum.Intersects(subset.bounds))
-        {
-            m_stats.m_culledDrawCalls++;
-            continue;
-        }
 
 
 
@@ -646,6 +889,7 @@ bool MapLoader::LoadWorld(const std::string& filename,
 
     m_allVertices.clear();
     m_allIndices.clear();
+    m_collisionIndices.clear();
     m_mapSubsets.clear();
     m_mapMaterialNames.clear();
      
@@ -734,6 +978,13 @@ bool MapLoader::LoadWorld(const std::string& filename,
         // ---------------------------------------------------------
         // Map material classification
         // ---------------------------------------------------------
+
+        bool noCollision = false;
+
+        if (n.find("nocoll_") != std::string::npos)
+        {
+            noCollision = true;
+        }
 
         if (n.find("road") != std::string::npos ||
             n.find("asphalt") != std::string::npos ||
@@ -874,17 +1125,31 @@ bool MapLoader::LoadWorld(const std::string& filename,
             const aiFace& face = mesh->mFaces[f];
             if (face.mNumIndices != 3) continue;
 
-            m_allIndices.push_back(face.mIndices[0] + baseVertex);
-            m_allIndices.push_back(face.mIndices[1] + baseVertex);
-            m_allIndices.push_back(face.mIndices[2] + baseVertex);
+            UINT i0 = face.mIndices[0] + baseVertex;
+            UINT i1 = face.mIndices[1] + baseVertex;
+            UINT i2 = face.mIndices[2] + baseVertex;
+
+            // Rendering — ALL meshes
+            m_allIndices.push_back(i0);
+            m_allIndices.push_back(i1);
+            m_allIndices.push_back(i2);
+
+            // Collision — only unmarked meshes
+            if (!noCollision)
+            {
+                m_collisionIndices.push_back(i0);
+                m_collisionIndices.push_back(i1);
+                m_collisionIndices.push_back(i2);
+            }
 
             subset.indexCount += 3;
         }
 
         m_mapSubsets.push_back(subset);
-        m_mapMaterialNames.push_back(materialName);
+        m_mapMaterialNames.push_back(materialName);    
     }
 
+    BuildBVH();
     m_lampLights.clear();
 
     ProcessNode(

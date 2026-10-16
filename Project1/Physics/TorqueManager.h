@@ -5,13 +5,15 @@
 class TorqueManager {
 public:
     TorqueManager();
-    TorqueOutput Update(float throttle, float currentSpeed, float dt);
+    TorqueOutput Update(float throttle, float currentSpeed, float deltaTime);
     void ShiftUp();
     void ShiftDown();
     int GetCurrentGear();
     void SetVehicleDefinition(const VehicleDefinition& definition);
+
 private:
     float m_maxTorque;
+    float m_engineBrakeTorque = 0.0f;
     float m_idleRPM;
     float m_maxRPM;
     float m_gearRatios[8];

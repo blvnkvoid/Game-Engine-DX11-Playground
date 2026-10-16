@@ -1,6 +1,7 @@
 #pragma once
 #include "../../SharedVehicleTypes.h"
 #include "../../SharedTypes.h"
+#include "../TyreCompounds.h"
 
 
 class SUPRA_JGTC2000

@@ -13,16 +13,17 @@ public:
 	void SetPhysicsPointers(btRigidBody* body) {m_carBody = body;}		
 	void ProcessSuspensionData(int wheelIdx, WheelRayHit hitData);
 	bool CheckResetRequested();
-	SuspensionResults CalculateSuspension();
+	SuspensionResults CalculateSuspension(float deltaTime);
 	btVector3 GetWheelLocalOffset(int i) const { return m_wheels[i].localOffset; }
-	PhysicsAdvice CalculateFriction(float steeringInput, const btTransform& tr, float currentSpeed, float carMass, float throttle, float brake);
-	PhysicsAdvice CalculateDrivingForces(float throttle, float brake, const btTransform& tr, float currentSpeed);
+	PhysicsAdvice CalculateFriction(float steeringInput, const btTransform& tr, float currentSpeed, float carMass, float throttle, float brake, float deltaTime);
+	PhysicsAdvice CalculateDrivingForces(float throttle, float brake, const btTransform& tr, float currentSpeed, float deltaTime);
 	PhysicsAdvice CombinedForces(float steeringInput,
 		const btTransform& tr,
 		float currentSpeed,
 		float carMass,
 		float throttle,
-		float brake	);
+		float brake,
+		float deltaTime);
 	float CalculateSlipRatioGrip(float slipRatio);
 	float CalculateLongitudinalForce(float slipRatio, float normalLoad, float mu);
 	float CalculateLoadSensitiveMu(float normalLoad, float baseMu);
@@ -30,12 +31,14 @@ public:
 	void ApplyRearLimitedSlipDifferential(
 		float& rearLeftTorque,
 		float& rearRightTorque,
-		float internalDelta);	
+		float deltaTime);	
 	
 	void ApplyFrontLimitedSlipDifferential(
 		float& frontLeftTorque,
 		float& frontRightTorque,
-		float internalDelta);
+		float deltaTime);
+
+
 
 	void ApplyYawDamping();
 private:

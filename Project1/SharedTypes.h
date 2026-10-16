@@ -199,13 +199,6 @@ enum class WeightReductionSelection
     StockWeight
 };
 
-enum class TyresUpgradeSelection
-{
-    SportTyres,
-    SemiSlicks,
-    RacingTyres,
-    StockTyres
-};
 
 
     enum class TrackSelection

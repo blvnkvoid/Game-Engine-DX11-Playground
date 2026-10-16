@@ -258,70 +258,37 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                     physics->SetHandling(handling);
                     LogiSteeringInitialize(true);
 
-
                     // ---------------------------------------------------------
                     // Resolve mode-specific race configuration
                     // ---------------------------------------------------------
 
                     TrackSelection trackSelection;
                     VehicleSelection playerSelection;
-
                     EnvironmentDefinition environment;
                     int totalLaps = 100;
-
                     EventDefinition event;
-
 
                     if (menu.m_GameMode == GameMode::Arcade)
                     {
-                        // Arcade Mode:
-                        // Track comes directly from Track Selection.
-                        // Car comes directly from Garage.
-
-                        trackSelection =
-                            menu.m_trackmenu.m_selectedTrack;
-
-                        playerSelection =
-                            garage.m_PreviewSelection;
-
-                        // Temporary Arcade defaults.
-                        // These can become UI settings later.
-
+                        trackSelection = menu.m_trackmenu.m_selectedTrack;
+                        playerSelection = garage.m_PreviewSelection;                        
                         environment.startTime = 45.0f;
                         environment.dynamicTime = false;
-
                         totalLaps = 100;
                     }
                     else if (menu.m_GameMode == GameMode::GranTurismo)
                     {
-                        // Gran Turismo Mode:
-                        // Event system determines the race.
-
+                     
                         if (!eventSession.IsActive())
                         {
-                            eventSession =
-                                eventRegistry.CreateSession(
-                                    menu.m_eventmenu.m_LaunchType,
-                                    menu.m_eventmenu.m_SelectedEvent);
+                            eventSession = eventRegistry.CreateSession(menu.m_eventmenu.m_LaunchType, menu.m_eventmenu.m_SelectedEvent);
                         }
 
-                        event =
-                            eventRegistry.Create(
-                                eventSession.GetCurrentEvent());
-
-                        trackSelection =
-                            event.track;
-
-                        playerSelection =
-                            raceGrid.GetPlayerSelection(
-                                event,
-                                garage.m_PreviewSelection);
-
-                        environment =
-                            event.environment;
-
-                        totalLaps =
-                            event.totalLaps;
+                        event = eventRegistry.Create(eventSession.GetCurrentEvent());
+                        trackSelection = event.track;
+                        playerSelection = raceGrid.GetPlayerSelection(event, garage.m_PreviewSelection);
+                        environment = event.environment;
+                        totalLaps = event.totalLaps;
                     }
                     else
                     {
@@ -360,59 +327,34 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                         continue;
                     }
 
-                    GameConfig::activeTrack =
-                        trackSelection;
-
-                    engine->ApplyEnvironmentDefinition(
-                        environment);
-
-                    handling->SetPhysicsPointers(
-                        physics->GetCarBody());
-
+                    GameConfig::activeTrack = trackSelection;
+                    engine->ApplyEnvironmentDefinition(environment);
+                    handling->SetPhysicsPointers(physics->GetCarBody());
 
                     // ---------------------------------------------------------
                     // Create player vehicle definition
                     // ---------------------------------------------------------
 
-                    VehicleDefinition car =
-                        vehicleRegistry.CreateDefinition(
-                            playerSelection);
-
+                    VehicleDefinition car = vehicleRegistry.CreateDefinition(playerSelection);
                     physics->SetVehicleDefinition(car);
                     physics->Initialize();
-
-
 
                     // ---------------------------------------------------------
                     // Load track + collision
                     // ---------------------------------------------------------
 
-                    if (m_mapTrack->OpenAndLoad(
-                        trackPath,
-                        engine->GetDevice(),
-                        engine->GetContext()))
+                    if (m_mapTrack->OpenAndLoad(trackPath, engine->GetDevice(), engine->GetContext()))
                     {
-                        physics->AddTriangleMeshCollider(
-                            m_mapTrack->GetVertices(),
-                            m_mapTrack->GetIndices());
+                        physics->AddTriangleMeshCollider(m_mapTrack->GetVertices(), m_mapTrack->GetCollisionIndices());
                     }
-
-
-                    const auto& markers =
-                        m_mapTrack->GetMarkers();
-
+                    const auto& markers = m_mapTrack->GetMarkers();
 
                     // ---------------------------------------------------------
                     // Track timing
                     // ---------------------------------------------------------
 
-                    TrackTimingEntry timing =
-                        CreateTrackTiming(
-                            trackSelection,
-                            markers);
-
+                    TrackTimingEntry timing = CreateTrackTiming(trackSelection, markers);
                     physics->SetTrackTiming(timing);
-
 
                     // ---------------------------------------------------------
                     // Grid / player spawn
@@ -421,134 +363,67 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                     if (menu.m_GameMode == GameMode::GranTurismo)
                     {
                         // Build complete Event grid.
-
-                        
-
-                        raceGrid.Build(
-                            event,
-                            markers,
-                            vehicleRegistry,
-                            *physics,
-                            engine->GetDevice(),
-                            engine->GetContext(),
-                            engine->GetTextureManager(),
-                            garage.m_PreviewSelection,
-                            engine->GetMaterialLoader()
-                        );
+                        raceGrid.Build(event, markers, vehicleRegistry, *physics, engine->GetDevice(), engine->GetContext(), engine->GetTextureManager(), garage.m_PreviewSelection,engine->GetMaterialLoader());
                     }
                     else if (menu.m_GameMode == GameMode::Arcade)
                     {
-                        // Arcade currently contains only the player.
-                        // Spawn at grid position 0.
-
-                        raceGrid.BuildPlayerSpawn(
-                            markers,
-                            *physics,
-                            0);
+                        // Arcade currently contains only the player. Spawn at grid position 0.
+                        raceGrid.BuildPlayerSpawn(markers, *physics,0);
                     }
 
-
-                    physics->SetStartTransform(
-                        raceGrid.GetPlayerSpawn());
-
+                    physics->SetStartTransform(raceGrid.GetPlayerSpawn());
                     physics->CreatePhysicsWorld();
-
 
                     // ---------------------------------------------------------
                     // Load player vehicle assets
                     // ---------------------------------------------------------
 
-                    vehicleRegistry.GetOrLoadVehicle(
-                        playerSelection,
-                        engine->GetDevice(),
-                        engine->GetContext(),
-                        engine->GetTextureManager(),
-                        engine->GetMaterialLoader());
-
-                    VehicleAsset& vehicle =
-                        vehicleRegistry.GetVehicle(
-                            playerSelection);
-
-                    playerModel =
-                        vehicle.model.get();
-
-                    playerObject =
-                        vehicle.object.get();
+                    vehicleRegistry.GetOrLoadVehicle(playerSelection, engine->GetDevice(), engine->GetContext(), engine->GetTextureManager(), engine->GetMaterialLoader());
+                    VehicleAsset& vehicle = vehicleRegistry.GetVehicle(playerSelection);
+                    playerModel = vehicle.model.get();
+                    playerObject = vehicle.object.get();
 
                     // ---------------------------------------------------------
                     // Vehicle camera
                     // ---------------------------------------------------------
 
-                    CameraDefinition cam =
-                        vehicleRegistry.CreateCameraDefinition(
-                            playerSelection);
-
+                    CameraDefinition cam = vehicleRegistry.CreateCameraDefinition(playerSelection);
 
                     // ---------------------------------------------------------
                     // Player upgrades / setup
                     // ---------------------------------------------------------
 
-                    ApplyEngineUpgrade(
-                        car,
-                        GetEngineUpgrade(
-                            upgrades.m_EngineUpgradeSelection));
-
-                    ApplyWeightReductionUpgrade(
-                        car,
-                        GetWeightReductionUpgrade(
-                            upgrades.m_WeightReductionSelection));
-
-                    ApplyTyresUpgrade(
-                        car,
-                        GetTyresUpgrade(
-                            upgrades.m_TyresUpgradeSelection));
-
-                    ApplySetup(
-                        car,
-                        carsetup.m_CarSetupState);
-
+                    if (menu.m_GameMode == GameMode::GranTurismo)
+                    {
+                        ApplyEngineUpgrade(car, GetEngineUpgrade(upgrades.m_EngineUpgradeSelection));
+                        ApplyWeightReductionUpgrade(car, GetWeightReductionUpgrade(upgrades.m_WeightReductionSelection));
+                        ApplyTyresUpgrade(car, upgrades.m_TyreCompoundSelection);
+                        ApplySetup(car, carsetup.m_CarSetupState);
+                    }
 
                     // ---------------------------------------------------------
                     // Apply player vehicle configuration
                     // ---------------------------------------------------------
 
-                    audio.SetVehicleAudioDefinition(
-                        car.audio);
-
-                    camera->SetVehicleCameraDefinition(
-                        cam);
-
-                    racingHUD.SetVehicleDefinition(
-                        car);
-
-                    handling->SetVehicleDefinition(
-                        car);
-
+                    audio.SetVehicleAudioDefinition(car.audio);
+                    camera->SetVehicleCameraDefinition(cam);
+                    racingHUD.SetVehicleDefinition(car);
+                    handling->SetVehicleDefinition(car);
 
                     // ---------------------------------------------------------
                     // Scene / camera
                     // ---------------------------------------------------------
 
-                    mainScene->SetChaseTarget(
-                        playerModel);
-
-                    engine->SetScene(
-                        mainScene);
-
-                    camera->SetFollowTarget(
-                        playerModel);
-
+                    mainScene->SetChaseTarget(playerModel);
+                    engine->SetScene(mainScene);
+                    camera->SetFollowTarget(playerModel);
 
                     // ---------------------------------------------------------
                     // Race state
                     // ---------------------------------------------------------
 
                     g_LapTimer.Reset();
-
-                    g_LapTimer.SetTotalLaps(
-                        totalLaps);
-
-
+                    g_LapTimer.SetTotalLaps(totalLaps);
                     assetsLoaded = true;
                 }
 
@@ -558,7 +433,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
                     physics->Update(deltaTime, Input::GetCurrentInputs());
                     g_LapTimer.Update(deltaTime);
-
 
                     if (physics->CheckAndResetPassedStartMeta()) g_LapTimer.TriggerStartMeta();
                     if (physics->CheckAndResetPassedSector1())   g_LapTimer.TriggerSector1();
@@ -595,37 +469,17 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                 {
                     ZoneScopedN("Shadow Pass");
 
-                    sceneData =
-                        engine->BuildSceneData(
-                            camera,
-                            playerObject,
-                            XMMatrixIdentity()
-                        );
+                    sceneData = engine->BuildSceneData(camera, playerObject, XMMatrixIdentity());
                     TracyD3D11Zone(engine->GetTracyGpuContext(), "Shadow Pass GPU");
 
                     for (int cascade = 0; cascade < 3; cascade++)
                     {
                         engine->BeginShadowPass(cascade);
-
-
                         engine->PrepareShadowPass(sceneData, *activeTrackEntry, cascade, *camera);
-
-
-                        m_mapTrack->DrawShadow(
-                            engine->GetContext(),
-                            cb,
-                            sceneData,
-                            engine->GetLightFrustum(cascade),
-                            engine->GetDepthStencilState()
-                        );
+                        m_mapTrack->DrawShadow(engine->GetContext(), cb, sceneData, engine->GetLightFrustum(cascade), engine->GetDepthStencilState());
                     }
 
-                    sceneData =
-                        engine->BuildSceneData(
-                            camera,
-                            playerObject,
-                            XMMatrixIdentity()
-                        );
+                    sceneData = engine->BuildSceneData(camera, playerObject, XMMatrixIdentity());
                 }
 
 
@@ -633,13 +487,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                     ZoneScopedN("Begin Frame");
 
                     engine->BeginFrame(hWnd, camera->viewMatrix, camera->projectionMatrix, deltaTime, camera);
-
-                    sceneData =
-                        engine->BuildSceneData(
-                            camera,
-                            playerObject,
-                            XMMatrixIdentity()
-                        );
+                    sceneData = engine->BuildSceneData(camera, playerObject, XMMatrixIdentity());
                 }
 
 
@@ -651,10 +499,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                     ZoneScopedN("Cars");
 
                     engine->RenderObject(playerObject, camera);
-
-
-
-
                     raceGrid.Render(*engine, *camera);
                 }
 
@@ -668,66 +512,28 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                         if (!materialLoaded)
                         {
                             std::string materialPath = activeTrackEntry->path;
-
-                            materialPath.replace(
-                                materialPath.size() - 4,
-                                4,
-                                ".mtl"
-                            );
-
+                            materialPath.replace(materialPath.size() - 4, 4, ".mtl");
                             m_mapTrack->SetMaterialLibraryPath(materialPath);
                             loader.LoadMaterialLibrary(m_mapTrack->GetMaterialLibraryPath());
                             m_mapTrack->SetMaterialLoader(loader);
-
                             m_mapTrack->ResolveMaterials();
-
                             materialLoaded = true;
                         }
 
+                        sceneData.view = XMMatrixTranspose(camera->viewMatrix);
+                        sceneData.projection = XMMatrixTranspose(camera->projectionMatrix);
+                        sceneData.world = XMMatrixTranspose(XMMatrixIdentity());
 
-
-                        sceneData.view =
-                            XMMatrixTranspose(camera->viewMatrix);
-
-                        sceneData.projection =
-                            XMMatrixTranspose(camera->projectionMatrix);
-
-                        sceneData.world =
-                            XMMatrixTranspose(XMMatrixIdentity());
-
-                        m_mapTrack->UpdateVisibleLights(
-                            engine->GetContext(),
-                            engine->GetLampStructuredBuffer(),
-                            engine->GetLampConstantBuffer(),
-                            camera->GetFrustum(),
-                            camera
-                        );
-
-
-                        m_mapTrack->Draw(
-                            engine->GetContext(),
-                            cb,
-                            engine->GetLampConstantBuffer(),
-                            engine->GetLampResourceView(),
-                            sceneData,
-                            camera->GetFrustum(),
-                            engine->GetDepthStencilState()
-                        );
+                        m_mapTrack->UpdateVisibleLights(engine->GetContext(), engine->GetLampStructuredBuffer(), engine->GetLampConstantBuffer(), camera->GetFrustum(), camera);
+                        m_mapTrack->Draw(engine->GetContext(), cb, engine->GetLampConstantBuffer(), engine->GetLampResourceView(), sceneData, camera->GetFrustum(), engine->GetDepthStencilState());
                     }
                 }
 
-
-
                 {
                     ZoneScopedN("Sky");
-
                     engine->GetSun().Render(engine->GetContext(), camera, skyEngine);
                     engine->GetClouds().Render(engine->GetContext(), skyEngine, *engine, camera);
                 }
-
-
-
-
             }
             {
                 ZoneScopedN("UI");

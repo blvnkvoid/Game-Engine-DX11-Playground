@@ -13,10 +13,9 @@ void Tire::SetTyreDefinition(const TyreDefinition& definition)
 
 }
 
-float Tire::Update(float verticalLoad, float slipAngle, float speed_kmh, float localVx, float localVy, float& outTheta, float& outFrictionCoeff, float& outVx, float& outVy, float camberDeg, int  wheelIndex, float slipRatio) {
-    float internalDelta = 1.0f / 300.0f;
+float Tire::Update(float verticalLoad, float slipAngle, float speed_kmh, float localVx, float localVy, float& outTheta, float& outFrictionCoeff, float& outVx, float& outVy, float camberDeg, int  wheelIndex, float slipRatio, float deltaTime) {
 
-    float loadAlpha = 1.0f - exp(-m_tyre.loadSmoothing * internalDelta);
+    float loadAlpha = 1.0f - exp(-m_tyre.loadSmoothing * deltaTime);
     m_smoothedLoad += (verticalLoad - m_smoothedLoad) * loadAlpha;
 
     float camberEffect =
@@ -27,6 +26,7 @@ float Tire::Update(float verticalLoad, float slipAngle, float speed_kmh, float l
     float Fz = m_smoothedLoad;
     if (Fz < 10.0f) {
         m_latForceBuffer = 0.0f;
+        m_longitudinalForce = 0.0f;
         return 0.0f;
     }
 
@@ -71,9 +71,36 @@ float Tire::Update(float verticalLoad, float slipAngle, float speed_kmh, float l
 
     float targetForce = (slipAngle > 0.0f) ? -finalForce : finalForce;
 
+    // Longitudinal tyre force
+    float absSlip = abs(slipRatio);
+
+    float peakSlip = 0.25f;
+    float postPeakGrip = 0.58f;
+
+    float longitudinalGrip = 0.0f;
+
+    if (absSlip < peakSlip)
+    {
+        longitudinalGrip = absSlip / peakSlip;
+    }
+    else
+    {
+        float excessSlip = (absSlip - peakSlip) / peakSlip;
+
+        longitudinalGrip =
+            postPeakGrip +
+            (1.0f - postPeakGrip) * expf(-excessSlip);
+    }
+
+    float longitudinalForce =
+        longitudinalGrip * maxFriction;
+
+    if (slipRatio < 0.0f)
+        longitudinalForce = -longitudinalForce;
 
 
-    float relaxAlpha = 1.0f - exp(-m_tyre.relaxationRate * internalDelta);
+
+    float relaxAlpha = 1.0f - exp(-m_tyre.relaxationRate * deltaTime);
     m_latForceBuffer += (targetForce - m_latForceBuffer) * relaxAlpha;
 
    g_DebugTelemetry.tyreSideStiffness[wheelIndex] = effectiveStiffness;
@@ -83,6 +110,27 @@ float Tire::Update(float verticalLoad, float slipAngle, float speed_kmh, float l
    outVx = localVx;
    outVy = localVy;
     
+   float lateralForce = m_latForceBuffer;
 
-    return m_latForceBuffer;
+   float combinedForce = sqrtf(
+       longitudinalForce * longitudinalForce +
+       lateralForce * lateralForce
+   );
+
+   if (combinedForce > maxFriction && combinedForce > 0.0f)
+   {
+       float gripScale = maxFriction / combinedForce;
+
+       longitudinalForce *= gripScale;
+       lateralForce *= gripScale;
+   }
+
+   m_longitudinalForce = longitudinalForce;
+
+   return lateralForce;
+}
+
+float Tire::GetLongitudinalForce() const
+{
+    return m_longitudinalForce;
 }

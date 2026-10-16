@@ -9,6 +9,7 @@ Input input;
 static bool R2_Pressed = false;
 static bool L2_Pressed = false;
 
+
 float triggerThreshold = 0.9f;
 
 TorqueManager::TorqueManager()
@@ -20,6 +21,8 @@ void TorqueManager::SetVehicleDefinition(const VehicleDefinition& definition)
 {
     m_engine = definition.engine;
     m_gearbox = definition.gearbox;
+
+    m_engineBrakeTorque = definition.engineBrakeTorque;
 
     m_idleRPM = m_engine.idleRPM;
     m_maxRPM = m_engine.redlineRPM;
@@ -33,14 +36,15 @@ void TorqueManager::SetVehicleDefinition(const VehicleDefinition& definition)
     m_currentRPM = m_idleRPM;
 }
 
-TorqueOutput TorqueManager::Update(float throttle, float drivenWheelAngularVel, float dt) {
+TorqueOutput TorqueManager::Update(float throttle, float drivenWheelAngularVel, float deltaTime) {
 
     input.GetControllerState();
     ShiftUp();
     ShiftDown();
+    const bool clutchHeld = Input::GetCurrentInputs().clutch;
 
     TorqueOutput out;   
-    float wheelAlpha = 1.0f - exp(-25.0f * dt);
+    float wheelAlpha = 1.0f - exp(-25.0f * deltaTime);
 
     m_filteredDrivenWheelAngularVel +=
         (drivenWheelAngularVel - m_filteredDrivenWheelAngularVel) * wheelAlpha;
@@ -49,12 +53,27 @@ TorqueOutput TorqueManager::Update(float throttle, float drivenWheelAngularVel, 
         (m_filteredDrivenWheelAngularVel * m_gearRatios[m_currentGear] * m_finalDrive)
         * 60.0f / (2.0f * 3.14159f);
 
+    //float targetRPM = max(m_idleRPM, min(m_engine.limiterRPM, rawRPM));
+
     float targetRPM = max(m_idleRPM, min(m_engine.limiterRPM, rawRPM));
 
-    float rpmAlpha = 1.0f - exp(-18.0f * dt);
+    if (clutchHeld)
+    {
+        targetRPM = m_idleRPM +
+            throttle * (m_engine.limiterRPM - m_idleRPM);
+    }
+
+    float rpmAlpha = 1.0f - exp(-18.0f * deltaTime);
 
     m_currentRPM += (targetRPM - m_currentRPM) * rpmAlpha;
-    float engineTorque = GetTorqueAtRPM(m_currentRPM) * throttle;
+    
+    float engineBrakeTorque =
+        m_engineBrakeTorque *
+        (m_currentRPM / m_engine.redlineRPM);
+
+    float engineTorque =
+        GetTorqueAtRPM(m_currentRPM) * throttle
+        - engineBrakeTorque * (1.0f - throttle);
 
     float limiterStart = m_engine.limiterRPM - 150.0f;
 
@@ -66,7 +85,9 @@ TorqueOutput TorqueManager::Update(float throttle, float drivenWheelAngularVel, 
 
         engineTorque *= (1.0f - over);
     }
-    float totalDriveTorque = engineTorque * m_gearRatios[m_currentGear] * m_finalDrive;
+    //float totalDriveTorque = engineTorque * m_gearRatios[m_currentGear] * m_finalDrive;
+
+    float totalDriveTorque = clutchHeld ? 0.0f : engineTorque * m_gearRatios[m_currentGear] * m_finalDrive;
     out.wheelTorque[0] = 0.0f;
     out.wheelTorque[1] = 0.0f;
     out.wheelTorque[2] = totalDriveTorque * 0.5f;

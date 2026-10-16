@@ -53,7 +53,6 @@ struct TelemetryData {
     float wheelLoad[4];
     float slip[4];
     float frictionForce[4];
-    float drivingForce;
     float tyreSideStiffness[4];
     float maxFriction[4];
     float steeringAngle[4];
@@ -66,7 +65,6 @@ struct TelemetryData {
     float yNormal;
     float wheelTorque[4];
     float slipRatio[4];
-    float slipGrip[4];
     float throttle;
     float brake;
     float longitudinalForce[4];
@@ -91,7 +89,6 @@ struct TelemetryData {
     float diffLoadBiasTorque;
     float diffTotalTorque;
     float combinedSlip[4];
-    float combinedGripScale[4];
     float combinedMaxGrip[4];
     float combinedTotalForce[4];
     float mass; 
@@ -100,6 +97,25 @@ struct TelemetryData {
     float avgSlipAngle;
     float avgSlipRatio;
     float yawRate;
+    float raycastHitType[4];
+    float tyreForceHeightError[4];
+    float wheelAngularVelocity[4];
+    float roadAngularVelocity[4];    
+    float brakeTorque[4];
+    float tireReactionTorque[4];
+    float wheelNetTorque[4];
+    float drivingForce[4];
+    float rawLongitudinalForce[4];
+    float rawLateralForce[4];
+    float finalLongitudinalForce[4];
+    float finalLateralForce[4];
+    float longitudinalGripUtilization[4];
+    float lateralGripUtilization[4];
+    float combinedGripUtilization[4];    
+    float longitudinalPeakForce[4];
+    float wheelAngularAcceleration[4];
+    float reactionTorqueForceMismatch[4];
+
 };
 
 extern TelemetryData g_DebugTelemetry;
@@ -111,6 +127,7 @@ struct SharedVehicleInputs {
     bool handbrake;     // Spacebar or Circle button
     bool shiftUp;       // R2
     bool shiftDown;     // L2
+    bool clutch;         // R1
 };
 
 struct WheelInfo {
@@ -157,7 +174,7 @@ struct WheelInfo {
 struct GearboxDefinition
 {
     float finalDrive = 0.0f;
-    float gearRatios[9] = {};
+    float gearRatios[9];
     int gearCount = 0;
 };
 
@@ -181,6 +198,24 @@ struct EngineDefinition
     int torqueCurveCount = 0;
 };
 
+enum class TyreCompound
+{
+    N1_Economic,
+    N2_Comfort,
+    N3_Road,
+    S1_SportsHard,
+    S2_SportsMedium,
+    S3_SportsSoft,
+    R1_RacingSuperHard,
+    R2_RacingHard,
+    R3_RacingMedium,
+    R4_RacingSoft,
+    R5_RacingSuperSoft,
+    P1_Prototype,
+    P2_Prototype2
+};
+
+
 struct TyreDefinition
 {
     float frictionCoeff = 0.0f;
@@ -193,6 +228,8 @@ struct TyreDefinition
     float wheelRadius = 0.0f;
     float frontWheelInertia = 0.0f;
     float rearWheelInertia = 0.0f;
+
+    TyreCompound tyreCompound = TyreCompound::S2_SportsMedium;
 };
 
 struct SuspensionDefinition
@@ -308,6 +345,14 @@ struct VehicleDefinition
 
     btVector3 wheelOffsets[4];
 
+    float Offset_X = 0.0f;
+    float Offset_Y = 0.0f;
+    float Offset_Z_Front = 0.0f;
+    float Offset_Z_Back = 0.0f;
+    float Offset_Z = 0.0f;
+
+    float bodyLength = 0.0f;
+
     EngineDefinition engine;
     GearboxDefinition gearbox;
     TyreDefinition frontTyres;
@@ -317,5 +362,7 @@ struct VehicleDefinition
 
 
 };
+
+
 
 

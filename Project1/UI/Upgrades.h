@@ -1,6 +1,7 @@
 #pragma once
 #include "../SharedTypes.h"
 #include "../UI/UIContext.h"
+#include "../Cars/TyreCompounds.h"
 
 class Upgrades
 {
@@ -11,5 +12,5 @@ public:
 	bool m_ShowTyresUpgrades = false;
 	EngineUpgradeSelection   m_EngineUpgradeSelection = EngineUpgradeSelection::StockEngine;
 	WeightReductionSelection m_WeightReductionSelection = WeightReductionSelection::StockWeight;
-	TyresUpgradeSelection     m_TyresUpgradeSelection = TyresUpgradeSelection::StockTyres;
+	TyreCompound m_TyreCompoundSelection = TyreCompound::S2_SportsMedium;
 };

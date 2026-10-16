@@ -16,9 +16,6 @@
     <Filter Include="Source Files\Cars">
       <UniqueIdentifier>{a21b3239-c699-41af-8e6a-61a2985a54d1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Physics">
-      <UniqueIdentifier>{2ee7998d-1128-4b42-9b4f-be196a877837}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\UI">
       <UniqueIdentifier>{8e339efd-8013-4097-9f47-9dfd36006d10}</UniqueIdentifier>
     </Filter>
@@ -43,9 +40,6 @@
     <Filter Include="Source Files\Environment">
       <UniqueIdentifier>{8986857c-f680-4205-b332-f80044f3f0e5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\DevConsole">
-      <UniqueIdentifier>{9ee0060b-c0de-4f49-bd97-dad3b105982d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Events">
       <UniqueIdentifier>{688cb2e6-ee9c-4a28-93b6-fae5c4a02c88}</UniqueIdentifier>
     </Filter>
@@ -54,6 +48,12 @@
     </Filter>
     <Filter Include="Source Files\Shaders">
       <UniqueIdentifier>{ba6eb0d6-4f0f-4505-867a-96102b0444ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Physics">
+      <UniqueIdentifier>{649d45d5-3e0b-4020-9881-0d9eff444487}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DevConsole">
+      <UniqueIdentifier>{9ee0060b-c0de-4f49-bd97-dad3b105982d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -101,24 +101,6 @@
     </ClCompile>
     <ClCompile Include="Cars\CarUpgrades.cpp">
       <Filter>Source Files\Cars</Filter>
-    </ClCompile>
-    <ClCompile Include="Physics\Handling.cpp">
-      <Filter>Source Files\Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="Physics\PhysicsEngine.cpp">
-      <Filter>Source Files\Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="Physics\Spawner.cpp">
-      <Filter>Source Files\Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="Physics\TorqueManager.cpp">
-      <Filter>Source Files\Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="Physics\Tyres.cpp">
-      <Filter>Source Files\Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="Physics\VehicleTelemetry.cpp">
-      <Filter>Source Files\Physics</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\GraphicsEngine.cpp">
       <Filter>Source Files\Graphics</Filter>
@@ -255,6 +237,30 @@
     <ClCompile Include="Graphics\SharedMaterialLoader.cpp">
       <Filter>Source Files\Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="Physics\Handling.cpp">
+      <Filter>Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\PhysicsEngine.cpp">
+      <Filter>Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\Spawner.cpp">
+      <Filter>Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\TelemetryRecorder.cpp">
+      <Filter>Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\TorqueManager.cpp">
+      <Filter>Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\Tyres.cpp">
+      <Filter>Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\VehicleTelemetry.cpp">
+      <Filter>Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Cars\TyreCompounds.cpp">
+      <Filter>Source Files\Cars</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SharedTypes.h">
@@ -307,24 +313,6 @@
     </ClInclude>
     <ClInclude Include="Cars\CarUpgrades.h">
       <Filter>Source Files\Cars</Filter>
-    </ClInclude>
-    <ClInclude Include="Physics\Handling.h">
-      <Filter>Source Files\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="Physics\PhysicsEngine.h">
-      <Filter>Source Files\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="Physics\Spawner.h">
-      <Filter>Source Files\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="Physics\TorqueManager.h">
-      <Filter>Source Files\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="Physics\Tyres.h">
-      <Filter>Source Files\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="Physics\VehicleTelemetry.h">
-      <Filter>Source Files\Physics</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\GraphicsEngine.h">
       <Filter>Source Files\Graphics</Filter>
@@ -487,6 +475,30 @@
     </ClInclude>
     <ClInclude Include="Graphics\SharedMaterialLoader.h">
       <Filter>Source Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\Handling.h">
+      <Filter>Source Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\PhysicsEngine.h">
+      <Filter>Source Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\Spawner.h">
+      <Filter>Source Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\TelemetryRecorder.h">
+      <Filter>Source Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\TorqueManager.h">
+      <Filter>Source Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\Tyres.h">
+      <Filter>Source Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\VehicleTelemetry.h">
+      <Filter>Source Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Cars\TyreCompounds.h">
+      <Filter>Source Files\Cars</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

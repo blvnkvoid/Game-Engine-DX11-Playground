@@ -165,6 +165,9 @@ void Input::GetControllerState()
 
     Current.shiftDown =
         (state.Gamepad.bLeftTrigger > 220);
+    
+    Current.clutch =
+        (state.Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER);
 }
 
 bool Input::IsPadButtonDown(WORD button)
