@@ -195,7 +195,6 @@
     <ClCompile Include="Input\Input.cpp" />
     <ClCompile Include="Physics\Handling.cpp" />
     <ClCompile Include="Physics\PhysicsEngine.cpp" />
-    <ClCompile Include="Physics\Spawner.cpp" />
     <ClCompile Include="Physics\TelemetryRecorder.cpp" />
     <ClCompile Include="Physics\TorqueManager.cpp" />
     <ClCompile Include="Physics\Tyres.cpp" />
@@ -216,6 +215,7 @@
     <ClCompile Include="UI\LapTimer.cpp" />
     <ClCompile Include="UI\MainMenu.cpp" />
     <ClCompile Include="UI\RacingHUD.cpp" />
+    <ClCompile Include="UI\Settings.cpp" />
     <ClCompile Include="UI\TrackMenu.cpp" />
     <ClCompile Include="UI\TrackTiming.cpp" />
     <ClCompile Include="UI\UIContext.cpp" />
@@ -273,7 +273,6 @@
     <ClInclude Include="Imgui\imstb_truetype.h" />
     <ClInclude Include="Physics\Handling.h" />
     <ClInclude Include="Physics\PhysicsEngine.h" />
-    <ClInclude Include="Physics\Spawner.h" />
     <ClInclude Include="Physics\TelemetryRecorder.h" />
     <ClInclude Include="Physics\TorqueManager.h" />
     <ClInclude Include="Physics\Tyres.h" />

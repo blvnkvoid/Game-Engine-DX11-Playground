@@ -50,7 +50,7 @@ public:
         float(&clearColor)[4]);
     void ApplyEnvironmentDefinition(const EnvironmentDefinition& def);
     EnvironmentDefinition DefaultEnvironment();
-
+    bool Resize(int width, int height);
 
     Time& GetTime();
     void ConfigureUIScale(float renderWidth, float renderHeight);
@@ -119,11 +119,10 @@ public:
         return loader;
     }
 
-    const UINT shadowResolution[3] =
+    const UINT shadowResolution[2] =
     {
         4096,
-        2048,
-        2048
+        4096
     };
 
     TracyD3D11Ctx GetTracyGpuContext() const
@@ -135,7 +134,14 @@ public:
     {
         TracyD3D11Collect(m_tracyGpu);
     }
-private:
+
+    ID3D11PixelShader *GetShadowAlphaPS() const
+    {
+        return m_shadowAlphaPS.Get();
+    }
+
+
+  private:
     Sun m_sun;
     Clouds m_clouds;
     TracyD3D11Ctx m_tracyGpu = nullptr;
@@ -172,12 +178,13 @@ private:
     Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_lampSRV;
     Microsoft::WRL::ComPtr<ID3D11DepthStencilState> m_depthWriteOnState;
     Microsoft::WRL::ComPtr<ID3D11DepthStencilState> m_depthWriteOffState;
-    Microsoft::WRL::ComPtr<ID3D11Texture2D> m_shadowTexture[3];
-    Microsoft::WRL::ComPtr<ID3D11DepthStencilView> m_shadowDSV[3];
-    Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_shadowSRV[3];
-    D3D11_VIEWPORT m_shadowViewport[3];
+    Microsoft::WRL::ComPtr<ID3D11Texture2D> m_shadowTexture[2];
+    Microsoft::WRL::ComPtr<ID3D11DepthStencilView> m_shadowDSV[2];
+    Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_shadowSRV[2];
+    D3D11_VIEWPORT m_shadowViewport[2];
 
     ID3D11VertexShader* m_shadowVertexShader = nullptr;
+    Microsoft::WRL::ComPtr<ID3D11PixelShader> m_shadowAlphaPS;
     ID3D11InputLayout* m_shadowInputLayout = nullptr;
     // Shadow map resources
 
@@ -191,8 +198,8 @@ private:
     // Shadow rendering
 
     // Sun camera
-    XMMATRIX m_lightView[3];
-    XMMATRIX m_lightProj[3];
+    XMMATRIX m_lightView[2];
+    XMMATRIX m_lightProj[2];
     XMMATRIX m_lightViewProj = XMMatrixIdentity();
     DirectX::XMMATRIX mView;
     DirectX::XMMATRIX mProj;
@@ -205,7 +212,7 @@ private:
     UINT quality = 0;
     EnvironmentDefinition def;
 
-    BoundingFrustum m_lightFrustum[3];
+    BoundingFrustum m_lightFrustum[2];
 
     ImFont* m_telemetryFont = nullptr;
     UIContext m_uiContext;

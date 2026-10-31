@@ -43,9 +43,6 @@
     <Filter Include="Source Files\Events">
       <UniqueIdentifier>{688cb2e6-ee9c-4a28-93b6-fae5c4a02c88}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Sky">
-      <UniqueIdentifier>{3cf58a9b-ffbb-426f-97bd-ff1d72f7aa58}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Shaders">
       <UniqueIdentifier>{ba6eb0d6-4f0f-4505-867a-96102b0444ba}</UniqueIdentifier>
     </Filter>
@@ -54,6 +51,9 @@
     </Filter>
     <Filter Include="Source Files\DevConsole">
       <UniqueIdentifier>{9ee0060b-c0de-4f49-bd97-dad3b105982d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Sky">
+      <UniqueIdentifier>{0d6183c7-dbc1-4306-87f5-1d078d438ecb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -216,15 +216,6 @@
     <ClCompile Include="Tracks\TrackSettings.cpp">
       <Filter>Source Files\Tracks</Filter>
     </ClCompile>
-    <ClCompile Include="Sky\SkyEngine.cpp">
-      <Filter>Source Files\Sky</Filter>
-    </ClCompile>
-    <ClCompile Include="Sky\Sun.cpp">
-      <Filter>Source Files\Sky</Filter>
-    </ClCompile>
-    <ClCompile Include="Sky\Clouds.cpp">
-      <Filter>Source Files\Sky</Filter>
-    </ClCompile>
     <ClCompile Include="Scene\Camera.cpp">
       <Filter>Source Files\Scene</Filter>
     </ClCompile>
@@ -243,9 +234,6 @@
     <ClCompile Include="Physics\PhysicsEngine.cpp">
       <Filter>Source Files\Physics</Filter>
     </ClCompile>
-    <ClCompile Include="Physics\Spawner.cpp">
-      <Filter>Source Files\Physics</Filter>
-    </ClCompile>
     <ClCompile Include="Physics\TelemetryRecorder.cpp">
       <Filter>Source Files\Physics</Filter>
     </ClCompile>
@@ -260,6 +248,18 @@
     </ClCompile>
     <ClCompile Include="Cars\TyreCompounds.cpp">
       <Filter>Source Files\Cars</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\Settings.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Sky\Clouds.cpp">
+      <Filter>Source Files\Sky</Filter>
+    </ClCompile>
+    <ClCompile Include="Sky\SkyEngine.cpp">
+      <Filter>Source Files\Sky</Filter>
+    </ClCompile>
+    <ClCompile Include="Sky\Sun.cpp">
+      <Filter>Source Files\Sky</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -458,15 +458,6 @@
     <ClInclude Include="Tracks\TrackSettings.h">
       <Filter>Source Files\Tracks</Filter>
     </ClInclude>
-    <ClInclude Include="Sky\Sun.h">
-      <Filter>Source Files\Sky</Filter>
-    </ClInclude>
-    <ClInclude Include="Sky\SkyEngine.h">
-      <Filter>Source Files\Sky</Filter>
-    </ClInclude>
-    <ClInclude Include="Sky\Clouds.h">
-      <Filter>Source Files\Sky</Filter>
-    </ClInclude>
     <ClInclude Include="UI\ArcadeMode.h">
       <Filter>Source Files\UI</Filter>
     </ClInclude>
@@ -480,9 +471,6 @@
       <Filter>Source Files\Physics</Filter>
     </ClInclude>
     <ClInclude Include="Physics\PhysicsEngine.h">
-      <Filter>Source Files\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="Physics\Spawner.h">
       <Filter>Source Files\Physics</Filter>
     </ClInclude>
     <ClInclude Include="Physics\TelemetryRecorder.h">
@@ -499,6 +487,15 @@
     </ClInclude>
     <ClInclude Include="Cars\TyreCompounds.h">
       <Filter>Source Files\Cars</Filter>
+    </ClInclude>
+    <ClInclude Include="Sky\Clouds.h">
+      <Filter>Source Files\Sky</Filter>
+    </ClInclude>
+    <ClInclude Include="Sky\SkyEngine.h">
+      <Filter>Source Files\Sky</Filter>
+    </ClInclude>
+    <ClInclude Include="Sky\Sun.h">
+      <Filter>Source Files\Sky</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -585,9 +582,6 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="Shaders\Clouds.hlsl">
-      <Filter>Source Files\Shaders</Filter>
-    </FxCompile>
     <FxCompile Include="Shaders\Shaders.hlsl">
       <Filter>Source Files\Shaders</Filter>
     </FxCompile>
@@ -601,6 +595,9 @@
       <Filter>Source Files\Shaders</Filter>
     </FxCompile>
     <FxCompile Include="Shaders\Sun.hlsl">
+      <Filter>Source Files\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Shaders\Clouds.hlsl">
       <Filter>Source Files\Shaders</Filter>
     </FxCompile>
   </ItemGroup>

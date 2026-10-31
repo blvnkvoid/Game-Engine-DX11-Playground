@@ -10,6 +10,55 @@ void MapLoader::SetMaterialLoader(
     m_materialLoader = &materialLoader;
 }
 
+
+
+void MapLoader::DrawShadowSubset(
+    ID3D11DeviceContext *context,
+    const MapMeshSubset &subset,
+    ID3D11PixelShader *shadowAlphaPS)
+{
+    if (subset.materialType == MaterialType::MATERIAL_TREE)
+    {
+        ID3D11ShaderResourceView *diffuseSRV = nullptr;
+
+        if (subset.resolvedMaterial &&
+            subset.resolvedMaterial->mapTextures.diffuse)
+        {
+            diffuseSRV =
+                subset.resolvedMaterial->mapTextures.diffuse.Get();
+        }
+        else if (subset.materialIndex < m_materialSRVs.size())
+        {
+            diffuseSRV =
+                m_materialSRVs[subset.materialIndex].Get();
+        }
+
+        if (diffuseSRV)
+        {
+            context->PSSetShader(shadowAlphaPS, nullptr, 0);
+            context->PSSetShaderResources(0, 1, &diffuseSRV);
+            context->PSSetSamplers(
+                0, 1, m_samplerState.GetAddressOf());
+        }
+        else
+        {
+            // No alpha texture: preserve opaque shadow behavior.
+            context->PSSetShader(nullptr, nullptr, 0);
+        }
+    }
+    else
+    {
+        // Existing fast depth-only path.
+        context->PSSetShader(nullptr, nullptr, 0);
+    }
+
+    context->DrawIndexed(
+        subset.indexCount,
+        subset.startIndex,
+        0);
+}
+
+
 void MapLoader::CollectVisibleBVH(
     int nodeIndex,
     const DirectX::BoundingFrustum& frustum,
@@ -80,7 +129,8 @@ void MapLoader::BuildBVH()
 void MapLoader::DrawShadowBVHNode(
     int nodeIndex,
     ID3D11DeviceContext* context,
-    const DirectX::BoundingFrustum& frustum)
+    const DirectX::BoundingFrustum& frustum,
+    ID3D11PixelShader *shadowAlphaPS)
 {
     const BVHNode& node = m_bvhNodes[nodeIndex];
 
@@ -95,8 +145,8 @@ void MapLoader::DrawShadowBVHNode(
     // Internal node.
     if (!node.IsLeaf())
     {
-        DrawShadowBVHNode(node.left, context, frustum);
-        DrawShadowBVHNode(node.right, context, frustum);
+        DrawShadowBVHNode(node.left, context, frustum, shadowAlphaPS);
+        DrawShadowBVHNode(node.right, context, frustum, shadowAlphaPS);
         return;
     }
 
@@ -115,11 +165,11 @@ void MapLoader::DrawShadowBVHNode(
             continue;
         }
 
-        context->DrawIndexed(
-            subset.indexCount,
-            subset.startIndex,
-            0
-        );
+     DrawShadowSubset(
+            context,
+            subset,
+            shadowAlphaPS);
+        
 
         m_stats.m_shadowdrawCalls++;
         m_stats.renderedIndices += subset.indexCount;
@@ -312,7 +362,8 @@ void MapLoader::DrawShadow(
     ID3D11Buffer* cbb,
     const SharedSceneData& engineSceneData,
     const DirectX::BoundingFrustum& frustum,
-    ID3D11DepthStencilState* depthWriteOn)
+    ID3D11DepthStencilState* depthWriteOn,
+    ID3D11PixelShader *shadowAlphaPS)
 {
     SharedSceneData sceneData = engineSceneData;
 
@@ -405,7 +456,8 @@ void MapLoader::DrawShadow(
         DrawShadowBVHNode(
             0,
             context,
-            frustum
+            frustum,
+            shadowAlphaPS
         );
     }
     else
@@ -419,11 +471,10 @@ void MapLoader::DrawShadow(
                 continue;
             }
 
-            context->DrawIndexed(
-                subset.indexCount,
-                subset.startIndex,
-                0
-            );
+      DrawShadowSubset(
+                context,
+                subset,
+                shadowAlphaPS);
 
             m_stats.m_shadowdrawCalls++;
             m_stats.renderedIndices += subset.indexCount;

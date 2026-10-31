@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 
 class btTransform;
 
@@ -11,4 +11,4 @@ public:
 
 	btTransform PutCar();
 	btTransform ResetPos();
-};
+};*/

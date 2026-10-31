@@ -24,41 +24,15 @@
     {
     public:
         static const std::vector<VehicleRegistryEntry>& GetVehicleTable();
-        VehicleAsset& GetVehicle(VehicleSelection selection);
+      
+        void RegisterAllVehicles(ID3D11Device* device, ID3D11DeviceContext* context, TextureManager* textureManager, SharedMaterialLoader& materialLoader);
+        void RegisterVehicle(VehicleSelection selection, const std::string& carFolder, const std::string& fileBaseName, ID3D11Device* device, ID3D11DeviceContext* context,
+            TextureManager* textureManager, SharedMaterialLoader& materialLoader);
+        void RegisterVehicle(VehicleSelection selection, const std::string& mtlPath, const std::string& objPath, const std::wstring& textureFolder,ID3D11Device* device,
+            ID3D11DeviceContext* context, TextureManager* textureManager, SharedMaterialLoader& materialLoader);
 
-        VehicleAsset& GetOrLoadVehicle(
-            VehicleSelection selection,
-            ID3D11Device* device,
-            ID3D11DeviceContext* context,
-            TextureManager* textureManager,
-            SharedMaterialLoader& materialLoader);
-        
-
-        void RegisterAllVehicles(
-            ID3D11Device* device,
-            ID3D11DeviceContext* context,
-            TextureManager* textureManager,
-            SharedMaterialLoader& materialLoader);
-
-        void RegisterVehicle(
-            VehicleSelection selection,
-            const std::string& carFolder,
-            const std::string& fileBaseName,
-            ID3D11Device* device,
-            ID3D11DeviceContext* context,
-            TextureManager* textureManager,
-            SharedMaterialLoader& materialLoader);
-
-        void RegisterVehicle    (
-            VehicleSelection selection,
-            const std::string& mtlPath,
-            const std::string& objPath,
-            const std::wstring& textureFolder,
-            ID3D11Device* device,
-            ID3D11DeviceContext* context,
-            TextureManager* textureManager,
-            SharedMaterialLoader& materialLoader);
-
+        VehicleAsset &GetVehicle(VehicleSelection selection);
+        VehicleAsset &GetOrLoadVehicle(VehicleSelection selection, ID3D11Device *device, ID3D11DeviceContext *context, TextureManager *textureManager, SharedMaterialLoader &materialLoader);        
         VehicleDefinition CreateDefinition(VehicleSelection selection);
         CameraDefinition CreateCameraDefinition(VehicleSelection selection);
 

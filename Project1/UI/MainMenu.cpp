@@ -5,6 +5,20 @@
 #include "../Cars/CarSetup.h"
 #include "../SharedTypes.h"
 
+bool MainMenu::ConsumeResolutionChange(int &width, int &height)
+{
+    if (!m_settings.m_ResolutionChanged)
+        return false;
+
+    width = m_settings.width;
+    height = m_settings.height;
+
+        OutputDebugStringA("[MENU] Resolution flag detected!\n");
+
+    m_settings.m_ResolutionChanged = false;
+        return true;
+}
+
 void MainMenu::Draw(
     GraphicsEngine& engine,
     FMODManager& audio,
@@ -29,6 +43,8 @@ void MainMenu::Draw(
         ImGuiWindowFlags_NoBackground |
         ImGuiWindowFlags_NoTitleBar 
         );
+
+
 
 
     if (m_GameMode == GameMode::None)
@@ -95,6 +111,15 @@ void MainMenu::Draw(
 
 
 
+if (ImGui::Button("Settings", ui.Size(300, 50)))
+{
+    m_settings.m_ShowSettings = !m_settings.m_ShowSettings;
+}
+
+m_settings.Draw(ui);
+
+
+
 
    /* m_garage.Draw(ui);
     m_upgrades.Draw(ui);
@@ -155,3 +180,5 @@ void MainMenu::HandleInput(FMODManager& audio)
     aWasDown = aDown;
     bWasDown = bDown;
 }
+
+

@@ -30,8 +30,6 @@ bool TelemetryRecorder::Start(const std::string& filename)
         << "FL_reactionTorque,FR_reactionTorque,RL_reactionTorque,RR_reactionTorque,"
         << "FL_netTorque,FR_netTorque,RL_netTorque,RR_netTorque,"
         << "FL_drivingForce,FR_drivingForce,RL_drivingForce,RR_drivingForce,"
-        << "FL_rawLongitudinalForce,FR_rawLongitudinalForce,RL_rawLongitudinalForce,RR_rawLongitudinalForce,"
-        << "FL_rawLateralForce,FR_rawLateralForce,RL_rawLateralForce,RR_rawLateralForce,"
         << "FL_finalLongitudinalForce,FR_finalLongitudinalForce,RL_finalLongitudinalForce,RR_finalLongitudinalForce,"
         << "FL_finalLateralForce,FR_finalLateralForce,RL_finalLateralForce,RR_finalLateralForce,"
         << "FL_longitudinalGripUtilization,FR_longitudinalGripUtilization,RL_longitudinalGripUtilization,RR_longitudinalGripUtilization,"
@@ -143,12 +141,6 @@ void TelemetryRecorder::Record(float deltaTime, const SharedVehicleInputs& input
 
     for (int i = 0; i < 4; ++i)
         m_file << ',' << g_DebugTelemetry.drivingForce[i];
-
-    for (int i = 0; i < 4; ++i)
-        m_file << ',' << g_DebugTelemetry.rawLongitudinalForce[i];
-
-    for (int i = 0; i < 4; ++i)
-        m_file << ',' << g_DebugTelemetry.rawLateralForce[i];
 
     for (int i = 0; i < 4; ++i)
         m_file << ',' << g_DebugTelemetry.finalLongitudinalForce[i];

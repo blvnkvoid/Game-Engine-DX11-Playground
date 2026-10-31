@@ -1,0 +1,542 @@
+# Blender 5.1.1 MTL File: 'None'
+# www.blender.org
+
+newmtl DAMAGE_GLASS
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/DAMAGE_GLASS_color.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/DAMAGE_GLASS_color.dds
+
+newmtl EXT_Banner_inside
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/EXT_Glass_BANNER.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/EXT_Glass_BANNER.dds
+
+newmtl EXT_Calipers
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/EXT_Details.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/EXT_Details.dds
+
+newmtl EXT_Carpaint
+Ns 499.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/Skin_00.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/Skin_00.dds
+
+newmtl EXT_Chrome
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/Black.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/Black.dds
+
+newmtl EXT_Details
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/EXT_Details.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/EXT_Details.dds
+
+newmtl EXT_Disc
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/EXT_Disc.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/EXT_Disc.dds
+
+newmtl EXT_Glass
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/EXT_Glass.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/EXT_Glass.dds
+
+newmtl EXT_Glass_flat
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/EXT_Glass_BANNER.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/EXT_Glass_BANNER.dds
+
+newmtl EXT_Glass_rear_Light
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/EXT_Glass.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/EXT_Glass.dds
+
+newmtl EXT_Grid_Rear
+Ns 10.000005
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/GRID.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/GRID.dds
+
+newmtl EXT_Lights_Chrome
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/EXT_Lights.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/EXT_Lights.dds
+
+newmtl EXT_Lights_Plastic
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/EXT_Lights.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/EXT_Lights.dds
+
+newmtl EXT_Loghi_CUP
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/EXT_Loghi.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/EXT_Loghi.dds
+
+newmtl EXT_Plastic_Black
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/Skin_00.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/Skin_00.dds
+
+newmtl EXT_RearLight_Beam
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/RearLight_Beam.png
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/RearLight_Beam.png
+
+newmtl EXT_Rim
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/EXT_Rims.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/EXT_Rims.dds
+
+newmtl EXT_Rim_Spokes
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/EXT_Rims_COLOR.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/EXT_Spokes.dds
+
+newmtl EXT_Rubber
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/Skin_00.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/Skin_00.dds
+
+newmtl EXT_Skirt_PLASTIC
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/EXT_Cup_Plastic.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/EXT_Cup_Plastic.dds
+
+newmtl EXT_Tyre
+Ns 150.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/Gomma_unica_BASE.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/Gomma_unica_BASE.dds
+
+newmtl INT_Decals_Chrome_Alfa
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Decals_Metal.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Decals_Metal.dds
+
+newmtl INT_Decals_Chrome_Aluminium
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Decals_Metal.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Decals_Metal.dds
+
+newmtl INT_Decals_Chrome_Needle
+Ns 499.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Decals_Metal.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Decals_Metal.dds
+
+newmtl INT_Decals_Flat_NM
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Decals.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Decals.dds
+
+newmtl INT_Decals_Flat_alfa_NM
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Decals.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Decals.dds
+
+newmtl INT_Decals_Plastic_Balck_REF
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Decals_Metal.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Decals_Metal.dds
+
+newmtl INT_Decals_Plastic_Base
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Decals.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Decals.dds
+
+newmtl INT_Decals_Plastic_REF
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Decals.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Decals.dds
+
+newmtl INT_Decals_Plastic_REF_flat
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Decals.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Decals.dds
+
+newmtl INT_Decals_Plastic_alfa_NM
+Ns 399.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Decals.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Decals.dds
+
+newmtl INT_Decals_Rubber
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Decals.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Decals.dds
+
+newmtl INT_Gauges
+Ns 449.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Decals.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Decals.dds
+
+newmtl INT_Glass
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/EXT_Glass.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/EXT_Glass.dds
+
+newmtl INT_Glass_REFLEX
+Ns 100.000015
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INTERNAL_glass.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INTERNAL_glass.dds
+
+newmtl INT_Grid_NET
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Side_Belt.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Side_Belt.dds
+
+newmtl INT_LCD
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 2.000000 2.000000 2.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_LCD.dds
+
+newmtl INT_LR
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_LR copy.dds
+
+newmtl INT_MiniGrid_Dials
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_dials_MiniGrid.dds
+
+newmtl INT_OCC_Alcantara
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Cockpit_OCC.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Cockpit_OCC.dds
+
+newmtl INT_OCC_Carpaint
+Ns 499.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Cockpit_OCC.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Cockpit_OCC.dds
+
+newmtl INT_OCC_Plastic_Black_REF
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Cockpit_OCC.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Cockpit_OCC.dds
+
+newmtl INT_OCC_Plastic_Detail_GREY
+Ns 399.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Cockpit_OCC.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Cockpit_OCC.dds
+
+newmtl INT_OCC_Plastic_GREY
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Cockpit_OCC.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Cockpit_OCC.dds
+
+newmtl INT_OCC_SkinShift_GREY
+Ns 399.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Cockpit_OCC.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Cockpit_OCC.dds
+
+newmtl INT_OCC_Skin_GREY
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Cockpit_OCC.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Cockpit_OCC.dds
+
+newmtl INT_OCC_White_Paint
+Ns 499.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_RollBar_OCC.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_RollBar_OCC.dds
+
+newmtl INT_Red_Strip
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Red_Strip.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Red_Strip.dds
+
+newmtl INT_Seam_Shift
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/Stitches.png
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/Stitches.png
+
+newmtl INT_Seams
+Ns 300.000031
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/Stitches.png
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/Stitches.png
+
+newmtl INT_SeatBelts
+Ns 499.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/Cockpit_Belt.png
+
+newmtl LCD_Racing
+Ns 399.999969
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 1.000000 2.000000 3.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/LCD_Racing.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/LCD_Racing.dds
+
+newmtl Mirror
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/Mirror.DDS
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/Mirror.DDS
+
+newmtl _________WIP____________
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 3
+map_Kd C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Cockpit_OCC.dds
+map_d C:/Users/Void/Downloads/asw-blckbox-mazda-mx5-cup/blckbox_mazda_mx5_cup/unp_mazda_mx5_lod_a.kn5/texture/INT_Cockpit_OCC.dds

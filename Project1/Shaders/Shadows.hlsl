@@ -38,11 +38,13 @@ cbuffer SharedSceneData : register(b0)
 struct VSInput
 {
     float3 position : POSITION;
+    float2 texCoord : TEXCOORD0;
 };
 
 struct VSOutput
 {
     float4 position : SV_POSITION;
+    float2 texCoord : TEXCOORD0;
 };
 
 VSOutput main(VSInput input)
@@ -62,7 +64,23 @@ VSOutput main(VSInput input)
     // but force all rasterized geometry to depth 0.5.
     //output.position.z = 0.5f * output.position.w;
 
+    output.texCoord = input.texCoord;
+
     return output;
 
 
+}
+
+
+Texture2D shadowDiffuseTexture : register(t0);
+SamplerState shadowDiffuseSampler : register(s0);
+
+void ShadowAlphaPS(VSOutput input)
+{
+    float alpha = shadowDiffuseTexture.Sample(
+                                          shadowDiffuseSampler,
+                                          input.texCoord)
+                      .a;
+
+    clip(alpha - 0.75f);
 }

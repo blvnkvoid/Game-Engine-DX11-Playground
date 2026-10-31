@@ -132,10 +132,10 @@ normalize(
 // MAP normal data is sampled above but NOT used yet.
 // ---------------------------------------------------------
 
-N =
-normalize(
-    mul(
-        combinedNormal,
-        TBN
-    )
-);
+if (material.isMapMaterial < 0.5f)
+{
+    N = normalize(
+        mul(
+            combinedNormal,
+            TBN));
+}

@@ -1,0 +1,10 @@
+BasedOnStyle: Microsoft
+IndentWidth: 4
+ColumnLimit: 0
+BreakBeforeBraces: Allman
+AllowShortIfStatementsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: None
+BinPackArguments: true
+BinPackParameters: true
+PenaltyExcessCharacter: 0
+SortIncludes: false

@@ -65,7 +65,7 @@ struct SharedSceneData
     DirectX::XMMATRIX view;
     DirectX::XMMATRIX projection;
     
-    DirectX::XMMATRIX lightViewProjection[3];
+    DirectX::XMMATRIX lightViewProjection[2];
     DirectX::XMFLOAT4 lightDirection;
     DirectX::XMFLOAT4 lightColor;
     DirectX::XMFLOAT4 cameraPosition;

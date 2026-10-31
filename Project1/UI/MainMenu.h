@@ -13,6 +13,7 @@
 #include "../UI/GranTurismoMode.h"
 #include "../Input/Input.h"
 #include "../UI/UIContext.h"
+#include "../UI/Settings.h"
 #include <Xinput.h>
 
 class GraphicsEngine;
@@ -38,6 +39,8 @@ public:
     ArcadeMode m_arcademode;
     GranTurismoMode m_granturismomode;
 
-    GameMode m_GameMode;
+    Settings m_settings;
+    bool ConsumeResolutionChange(int &width, int &height);
+    GameMode m_GameMode = GameMode::None;
 
 };

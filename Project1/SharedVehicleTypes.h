@@ -105,8 +105,6 @@ struct TelemetryData {
     float tireReactionTorque[4];
     float wheelNetTorque[4];
     float drivingForce[4];
-    float rawLongitudinalForce[4];
-    float rawLateralForce[4];
     float finalLongitudinalForce[4];
     float finalLateralForce[4];
     float longitudinalGripUtilization[4];

@@ -1,5 +1,6 @@
 #include "VehicleRegistry.h"
 #include "../SharedVehicleTypes.h"
+
 #include "../Cars/Porsche_911_Carrera_S/Porsche911.h"
 #include "../Cars/Audi_R8_LMS/AudiR8.h"
 #include "../Cars/Bugatti_Chiron/BugattiChiron.h"
@@ -15,64 +16,52 @@
 #include "../Cars/Honda_NSX_JGTC_2000/Honda_NSX_JGTC_2000.h"
 #include "../Cars/Mercedes_SLS_PACE_CAR/SLS_Pacecar.h"
 
-
-
 static const std::vector<VehicleRegistryEntry> vehicleTable =
-{
-    { VehicleSelection::PORSCHE_911,    "Cars/Porsche_911_Carrera_S/", "911_Carrera_S", "Porsche 911 Carrera S"},
-    { VehicleSelection::BUGATTI_CHIRON, "Cars/Bugatti_Chiron/",        "Bugatti", "Bugatti Chiron"},
-    { VehicleSelection::AUDI_R8,        "Cars/Audi_R8_LMS/",           "Audi_R8", "Audi R8"},
-    { VehicleSelection::CIVIC,          "Cars/Honda_Civic_EG6/",       "Civic", "Honda Civic SIR-II '91"},
-    { VehicleSelection::GT500,        "Cars/Honda_NSX_Concept-GT_GT-500_2016/",        "NSX_GT500", "Honda NSX_Concept-GT GT-500 '16"},
-    { VehicleSelection::FURAI,        "Cars/Mazda_Furai/",        "Furai", "Mazda Furai"},
-    { VehicleSelection::MX5,        "Cars/Mazda_MX5/",        "Miata", "Mazda MX5"},
-    { VehicleSelection::AUDI_R10,        "Cars/Audi_R10/",        "R10", "Audi R10"},
-    { VehicleSelection::XSARA,        "Cars/Citroen_Xsara_KitCar/",        "Xsara", "Citroen Xsara Rally Car '99"},
-    { VehicleSelection::COPEN,        "Cars/Daihatsu_Copen/",        "Copen", "Daihatsu Copen"},
-    { VehicleSelection::JGTCSUPRA2000,        "Cars/Toyota_Supra_JGTC_2000/",        "JGTCSUPRA2000", "Toyota Castrol Supra JGTC '00"},
-    { VehicleSelection::JGTCNSX2000,        "Cars/Honda_NSX_JGTC_2000/",        "JGTCNSX2000", "Honda Raybrig NSX JGTC '00"},
-    { VehicleSelection::SLS_PACECAR,        "Cars/Mercedes_SLS_PACE_CAR/",        "SLS_Pacecar", "Mercedes-Benz SLS Pace Car '11"},
-    { VehicleSelection::MINOLTA,        "Cars/Toyota_Minolta/",        "Minolta", "Toyota Minolta 88C-V '89"}
-};  
+    {
+        {VehicleSelection::PORSCHE_911, "Cars/Porsche_911_Carrera_S/", "911_Carrera_S", "Porsche 911 Carrera S"},
+        {VehicleSelection::BUGATTI_CHIRON, "Cars/Bugatti_Chiron/", "Bugatti", "Bugatti Chiron"},
+        {VehicleSelection::AUDI_R8, "Cars/Audi_R8_LMS/", "Audi_R8", "Audi R8"},
+        {VehicleSelection::CIVIC, "Cars/Honda_Civic_EG6/", "Civic", "Honda Civic SIR-II '91"},
+        {VehicleSelection::GT500, "Cars/Honda_NSX_Concept-GT_GT-500_2016/", "NSX_GT500", "Honda NSX_Concept-GT GT-500 '16"},
+        {VehicleSelection::FURAI, "Cars/Mazda_Furai/", "Furai", "Mazda Furai"},
+        {VehicleSelection::MX5, "Cars/Mazda_MX5/", "Miata", "Mazda MX5"},
+        {VehicleSelection::AUDI_R10, "Cars/Audi_R10/", "R10", "Audi R10"},
+        {VehicleSelection::XSARA, "Cars/Citroen_Xsara_KitCar/", "Xsara", "Citroen Xsara Rally Car '99"},
+        {VehicleSelection::COPEN, "Cars/Daihatsu_Copen/", "Copen", "Daihatsu Copen"},
+        {VehicleSelection::JGTCSUPRA2000, "Cars/Toyota_Supra_JGTC_2000/", "JGTCSUPRA2000", "Toyota Castrol Supra JGTC '00"},
+        {VehicleSelection::JGTCNSX2000, "Cars/Honda_NSX_JGTC_2000/", "JGTCNSX2000", "Honda Raybrig NSX JGTC '00"},
+        {VehicleSelection::SLS_PACECAR, "Cars/Mercedes_SLS_PACE_CAR/", "SLS_Pacecar", "Mercedes-Benz SLS Pace Car '11"},
+        {VehicleSelection::MINOLTA, "Cars/Toyota_Minolta/", "Minolta", "Toyota Minolta 88C-V '89"}};
 
- const std::vector<VehicleRegistryEntry>& VehicleRegistry::GetVehicleTable()
+const std::vector<VehicleRegistryEntry> &VehicleRegistry::GetVehicleTable()
 {
     return vehicleTable;
 }
 
-VehicleAsset& VehicleRegistry::GetVehicle(VehicleSelection selection)
+VehicleAsset &VehicleRegistry::GetVehicle(VehicleSelection selection)
 {
     auto it = vehicles.find(selection);
 
     if (it == vehicles.end())
-    {
         throw std::runtime_error("Vehicle not found in VehicleRegistry");
-    }
 
     return it->second;
 }
 
-VehicleAsset& VehicleRegistry::GetOrLoadVehicle(
+VehicleAsset &VehicleRegistry::GetOrLoadVehicle(
     VehicleSelection selection,
-    ID3D11Device* device,
-    ID3D11DeviceContext* context,
-    TextureManager* textureManager,
-    SharedMaterialLoader& materialLoader)
+    ID3D11Device *device,
+    ID3D11DeviceContext *context,
+    TextureManager *textureManager,
+    SharedMaterialLoader &materialLoader)
 {
     auto it = vehicles.find(selection);
 
     if (it == vehicles.end())
     {
-        const VehicleRegistryEntry& entry = FindVehicleEntry(selection);
+        const VehicleRegistryEntry &entry = FindVehicleEntry(selection);
 
-        RegisterVehicle(
-            entry.selection,
-            entry.folder,
-            entry.fileName,
-            device,
-            context,
-            textureManager,
-            materialLoader);
+        RegisterVehicle(entry.selection, entry.folder, entry.fileName, device, context, textureManager, materialLoader);
 
         it = vehicles.find(selection);
     }
@@ -80,9 +69,9 @@ VehicleAsset& VehicleRegistry::GetOrLoadVehicle(
     return it->second;
 }
 
-const VehicleRegistryEntry& VehicleRegistry::FindVehicleEntry(VehicleSelection selection)
+const VehicleRegistryEntry &VehicleRegistry::FindVehicleEntry(VehicleSelection selection)
 {
-    for (const auto& vehicle : vehicleTable)
+    for (const auto &vehicle : vehicleTable)
     {
         if (vehicle.selection == selection)
             return vehicle;
@@ -97,43 +86,30 @@ VehicleDefinition VehicleRegistry::CreateDefinition(VehicleSelection selection)
     {
     case VehicleSelection::PORSCHE_911:
         return Porsche911::CreateDefinition();
-
     case VehicleSelection::AUDI_R8:
         return R8::CreateDefinition();
-
     case VehicleSelection::BUGATTI_CHIRON:
         return Chiron::CreateDefinition();
-
     case VehicleSelection::CIVIC:
         return Civic::CreateDefinition();
-
     case VehicleSelection::MINOLTA:
-        return Minolta::CreateDefinition();    
-    
+        return Minolta::CreateDefinition();
     case VehicleSelection::GT500:
-        return NSX_GT500::CreateDefinition();    
-
+        return NSX_GT500::CreateDefinition();
     case VehicleSelection::SLS_PACECAR:
-        return SLS_Pacecar::CreateDefinition();    
-    
+        return SLS_Pacecar::CreateDefinition();
     case VehicleSelection::FURAI:
         return Furai::CreateDefinition();
-
     case VehicleSelection::MX5:
-        return Mx5::CreateDefinition(); 
-    
+        return Mx5::CreateDefinition();
     case VehicleSelection::AUDI_R10:
         return R10::CreateDefinition();
-
     case VehicleSelection::XSARA:
-        return Xsara::CreateDefinition();    
-    
+        return Xsara::CreateDefinition();
     case VehicleSelection::COPEN:
-        return Copen::CreateDefinition();   
-
+        return Copen::CreateDefinition();
     case VehicleSelection::JGTCSUPRA2000:
         return SUPRA_JGTC2000::CreateDefinition();
-
     case VehicleSelection::JGTCNSX2000:
         return NSX_JGTC2000::CreateDefinition();
     }
@@ -147,43 +123,30 @@ CameraDefinition VehicleRegistry::CreateCameraDefinition(VehicleSelection select
     {
     case VehicleSelection::PORSCHE_911:
         return Porsche911::CreateCameraDefinition();
-
     case VehicleSelection::AUDI_R8:
         return R8::CreateCameraDefinition();
-
     case VehicleSelection::BUGATTI_CHIRON:
         return Chiron::CreateCameraDefinition();
-
     case VehicleSelection::CIVIC:
         return Civic::CreateCameraDefinition();
-
     case VehicleSelection::MINOLTA:
         return Minolta::CreateCameraDefinition();
-
     case VehicleSelection::GT500:
         return NSX_GT500::CreateCameraDefinition();
-
     case VehicleSelection::FURAI:
         return Furai::CreateCameraDefinition();
-
     case VehicleSelection::MX5:
         return Mx5::CreateCameraDefinition();
-
     case VehicleSelection::AUDI_R10:
         return R10::CreateCameraDefinition();
-
     case VehicleSelection::XSARA:
         return Xsara::CreateCameraDefinition();
-
     case VehicleSelection::COPEN:
         return Copen::CreateCameraDefinition();
-
     case VehicleSelection::JGTCSUPRA2000:
         return SUPRA_JGTC2000::CreateCameraDefinition();
-
     case VehicleSelection::JGTCNSX2000:
         return NSX_JGTC2000::CreateCameraDefinition();
-
     case VehicleSelection::SLS_PACECAR:
         return SLS_Pacecar::CreateCameraDefinition();
     }
@@ -191,85 +154,44 @@ CameraDefinition VehicleRegistry::CreateCameraDefinition(VehicleSelection select
     return Civic::CreateCameraDefinition();
 }
 
-void VehicleRegistry::RegisterVehicle(
-    VehicleSelection selection,
-    const std::string& mtlPath,
-    const std::string& objPath,
-    const std::wstring& textureFolder,
-    ID3D11Device* device,
-    ID3D11DeviceContext* context,
-    TextureManager* textureManager,
-    SharedMaterialLoader& materialLoader)
+void VehicleRegistry::RegisterVehicle(VehicleSelection selection, const std::string &mtlPath, const std::string &objPath,  const std::wstring &textureFolder, ID3D11Device *device,
+    ID3D11DeviceContext *context, TextureManager *textureManager, SharedMaterialLoader &materialLoader)
 {
     VehicleAsset asset;
 
     asset.model = std::make_unique<CarLoader>();
     asset.object = std::make_unique<GameObject>(0);
+
     asset.model->SetMaterialLibraryPath(mtlPath);
     asset.model->LoadOBJ(objPath, device);
     materialLoader.LoadMaterialLibrary(asset.model->GetMaterialLibraryPath());
     asset.model->SetMaterialLoader(materialLoader);
-    materialLoader.ResolveCarTextures(textureManager,context,textureFolder);
+    materialLoader.ResolveCarTextures(textureManager, context, textureFolder);
 
-
-   
-   //asset.model->LoadTexture(device, L"missingTexture.png");
-   //asset.model->ResolveMaterialTextures(textureManager,context,textureFolder);
+    //asset.model->LoadTexture(device, L"missingTexture.png");
+    //asset.model->ResolveMaterialTextures(textureManager,context,textureFolder);
 
     asset.object->SetModel(asset.model.get());
 
     vehicles[selection] = std::move(asset);
 }
 
-void VehicleRegistry::RegisterVehicle(
-    VehicleSelection selection,
-    const std::string& carFolder,
-    const std::string& fileBaseName,
-    ID3D11Device* device,
-    ID3D11DeviceContext* context,
-    TextureManager* textureManager,
-    SharedMaterialLoader& materialLoader)
+void VehicleRegistry::RegisterVehicle(VehicleSelection selection, const std::string &carFolder, const std::string &fileBaseName, ID3D11Device *device, ID3D11DeviceContext *context,
+    TextureManager *textureManager, SharedMaterialLoader &materialLoader)
 {
-    std::string mtlPath =
-        carFolder + "material/" + fileBaseName + ".mtl";
+    std::string mtlPath = carFolder + "material/" + fileBaseName + ".mtl";
+    std::string objPath = carFolder + "model/" + fileBaseName + ".obj";
 
-    std::string objPath =
-        carFolder + "model/" + fileBaseName + ".obj";
+    std::wstring wideFolder(carFolder.begin(), carFolder.end());
+    std::wstring textureFolder = wideFolder + L"textures/";
 
-    std::wstring wideFolder(
-        carFolder.begin(),
-        carFolder.end());
-
-    std::wstring textureFolder =
-        wideFolder + L"textures/";
-
-    RegisterVehicle(
-        selection,
-        mtlPath,
-        objPath,
-        textureFolder,
-        device,
-        context,
-        textureManager,
-        materialLoader);
+    RegisterVehicle(selection, mtlPath, objPath, textureFolder, device, context, textureManager, materialLoader);
 }
 
-
-void VehicleRegistry::RegisterAllVehicles(
-    ID3D11Device* device,
-    ID3D11DeviceContext* context,
-    TextureManager* textureManager,
-    SharedMaterialLoader& materialLoader)
+void VehicleRegistry::RegisterAllVehicles(ID3D11Device *device, ID3D11DeviceContext *context, TextureManager *textureManager, SharedMaterialLoader &materialLoader)
 {
-    for (const auto& vehicle : vehicleTable)
+    for (const auto &vehicle : vehicleTable)
     {
-        RegisterVehicle(
-            vehicle.selection,
-            vehicle.folder,
-            vehicle.fileName,
-            device,
-            context,
-            textureManager,
-            materialLoader);
+        RegisterVehicle(vehicle.selection, vehicle.folder, vehicle.fileName, device, context, textureManager, materialLoader);
     }
 }

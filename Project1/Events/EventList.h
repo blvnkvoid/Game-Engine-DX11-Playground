@@ -35,5 +35,4 @@ struct ChampionshipListEntry
 };
 
 extern const std::vector<ChampionshipListEntry> g_ChampionshipList;
-
 extern const std::vector<EventListEntry> g_EventList;

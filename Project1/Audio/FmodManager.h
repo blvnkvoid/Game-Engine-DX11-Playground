@@ -28,8 +28,6 @@ public:
 	void ShutdownAudio();
 	void Update(EngineState state, float rpm, float throttle, float speedKmh, float avgSlipRatio, float avgSlipAngle);
 	void SetVehicleAudioDefinition(const AudioDefinition& audioDef);
-
-
 	void LoadJukebox();
 	void UpdateJukebox();
 	void PlayRandomTrack();
@@ -79,10 +77,6 @@ private:
 	FMOD::Channel* menuStartChannel = nullptr;
 	FMOD::Channel* menuMusicChannel = nullptr;
 	FMOD::Channel* musicChannel = nullptr;
-
-
-
-
 
 	bool vehicleAudioEnabled = false;
 

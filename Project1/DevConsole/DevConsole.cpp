@@ -1,9 +1,8 @@
-// DevConsole.cpp
 #include "DevConsole.h"
 #include "../Graphics/GraphicsEngine.h"
 #include "../Imgui/imgui.h"
-#include <windows.h>
 #include "../Physics/PhysicsEngine.h"
+#include <windows.h>
 
 void DevConsole::Draw()
 {
@@ -16,16 +15,12 @@ void DevConsole::Draw()
     ImGui::SetNextWindowSize(ImVec2(600, 300), ImGuiCond_FirstUseEver);
     ImGui::Begin("Dev Console", &m_open);
 
-    for (const auto& line : m_log)
+    for (const auto &line : m_log)
         ImGui::TextUnformatted(line.c_str());
 
     ImGui::Separator();
 
-    if (ImGui::InputText(
-        "Command",
-        m_input,
-        sizeof(m_input),
-        ImGuiInputTextFlags_EnterReturnsTrue))
+    if (ImGui::InputText("Command", m_input, sizeof(m_input), ImGuiInputTextFlags_EnterReturnsTrue))
     {
         SubmitCommand(m_input);
         m_input[0] = '\0';
@@ -34,13 +29,25 @@ void DevConsole::Draw()
     ImGui::End();
 }
 
-void DevConsole::SubmitCommand(const char* command)
+void DevConsole::SubmitCommand(const char *command)
 {
     m_pendingCommand = command;
     m_log.push_back(std::string("> ") + command);
 }
 
-void DevConsole::ExecuteCommand(GraphicsEngine& engine, PhysicsEngine& physics)
+bool DevConsole::ConsumeResolutionRequest(int &width, int &height)
+{
+    if (!m_resolutionRequest)
+        return false;
+
+    width = m_resolutionRequest->width;
+    height = m_resolutionRequest->height;
+
+    m_resolutionRequest.reset();
+    return true;
+}
+
+void DevConsole::ExecuteCommand(GraphicsEngine &engine, PhysicsEngine &physics)
 {
     if (m_pendingCommand.empty())
         return;
@@ -73,13 +80,31 @@ void DevConsole::ExecuteCommand(GraphicsEngine& engine, PhysicsEngine& physics)
         iss >> command >> x >> y >> z;
 
         physics.TeleportCar(x, y, z);
-       
+        m_log.push_back("Teleporting to " + std::to_string(x) + ", " + std::to_string(y) + ", " + std::to_string(z));
+    }
+    else if (cmd.rfind("resolution ", 0) == 0)
+    {
+        std::istringstream iss(cmd.substr(11));
 
-        m_log.push_back(
-            "Teleporting to " +
-            std::to_string(x) + ", " +
-            std::to_string(y) + ", " +
-            std::to_string(z));
+        int width = 0;
+        int height = 0;
+        std::string extra;
+
+        if (!(iss >> width >> height) ||
+            (iss >> extra) ||
+            width <= 0 || height <= 0)
+        {
+            m_log.push_back("Usage: resolution <width> <height>");
+        }
+        else
+        {
+            m_resolutionRequest = ResolutionRequest{width, height};
+
+            m_log.push_back(
+                "Requested resolution: " +
+                std::to_string(width) + "x" +
+                std::to_string(height));
+        }
     }
     else
     {

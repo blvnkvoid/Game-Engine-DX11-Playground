@@ -24,7 +24,7 @@ private:
             samples.push_back(value);
             sum += value;
 
-            while (samples.size() > 500) {
+            while (samples.size() > 20) {
                 sum -= samples.front();
                 samples.pop_front();
             }

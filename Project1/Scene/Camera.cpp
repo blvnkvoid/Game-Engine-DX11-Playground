@@ -216,12 +216,12 @@
             case CameraMode::CHASE:
                 targetFOV = XMConvertToRadians(45.0f); // Slightly wider
                 vLookAt = vCarPos + (vCarForward * (5.0f * lookDirection));
-                m_posVector = XMVectorLerp(m_posVector, targetPos, 300.0f * deltaTime);
+                m_posVector = XMVectorLerp(m_posVector, targetPos, 1.0f);
                 break;
             case CameraMode::ROOF:
                 targetFOV = XMConvertToRadians(52.0f); // Slightly wider
                 vLookAt = vCarPos + (vCarForward * (5.0f * lookDirection));
-                m_posVector = XMVectorLerp(m_posVector, targetPos, 75.0f * deltaTime);
+                m_posVector = XMVectorLerp(m_posVector, targetPos, 1.0f);
                 break;
 
             case CameraMode::BUMPER:
@@ -283,7 +283,7 @@
                 m_posVector = XMVectorLerp(
                     m_posVector,
                     targetPos,
-                    lerpFactor * deltaTime
+                    1.0f
                 );
             }
 

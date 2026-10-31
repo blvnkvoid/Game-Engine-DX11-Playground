@@ -19,50 +19,32 @@ class PhysicsEngine;
 struct RaceGridCar
 {
     VehicleSelection vehicle;
-    GameObject* object = nullptr;
+    GameObject *object = nullptr;
     DirectX::XMMATRIX world = DirectX::XMMatrixIdentity();
     bool isPlayer = false;
 };
 
 class RaceGrid
 {
-public:
-    VehicleSelection Build(
-        const EventDefinition& event,
-        const std::vector<MapMarker>& markers,
-        VehicleRegistry& vehicleRegistry,
-        PhysicsEngine& physics,
-        ID3D11Device* device,
-        ID3D11DeviceContext* context,
-        TextureManager* textureManager,
-        VehicleSelection fallbackPlayer,
-        SharedMaterialLoader& materialLoader);
+  public:
+    VehicleSelection Build(const EventDefinition &event, const std::vector<MapMarker> &markers, VehicleRegistry &vehicleRegistry, PhysicsEngine &physics, ID3D11Device *device,
+                           ID3D11DeviceContext *context, TextureManager *textureManager, VehicleSelection fallbackPlayer, SharedMaterialLoader &materialLoader);
 
-    VehicleSelection GetPlayerSelection(
-        const EventDefinition& event,
-        VehicleSelection fallbackPlayer);
+    VehicleSelection GetPlayerSelection(const EventDefinition &event, VehicleSelection fallbackPlayer);
 
-    const btTransform& GetPlayerSpawn() const
+    void Render(GraphicsEngine &engine, Camera &camera);
+    void Clear();
+    void BuildPlayerSpawn(const std::vector<MapMarker> &markers, PhysicsEngine &physics, int gridPosition);
+
+    const btTransform &GetPlayerSpawn() const
     {
         return m_playerSpawn;
     }
 
-    
-
-
-    void Render(GraphicsEngine& engine, Camera& camera);
-
-    void Clear();
-
-    void BuildPlayerSpawn(
-        const std::vector<MapMarker>& markers,
-        PhysicsEngine& physics,
-        int gridPosition);
-
-private:
+  private:
     DirectX::XMMATRIX GetGridTransform(int gridPosition);
 
-private:
+  private:
     std::vector<RaceGridCar> m_cars;
     btTransform m_playerSpawn;
 };

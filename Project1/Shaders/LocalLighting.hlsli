@@ -14,11 +14,9 @@ LampLightMask(
 );
 
 
-float carLampMultiplier =
-0.05f;
+float carLampMultiplier = 0.50f;
 
-lampLight *=
-carLampMultiplier;
+lampLight *= carLampMultiplier;
 
 
 float3 localLighting =
@@ -46,11 +44,18 @@ float3(
     0.5f;
 
 
-localLighting +=
-float3(
-    1.0f,
-    0.82f,
-    0.45f
-    ) *
-    lampLight *
-    0.8f;
+
+if (material.isMapMaterial > 0.5f)
+{
+    localLighting +=
+        float3(1.0f, 0.82f, 0.45f) *
+        lampLight *
+        0.8f;
+}
+else
+{
+    localLighting +=
+        float3(1.0f, 0.82f, 0.45f) *
+        lampLight *
+        0.08f;
+}

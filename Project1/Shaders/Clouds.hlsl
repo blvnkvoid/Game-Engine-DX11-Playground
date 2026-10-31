@@ -75,11 +75,12 @@ float LinearizeDepth(float depth)
 
 float4 PSMain(PS_INPUT input) : SV_TARGET
 {
-    int2 pixel =
-        int2(input.position.xy);
+    int2 pixel = int2(input.position.xy);
 
-    float sceneDepth =
-        sceneDepthTexture.Load(pixel, 0);
+    float sceneDepth = sceneDepthTexture.Load(pixel, 0);
+
+    if (sceneDepth < 0.9999f)
+        return float4(0, 0, 0, 0);
 
     // Standard DX11 depth:
     // 1.0 means nothing was rendered here.

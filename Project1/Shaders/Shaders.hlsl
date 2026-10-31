@@ -20,7 +20,7 @@ cbuffer SharedSceneData : register(b0)
     matrix view;
     matrix projection;
 
-    matrix lightViewProjection[3];
+    matrix lightViewProjection[2];
 
     float4 lightDirection;
     float4 lightColor;
@@ -83,7 +83,6 @@ struct VS_INPUT {
 Texture2D objTexture : register(t0);
 Texture2D shadowMap0 : register(t2);
 Texture2D shadowMap1 : register(t12);
-Texture2D shadowMap2 : register(t13);
 Texture2D normalTexture : register(t3);
 Texture2D detailTexture : register(t4);
 Texture2D normalDetailTexture : register(t5);
@@ -110,8 +109,6 @@ PS_INPUT VS(VS_INPUT input)
     output.lightSpacePos1 =
         mul(worldPosition, lightViewProjection[1]);
 
-    output.lightSpacePos2 =
-        mul(worldPosition, lightViewProjection[2]);
 
     output.worldPos = worldPosition.xyz;
 
@@ -152,7 +149,7 @@ PS_INPUT VS(VS_INPUT input)
 #include "ShadeBrakeLight.hlsli"
 #include "ShadePaceLight.hlsli"
 #include "ShadeLampGlow.hlsli"
-//#include "ShadeAsphalt.hlsli"
+#include "ShadeAsphalt.hlsli"
 #include "ShadeHeadLight.hlsli"
 #include "ShadeDecalText.hlsli"
 
@@ -166,6 +163,7 @@ float4 PS(PS_INPUT input) : SV_Target
     int matType = (int)material.materialType;
 
 
+
 // ---------------------------------------------------------
 // DIFFUSE
 // ---------------------------------------------------------
@@ -175,6 +173,8 @@ float4 texColor =
         samplerLinear,
         input.texCoord
     );
+
+    
 
 
 float alphaMask =
@@ -282,6 +282,8 @@ if (viewDepth < 50.0f)
             L,
             0
         );
+
+
 }
 else if (viewDepth < 200.0f)
 {
@@ -293,27 +295,6 @@ else if (viewDepth < 200.0f)
             1
         );
 }
-else if (viewDepth < 800.0f)
-{
-    shadowFactor =
-        CalculateShadowFactor(
-            input.lightSpacePos2,
-            N,
-            L,
-            2
-        );
-}
-
-/*
-if (viewDepth < 50.0f)
-    return float4(1, 0, 0, 1); // C0 RED
-
-if (viewDepth < 200.0f)
-    return float4(0, 1, 0, 1); // C1 GREEN
-
-if (viewDepth < 800.0f)
-    return float4(0, 0, 1, 1); // C2 BLUE
-    */
 
 
 
@@ -334,11 +315,7 @@ if (viewDepth < 800.0f)
 // ---------------------------------------------------------
 // Fallback
 // ---------------------------------------------------------
-/*
-if (abs(viewDepth - 50.0f) < 0.5f)
-{
-    return float4(1.0f, 1.0f, 0.0f, 1.0f);
-}*/
+
 #include "Fallback.hlsli"
 
 

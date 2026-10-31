@@ -19,6 +19,16 @@
 #pragma comment(lib, "d3dcompiler.lib")
 #include <cfloat>
 #include "../UI/Settings.h"
+#define SAFE_RELEASE(p)     \
+    do                      \
+    {                       \
+        if (p)              \
+        {                   \
+            (p)->Release(); \
+            (p) = nullptr;  \
+        }                   \
+    } while (0)
+
 GraphicsEngine::GraphicsEngine()
 {
 
@@ -39,7 +49,6 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     sd.SampleDesc.Quality = 0;
     sd.Windowed = true;
 
-
     D3D11_TEXTURE2D_DESC descDepth = {};
     descDepth.Width = width;
     descDepth.Height = height;
@@ -52,9 +61,10 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
         D3D11_BIND_DEPTH_STENCIL |
         D3D11_BIND_SHADER_RESOURCE;
 
+
     D3D11_RASTERIZER_DESC rasterSolidCullBack = {};
     rasterSolidCullBack.FillMode = D3D11_FILL_SOLID; // Or D3D11_FILL_WIREFRAME for a cool matrix look!
-    rasterSolidCullBack.CullMode = D3D11_CULL_BACK;  // <--- THE CULL KILLER
+    rasterSolidCullBack.CullMode = D3D11_CULL_NONE;  // <--- THE CULL KILLER
     rasterSolidCullBack.AntialiasedLineEnable = true;
     rasterSolidCullBack.MultisampleEnable = true;
     rasterSolidCullBack.FrontCounterClockwise = true;    
@@ -74,8 +84,8 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     shadowrasterSolidCullBack.CullMode = D3D11_CULL_FRONT;
     shadowrasterSolidCullBack.FrontCounterClockwise = true;
     shadowrasterSolidCullBack.DepthClipEnable = TRUE;
-    shadowrasterSolidCullBack.DepthBias = 0;
-    shadowrasterSolidCullBack.SlopeScaledDepthBias = 0.0f;
+    shadowrasterSolidCullBack.DepthBias = 500;
+    shadowrasterSolidCullBack.SlopeScaledDepthBias = 2.0f;
     shadowrasterSolidCullBack.DepthBiasClamp = 0.0f;
 
     D3D11_BUFFER_DESC bd = {};
@@ -198,18 +208,25 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     ID3DBlob* shadowDebugVSBlob = nullptr;
     ID3DBlob* errorVSBlob = nullptr;
 
-    D3D11_INPUT_ELEMENT_DESC shadowLayoutDesc[] =
-    {
+    Microsoft::WRL::ComPtr<ID3DBlob> shadowAlphaPSBlob;
+    Microsoft::WRL::ComPtr<ID3DBlob> shadowAlphaErrors;
+
+D3D11_INPUT_ELEMENT_DESC shadowLayoutDesc[] =
         {
-            "POSITION",
-            0,
-            DXGI_FORMAT_R32G32B32_FLOAT,
-            0,
-            0,
-            D3D11_INPUT_PER_VERTEX_DATA,
-            0
-        }
-    };
+            {"POSITION",
+             0,
+             DXGI_FORMAT_R32G32B32_FLOAT,
+             0,
+             0,
+             D3D11_INPUT_PER_VERTEX_DATA,
+             0},
+            {"TEXCOORD",
+             0,
+             DXGI_FORMAT_R32G32_FLOAT,
+             0,
+             28,
+             D3D11_INPUT_PER_VERTEX_DATA,
+             0}};
 
     D3D11_SAMPLER_DESC samplerDesc{};
     samplerDesc.Filter = D3D11_FILTER_MIN_MAG_MIP_POINT;
@@ -279,6 +296,18 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
         if (FAILED(hr)) return false;      
         hr = D3DCompileFromFile(L"Shaders\\Shadows.hlsl", nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, "main", "vs_5_0", 0, 0, &shadowVSBlob, &errorBlob);
         if (FAILED(hr)) return false;
+        hr = D3DCompileFromFile(L"Shaders\\Shadows.hlsl", nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, "ShadowAlphaPS", "ps_5_0", 0, 0, shadowAlphaPSBlob.GetAddressOf(), shadowAlphaErrors.GetAddressOf());
+        if (FAILED(hr))
+        {
+            if (shadowAlphaErrors)
+            {
+                OutputDebugStringA(static_cast<const char *>(shadowAlphaErrors->GetBufferPointer()));
+            }
+            return false;
+        }
+
+        hr = device->CreatePixelShader(shadowAlphaPSBlob->GetBufferPointer(), shadowAlphaPSBlob->GetBufferSize(), nullptr, m_shadowAlphaPS.GetAddressOf());
+        if (FAILED(hr)) return false;
         hr = device->CreateVertexShader(shadowVSBlob->GetBufferPointer(), shadowVSBlob->GetBufferSize(), nullptr, &m_shadowVertexShader);
         if (FAILED(hr)) return false;
         hr = device->CreateInputLayout(shadowLayoutDesc, ARRAYSIZE(shadowLayoutDesc), shadowVSBlob->GetBufferPointer(), shadowVSBlob->GetBufferSize(), &m_shadowInputLayout);
@@ -297,7 +326,25 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
         if (FAILED(hr)) return false;
         hr = device->CreateSamplerState(&shadowSamplerDesc, &m_shadowComparisonSampler);
         if (FAILED(hr)) return false;
-        for (int cascade = 0; cascade < 3; ++cascade)
+
+            BOOL fullscreen = FALSE;
+        IDXGIOutput *output = nullptr;
+
+        HRESULT hrFullscreen = swapChain->GetFullscreenState(
+            &fullscreen,
+            &output);
+
+        if (SUCCEEDED(hrFullscreen))
+        {
+            OutputDebugStringA(
+                fullscreen
+                    ? "[DXGI] Exclusive Fullscreen: YES\n"
+                    : "[DXGI] Exclusive Fullscreen: NO\n");
+        }
+
+        if (output)
+            output->Release();
+        for (int cascade = 0; cascade < 2; ++cascade)
         {
             const UINT resolution = shadowResolution[cascade];
 
@@ -333,10 +380,8 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
             m_shadowViewport[cascade] = {};
             m_shadowViewport[cascade].TopLeftX = 0.0f;
             m_shadowViewport[cascade].TopLeftY = 0.0f;
-            m_shadowViewport[cascade].Width =
-                static_cast<float>(resolution);
-            m_shadowViewport[cascade].Height =
-                static_cast<float>(resolution);
+            m_shadowViewport[cascade].Width = static_cast<float>(resolution);
+            m_shadowViewport[cascade].Height = static_cast<float>(resolution);
             m_shadowViewport[cascade].MinDepth = 0.0f;
             m_shadowViewport[cascade].MaxDepth = 1.0f;
         }
@@ -372,7 +417,7 @@ bool GraphicsEngine::Init(HWND hWnd, int width, int height)
     style.WindowRounding = 5.0f;                                          // Sleek rounded corners
     style.FrameRounding = 3.0f;
 
-    for (int i = 0; i < 3; ++i)
+    for (int i = 0; i < 2; ++i)
     {
         m_lightView[i] = XMMatrixIdentity();
         m_lightProj[i] = XMMatrixIdentity();
@@ -440,17 +485,15 @@ void GraphicsEngine::DrawShadowDebugView()
         0
     );
 
-    ID3D11ShaderResourceView* shadowSRVs[3] =
+    ID3D11ShaderResourceView* shadowSRV =
     {
-        m_shadowSRV[0].Get(),
-        m_shadowSRV[1].Get(),
-        m_shadowSRV[2].Get()
+        m_shadowSRV[0].Get(),        
     };
 
     context->PSSetShaderResources(
         0,
         1,
-        shadowSRVs
+        &shadowSRV
     );
 
     context->PSSetSamplers(
@@ -521,7 +564,7 @@ SharedSceneData GraphicsEngine::BuildSceneData(Camera* cam, GameObject* player, 
     sd.ambientIntensity = m_sceneData.ambientIntensity;
     sd.headlightIntensity = m_sceneData.headlightIntensity;
 
-    for (int cascade = 0; cascade < 3; ++cascade)
+    for (int cascade = 0; cascade < 2; ++cascade)
     {
         XMMATRIX lightViewProjection =
             XMMatrixMultiply(
@@ -577,12 +620,135 @@ void GraphicsEngine::ApplyEnvironmentDefinition(const EnvironmentDefinition& def
     m_time.PauseTime(!def.dynamicTime);
 }
 
+
+bool GraphicsEngine::Resize(int width, int height)
+{
+    if (width <= 0 || height <= 0)
+        return false;
+
+    // Unbind resources before resizing the swap chain.
+    context->ClearState();
+    context->Flush();
+
+    // Release all references to the old back buffer.
+    renderTargetView.Reset();
+    pBackBuffer.Reset();
+
+    // Release size-dependent depth resources.
+    depthStencilView.Reset();
+    m_depthStencilSRV.Reset();
+    pDepthStencil.Reset();
+
+    // Resize swap-chain buffers.
+    HRESULT hr = swapChain->ResizeBuffers(
+        0,
+        static_cast<UINT>(width),
+        static_cast<UINT>(height),
+        DXGI_FORMAT_UNKNOWN,
+        0);
+
+    if (FAILED(hr))
+    {
+        char msg[128];
+        sprintf_s(msg,
+                  "[DX11] ResizeBuffers FAILED: 0x%08X\n",
+                  static_cast<unsigned int>(hr));
+        OutputDebugStringA(msg);
+        return false;
+    }
+
+    // Acquire the new back buffer.
+    hr = swapChain->GetBuffer(
+        0,
+        IID_PPV_ARGS(pBackBuffer.GetAddressOf()));
+
+    if (FAILED(hr))
+        return false;
+
+    // Recreate the render-target view.
+    hr = device->CreateRenderTargetView(
+        pBackBuffer.Get(),
+        nullptr,
+        renderTargetView.GetAddressOf());
+
+    if (FAILED(hr))
+        return false;
+
+    // Recreate the depth texture.
+    D3D11_TEXTURE2D_DESC depthDesc = {};
+    depthDesc.Width = static_cast<UINT>(width);
+    depthDesc.Height = static_cast<UINT>(height);
+    depthDesc.MipLevels = 1;
+    depthDesc.ArraySize = 1;
+    depthDesc.Format = DXGI_FORMAT_R24G8_TYPELESS;
+    depthDesc.SampleDesc.Count = 1;
+    depthDesc.Usage = D3D11_USAGE_DEFAULT;
+    depthDesc.BindFlags =
+        D3D11_BIND_DEPTH_STENCIL |
+        D3D11_BIND_SHADER_RESOURCE;
+
+    hr = device->CreateTexture2D(
+        &depthDesc,
+        nullptr,
+        pDepthStencil.GetAddressOf());
+
+    if (FAILED(hr))
+        return false;
+
+    // Recreate the depth-stencil view.
+    D3D11_DEPTH_STENCIL_VIEW_DESC dsvDesc = {};
+    dsvDesc.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
+    dsvDesc.ViewDimension = D3D11_DSV_DIMENSION_TEXTURE2DMS;
+
+    hr = device->CreateDepthStencilView(
+        pDepthStencil.Get(),
+        &dsvDesc,
+        depthStencilView.GetAddressOf());
+
+    if (FAILED(hr))
+        return false;
+
+    // Recreate the depth shader-resource view.
+    D3D11_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
+    srvDesc.Format = DXGI_FORMAT_R24_UNORM_X8_TYPELESS;
+    srvDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2DMS;
+    srvDesc.Texture2D.MipLevels = 1;
+
+    hr = device->CreateShaderResourceView(
+        pDepthStencil.Get(),
+        &srvDesc,
+        m_depthStencilSRV.GetAddressOf());
+
+    if (FAILED(hr))
+        return false;
+
+    // Update the engine's rendering dimensions.
+    settings.width = width;
+    settings.height = height;
+
+    // Configure the new viewport.
+    D3D11_VIEWPORT vp = {};
+    vp.Width = static_cast<float>(width);
+    vp.Height = static_cast<float>(height);
+    vp.MinDepth = 0.0f;
+    vp.MaxDepth = 1.0f;
+
+    context->RSSetViewports(1, &vp);
+
+    // Bind the new render targets.
+    ID3D11RenderTargetView *rtv = renderTargetView.Get();
+    context->OMSetRenderTargets(1, &rtv, depthStencilView.Get());
+    OutputDebugStringA("[DX11] Resize SUCCESS\n");
+
+    return true;
+}
+
+
 void GraphicsEngine::BeginShadowPass(int cascade)
 {
     ID3D11ShaderResourceView* nullSRV = nullptr;
     context->PSSetShaderResources(2, 1, &nullSRV);
-    context->PSSetShaderResources(12, 1, &nullSRV);
-    context->PSSetShaderResources(13, 1, &nullSRV);
+    context->PSSetShaderResources(12, 1, &nullSRV);    
     context->ClearDepthStencilView(m_shadowDSV[cascade].Get(), D3D11_CLEAR_DEPTH, 1.0f, 0);
     context->OMSetRenderTargets(0, nullptr, m_shadowDSV[cascade].Get());
     context->RSSetViewports(1, &m_shadowViewport[cascade]);
@@ -598,12 +764,12 @@ void GraphicsEngine::PrepareShadowPass(
     // 1. Cascade distances in CAMERA space
     // ---------------------------------------------------------
 
-    const float cascadeSplits[4] =
+    const float cascadeSplits[3] =
     {
         camera.GetNearPlane(),
         50.0f,
-        200.0f,
-        800.0f
+        200.0f
+        
     };
 
     const float cascadeNear = cascadeSplits[cascade];
@@ -616,11 +782,7 @@ void GraphicsEngine::PrepareShadowPass(
 
     XMFLOAT3 corners[8];
 
-    camera.GetFrustumSliceCorners(
-        cascadeNear,
-        cascadeFar,
-        corners
-    );
+    camera.GetFrustumSliceCorners(cascadeNear, cascadeFar, corners);
 
 
     // ---------------------------------------------------------
@@ -632,9 +794,7 @@ void GraphicsEngine::PrepareShadowPass(
     for (int i = 0; i < 8; ++i)
     {
         cascadeCenter =
-            XMVectorAdd(
-                cascadeCenter,
-                XMLoadFloat3(&corners[i])
+            XMVectorAdd(cascadeCenter, XMLoadFloat3(&corners[i])
             );
     }
 
@@ -744,16 +904,16 @@ void GraphicsEngine::PrepareShadowPass(
     // 6. Build THIS cascade's fitted orthographic projection
     // ---------------------------------------------------------
 
+    const float xyPadding = (cascade <= 1) ? 100.0f : 0.0f;
+
     m_lightProj[cascade] =
         XMMatrixOrthographicOffCenterLH(
-            minX,
-            maxX,
-            minY,
-            maxY,
-            minZ,
-            maxZ
-        );
-
+            minX - xyPadding,
+            maxX + xyPadding,
+            minY - xyPadding,
+            maxY + xyPadding,
+            minZ - 500.0f,
+            maxZ + 500.0f);
 
     // ---------------------------------------------------------
     // 7. Build THIS cascade's world-space culling frustum
@@ -861,11 +1021,11 @@ void GraphicsEngine::BeginFrame(HWND hWnd, DirectX::XMMATRIX view, DirectX::XMMA
 
     ID3D11ShaderResourceView* shadow0 = m_shadowSRV[0].Get();
     ID3D11ShaderResourceView* shadow1 = m_shadowSRV[1].Get();
-    ID3D11ShaderResourceView* shadow2 = m_shadowSRV[2].Get();
+    
 
     context->PSSetShaderResources(2, 1, &shadow0);
     context->PSSetShaderResources(12, 1, &shadow1);
-    context->PSSetShaderResources(13, 1, &shadow2);
+    
 
 
     if (m_isWireframe) {
@@ -885,8 +1045,6 @@ void GraphicsEngine::BeginFrame(HWND hWnd, DirectX::XMMATRIX view, DirectX::XMMA
         m_depthWriteOnState.Get(),
         0);
 
-    RECT rc;
-    GetClientRect(hWnd, &rc);
 
 
     D3D11_VIEWPORT vp = {
@@ -895,6 +1053,7 @@ void GraphicsEngine::BeginFrame(HWND hWnd, DirectX::XMMATRIX view, DirectX::XMMA
         settings.height,
         0.0f, 1.0f
     };
+
 
     context->RSSetViewports(1, &vp);
     context->IASetInputLayout(inputLayout.Get());

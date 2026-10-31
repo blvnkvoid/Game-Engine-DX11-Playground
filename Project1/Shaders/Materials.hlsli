@@ -154,9 +154,7 @@ if (matType == MATERIAL_SAFETYCAR_PAINT)
 
 if (matType == MATERIAL_TREE)
 {
-    clip(
-        texColor.a - 0.01f
-    );
+    clip(texColor.a - 0.5f);
 
-    return float4(texColor.rgb, 1.0f);
+    
 }

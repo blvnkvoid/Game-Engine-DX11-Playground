@@ -20,11 +20,6 @@ float SampleCascadeShadow(
         );
     }
 
-    return shadowMap2.SampleCmpLevelZero(
-        shadowComparisonSampler,
-        uv,
-        depth
-    );
 }
 
 
@@ -41,10 +36,7 @@ float2 GetCascadeTexelSize(uint cascadeIndex)
     {
         shadowMap1.GetDimensions(width, height);
     }
-    else
-    {
-        shadowMap2.GetDimensions(width, height);
-    }
+
 
     return 1.0f / float2(width, height);
 }
@@ -78,19 +70,7 @@ float CalculateShadowFactor(
         return 1.0f;
     }
 
-    float ndotl =
-        saturate(
-            dot(
-                normalize(normal),
-                normalize(lightDir)
-            )
-        );
-
-    float bias =
-        max(
-            0.005f * (1.0f - ndotl),
-            0.0005f
-        );
+    float bias = 0.0f;
 
     float2 texelSize =
         GetCascadeTexelSize(cascadeIndex);

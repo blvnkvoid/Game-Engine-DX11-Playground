@@ -109,7 +109,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     CoInitializeEx(nullptr, COINIT_APARTMENTTHREADED);
     ShowWindow(hWnd, nCmdShow);
 
+
     engine->Init(hWnd, settings.width, settings.height);
+
+
     skyEngine.Initialize(engine->GetDevice());
     audio.InitAudio();
     audio.LoadMenuSounds();
@@ -153,34 +156,42 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 
     MSG msg = {};
-    while (msg.message != WM_QUIT) {
-        if (PeekMessage(&msg, NULL, 0U, 0U, PM_REMOVE)) {
+    while (msg.message != WM_QUIT)
+    {
+        if (PeekMessage(&msg, NULL, 0U, 0U, PM_REMOVE))
+        {
             TranslateMessage(&msg);
             DispatchMessage(&msg);
         }
-        else {
+        else
+        {
             LARGE_INTEGER timeCur;
             QueryPerformanceCounter(&timeCur);
             float deltaTime = (float)(timeCur.QuadPart - timeStart.QuadPart) / (float)frequency.QuadPart;
             timeStart = timeCur;
 
-
-            if (!io.WantCaptureMouse) {
+            if (!io.WantCaptureMouse)
+            {
                 POINT currentMousePos;
                 GetCursorPos(&currentMousePos);
                 float dx = (float)(currentMousePos.x - centerPos.x);
                 float dy = (float)(currentMousePos.y - centerPos.y);
 
-                if (camera->IsInManualMode()) {
-                    if (dx != 0 || dy != 0) {
+                if (camera->IsInManualMode())
+                {
+                    if (dx != 0 || dy != 0)
+                    {
                         camera->AdjustRotation(dx, dy);
                         SetCursorPos(centerPos.x, centerPos.y);
                     }
                 }
-                while (::ShowCursor(FALSE) >= 0);
+                while (::ShowCursor(FALSE) >= 0)
+                    ;
             }
-            else {
-                while (::ShowCursor(TRUE) < 0);
+            else
+            {
+                while (::ShowCursor(TRUE) < 0)
+                    ;
             }
 
             Input::Update(camera);
@@ -190,13 +201,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                 g_ShowDebugUI = !g_ShowDebugUI;
             }
 
-            ImGuiIO& io = ImGui::GetIO();
+            ImGuiIO &io = ImGui::GetIO();
             Input::GetControllerState();
             engine->SetBrakeAmount(Input::GetBrake());
 
             ImGui_ImplDX11_NewFrame();
             ImGui_ImplWin32_NewFrame();
-
 
             io.DisplayFramebufferScale = ImVec2(
                 settings.width / io.DisplaySize.x,
@@ -205,12 +215,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
             Input::FeedImGuiGamepadNavigation();
             ImGui::NewFrame();
 
-
             racingHUD.Draw(g_DebugTelemetry);
 
-
-            if (menu.g_CurrentState == EngineState::MAIN_MENU) {
-                if (assetsLoaded) {
+            if (menu.g_CurrentState == EngineState::MAIN_MENU)
+            {
+                if (assetsLoaded)
+                {
                     mainScene->Clear();
 
                     camera->SetFollowTarget(nullptr);
@@ -227,7 +237,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                     camera->projectionMatrix,
                     deltaTime,
                     camera);
-
 
                 audio.StopJukebox();
 
@@ -254,7 +263,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                         m_mapTrack = new MapLoader();
                     }
 
-
                     physics->SetHandling(handling);
                     LogiSteeringInitialize(true);
 
@@ -271,14 +279,14 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                     if (menu.m_GameMode == GameMode::Arcade)
                     {
                         trackSelection = menu.m_trackmenu.m_selectedTrack;
-                        playerSelection = garage.m_PreviewSelection;                        
+                        playerSelection = garage.m_PreviewSelection;
                         environment.startTime = 45.0f;
                         environment.dynamicTime = false;
                         totalLaps = 100;
                     }
                     else if (menu.m_GameMode == GameMode::GranTurismo)
                     {
-                     
+
                         if (!eventSession.IsActive())
                         {
                             eventSession = eventRegistry.CreateSession(menu.m_eventmenu.m_LaunchType, menu.m_eventmenu.m_SelectedEvent);
@@ -302,7 +310,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                         continue;
                     }
 
-
                     // ---------------------------------------------------------
                     // Resolve track
                     // ---------------------------------------------------------
@@ -311,7 +318,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
                     std::string trackPath = "";
 
-                    for (auto& track : g_TrackTable)
+                    for (auto &track : g_TrackTable)
                     {
                         if (track.selection == trackSelection)
                         {
@@ -347,7 +354,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                     {
                         physics->AddTriangleMeshCollider(m_mapTrack->GetVertices(), m_mapTrack->GetCollisionIndices());
                     }
-                    const auto& markers = m_mapTrack->GetMarkers();
+                    const auto &markers = m_mapTrack->GetMarkers();
 
                     // ---------------------------------------------------------
                     // Track timing
@@ -363,12 +370,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                     if (menu.m_GameMode == GameMode::GranTurismo)
                     {
                         // Build complete Event grid.
-                        raceGrid.Build(event, markers, vehicleRegistry, *physics, engine->GetDevice(), engine->GetContext(), engine->GetTextureManager(), garage.m_PreviewSelection,engine->GetMaterialLoader());
+                        raceGrid.Build(event, markers, vehicleRegistry, *physics, engine->GetDevice(), engine->GetContext(), engine->GetTextureManager(), garage.m_PreviewSelection, engine->GetMaterialLoader());
                     }
                     else if (menu.m_GameMode == GameMode::Arcade)
                     {
                         // Arcade currently contains only the player. Spawn at grid position 0.
-                        raceGrid.BuildPlayerSpawn(markers, *physics,0);
+                        raceGrid.BuildPlayerSpawn(markers, *physics, 0);
                     }
 
                     physics->SetStartTransform(raceGrid.GetPlayerSpawn());
@@ -379,7 +386,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                     // ---------------------------------------------------------
 
                     vehicleRegistry.GetOrLoadVehicle(playerSelection, engine->GetDevice(), engine->GetContext(), engine->GetTextureManager(), engine->GetMaterialLoader());
-                    VehicleAsset& vehicle = vehicleRegistry.GetVehicle(playerSelection);
+                    VehicleAsset &vehicle = vehicleRegistry.GetVehicle(playerSelection);
                     playerModel = vehicle.model.get();
                     playerObject = vehicle.object.get();
 
@@ -434,12 +441,13 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                     physics->Update(deltaTime, Input::GetCurrentInputs());
                     g_LapTimer.Update(deltaTime);
 
-                    if (physics->CheckAndResetPassedStartMeta()) g_LapTimer.TriggerStartMeta();
-                    if (physics->CheckAndResetPassedSector1())   g_LapTimer.TriggerSector1();
-                    if (physics->CheckAndResetPassedSector2())   g_LapTimer.TriggerSector2();
+                    if (physics->CheckAndResetPassedStartMeta())
+                        g_LapTimer.TriggerStartMeta();
+                    if (physics->CheckAndResetPassedSector1())
+                        g_LapTimer.TriggerSector1();
+                    if (physics->CheckAndResetPassedSector2())
+                        g_LapTimer.TriggerSector2();
                 }
-
-
 
                 if (g_LapTimer.HasFinishedRace())
                 {
@@ -456,7 +464,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                     physics->GetCarTransform(trans);
                     XMMATRIX physicsWorld = physics->btTransformToXMMATRIX(trans);
 
-                    if (playerModel && playerObject) {
+                    if (playerModel && playerObject)
+                    {
                         XMMATRIX finalWorld = XMMatrixTranslation(0.0f, -0.64f, 0.0f) * physicsWorld;
                         playerObject->SetWorldMatrix(finalWorld);
                         playerModel->SetModelPosition(trans.getOrigin().x(), trans.getOrigin().y(), trans.getOrigin().z());
@@ -465,23 +474,21 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                     camera->Update(deltaTime, *activeTrackEntry);
                 }
 
-
                 {
-                    ZoneScopedN("Shadow Pass");
+                  ZoneScopedN("Shadow Pass");
 
-                    sceneData = engine->BuildSceneData(camera, playerObject, XMMatrixIdentity());
+                  sceneData = engine->BuildSceneData(camera, playerObject, XMMatrixIdentity());
                     TracyD3D11Zone(engine->GetTracyGpuContext(), "Shadow Pass GPU");
 
-                    for (int cascade = 0; cascade < 3; cascade++)
+                    for (int cascade = 0; cascade < 2; cascade++)
                     {
                         engine->BeginShadowPass(cascade);
                         engine->PrepareShadowPass(sceneData, *activeTrackEntry, cascade, *camera);
-                        m_mapTrack->DrawShadow(engine->GetContext(), cb, sceneData, engine->GetLightFrustum(cascade), engine->GetDepthStencilState());
+                        m_mapTrack->DrawShadow(engine->GetContext(), cb, sceneData, engine->GetLightFrustum(cascade), engine->GetDepthStencilState(), engine->GetShadowAlphaPS());
                     }
 
                     sceneData = engine->BuildSceneData(camera, playerObject, XMMatrixIdentity());
                 }
-
 
                 {
                     ZoneScopedN("Begin Frame");
@@ -489,8 +496,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                     engine->BeginFrame(hWnd, camera->viewMatrix, camera->projectionMatrix, deltaTime, camera);
                     sceneData = engine->BuildSceneData(camera, playerObject, XMMatrixIdentity());
                 }
-
-
 
                 devConsole.Draw();
                 devConsole.ExecuteCommand(*engine, *physics);
@@ -502,14 +507,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                     raceGrid.Render(*engine, *camera);
                 }
 
-                
                 {
                     ZoneScopedN("Map");
 
                     if (m_mapTrack)
                     {
-                        TracyD3D11Zone(engine->GetTracyGpuContext(), "Map Zone GPU")
-                        if (!materialLoaded)
+                        TracyD3D11Zone(engine->GetTracyGpuContext(), "Map Zone GPU") if (!materialLoaded)
                         {
                             std::string materialPath = activeTrackEntry->path;
                             materialPath.replace(materialPath.size() - 4, 4, ".mtl");
@@ -531,14 +534,14 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
                 {
                     ZoneScopedN("Sky");
-                    engine->GetSun().Render(engine->GetContext(), camera, skyEngine);
-                    engine->GetClouds().Render(engine->GetContext(), skyEngine, *engine, camera);
+                   engine->GetSun().Render(engine->GetContext(), camera, skyEngine);
+                   engine->GetClouds().Render(engine->GetContext(), skyEngine, *engine, camera);
                 }
             }
             {
                 ZoneScopedN("UI");
 
-//                engine->DrawShadowDebugView();
+                //engine->DrawShadowDebugView();
                 ImGui::Render();
                 ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
             }
@@ -551,11 +554,47 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
             {
                 ZoneScopedN("EndFrame / Present");
                 engine->EndFrame();
-            }
-            engine->CollectTracyGpu();
-            FrameMark;
-        }
 
+             int newWidth = 0;
+                int newHeight = 0;
+
+                bool resolutionRequested = false;
+
+                // 1. Check the settings menu
+                if (menu.ConsumeResolutionChange(newWidth, newHeight))
+                {
+                    resolutionRequested = true;
+                }
+
+                // 2. Check the developer console
+                if (devConsole.ConsumeResolutionRequest(newWidth, newHeight))
+                {
+                    resolutionRequested = true;
+                }
+
+                // 3. Execute the SAME resize pipeline
+                if (resolutionRequested)
+                {
+                    if (engine->Resize(newWidth, newHeight))
+                    {
+                        settings.width = static_cast<float>(newWidth);
+                        settings.height = static_cast<float>(newHeight);             
+
+                        RECT rect = {0, 0, newWidth, newHeight};
+
+                        DWORD style = static_cast<DWORD>(
+                            GetWindowLongPtr(hWnd, GWL_STYLE));
+
+                        DWORD exStyle = static_cast<DWORD>(
+                            GetWindowLongPtr(hWnd, GWL_EXSTYLE));
+
+                    }
+                }
+
+                engine->CollectTracyGpu();
+                FrameMark;
+            }
+        }
     }
 
     audio.ShutdownAudio();

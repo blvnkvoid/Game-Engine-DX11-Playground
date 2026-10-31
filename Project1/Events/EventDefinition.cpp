@@ -14,7 +14,6 @@ EventDefinition CreateSundayCup_Tsukuba()
     };
 
     return event;
-
 } 
 
 
@@ -52,5 +51,4 @@ EventDefinition CreateSundayCup_TrialMountain()
     };
 
     return event;
-
 }

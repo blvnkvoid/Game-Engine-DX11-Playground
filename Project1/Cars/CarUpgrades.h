@@ -15,38 +15,18 @@ struct WeightReductionUpgrade
     float massMultiplier = 1.0f;
 };
 
-
-
-
 extern const EngineUpgrade StockEngine;
 extern const EngineUpgrade NATune;
 extern const EngineUpgrade Turbo;
-
 
 extern const WeightReductionUpgrade StockWeight;
 extern const WeightReductionUpgrade WeightReductionStage1;
 extern const WeightReductionUpgrade WeightReductionStage2;
 extern const WeightReductionUpgrade WeightReductionStage3;
 
+const EngineUpgrade &GetEngineUpgrade(EngineUpgradeSelection selection);
+const WeightReductionUpgrade &GetWeightReductionUpgrade(WeightReductionSelection selection);
 
-
-
-void ApplyEngineUpgrade(
-    VehicleDefinition& car,
-    const EngineUpgrade& upgrade);
-
-void ApplyWeightReductionUpgrade(
-    VehicleDefinition& car,
-    const WeightReductionUpgrade& upgrade);
-
-void ApplyTyresUpgrade(
-    VehicleDefinition& car,
-    TyreCompound compound);
-
-const EngineUpgrade& GetEngineUpgrade(
-    EngineUpgradeSelection selection);
-
-
-const WeightReductionUpgrade& GetWeightReductionUpgrade(
-    WeightReductionSelection selection);
-
+void ApplyEngineUpgrade(VehicleDefinition &car, const EngineUpgrade &upgrade);
+void ApplyWeightReductionUpgrade(VehicleDefinition &car, const WeightReductionUpgrade &upgrade);
+void ApplyTyresUpgrade(VehicleDefinition &car, TyreCompound compound);

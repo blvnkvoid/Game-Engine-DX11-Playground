@@ -119,7 +119,8 @@ public:
         ID3D11Buffer* cbb,
         const SharedSceneData& engineSceneData,
         const DirectX::BoundingFrustum& frustum,
-        ID3D11DepthStencilState* depthWriteOn);
+        ID3D11DepthStencilState* depthWriteOn,
+        ID3D11PixelShader* shadowAlphaPS);
 
 
     void UpdateVisibleLights(
@@ -160,7 +161,8 @@ public:
     void DrawShadowBVHNode(
         int nodeIndex,
         ID3D11DeviceContext* context,
-        const DirectX::BoundingFrustum& frustum
+        const DirectX::BoundingFrustum& frustum,
+        ID3D11PixelShader *shadowAlphaPS
     );
 
     void CollectVisibleBVH(
@@ -184,6 +186,11 @@ public:
          const aiNode* node,
          const aiScene* scene,
          const aiMatrix4x4& parentTransform);
+
+     void DrawShadowSubset(
+         ID3D11DeviceContext *context,
+         const MapMeshSubset &subset,
+         ID3D11PixelShader *shadowAlphaPS);
 
 
      void FindGridNodes(

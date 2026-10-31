@@ -15,10 +15,7 @@
 #pragma warning(disable : 4099)  // Type name first seen using 'class' now seen using 'struct'
 #pragma warning(disable : 4244)  // Conversion from 'double' to 'btScalar', possible loss of data
 #pragma warning(disable : 26439) // This kind of function may not throw. Declare it 'noexcept'
-
-
 #pragma warning(pop)
-
 
 class PhysicsEngine {
 public:
@@ -33,9 +30,22 @@ public:
     void Update(float deltaTime, SharedVehicleInputs inputs);
     void RequestReset() { m_needsReset = true; }
     bool m_needsReset = false;
-    btRigidBody* GetCarBody() { return m_carBody; }
-    btDiscreteDynamicsWorld* GetDynamicsWorld() { return m_dynamicsWorld; }
+    void SetVehicleDefinition(const VehicleDefinition &definition);
+    void SetHandling(Handling *handling);
+    void TeleportCar(float x, float y, float z);
+    void SetTrackTiming(const TrackTimingEntry &timing);
+    void SetStartTransform(const btTransform &transform);
+    bool CheckAndResetPassedStartMeta() {bool val = m_passedStartMeta; m_passedStartMeta = false; return val;}
+    bool CheckAndResetPassedSector1() {bool val = m_passedSector1; m_passedSector1 = false; return val;}
+    bool CheckAndResetPassedSector2() {bool val = m_passedSector2; m_passedSector2 = false; return val;}
+    void ToggleTelemetryRecording(const std::string &filename) {m_telemetryRecorder.Toggle(filename);}
+    bool IsTelemetryRecording() const {return m_telemetryRecorder.IsRecording();}
+    btRigidBody* GetCarBody() {return m_carBody;}
+    btDiscreteDynamicsWorld* GetDynamicsWorld() {return m_dynamicsWorld;}
     DirectX::XMMATRIX btTransformToXMMATRIX(const btTransform& worldTransform);
+    btTransform m_startTransform;
+    btVector3 ProjectToGround(const btVector3 &approximatePosition, float clearance = 0.6f) const;
+
     static bool CustomInternalEdgeCallback(btManifoldPoint& cp, const btCollisionObjectWrapper* colObj0Wrap, int partId0, int index0, const btCollisionObjectWrapper* colObj1Wrap, int partId1, int index1)
     {
         btAdjustInternalEdgeContacts(cp, colObj1Wrap, colObj0Wrap, partId1, index1);
@@ -47,36 +57,9 @@ public:
             cp.m_distance1 = -0.01f;
         }
         return true;
-    }
+    }    
 
-    bool CheckAndResetPassedStartMeta() { bool val = m_passedStartMeta; m_passedStartMeta = false; return val; }
-    bool CheckAndResetPassedSector1() { bool val = m_passedSector1;   m_passedSector1 = false;   return val; }
-    bool CheckAndResetPassedSector2() { bool val = m_passedSector2;   m_passedSector2 = false;   return val; }
-
-    void SetVehicleDefinition(const VehicleDefinition& definition);
-    void SetHandling(Handling* handling);
-    void TeleportCar(float x, float y, float z);
-    void SetTrackTiming(const TrackTimingEntry& timing);
-
-    void SetStartTransform(const btTransform& transform);
-
-    btTransform m_startTransform;
-
-    btVector3 ProjectToGround(
-        const btVector3& approximatePosition,
-        float clearance = 0.6f) const;
-
-    void ToggleTelemetryRecording(const std::string& filename)
-    {
-        m_telemetryRecorder.Toggle(filename);
-    }
-
-    bool IsTelemetryRecording() const
-    {
-        return m_telemetryRecorder.IsRecording();
-    }
-
-    private:
+private:
     btDefaultCollisionConfiguration* m_collisionConfig;
     btCollisionDispatcher* m_dispatcher;
     btBroadphaseInterface* m_broadphase;
@@ -94,6 +77,7 @@ public:
     bool m_passedSector2 = false;
     VehicleDefinition m_vehicle;
     TrackTimingEntry m_timing;
-
+    void StepPhysics(float fixedDt, SharedVehicleInputs inputs);
+    double m_physicsAccumulator = 0.0;
     TelemetryRecorder m_telemetryRecorder;
 };

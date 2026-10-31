@@ -1,5 +1,9 @@
 #include "TrackTable.h"
 
+
+TrackSelection GameConfig::activeTrack = TrackSelection::TestCourse;
+
+
     std::vector<TrackEntry> g_TrackTable =
     {
         { TrackSelection::AutumnRing,      "Tracks/AutumnRing/AutumnRing.fbx",          TrackRenderSettings     { 0.25f, 1000.0f, 350.0f, 800.0f, 1500.0f, 50.0f, 2000.0f } },

@@ -3,10 +3,9 @@
 // ---------------------------------------------------------
 
 
-float ndotl =
-saturate(
-    dot(N, L)
-);
+float ndotl = saturate(dot(N, L));
+
+float lightingFactor = lerp(0.35f, 1.0f, ndotl);
 
 float3 baseColor;
 
@@ -67,7 +66,7 @@ float3 ambient = baseColor * ambientIntensity * modelAmbientMultiplier;
 // Direct sunlight
 // ---------------------------------------------------------
 
-float3 diffuse = baseColor * lightColor.rgb  * 0.9f;
+float3 diffuse = baseColor * lightColor.rgb * 0.9f * lightingFactor;
 
 diffuse *= shadowFactor;
 
@@ -184,8 +183,6 @@ reflection +
 finalMirror +
 localLighting;
 
+//return float4(ndotl.xxx, 1.0f);
 
-return float4(
-    finalColor,
-    1.0f
-    );
+return float4(finalColor,1.0f);

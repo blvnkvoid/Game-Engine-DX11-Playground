@@ -1,86 +1,74 @@
 ﻿#pragma warning(push)
-#pragma warning(disable : 26451) // Arithmetic overflow (the one you just found)
-#pragma warning(disable : 26495) // Uninitialized member variable
-#pragma warning(disable : 26812) // Prefer 'enum class' over 'enum'
-#pragma warning(disable : 4099)  // Type name first seen using 'class' now seen using 'struct'
-#pragma warning(disable : 4244)  // Conversion from 'double' to 'btScalar', possible loss of data
-#pragma warning(disable : 26439) // This kind of function may not throw. Declare it 'noexcept'
+#pragma warning(disable : 26451)
+#pragma warning(disable : 26495)
+#pragma warning(disable : 26812)
+#pragma warning(disable : 4099)
+#pragma warning(disable : 4244)
+#pragma warning(disable : 26439)
 #include <bullet/btBulletDynamicsCommon.h>
 #pragma warning(pop)
 
 #include "PhysicsEngine.h"
 #include "../Input/Input.h"
 #include "../SharedVehicleTypes.h"
-#include "Spawner.h"
+#include <algorithm>
 #include <chrono>
 #include <cstdio>
 #include <Windows.h>
-
 
 PhysicsEngine::PhysicsEngine()
 {
     m_passedStartMeta = false;
     m_passedSector1 = false;
     m_passedSector2 = false;
-
 }
 
-void PhysicsEngine::Initialize() {
+void PhysicsEngine::Initialize()
+{
     m_collisionConfig = new btDefaultCollisionConfiguration();
     m_dispatcher = new btCollisionDispatcher(m_collisionConfig);
-    gContactAddedCallback = PhysicsEngine::CustomInternalEdgeCallback;  
+    gContactAddedCallback = PhysicsEngine::CustomInternalEdgeCallback;
     m_broadphase = new btDbvtBroadphase();
     m_solver = new btSequentialImpulseConstraintSolver();
-    m_dynamicsWorld = new btDiscreteDynamicsWorld(
-        m_dispatcher, m_broadphase, m_solver, m_collisionConfig
-    );
+    m_dynamicsWorld = new btDiscreteDynamicsWorld(m_dispatcher, m_broadphase, m_solver, m_collisionConfig);
+
     m_dynamicsWorld->setGravity(btVector3(0, -9.81f, 0));
     m_dynamicsWorld->getSolverInfo().m_globalCfm = 0.00000f;
     m_dynamicsWorld->getSolverInfo().m_erp2 = 0.02f;
 }
 
-btVector3 PhysicsEngine::ProjectToGround(
-    const btVector3& approximatePosition,
-    float clearance) const
+btVector3 PhysicsEngine::ProjectToGround(const btVector3 &approximatePosition, float clearance) const
 {
-    btVector3 rayStart =
-        approximatePosition + btVector3(0.0f, 20.0f, 0.0f);
-
-    btVector3 rayEnd =
-        approximatePosition - btVector3(0.0f, 50.0f, 0.0f);
-
+    btVector3 rayStart = approximatePosition + btVector3(0.0f, 20.0f, 0.0f);
+    btVector3 rayEnd = approximatePosition - btVector3(0.0f, 50.0f, 0.0f);
     btCollisionWorld::ClosestRayResultCallback hit(rayStart, rayEnd);
 
     m_dynamicsWorld->rayTest(rayStart, rayEnd, hit);
 
     if (hit.hasHit())
     {
-        return hit.m_hitPointWorld +
-            hit.m_hitNormalWorld * clearance;
+        return hit.m_hitPointWorld + hit.m_hitNormalWorld * clearance;
     }
 
     return approximatePosition;
 }
 
-void PhysicsEngine::SetVehicleDefinition(
-    const VehicleDefinition& definition)
+void PhysicsEngine::SetVehicleDefinition(const VehicleDefinition &definition)
 {
     m_vehicle = definition;
 }
 
-void PhysicsEngine::SetStartTransform(const btTransform& transform)
+void PhysicsEngine::SetStartTransform(const btTransform &transform)
 {
     m_startTransform = transform;
 }
 
+void PhysicsEngine::SetTrackTiming(const TrackTimingEntry &timing)
+{
+    m_timing = timing;
+}
 
-
-    void PhysicsEngine::SetTrackTiming(const TrackTimingEntry& timing)
-    {
-        m_timing = timing;
-    }
-
-void PhysicsEngine::SetHandling(Handling* handling)
+void PhysicsEngine::SetHandling(Handling *handling)
 {
     m_handling = handling;
 }
@@ -94,31 +82,27 @@ void PhysicsEngine::TeleportCar(float x, float y, float z)
     m_carBody->setWorldTransform(t);
 
     if (m_carBody->getMotionState())
+    {
         m_carBody->getMotionState()->setWorldTransform(t);
+    }
 
     m_carBody->setLinearVelocity(btVector3(0, 0, 0));
     m_carBody->setAngularVelocity(btVector3(0, 0, 0));
     m_carBody->activate(true);
 }
 
-void PhysicsEngine::CreatePhysicsWorld() {
-    
-
+void PhysicsEngine::CreatePhysicsWorld()
+{
     m_groundBody = nullptr;
 
     const float bodyWidthPadding = 0.05f;
-
     const float halfWidth = m_vehicle.Offset_X + bodyWidthPadding;
-
     const float halfLength = m_vehicle.bodyLength * 0.5f;
 
-    btBoxShape* box = new btBoxShape(
-        btVector3(halfWidth, 0.64f, halfLength)
-    );
-
+    btBoxShape *box = new btBoxShape(btVector3(halfWidth, 0.64f, halfLength));
     m_collisionShapes.push_back(box);
 
-    btCompoundShape* compound = new btCompoundShape();
+    btCompoundShape *compound = new btCompoundShape();
     m_collisionShapes.push_back(compound);
 
     btTransform localTrans;
@@ -126,29 +110,23 @@ void PhysicsEngine::CreatePhysicsWorld() {
     localTrans.setOrigin(btVector3(0.0f, 0.64f, 0.0f));
     compound->addChildShape(localTrans, box);
 
-
     btVector3 localInertia(0, 0, 0);
     compound->calculateLocalInertia(m_vehicle.mass, localInertia);
-    localInertia.setY(localInertia.y()  * m_vehicle.yawInertiaScale);
+    localInertia.setY(localInertia.y() * m_vehicle.yawInertiaScale);
     localInertia.setX(localInertia.x() * m_vehicle.pitchInertiaScale);
     localInertia.setZ(localInertia.z() * m_vehicle.rollInertiaScale);
 
-
-
     btTransform carTransform = m_startTransform;
-
-    btDefaultMotionState* carMotionState = new btDefaultMotionState(carTransform);
+    btDefaultMotionState *carMotionState = new btDefaultMotionState(carTransform);
     m_motionStates.push_back(carMotionState);
 
     btRigidBody::btRigidBodyConstructionInfo carRBInfo(m_vehicle.mass, carMotionState, compound, localInertia);
     m_carBody = new btRigidBody(carRBInfo);
-    carRBInfo.m_localInertia = localInertia;
 
     m_handling->SetPhysicsPointers(m_carBody);
 
     m_carBody->setMassProps(m_vehicle.mass, localInertia);
     m_carBody->updateInertiaTensor();
-
     m_carBody->setActivationState(ACTIVE_TAG);
     m_carBody->setDeactivationTime(1.0f);
     m_carBody->setSleepingThresholds(0.1f, 0.1f);
@@ -161,55 +139,64 @@ void PhysicsEngine::CreatePhysicsWorld() {
     m_carBody->setCcdSweptSphereRadius(0.2f);
 }
 
-DirectX::XMMATRIX PhysicsEngine::btTransformToXMMATRIX(const btTransform& worldTransform) {
+DirectX::XMMATRIX PhysicsEngine::btTransformToXMMATRIX(const btTransform &worldTransform)
+{
     btScalar m[16];
     worldTransform.getOpenGLMatrix(m);
     DirectX::XMMATRIX mat = DirectX::XMMATRIX(
         (float)m[0], (float)m[1], (float)m[2], (float)m[3],
         (float)m[4], (float)m[5], (float)m[6], (float)m[7],
         (float)m[8], (float)m[9], (float)m[10], (float)m[11],
-        (float)m[12], (float)m[13], (float)m[14], (float)m[15]
-    );
+        (float)m[12], (float)m[13], (float)m[14], (float)m[15]);
     return mat;
 }
 
-void PhysicsEngine::GetCarTransform(btTransform& outTrans) {
-    if (m_carBody) m_carBody->getMotionState()->getWorldTransform(outTrans);
-    else outTrans.setIdentity();
+void PhysicsEngine::GetCarTransform(btTransform &outTrans)
+{
+    if (m_carBody)
+    {
+        m_carBody->getMotionState()->getWorldTransform(outTrans);
+    }
+    else
+    {
+        outTrans.setIdentity();
+    }
 }
 
-void PhysicsEngine::AddTriangleMeshCollider(const std::vector<SharedVertex>& vertices, const std::vector<UINT>& indices) {
-    if (vertices.empty() || indices.empty()) return;
+void PhysicsEngine::AddTriangleMeshCollider(const std::vector<SharedVertex> &vertices, const std::vector<UINT> &indices)
+{
+    if (vertices.empty() || indices.empty())
+        return;
 
     btIndexedMesh part;
     part.m_numTriangles = indices.size() / 3;
-    part.m_triangleIndexBase = (const unsigned char*)indices.data();
+    part.m_triangleIndexBase = (const unsigned char *)indices.data();
     part.m_triangleIndexStride = 3 * sizeof(UINT);
     part.m_numVertices = vertices.size();
-    part.m_vertexBase = (const unsigned char*)&vertices[0].pos;
+    part.m_vertexBase = (const unsigned char *)&vertices[0].pos;
     part.m_vertexStride = sizeof(SharedVertex);
     part.m_indexType = PHY_INTEGER;
     part.m_vertexType = PHY_FLOAT;
 
-    btTriangleIndexVertexArray* meshInterface = new btTriangleIndexVertexArray();
+    btTriangleIndexVertexArray *meshInterface = new btTriangleIndexVertexArray();
     meshInterface->addIndexedMesh(part, PHY_INTEGER);
 
-    btBvhTriangleMeshShape* trimeshShape = new btBvhTriangleMeshShape(meshInterface, false);
+    btBvhTriangleMeshShape *trimeshShape = new btBvhTriangleMeshShape(meshInterface, false);
     trimeshShape->setMargin(0.0f);
     m_collisionShapes.push_back(trimeshShape);
 
-    btTriangleInfoMap* infoMap = new btTriangleInfoMap();
+    btTriangleInfoMap *infoMap = new btTriangleInfoMap();
     btGenerateInternalEdgeInfo(trimeshShape, infoMap);
     trimeshShape->setTriangleInfoMap(infoMap);
 
     btTransform trans;
     trans.setIdentity();
 
-    btDefaultMotionState* motionState = new btDefaultMotionState(trans);
+    btDefaultMotionState *motionState = new btDefaultMotionState(trans);
     m_motionStates.push_back(motionState);
 
     btRigidBody::btRigidBodyConstructionInfo rbInfo(0, motionState, trimeshShape, btVector3(0, 0, 0));
-    btRigidBody* body = new btRigidBody(rbInfo);
+    btRigidBody *body = new btRigidBody(rbInfo);
     body->setCollisionFlags(body->getCollisionFlags() | btCollisionObject::CF_CUSTOM_MATERIAL_CALLBACK);
     body->setFriction(0.05f);
     body->setRestitution(0.0f);
@@ -219,20 +206,20 @@ void PhysicsEngine::AddTriangleMeshCollider(const std::vector<SharedVertex>& ver
     m_meshInterfaces.push_back(meshInterface);
 }
 
-void PhysicsEngine::ResetCar() {
-    if (!m_carBody) return;
+void PhysicsEngine::ResetCar()
+{
+    if (!m_carBody)
+        return;
 
     m_carBody->setLinearVelocity(btVector3(0, 0, 0));
     m_carBody->setAngularVelocity(btVector3(0, 0, 0));
     m_carBody->clearForces();
 
-
-    btTransform carTransform = m_startTransform;
-
     btTransform resetTr = m_startTransform;
     m_carBody->setWorldTransform(resetTr);
 
-    if (m_carBody->getMotionState()) {
+    if (m_carBody->getMotionState())
+    {
         m_carBody->getMotionState()->setWorldTransform(resetTr);
     }
 
@@ -242,16 +229,15 @@ void PhysicsEngine::ResetCar() {
     m_carBody->setActivationState(ACTIVE_TAG);
 }
 
-auto HorizontalDistance = [](const btVector3& a, const btVector3& b)
+auto HorizontalDistance = [](const btVector3 &a, const btVector3 &b)
 {
     const float dx = a.x() - b.x();
     const float dz = a.z() - b.z();
-
     return std::sqrt(dx * dx + dz * dz);
 };
 
-void PhysicsEngine::Update(float deltaTime, SharedVehicleInputs inputs) {
-
+void PhysicsEngine::Update(float deltaTime, SharedVehicleInputs inputs)
+{
     using Clock = std::chrono::steady_clock;
 
     static auto previousCall = Clock::now();
@@ -259,40 +245,51 @@ void PhysicsEngine::Update(float deltaTime, SharedVehicleInputs inputs) {
     static int updateCount = 0;
 
     const auto now = Clock::now();
-
-    const float measuredDelta =
-        std::chrono::duration<float>(now - previousCall).count();
-
+    const float measuredDelta = std::chrono::duration<float>(now - previousCall).count();
     previousCall = now;
     ++updateCount;
 
-    const float reportSeconds =
-        std::chrono::duration<float>(now - previousReport).count();
+    const float reportSeconds = std::chrono::duration<float>(now - previousReport).count();
 
     if (reportSeconds >= 1.0f)
     {
         char buffer[256];
-
-        snprintf(
-            buffer,
-            sizeof(buffer),
-            "Physics: %.1f Hz | Passed dt: %.3f ms | Measured dt: %.3f ms\n",
-            updateCount / reportSeconds,
-            deltaTime * 1000.0f,
-            measuredDelta * 1000.0f
-        );
-
+        snprintf(buffer, sizeof(buffer), "Physics Update calls: %.1f Hz | Passed dt: %.3f ms | Measured dt: %.3f ms\n", updateCount / reportSeconds, deltaTime * 1000.0f, measuredDelta * 1000.0f);
         OutputDebugStringA(buffer);
-
         updateCount = 0;
         previousReport = now;
     }
 
+    static bool previousF9 = false;
+    bool currentF9 = (GetAsyncKeyState(VK_F9) & 0x8000) != 0;
 
+    if (currentF9 && !previousF9)
+        m_telemetryRecorder.Toggle("telemetry.csv");
 
+    previousF9 = currentF9;
 
-    if (m_handling->CheckResetRequested()) m_needsReset = true;
-    if (m_needsReset) {
+    constexpr double fixedDt = 1.0 / 240.0;
+    constexpr double maxFrameDt = 0.25;
+
+    if (deltaTime <= 0.0f)
+        return;
+
+    m_physicsAccumulator += std::min(static_cast<double>(deltaTime), maxFrameDt);
+
+    while (m_physicsAccumulator >= fixedDt)
+    {
+        StepPhysics(static_cast<float>(fixedDt), inputs);
+        m_physicsAccumulator -= fixedDt;
+    }
+}
+
+void PhysicsEngine::StepPhysics(float fixedDt, SharedVehicleInputs inputs)
+{
+    if (m_handling->CheckResetRequested())
+        m_needsReset = true;
+
+    if (m_needsReset)
+    {
         this->ResetCar();
         m_needsReset = false;
         return;
@@ -300,12 +297,11 @@ void PhysicsEngine::Update(float deltaTime, SharedVehicleInputs inputs) {
 
     btTransform tr;
     m_carBody->getMotionState()->getWorldTransform(tr);
+    btVector3 carPos = tr.getOrigin();
     static float triggerCooldown = 0.0f;
 
     if (triggerCooldown > 0.0f)
-        triggerCooldown -= deltaTime;
-
-    btVector3 carPos = tr.getOrigin();
+        triggerCooldown -= fixedDt;
 
     if (triggerCooldown <= 0.0f)
     {
@@ -326,20 +322,16 @@ void PhysicsEngine::Update(float deltaTime, SharedVehicleInputs inputs) {
         }
     }
 
-
-
     btVector3 currentVel = m_carBody->getLinearVelocity();
     float speedKmh = currentVel.length() * 3.6f;
-
-
-
     g_DebugTelemetry.speed = speedKmh;
     g_DebugTelemetry.carY = tr.getOrigin().y();
 
     m_carBody->activate(true);
     btVector3 carUp = tr.getBasis().getColumn(1);
 
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 4; i++)
+    {
         btVector3 localOff = m_handling->GetWheelLocalOffset(i);
         float raycastOffsetUp = 1.0f;
         float restLength = 0.7f;
@@ -356,8 +348,7 @@ void PhysicsEngine::Update(float deltaTime, SharedVehicleInputs inputs) {
 
         if (rayCallback.hasHit())
         {
-            const btCollisionObject* hitObject =
-                rayCallback.m_collisionObject;
+            const btCollisionObject *hitObject = rayCallback.m_collisionObject;
 
             if (hitObject == m_carBody)
             {
@@ -367,7 +358,7 @@ void PhysicsEngine::Update(float deltaTime, SharedVehicleInputs inputs) {
             {
                 bool isTrack = false;
 
-                for (const btRigidBody* trackBody : m_trackBodies)
+                for (const btRigidBody *trackBody : m_trackBodies)
                 {
                     if (hitObject == trackBody)
                     {
@@ -385,17 +376,23 @@ void PhysicsEngine::Update(float deltaTime, SharedVehicleInputs inputs) {
         WheelRayHit hit;
         hit.isGrounded = rayCallback.hasHit();
 
-        if (hit.isGrounded) {
+        if (hit.isGrounded)
+        {
             btVector3 normal = rayCallback.m_hitNormalWorld;
-            if (normal.y() < 0.70f) {
+
+            if (normal.y() < 0.70f)
+            {
                 hit.isGrounded = false;
                 hit.hitDist = restLength + droopExtension;
                 hit.wheelVelocity = btVector3(0, 0, 0);
                 hit.hitPointWorld = btVector3(0, 0, 0);
             }
-            if (normal.y() > 0.95f) {
+
+            if (normal.y() > 0.95f)
+            {
                 normal = btVector3(0, 1, 0);
             }
+
             g_DebugTelemetry.yNormal = normal.y();
             g_DebugTelemetry.groundY = rayCallback.m_hitPointWorld.y();
 
@@ -411,14 +408,11 @@ void PhysicsEngine::Update(float deltaTime, SharedVehicleInputs inputs) {
             hit.hitPointWorld = rayCallback.m_hitPointWorld;
 
             btVector3 wheelWorldPos = tr * localOff;
-
-            float heightDifference =
-                wheelWorldPos.y() - rayCallback.m_hitPointWorld.y();
-
-            g_DebugTelemetry.tyreForceHeightError[i] =
-                hit.isGrounded ? heightDifference : 0.0f;
+            float heightDifference = wheelWorldPos.y() - rayCallback.m_hitPointWorld.y();
+            g_DebugTelemetry.tyreForceHeightError[i] = hit.isGrounded ? heightDifference : 0.0f;
         }
-        else {
+        else
+        {
             hit.hitDist = restLength + droopExtension;
             hit.wheelVelocity = btVector3(0, 0, 0);
             hit.hitPointWorld = btVector3(0, 0, 0);
@@ -428,41 +422,34 @@ void PhysicsEngine::Update(float deltaTime, SharedVehicleInputs inputs) {
         m_handling->ProcessSuspensionData(i, hit);
     }
 
-
     btVector3 carCenter = tr.getOrigin();
     const float MAX_PHYSICS_FORCE = 40000.0f;
+    SuspensionResults suspension = m_handling->CalculateSuspension(fixedDt);
 
-    SuspensionResults suspension = m_handling->CalculateSuspension(deltaTime);
-
-
-    for (int i = 0; i < 4; i++) {
-        if (suspension.wheels[i].active) {
+    for (int i = 0; i < 4; i++)
+    {
+        if (suspension.wheels[i].active)
+        {
             btVector3 f(suspension.wheels[i].force[0], suspension.wheels[i].force[1], suspension.wheels[i].force[2]);
             btVector3 p(suspension.wheels[i].offset[0], suspension.wheels[i].offset[1], suspension.wheels[i].offset[2]);
-            if (f.length() > MAX_PHYSICS_FORCE) f = f.normalized() * MAX_PHYSICS_FORCE;
+
+            if (f.length() > MAX_PHYSICS_FORCE)
+                f = f.normalized() * MAX_PHYSICS_FORCE;
             m_carBody->applyForce(f, p);
         }
     }
 
-    PhysicsAdvice combinedAdvice = m_handling->CombinedForces(
-        inputs.steering,
-        tr,
-        speedKmh,
-        m_carBody->getMass(),
-        inputs.throttle,
-        inputs.brake,
-        deltaTime
-    );
+    PhysicsAdvice combinedAdvice = m_handling->CombinedForces(inputs.steering, tr, speedKmh, m_carBody->getMass(), inputs.throttle, inputs.brake, fixedDt);
 
-
-    for (int i = 0; i < 4; i++) {
-        if (combinedAdvice.friction[i].active) {
+    for (int i = 0; i < 4; i++)
+    {
+        if (combinedAdvice.friction[i].active)
+        {
             btVector3 f = combinedAdvice.friction[i].force;
             btVector3 p = combinedAdvice.friction[i].offset;
 
             if (p.length() > 500.0f)
                 p = p + carCenter;
-
             if (f.length() > MAX_PHYSICS_FORCE)
                 f = f.normalized() * MAX_PHYSICS_FORCE;
 
@@ -470,12 +457,12 @@ void PhysicsEngine::Update(float deltaTime, SharedVehicleInputs inputs) {
         }
     }
 
-
-
-    if (speedKmh < 1.0f && inputs.throttle < 0.1f && inputs.brake < 0.1f) {
+    if (speedKmh < 1.0f && inputs.throttle < 0.1f && inputs.brake < 0.1f)
+    {
         m_carBody->setLinearVelocity(btVector3(0, 0, 0));
     }
-    else {
+    else
+    {
         m_carBody->setDamping(0.0f, 0.1f);
     }
 
@@ -487,19 +474,13 @@ void PhysicsEngine::Update(float deltaTime, SharedVehicleInputs inputs) {
         float dragMagnitude = speed * speed * m_vehicle.dragCoefficient;
         btVector3 dragForce = -velocity.normalized() * dragMagnitude;
         m_carBody->applyCentralForce(dragForce);
-
-
         g_DebugTelemetry.dragMagnitude = dragMagnitude;
 
         float frontDownforce = speed * speed * m_vehicle.frontDownforceCoeff;
         float rearDownforce = speed * speed * m_vehicle.rearDownforceCoeff;
-
         btVector3 downDir = tr.getBasis().getColumn(1) * -1.0f;
-
-
         btVector3 frontPos = tr.getBasis() * btVector3(0, 0, 2.35f);
         btVector3 rearPos = tr.getBasis() * btVector3(0, 0, -1.60f);
-
 
         m_carBody->applyForce(downDir * frontDownforce, frontPos);
         m_carBody->applyForce(downDir * rearDownforce, rearPos);
@@ -509,64 +490,65 @@ void PhysicsEngine::Update(float deltaTime, SharedVehicleInputs inputs) {
         g_DebugTelemetry.downforceMagnitude = frontDownforce + rearDownforce;
     }
 
-
-    if (m_dynamicsWorld) {
-        m_dynamicsWorld->stepSimulation(deltaTime, 40, 1.0f / 1000.0f);
-    }
-
-
-    static bool previousF9 = false;
-
-    bool currentF9 = (GetAsyncKeyState(VK_F9) & 0x8000) != 0;
-
-    if (currentF9 && !previousF9)
+    if (m_dynamicsWorld)
     {
-        m_telemetryRecorder.Toggle("telemetry.csv");
+        m_dynamicsWorld->stepSimulation(fixedDt, 0);
     }
 
-    previousF9 = currentF9;
-
-    // Called every physics update, regardless of F9 state
-    m_telemetryRecorder.Record(deltaTime, inputs);
-
-    
+    m_telemetryRecorder.Record(fixedDt, inputs);
 }
 
-void PhysicsEngine::Cleanup() {
-    for (auto body : m_trackBodies) {
-        if (m_dynamicsWorld) m_dynamicsWorld->removeRigidBody(body);
+void PhysicsEngine::Cleanup()
+{
+    for (auto body : m_trackBodies)
+    {
+        if (m_dynamicsWorld)
+            m_dynamicsWorld->removeRigidBody(body);
         delete body;
     }
     m_trackBodies.clear();
 
-    if (m_dynamicsWorld) {
-        if (m_carBody) {
+    if (m_dynamicsWorld)
+    {
+        if (m_carBody)
+        {
             m_dynamicsWorld->removeRigidBody(m_carBody);
             delete m_carBody;
             m_carBody = nullptr;
         }
-        if (m_groundBody) {
+
+        if (m_groundBody)
+        {
             m_dynamicsWorld->removeRigidBody(m_groundBody);
             delete m_groundBody;
             m_groundBody = nullptr;
         }
     }
 
-    for (auto ms : m_motionStates) {
+    for (auto ms : m_motionStates)
+    {
         delete ms;
     }
     m_motionStates.clear();
 
-    delete m_dynamicsWorld;     m_dynamicsWorld = nullptr;
-    delete m_solver;            m_solver = nullptr;
-    delete m_broadphase;        m_broadphase = nullptr;
-    delete m_dispatcher;        m_dispatcher = nullptr;
-    delete m_collisionConfig;   m_collisionConfig = nullptr;
-    delete m_handling;          m_handling = nullptr;
+    delete m_dynamicsWorld;
+    m_dynamicsWorld = nullptr;
+    delete m_solver;
+    m_solver = nullptr;
+    delete m_broadphase;
+    m_broadphase = nullptr;
+    delete m_dispatcher;
+    m_dispatcher = nullptr;
+    delete m_collisionConfig;
+    m_collisionConfig = nullptr;
+    delete m_handling;
+    m_handling = nullptr;
 
-    for (auto shape : m_collisionShapes) {
-        if (shape->getShapeType() == TRIANGLE_MESH_SHAPE_PROXYTYPE) {
-            auto meshShape = static_cast<btBvhTriangleMeshShape*>(shape);
+    for (auto shape : m_collisionShapes)
+    {
+        if (shape->getShapeType() == TRIANGLE_MESH_SHAPE_PROXYTYPE)
+        {
+            auto meshShape = static_cast<btBvhTriangleMeshShape *>(shape);
             delete meshShape->getTriangleInfoMap();
         }
         delete shape;
