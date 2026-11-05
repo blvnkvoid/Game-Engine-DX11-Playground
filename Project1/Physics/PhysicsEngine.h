@@ -59,7 +59,18 @@ public:
         return true;
     }    
 
+
+    struct CollisionMeshStorage
+    {
+        std::vector<SharedVertex> vertices;
+        std::vector<UINT> indices;
+    };
+
+    std::vector<std::unique_ptr<CollisionMeshStorage>> m_collisionMeshStorage;
+
 private:
+
+
     btDefaultCollisionConfiguration* m_collisionConfig;
     btCollisionDispatcher* m_dispatcher;
     btBroadphaseInterface* m_broadphase;

@@ -72,6 +72,8 @@ struct MapRendererStats
     double shadowCpuMs = 0.0;
 };
 
+
+
 struct MapMeshSubset
 {
     UINT startIndex = 0;
@@ -83,6 +85,72 @@ struct MapMeshSubset
 
     const MaterialData* resolvedMaterial = nullptr;
 };
+
+
+struct MapRenderBatch
+{
+    UINT startIndex = 0;
+    UINT indexCount = 0;
+    int cellX = 0;
+    int cellY = 0;
+    int cellZ = 0;
+
+    uint32_t chunkIndex = UINT32_MAX;
+    UINT chunkStartIndex = 0;
+
+    const MaterialData *resolvedMaterial = nullptr;
+    MaterialType materialType = MaterialType::MATERIAL_DEFAULT;
+    unsigned int materialIndex = 0;
+
+    DirectX::BoundingBox bounds;
+};
+
+
+struct MapGeometryChunk
+{
+    // Spatial identity
+    int cellX = 0;
+    int cellY = 0;
+    int cellZ = 0;
+
+    DirectX::BoundingBox bounds{};
+
+    // GPU resources owned by this chunk
+    Microsoft::WRL::ComPtr<ID3D11Buffer> vertexBuffer;
+    Microsoft::WRL::ComPtr<ID3D11Buffer> indexBuffer;
+    std::vector<uint32_t> batchIndices;
+
+    // CPU geometry retained for future uploads
+    std::vector<SharedVertex> vertices;
+    std::vector<UINT> indices;
+
+    // Residency state
+    bool resident = false;
+
+    void Unload()
+    {
+        vertexBuffer.Reset();
+        indexBuffer.Reset();
+
+        resident = false;
+    }
+};
+
+
+struct MapMaterialKey
+{
+    ID3D11ShaderResourceView *diffuse;
+    ID3D11ShaderResourceView *normal;
+    ID3D11ShaderResourceView *detail;
+    ID3D11ShaderResourceView *normalDetail;
+    ID3D11ShaderResourceView *maps;
+
+    float materialType;
+    float hasDiffuseTexture;
+    float hasDetailTexture;
+    float hasDiffuseColor;
+};
+ 
 
 struct LampLight
 {
@@ -112,7 +180,8 @@ public:
         ID3D11ShaderResourceView* lampLightsSRV,
         const SharedSceneData& engineSceneData,
         const DirectX::BoundingFrustum& frustum,
-        ID3D11DepthStencilState* depthWriteOn);
+        ID3D11DepthStencilState* depthWriteOn,
+        const DirectX::XMFLOAT3 &cameraPosition);
 
     void DrawShadow(
         ID3D11DeviceContext* context,
@@ -182,6 +251,27 @@ public:
 
 
  private:
+
+   void UpdateChunkResidency(const DirectX::XMFLOAT3 &cameraPosition);
+   bool UploadChunk(MapGeometryChunk &chunk);
+   static float DistanceToChunk(const DirectX::XMFLOAT3 &position, const DirectX::BoundingBox &bounds);
+   void BuildGeometryChunks(const std::vector<UINT> &batchIndices);
+   Microsoft::WRL::ComPtr<ID3D11Device> m_batchDevice;
+   Microsoft::WRL::ComPtr<ID3D11Buffer> m_batchIndexBuffer;
+   std::vector<MapGeometryChunk> m_geometryChunks;
+   std::vector<MapRenderBatch> m_renderBatches;
+   std::vector<BVHNode> m_batchBVHNodes;
+   std::vector<uint32_t> m_batchBVHIndices;
+
+   void BuildRenderBatches();
+   void BuildBatchBVH();
+   int BuildBatchBVHNode(uint32_t first, uint32_t count);
+
+   void CollectVisibleBatchBVH(
+       int nodeIndex,
+       const DirectX::BoundingFrustum &frustum,
+       std::vector<uint32_t> &visible);
+
      void ProcessNode(
          const aiNode* node,
          const aiScene* scene,

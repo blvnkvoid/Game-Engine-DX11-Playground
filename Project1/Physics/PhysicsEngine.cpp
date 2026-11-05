@@ -163,47 +163,116 @@ void PhysicsEngine::GetCarTransform(btTransform &outTrans)
     }
 }
 
-void PhysicsEngine::AddTriangleMeshCollider(const std::vector<SharedVertex> &vertices, const std::vector<UINT> &indices)
+
+void PhysicsEngine::AddTriangleMeshCollider(
+    const std::vector<SharedVertex> &vertices,
+    const std::vector<UINT> &indices)
 {
     if (vertices.empty() || indices.empty())
         return;
 
-    btIndexedMesh part;
-    part.m_numTriangles = indices.size() / 3;
-    part.m_triangleIndexBase = (const unsigned char *)indices.data();
+    OutputDebugStringA("[BULLET] Starting collision mesh\n");
+
+    if (indices.size() % 3 != 0)
+    {
+        OutputDebugStringA("[BULLET] Invalid triangle count!\n");
+        return;
+    }
+
+    for (size_t i = 0; i < indices.size(); ++i)
+    {
+        if (indices[i] >= vertices.size())
+        {
+            OutputDebugStringA("[BULLET] Invalid collision index!\n");
+            return;
+        }
+    }
+
+    OutputDebugStringA("[BULLET] Indices validated\n");
+
+    btIndexedMesh part{};
+
+    auto storage = std::make_unique<CollisionMeshStorage>();
+
+    storage->vertices = vertices;
+    storage->indices = indices;
+
+    part.m_numTriangles =
+        static_cast<int>(indices.size() / 3);
+
+    part.m_triangleIndexBase =
+        reinterpret_cast<const unsigned char *>(
+            storage->indices.data());
+
     part.m_triangleIndexStride = 3 * sizeof(UINT);
-    part.m_numVertices = vertices.size();
-    part.m_vertexBase = (const unsigned char *)&vertices[0].pos;
+
+    part.m_numVertices =
+        static_cast<int>(vertices.size());
+    
+    part.m_vertexBase =
+        reinterpret_cast<const unsigned char *>(
+            &storage->vertices[0].pos);
+
     part.m_vertexStride = sizeof(SharedVertex);
+
     part.m_indexType = PHY_INTEGER;
     part.m_vertexType = PHY_FLOAT;
 
-    btTriangleIndexVertexArray *meshInterface = new btTriangleIndexVertexArray();
+    OutputDebugStringA("[BULLET] Indexed mesh configured\n");
+
+    auto *meshInterface = new btTriangleIndexVertexArray();
     meshInterface->addIndexedMesh(part, PHY_INTEGER);
 
-    btBvhTriangleMeshShape *trimeshShape = new btBvhTriangleMeshShape(meshInterface, false);
+    OutputDebugStringA("[BULLET] Mesh interface created\n");
+
+    // Build Bullet's BVH collision shape.
+    auto *trimeshShape =
+        new btBvhTriangleMeshShape(meshInterface, false);
+
+    OutputDebugStringA("[BULLET] BVH constructed successfully!\n");
+
     trimeshShape->setMargin(0.0f);
     m_collisionShapes.push_back(trimeshShape);
 
-    btTriangleInfoMap *infoMap = new btTriangleInfoMap();
-    btGenerateInternalEdgeInfo(trimeshShape, infoMap);
-    trimeshShape->setTriangleInfoMap(infoMap);
+    // TEMPORARILY DISABLED FOR DIAGNOSTICS:
+    //
+    // auto* infoMap = new btTriangleInfoMap();
+    // btGenerateInternalEdgeInfo(trimeshShape, infoMap);
+    // trimeshShape->setTriangleInfoMap(infoMap);
+
+    OutputDebugStringA("[BULLET] Internal-edge generation skipped\n");
 
     btTransform trans;
     trans.setIdentity();
 
-    btDefaultMotionState *motionState = new btDefaultMotionState(trans);
+    auto *motionState = new btDefaultMotionState(trans);
     m_motionStates.push_back(motionState);
 
-    btRigidBody::btRigidBodyConstructionInfo rbInfo(0, motionState, trimeshShape, btVector3(0, 0, 0));
-    btRigidBody *body = new btRigidBody(rbInfo);
-    body->setCollisionFlags(body->getCollisionFlags() | btCollisionObject::CF_CUSTOM_MATERIAL_CALLBACK);
+    btRigidBody::btRigidBodyConstructionInfo rbInfo(
+        0.0f,
+        motionState,
+        trimeshShape,
+        btVector3(0, 0, 0));
+
+    auto *body = new btRigidBody(rbInfo);
+
+    body->setCollisionFlags(
+        body->getCollisionFlags() |
+        btCollisionObject::CF_CUSTOM_MATERIAL_CALLBACK);
+
     body->setFriction(0.05f);
     body->setRestitution(0.0f);
 
-    m_dynamicsWorld->addRigidBody(body, btBroadphaseProxy::StaticFilter, btBroadphaseProxy::AllFilter);
+    m_dynamicsWorld->addRigidBody(
+        body,
+        btBroadphaseProxy::StaticFilter,
+        btBroadphaseProxy::AllFilter);
+
     m_trackBodies.push_back(body);
     m_meshInterfaces.push_back(meshInterface);
+    m_collisionMeshStorage.push_back(std::move(storage));
+
+    OutputDebugStringA("[BULLET] COLLIDER READY!\n");
 }
 
 void PhysicsEngine::ResetCar()

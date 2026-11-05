@@ -10,6 +10,7 @@ TextureManager::TextureManager(ID3D11Device* device) : m_device(device) {
 
 ID3D11ShaderResourceView* TextureManager::GetTexture(std::wstring filename, ID3D11DeviceContext* context) {
 
+
     auto it = m_textures.find(filename);
     if (it != m_textures.end()) {
         return it->second;
@@ -21,13 +22,7 @@ ID3D11ShaderResourceView* TextureManager::GetTexture(std::wstring filename, ID3D
 
     bool isDDS = filename.find(L".dds") != std::wstring::npos;
 
-    if (isDDS) {
-        hr = DirectX::CreateDDSTextureFromFile(
-            m_device,
-            filename.c_str(),
-            nullptr,
-            &srv
-        );
+    if (isDDS) {hr = DirectX::CreateDDSTextureFromFile(m_device, filename.c_str(), nullptr, &srv);
     }
     else {
         hr = DirectX::CreateWICTextureFromFileEx(
@@ -55,7 +50,7 @@ ID3D11ShaderResourceView* TextureManager::GetTexture(std::wstring filename, ID3D
             filename.c_str()
         );
 
-        OutputDebugStringW(buffer);
+        //OutputDebugStringW(buffer);
 
         if (!isDDS) {
             context->GenerateMips(srv);
@@ -76,7 +71,7 @@ ID3D11ShaderResourceView* TextureManager::GetTexture(std::wstring filename, ID3D
             static_cast<unsigned int>(hr)
         );
 
-        OutputDebugStringW(buffer);
+        //OutputDebugStringW(buffer);
 
         return nullptr;
     }

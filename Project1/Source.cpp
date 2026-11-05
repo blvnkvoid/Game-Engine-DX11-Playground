@@ -477,7 +477,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                 {
                   ZoneScopedN("Shadow Pass");
 
-                  sceneData = engine->BuildSceneData(camera, playerObject, XMMatrixIdentity());
+               /* sceneData = engine->BuildSceneData(camera, playerObject, XMMatrixIdentity());
                     TracyD3D11Zone(engine->GetTracyGpuContext(), "Shadow Pass GPU");
 
                     for (int cascade = 0; cascade < 2; cascade++)
@@ -487,7 +487,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                         m_mapTrack->DrawShadow(engine->GetContext(), cb, sceneData, engine->GetLightFrustum(cascade), engine->GetDepthStencilState(), engine->GetShadowAlphaPS());
                     }
 
-                    sceneData = engine->BuildSceneData(camera, playerObject, XMMatrixIdentity());
+                    sceneData = engine->BuildSceneData(camera, playerObject, XMMatrixIdentity()); */
                 }
 
                 {
@@ -512,7 +512,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
                     if (m_mapTrack)
                     {
-                        TracyD3D11Zone(engine->GetTracyGpuContext(), "Map Zone GPU") if (!materialLoaded)
+                         TracyD3D11Zone(engine->GetTracyGpuContext(), "Map Zone GPU") if (!materialLoaded)
                         {
                             std::string materialPath = activeTrackEntry->path;
                             materialPath.replace(materialPath.size() - 4, 4, ".mtl");
@@ -528,7 +528,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                         sceneData.world = XMMatrixTranspose(XMMatrixIdentity());
 
                         m_mapTrack->UpdateVisibleLights(engine->GetContext(), engine->GetLampStructuredBuffer(), engine->GetLampConstantBuffer(), camera->GetFrustum(), camera);
-                        m_mapTrack->Draw(engine->GetContext(), cb, engine->GetLampConstantBuffer(), engine->GetLampResourceView(), sceneData, camera->GetFrustum(), engine->GetDepthStencilState());
+                        m_mapTrack->Draw(engine->GetContext(), cb, engine->GetLampConstantBuffer(), engine->GetLampResourceView(), sceneData, camera->GetFrustum(), engine->GetDepthStencilState(), camera->GetPosition());
                     }
                 }
 
