@@ -412,7 +412,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                     // Apply player vehicle configuration
                     // ---------------------------------------------------------
 
-                    audio.SetVehicleAudioDefinition(car.audio);
+                    audio.  SetVehicleAudioDefinition(car.audio);
                     camera->SetVehicleCameraDefinition(cam);
                     racingHUD.SetVehicleDefinition(car);
                     handling->SetVehicleDefinition(car);
@@ -436,7 +436,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
                 telemetryUI.Draw(&g_ShowDebugUI, camera, playerModel, m_mapTrack);
                 {
-                    ZoneScopedN("Physics");
+                    //ZoneScopedN("Physics");
 
                     physics->Update(deltaTime, Input::GetCurrentInputs());
                     g_LapTimer.Update(deltaTime);
@@ -458,7 +458,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                 }
 
                 {
-                    ZoneScopedN("Transforms + Camera");
+                   // ZoneScopedN("Transforms + Camera");
 
                     btTransform trans;
                     physics->GetCarTransform(trans);
@@ -475,10 +475,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                 }
 
                 {
-                  ZoneScopedN("Shadow Pass");
+                 // ZoneScopedN("Shadow Pass");
 
-               /* sceneData = engine->BuildSceneData(camera, playerObject, XMMatrixIdentity());
-                    TracyD3D11Zone(engine->GetTracyGpuContext(), "Shadow Pass GPU");
+               sceneData = engine->BuildSceneData(camera, playerObject, XMMatrixIdentity());
+                    //TracyD3D11Zone(engine->GetTracyGpuContext(), "Shadow Pass GPU");
 
                     for (int cascade = 0; cascade < 2; cascade++)
                     {
@@ -487,11 +487,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                         m_mapTrack->DrawShadow(engine->GetContext(), cb, sceneData, engine->GetLightFrustum(cascade), engine->GetDepthStencilState(), engine->GetShadowAlphaPS());
                     }
 
-                    sceneData = engine->BuildSceneData(camera, playerObject, XMMatrixIdentity()); */
+                    sceneData = engine->BuildSceneData(camera, playerObject, XMMatrixIdentity()); 
                 }
 
                 {
-                    ZoneScopedN("Begin Frame");
+                   // ZoneScopedN("Begin Frame");
 
                     engine->BeginFrame(hWnd, camera->viewMatrix, camera->projectionMatrix, deltaTime, camera);
                     sceneData = engine->BuildSceneData(camera, playerObject, XMMatrixIdentity());
@@ -501,18 +501,19 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                 devConsole.ExecuteCommand(*engine, *physics);
 
                 {
-                    ZoneScopedN("Cars");
+                 //   ZoneScopedN("Cars");
 
                     engine->RenderObject(playerObject, camera);
                     raceGrid.Render(*engine, *camera);
                 }
 
                 {
-                    ZoneScopedN("Map");
+                  //  ZoneScopedN("Map");
 
                     if (m_mapTrack)
                     {
-                         TracyD3D11Zone(engine->GetTracyGpuContext(), "Map Zone GPU") if (!materialLoaded)
+                        // TracyD3D11Zone(engine->GetTracyGpuContext(), "Map Zone GPU")
+                             if (!materialLoaded)
                         {
                             std::string materialPath = activeTrackEntry->path;
                             materialPath.replace(materialPath.size() - 4, 4, ".mtl");
@@ -533,13 +534,13 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                 }
 
                 {
-                    ZoneScopedN("Sky");
+                    //ZoneScopedN("Sky");
                    engine->GetSun().Render(engine->GetContext(), camera, skyEngine);
                    engine->GetClouds().Render(engine->GetContext(), skyEngine, *engine, camera);
                 }
             }
             {
-                ZoneScopedN("UI");
+                //ZoneScopedN("UI");
 
                 //engine->DrawShadowDebugView();
                 ImGui::Render();
@@ -547,12 +548,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
             }
 
             {
-                ZoneScopedN("Audio");
+                //ZoneScopedN("Audio");
                 audio.Update(menu.g_CurrentState, g_DebugTelemetry.rpm, g_DebugTelemetry.throttle, g_DebugTelemetry.speed, g_DebugTelemetry.avgSlipRatio, g_DebugTelemetry.avgSlipAngle);
             }
 
             {
-                ZoneScopedN("EndFrame / Present");
+                //ZoneScopedN("EndFrame / Present");
                 engine->EndFrame();
 
              int newWidth = 0;

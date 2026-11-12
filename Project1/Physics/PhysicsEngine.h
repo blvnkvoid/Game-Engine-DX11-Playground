@@ -17,48 +17,81 @@
 #pragma warning(disable : 26439) // This kind of function may not throw. Declare it 'noexcept'
 #pragma warning(pop)
 
-class PhysicsEngine {
-public:
+class PhysicsEngine
+{
+  public:
     PhysicsEngine();
-    ~PhysicsEngine() { Cleanup(); }
-    void Initialize();     
+    ~PhysicsEngine()
+    {
+        Cleanup();
+    }
+    void Initialize();
     void CreatePhysicsWorld();
     void Cleanup();
     void ResetCar();
-    void GetCarTransform(btTransform& outTrans);
-    void AddTriangleMeshCollider(const std::vector<SharedVertex>& vertices, const std::vector<UINT>& indices);
+    void GetCarTransform(btTransform &outTrans);
+    void AddTriangleMeshCollider(const std::vector<SharedVertex> &vertices, const std::vector<UINT> &indices);
     void Update(float deltaTime, SharedVehicleInputs inputs);
-    void RequestReset() { m_needsReset = true; }
+    void RequestReset()
+    {
+        m_needsReset = true;
+    }
     bool m_needsReset = false;
     void SetVehicleDefinition(const VehicleDefinition &definition);
     void SetHandling(Handling *handling);
     void TeleportCar(float x, float y, float z);
     void SetTrackTiming(const TrackTimingEntry &timing);
     void SetStartTransform(const btTransform &transform);
-    bool CheckAndResetPassedStartMeta() {bool val = m_passedStartMeta; m_passedStartMeta = false; return val;}
-    bool CheckAndResetPassedSector1() {bool val = m_passedSector1; m_passedSector1 = false; return val;}
-    bool CheckAndResetPassedSector2() {bool val = m_passedSector2; m_passedSector2 = false; return val;}
-    void ToggleTelemetryRecording(const std::string &filename) {m_telemetryRecorder.Toggle(filename);}
-    bool IsTelemetryRecording() const {return m_telemetryRecorder.IsRecording();}
-    btRigidBody* GetCarBody() {return m_carBody;}
-    btDiscreteDynamicsWorld* GetDynamicsWorld() {return m_dynamicsWorld;}
-    DirectX::XMMATRIX btTransformToXMMATRIX(const btTransform& worldTransform);
+    bool CheckAndResetPassedStartMeta()
+    {
+        bool val = m_passedStartMeta;
+        m_passedStartMeta = false;
+        return val;
+    }
+    bool CheckAndResetPassedSector1()
+    {
+        bool val = m_passedSector1;
+        m_passedSector1 = false;
+        return val;
+    }
+    bool CheckAndResetPassedSector2()
+    {
+        bool val = m_passedSector2;
+        m_passedSector2 = false;
+        return val;
+    }
+    void ToggleTelemetryRecording(const std::string &filename)
+    {
+        m_telemetryRecorder.Toggle(filename);
+    }
+    bool IsTelemetryRecording() const
+    {
+        return m_telemetryRecorder.IsRecording();
+    }
+    btRigidBody *GetCarBody()
+    {
+        return m_carBody;
+    }
+    btDiscreteDynamicsWorld *GetDynamicsWorld()
+    {
+        return m_dynamicsWorld;
+    }
+    DirectX::XMMATRIX btTransformToXMMATRIX(const btTransform &worldTransform);
     btTransform m_startTransform;
     btVector3 ProjectToGround(const btVector3 &approximatePosition, float clearance = 0.6f) const;
 
-    static bool CustomInternalEdgeCallback(btManifoldPoint& cp, const btCollisionObjectWrapper* colObj0Wrap, int partId0, int index0, const btCollisionObjectWrapper* colObj1Wrap, int partId1, int index1)
+    static bool CustomInternalEdgeCallback(btManifoldPoint &cp, const btCollisionObjectWrapper *colObj0Wrap, int partId0, int index0, const btCollisionObjectWrapper *colObj1Wrap, int partId1, int index1)
     {
         btAdjustInternalEdgeContacts(cp, colObj1Wrap, colObj0Wrap, partId1, index1);
         cp.m_combinedFriction = 0.01f;
-        cp.m_combinedRestitution = 0.00f; 
+        cp.m_combinedRestitution = 0.00f;
 
         if (cp.m_distance1 < -0.01f)
         {
             cp.m_distance1 = -0.01f;
         }
         return true;
-    }    
-
+    }
 
     struct CollisionMeshStorage
     {
@@ -68,21 +101,19 @@ public:
 
     std::vector<std::unique_ptr<CollisionMeshStorage>> m_collisionMeshStorage;
 
-private:
-
-
-    btDefaultCollisionConfiguration* m_collisionConfig;
-    btCollisionDispatcher* m_dispatcher;
-    btBroadphaseInterface* m_broadphase;
-    btSequentialImpulseConstraintSolver* m_solver;
-    btDiscreteDynamicsWorld* m_dynamicsWorld;
-    btRigidBody* m_carBody;
-    btRigidBody* m_groundBody;
-    Handling* m_handling;
-    std::vector<btCollisionShape*> m_collisionShapes;
-    std::vector<btDefaultMotionState*> m_motionStates;    
-    std::vector<btRigidBody*> m_trackBodies;
-    std::vector<btStridingMeshInterface*> m_meshInterfaces;
+  private:
+    btDefaultCollisionConfiguration *m_collisionConfig;
+    btCollisionDispatcher *m_dispatcher;
+    btBroadphaseInterface *m_broadphase;
+    btSequentialImpulseConstraintSolver *m_solver;
+    btDiscreteDynamicsWorld *m_dynamicsWorld;
+    btRigidBody *m_carBody;
+    btRigidBody *m_groundBody;
+    Handling *m_handling;
+    std::vector<btCollisionShape *> m_collisionShapes;
+    std::vector<btDefaultMotionState *> m_motionStates;
+    std::vector<btRigidBody *> m_trackBodies;
+    std::vector<btStridingMeshInterface *> m_meshInterfaces;
     bool m_passedStartMeta = false;
     bool m_passedSector1 = false;
     bool m_passedSector2 = false;

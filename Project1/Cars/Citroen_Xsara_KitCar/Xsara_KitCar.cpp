@@ -81,8 +81,8 @@ VehicleDefinition Xsara::CreateDefinition()
     // ---------------------------------------------------------
     // 6. Steering / response
     // ---------------------------------------------------------
-    car.lowSpeedSteerAngle = 0.50f;
-    car.highSpeedSteerAngle = 0.085f;
+    car.lowSpeedSteerAngle = 0.20f;
+    car.highSpeedSteerAngle = 0.12f;
 
     car.loadResponseRate = 38.0f;
     car.slipResponseRate = 46.0f;

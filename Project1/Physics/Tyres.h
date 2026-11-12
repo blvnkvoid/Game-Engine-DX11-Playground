@@ -1,15 +1,16 @@
 #pragma once
 #include "../SharedVehicleTypes.h"
-class Tire {
-public:
+class Tire
+{
+  public:
     Tire();
     ~Tire();
 
-    float Update(float verticalLoad, float slipAngle, float speed_kmh, float localVx, float localVy, float& outTheta, float& outFrictionCoeff, float& outVx, float& outVy, float camberDeg, int wheelIndex, float slipRatio, float deltaTime);
-    void SetTyreDefinition(const TyreDefinition& definition);
+    float Update(float verticalLoad, float slipAngle, float speed_kmh, float localVx, float localVy, float &outTheta, float &outFrictionCoeff, float &outVx, float &outVy, float camberDeg, int wheelIndex, float slipRatio, float deltaTime);
+    void SetTyreDefinition(const TyreDefinition &definition);
     float GetLongitudinalForce() const;
 
-private:
+  private:
     float m_smoothedLoad = 0.0f;
     float m_latForceBuffer = 0.0f;
     float m_longitudinalForce = 0.0f;

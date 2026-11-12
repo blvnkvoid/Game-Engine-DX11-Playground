@@ -113,7 +113,33 @@ struct TelemetryData {
     float longitudinalPeakForce[4];
     float wheelAngularAcceleration[4];
     float reactionTorqueForceMismatch[4];
+    float frontYawTorque = 0.0f;
+    float rearYawTorque = 0.0f;
+    //float totalTyreYawTorque = 0.0f;
+    float yawDampingTorque = 0.0f;
+    float localYawRate = 0.0f;
+    //float lateralYawTorque = 0.0f;
+    //float longitudinalYawTorque = 0.0f; 
+    float totalBodyYawTorque = 0.0f;
+    float suspensionYawTorque = 0.0f;
+    float yawTorqueBeforeTyres = 0.0f;
+    float yawTorqueAfterTyres = 0.0f;
+    float yawTorqueTyreDelta = 0.0f;
+    float yawBeforeSuspension = 0.0f;
+    float yawAfterSuspension = 0.0f;
+    float yawAfterCombined = 0.0f;
+    float lateralTargetForce[4] = {};
+    float lateralRelaxedForce[4] = {};
 
+    float frontMass = 0.0f;
+    float rearMass = 0.0f;
+
+    float frontLoad = 0.0f;
+    float rearLoad = 0.0f;
+
+    float lateralYawTorque[4] = {};
+    float longitudinalYawTorque[4] = {};
+    float totalTyreYawTorque[4] = {};
 };
 
 extern TelemetryData g_DebugTelemetry;
@@ -134,7 +160,7 @@ struct WheelInfo {
     btVector3 localOffset = btVector3(0, 0, 0);
     btVector3 worldPos = btVector3(0, 0, 0);
     btVector3 localVelocity = btVector3(0, 0, 0);
-
+    float steeringAngle = 0.0f;
     bool isGrounded = false;
 
     // Suspension
@@ -341,6 +367,8 @@ struct VehicleDefinition
     float rollInertiaScale = 1.0f;
     float pitchInertiaScale = 1.0f;
 
+    float rollStiffness = 0.0f;
+
     btVector3 wheelOffsets[4];
 
     float Offset_X = 0.0f;
@@ -350,6 +378,7 @@ struct VehicleDefinition
     float Offset_Z = 0.0f;
 
     float bodyLength = 0.0f;
+
 
     EngineDefinition engine;
     GearboxDefinition gearbox;

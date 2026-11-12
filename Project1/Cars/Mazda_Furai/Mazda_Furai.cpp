@@ -16,15 +16,14 @@ VehicleDefinition Furai::CreateDefinition()
     car.bodyLength = 4.56f;
     car.Offset_X = 0.88f;
     car.Offset_Y = 0.14f;
-    car.Offset_Z_Front = 1.628f;
-    car.Offset_Z_Back = 1.332f;
+    car.Offset_Z_Front = 1.662f;
+    car.Offset_Z_Back = 1.338f;
     car.Offset_Z = car.Offset_Z_Front + car.Offset_Z_Back;
 
     car.wheelOffsets[0] = btVector3(-(car.Offset_X), -(car.Offset_Y), car.Offset_Z_Front);
     car.wheelOffsets[1] = btVector3(car.Offset_X, -(car.Offset_Y), car.Offset_Z_Front);
     car.wheelOffsets[2] = btVector3(-(car.Offset_X), -(car.Offset_Y), -(car.Offset_Z_Back));
     car.wheelOffsets[3] = btVector3(car.Offset_X, -(car.Offset_Y), -(car.Offset_Z_Back));
-
 
     // ---------------------------------------------------------
     // 2. Aero
@@ -40,16 +39,16 @@ VehicleDefinition Furai::CreateDefinition()
     car.engine.redlineRPM = 9000.0f;
     car.engine.limiterRPM = 9200.0f;
     car.engine.maxTorque = 420.0f;
-    //car.engine.maxTorque = 1420.0f;
+    //car.engine.maxTorque = 14200.0f;
     car.engineBrakeTorque = 90.0f;
 
     car.engine.torqueCurveCount = 6;
-    car.engine.torqueCurve[0] = { 1500.0f, 0.32f };
-    car.engine.torqueCurve[1] = { 3500.0f, 0.58f };
-    car.engine.torqueCurve[2] = { 5500.0f, 0.82f };
-    car.engine.torqueCurve[3] = { 7500.0f, 1.00f };
-    car.engine.torqueCurve[4] = { 8500.0f, 0.96f };
-    car.engine.torqueCurve[5] = { 9000.0f, 0.88f };
+    car.engine.torqueCurve[0] = {1500.0f, 0.32f};
+    car.engine.torqueCurve[1] = {3500.0f, 0.58f};
+    car.engine.torqueCurve[2] = {5500.0f, 0.82f};
+    car.engine.torqueCurve[3] = {7500.0f, 1.00f};
+    car.engine.torqueCurve[4] = {8500.0f, 0.96f};
+    car.engine.torqueCurve[5] = {9000.0f, 0.88f};
 
     // ---------------------------------------------------------
     // 4. Gearbox / drivetrain
@@ -83,8 +82,8 @@ VehicleDefinition Furai::CreateDefinition()
     // ---------------------------------------------------------
     // 6. Steering / response
     // ---------------------------------------------------------
-    car.lowSpeedSteerAngle = 0.44f;
-    car.highSpeedSteerAngle = 0.07f;
+    car.lowSpeedSteerAngle = 0.20f;
+    car.highSpeedSteerAngle = 0.10f;
 
     car.loadResponseRate = 50.0f;
     car.slipResponseRate = 60.0f;
@@ -130,68 +129,16 @@ VehicleDefinition Furai::CreateDefinition()
     // ---------------------------------------------------------
     // 9. Tyres
     // ---------------------------------------------------------
-    
-    //R5s
-    /*car.frontTyres.frictionCoeff = 2.40f;
-    car.frontTyres.loadSmoothing = 6.0f;
-    car.frontTyres.relaxationRate = 50.0f;
-    car.frontTyres.stiffness = 36000.0f;
+
+    ApplyTyreCompound(car.frontTyres, TyreCompound::R3_RacingMedium);
+    ApplyTyreCompound(car.rearTyres, TyreCompound::R3_RacingMedium);
+
     car.frontTyres.staticCamber = -2.4f;
     car.frontTyres.camberGripStrength = 0.10f;
     car.frontTyres.CamberGain = -17.0f;
     car.frontTyres.wheelRadius = 0.33f;
     car.frontTyres.frontWheelInertia = 1.20f;
 
-    car.rearTyres.frictionCoeff = 2.45f;
-    car.rearTyres.loadSmoothing = 6.0f;
-    car.rearTyres.relaxationRate = 47.0f;
-    car.rearTyres.stiffness = 37500.0f;
-    car.rearTyres.staticCamber = -2.8f;
-    car.rearTyres.camberGripStrength = 0.10f;
-    car.rearTyres.CamberGain = -19.0f;
-    car.rearTyres.wheelRadius = 0.335f;
-    car.rearTyres.rearWheelInertia = 1.30f;
-    */
-
-
-    //R3s
-    /*
-    car.frontTyres.frictionCoeff = 1.65f;
-    car.frontTyres.loadSmoothing = 10.0f;
-    car.frontTyres.relaxationRate = 34.0f;
-    car.frontTyres.stiffness = 22500.0f;
-    car.frontTyres.staticCamber = -2.4f;
-    car.frontTyres.camberGripStrength = 0.10f;
-    car.frontTyres.CamberGain = -17.0f;
-    car.frontTyres.wheelRadius = 0.33f;
-    car.frontTyres.frontWheelInertia = 1.20f;
-
-    car.rearTyres.frictionCoeff = 1.70f;
-    car.rearTyres.loadSmoothing = 10.0f;
-    car.rearTyres.relaxationRate = 31.0f;
-    car.rearTyres.stiffness = 24000.0f;
-    car.rearTyres.staticCamber = -2.8f;
-    car.rearTyres.camberGripStrength = 0.10f;
-    car.rearTyres.CamberGain = -19.0f;
-    car.rearTyres.wheelRadius = 0.335f;
-    car.rearTyres.rearWheelInertia = 1.30f;
-*/
-
-    //R1s
-    car.frontTyres.frictionCoeff = 1.30f;
-    car.frontTyres.loadSmoothing = 14.0f;
-    car.frontTyres.relaxationRate = 26.0f;
-    car.frontTyres.stiffness = 15500.0f;
-    car.frontTyres.staticCamber = -2.4f;
-    car.frontTyres.camberGripStrength = 0.10f;
-    car.frontTyres.CamberGain = -17.0f;
-    car.frontTyres.wheelRadius = 0.33f;
-    car.frontTyres.frontWheelInertia = 1.20f;
-
-    car.rearTyres.frictionCoeff = 1.30f;
-    car.rearTyres.loadSmoothing = 14.0f;
-    car.rearTyres.relaxationRate = 26.0f;
-    car.rearTyres.stiffness = 15500.0f;
     car.rearTyres.staticCamber = -2.8f;
     car.rearTyres.camberGripStrength = 0.10f;
     car.rearTyres.CamberGain = -19.0f;
@@ -249,7 +196,6 @@ VehicleDefinition Furai::CreateDefinition()
     car.audio.topWidth = 1700.0f;
     return car;
 }
-
 
 CameraDefinition Furai::CreateCameraDefinition()
 {

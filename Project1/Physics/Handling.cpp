@@ -1,4 +1,4 @@
-﻿#pragma warning(push)
+#pragma warning(push)
 #pragma warning(disable : 26451) // Arithmetic overflow (the one you just found)
 #pragma warning(disable : 26495) // Uninitialized member variable
 #pragma warning(disable : 26812) // Prefer 'enum class' over 'enum'
@@ -9,6 +9,8 @@
 #pragma warning(pop)
 #include "Handling.h"
 #include "../Input/Input.h"
+#include <Windows.h>
+#include <cstdio>
 
 #define LERP(a, b, t) (a + t * (b - a))
 #define clamp(val, low, high) ((val) < (low) ? (low) : ((val) > (high) ? (high) : (val)))
@@ -44,6 +46,10 @@ void Handling::SetVehicleDefinition(
     {
         m_wheels[i].localOffset = m_vehicle.wheelOffsets[i];
 
+        //const float wheelbase = m_vehicle.Offset_Z_Front + m_vehicle.Offset_Z_Back;
+        //const float comZ =(m_vehicle.frontWeightDistribution - 0.5f) * wheelbase;
+       //m_wheels[i].localOffset.setZ(m_wheels[i].localOffset.z() - comZ);
+
         if (i < 2)
         {
             m_tyres[i].SetTyreDefinition(definition.frontTyres);
@@ -78,7 +84,6 @@ void Handling::ProcessSuspensionData(int wheelIdx, WheelRayHit hitData)
         g_DebugTelemetry.diff[wheelIdx] = 0.0f;
     }
 }
-
 
 SuspensionResults Handling::CalculateSuspension(float deltaTime)
 {
@@ -130,10 +135,14 @@ SuspensionResults Handling::CalculateSuspension(float deltaTime)
 
         float arbForce = 0.0f;
 
-        if (i == 0) arbForce = -frontRollForce;
-        if (i == 1) arbForce = frontRollForce;
-        if (i == 2) arbForce = -rearRollForce;
-        if (i == 3) arbForce = rearRollForce;
+        if (i == 0)
+            arbForce = -frontRollForce;
+        if (i == 1)
+            arbForce = frontRollForce;
+        if (i == 2)
+            arbForce = -rearRollForce;
+        if (i == 3)
+            arbForce = rearRollForce;
 
         float bumpStopForce = 0.0f;
 
@@ -173,10 +182,13 @@ SuspensionResults Handling::CalculateSuspension(float deltaTime)
     return results;
 }
 
-
 PhysicsAdvice Handling::CalculateFriction(float steeringInput, const btTransform &tr, float currentSpeed, float carMass, float throttle, float brake, float deltaTime)
 {
     PhysicsAdvice advice;
+
+    static unsigned long long handlingDebugTick = 0;
+    ++handlingDebugTick;
+    const bool handlingDebug = currentSpeed > 100.0f && (handlingDebugTick % 12ULL == 0ULL);
 
     btVector3 worldVel = m_carBody->getLinearVelocity();
     btVector3 carRight = tr.getBasis().getColumn(0);
@@ -196,7 +208,6 @@ PhysicsAdvice Handling::CalculateFriction(float steeringInput, const btTransform
 
     smoothedSteering = LERP(smoothedSteering, steeringInput, steeringAlpha);
     float steeringValue = smoothedSteering * currentMaxSteer;
-
 
     float totalLatForce = 0.0f;
     float totalLongForce = 0.0f;
@@ -308,6 +319,24 @@ PhysicsAdvice Handling::CalculateFriction(float steeringInput, const btTransform
         advice.friction[i].offset = tr.getBasis() * m_wheels[i].localOffset;
         advice.friction[i].active = true;
 
+        if (handlingDebug)
+        {
+            const btVector3 localF = tr.getBasis().transpose() * advice.friction[i].force;
+            const btVector3 localP = tr.getBasis().transpose() * advice.friction[i].offset;
+            const btVector3 localT = localP.cross(localF);
+            char dbg[650];
+            snprintf(dbg, sizeof(dbg),
+                "[PZ][HAND][W%d] v=%.1f steerInput=%.6f steerSmooth=%.6f wheelAngle=%.7f "
+                "wheelVelSide=%.5f wheelVelFwd=%.5f slipA=%.7f slipR=%.5f "
+                "Fz=%.2f latForce=%.3f pLocal=(%.4f,%.4f,%.4f) "
+                "fLocal=(%.3f,%.3f,%.3f) yawTorqueLocal=%.3f\n",
+                i, currentSpeed, steeringInput, smoothedSteering, steeringAngle,
+                localSideVel, localForwardVel, slipAngle, slipRatio,
+                tyreLoad, frictionForceScalar, localP.x(), localP.y(), localP.z(),
+                localF.x(), localF.y(), localF.z(), localT.y());
+            OutputDebugStringA(dbg);
+        }
+
         constexpr float RAD_TO_DEG = 180.0f / 3.14159265359f;
         float yawRateDeg = m_carBody->getAngularVelocity().y() * RAD_TO_DEG;
         float bodySlipDeg = bodySlipAngle * 57.2958f;
@@ -343,7 +372,6 @@ PhysicsAdvice Handling::CalculateFriction(float steeringInput, const btTransform
     return advice;
 }
 
-
 float Handling::CalculateLoadSensitiveMu(float normalLoad, float baseMu)
 {
     float referenceLoad = 3500.0f; // typical static load per tyre
@@ -353,7 +381,6 @@ float Handling::CalculateLoadSensitiveMu(float normalLoad, float baseMu)
     float mu = baseMu * (1.0f - loadSensitivity * (loadRatio - 1.0f));
     return clamp(mu, baseMu * 0.70f, baseMu * 1.15f);
 }
-
 
 void Handling::ApplyFrontLimitedSlipDifferential(float &frontLeftTorque, float &frontRightTorque, float deltaTime)
 {
@@ -391,7 +418,7 @@ void Handling::ApplyFrontLimitedSlipDifferential(float &frontLeftTorque, float &
     g_DebugTelemetry.diffLockTorque[1] = m_currentFrontLockTorque;
     g_DebugTelemetry.diffLoadBiasTorque = targetLoadBiasTorque;
     g_DebugTelemetry.diffTotalTorque = totalDiffTorque;
-}   
+}
 
 void Handling::ApplyRearLimitedSlipDifferential(float &rearLeftTorque, float &rearRightTorque, float deltaTime)
 {
@@ -430,7 +457,6 @@ void Handling::ApplyRearLimitedSlipDifferential(float &rearLeftTorque, float &re
     g_DebugTelemetry.diffLoadBiasTorque = targetLoadBiasTorque;
     g_DebugTelemetry.diffTotalTorque = totalDiffTorque;
 }
-
 
 PhysicsAdvice Handling::CalculateDrivingForces(float throttle, float brake, const btTransform &tr, float currentSpeed, float deltaTime)
 {
@@ -571,7 +597,6 @@ void Handling::ApplyYawDamping()
     m_carBody->applyTorque(carUp * dampingTorque);
 }
 
-
 PhysicsAdvice Handling::CombinedForces(float steeringInput, const btTransform &tr, float currentSpeed, float carMass, float throttle, float brake, float deltaTime)
 {
     ApplyYawDamping();
@@ -595,6 +620,8 @@ PhysicsAdvice Handling::CombinedForces(float steeringInput, const btTransform &t
         btVector3 longForce = driveAdvice.friction[i].force;
         btVector3 combinedForce = lateralForce + longForce;
 
+        
+
         float effectiveLoad = m_wheels[i].normalLoad;
         float mu = g_DebugTelemetry.surfaceMu[i];
         float maxGrip = effectiveLoad * mu;
@@ -603,9 +630,35 @@ PhysicsAdvice Handling::CombinedForces(float steeringInput, const btTransform &t
         float longMag = longForce.length();
         float total = sqrt(latMag * latMag + longMag * longMag);
 
+        /*if(total > maxGrip && total > 0.0001f )
+        {
+            float scale = maxGrip / total;
+            combinedForce *= scale;
+        }*/
+
         combinedAdvice.friction[i].force = combinedForce;
         combinedAdvice.friction[i].offset = lateralAdvice.friction[i].active ? lateralAdvice.friction[i].offset : driveAdvice.friction[i].offset;
         combinedAdvice.friction[i].active = true;
+
+        if (currentSpeed > 100.0f)
+        {
+            static unsigned long long combinedDebugCounter[4] = {};
+            if (++combinedDebugCounter[i] % 12ULL == 0ULL)
+            {
+                const btVector3 localLat = tr.getBasis().transpose() * lateralForce;
+                const btVector3 localLong = tr.getBasis().transpose() * longForce;
+                const btVector3 localCombined = tr.getBasis().transpose() * combinedForce;
+                char dbg[480];
+                snprintf(dbg, sizeof(dbg),
+                    "[PZ][COMBINED][W%d] latLocal=(%.3f,%.3f,%.3f) "
+                    "longLocal=(%.3f,%.3f,%.3f) totalLocal=(%.3f,%.3f,%.3f) "
+                    "gripLimit=%.2f\n", i,
+                    localLat.x(),localLat.y(),localLat.z(),
+                    localLong.x(),localLong.y(),localLong.z(),
+                    localCombined.x(),localCombined.y(),localCombined.z(),maxGrip);
+                OutputDebugStringA(dbg);
+            }
+        }
 
         float gripDenominator = max(maxGrip, 0.001f);
         float wheelRadius = (i < 2) ? m_vehicle.frontTyres.wheelRadius : m_vehicle.rearTyres.wheelRadius;
@@ -624,7 +677,6 @@ PhysicsAdvice Handling::CombinedForces(float steeringInput, const btTransform &t
 
     return combinedAdvice;
 }
-
 
 void Handling::Cleanup()
 {

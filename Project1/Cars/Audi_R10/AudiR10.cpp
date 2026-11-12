@@ -82,8 +82,8 @@ VehicleDefinition R10::CreateDefinition()
     // ---------------------------------------------------------
     // 6. Steering / response
     // ---------------------------------------------------------
-    car.lowSpeedSteerAngle = 0.40f;
-    car.highSpeedSteerAngle = 0.055f;
+    car.lowSpeedSteerAngle = 0.20f;
+    car.highSpeedSteerAngle = 0.12f;
 
     car.loadResponseRate = 48.0f;
     car.slipResponseRate = 58.0f;
@@ -129,20 +129,15 @@ VehicleDefinition R10::CreateDefinition()
     // ---------------------------------------------------------
     // 9. Tyres
     // ---------------------------------------------------------
-    car.frontTyres.frictionCoeff = 1.30f;
-    car.frontTyres.loadSmoothing = 14.0f;
-    car.frontTyres.relaxationRate = 26.0f;
-    car.frontTyres.stiffness = 15500.0f;
+    ApplyTyreCompound(car.frontTyres, TyreCompound::R3_RacingMedium);
+    ApplyTyreCompound(car.rearTyres, TyreCompound::R3_RacingMedium);
     car.frontTyres.staticCamber = -2.8f;
     car.frontTyres.camberGripStrength = 0.10f;
     car.frontTyres.CamberGain = -18.0f;
     car.frontTyres.wheelRadius = 0.34f;
     car.frontTyres.frontWheelInertia = 1.35f;
 
-    car.rearTyres.frictionCoeff = 1.30f;
-    car.rearTyres.loadSmoothing = 14.0f;
-    car.rearTyres.relaxationRate = 26.0f;
-    car.rearTyres.stiffness = 15500.0f;
+
     car.rearTyres.staticCamber = -3.1f;
     car.rearTyres.camberGripStrength = 0.10f;
     car.rearTyres.CamberGain = -20.0f;

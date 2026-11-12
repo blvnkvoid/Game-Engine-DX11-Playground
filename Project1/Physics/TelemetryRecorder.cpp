@@ -1,7 +1,7 @@
 #include "TelemetryRecorder.h"
 #include <iomanip>
 
-bool TelemetryRecorder::Start(const std::string& filename)
+bool TelemetryRecorder::Start(const std::string &filename)
 {
     if (m_recording)
         return false;
@@ -63,7 +63,27 @@ bool TelemetryRecorder::Start(const std::string& filename)
         << "FL_diffLockTorque,FR_diffLockTorque,RL_diffLockTorque,RR_diffLockTorque,"
         << "diffSpeed,diffTargetTorque,diffLoadBiasTorque,diffTotalTorque,"
         << "mass,dragMagnitude,downforceMagnitude,frontDownforce,"
-        << "rearDownforce\n";
+        << "rearDownforce,"
+        << "frontYawTorque,rearYawTorque,totalTyreYawTorque,yawDampingTorque,"
+        << "localYawRate,"
+        << "lateralYawTorque, longitudinalYawTorque,"
+        << "FL_lateralYawTorque,FR_lateralYawTorque,RL_lateralYawTorque,RR_lateralYawTorque,"
+        << "FL_longitudinalYawTorque,FR_longitudinalYawTorque,RL_longitudinalYawTorque,RR_longitudinalYawTorque,"
+        << "FL_totalTyreYawTorque,FR_totalTyreYawTorque,RL_totalTyreYawTorque,RR_totalTyreYawTorque,"
+        << "totalBodyYawTorque,"
+        << "suspensionYawTorque,"
+        << "yawTorqueBeforeTyres,"
+        << "yawTorqueAfterTyres,"
+        << "yawTorqueTyreDelta,"
+        << "yawBeforeSuspension,"
+        << "yawAfterSuspension,"
+        << "yawAfterCombined,"
+        << "latTargetFL,latTargetFR,latTargetRL,latTargetRR,"
+        << "latRelaxedFL,latRelaxedFR,latRelaxedRL,latRelaxedRR,"
+        << "FL_combinedSlip,FR_combinedSlip,RL_combinedSlip,RR_combinedSlip,"
+        << "FL_maxFriction,FR_maxFriction,RL_maxFriction,RR_maxFriction,"
+        << "FL_frictionForce,FR_frictionForce,RL_frictionForce,RR_frictionForce,"
+        << "frontMass, rearMass\n";
 
     m_recording = true;
     return true;
@@ -79,7 +99,7 @@ void TelemetryRecorder::Stop()
     m_recording = false;
 }
 
-void TelemetryRecorder::Toggle(const std::string& filename)
+void TelemetryRecorder::Toggle(const std::string &filename)
 {
     if (m_recording)
         Stop();
@@ -87,7 +107,7 @@ void TelemetryRecorder::Toggle(const std::string& filename)
         Start(filename);
 }
 
-void TelemetryRecorder::Record(float deltaTime, const SharedVehicleInputs& inputs)
+void TelemetryRecorder::Record(float deltaTime, const SharedVehicleInputs &inputs)
 {
     if (!m_recording || !m_file.is_open())
         return;
@@ -244,7 +264,48 @@ void TelemetryRecorder::Record(float deltaTime, const SharedVehicleInputs& input
     m_file << ',' << g_DebugTelemetry.downforceMagnitude;
     m_file << ',' << g_DebugTelemetry.frontDownforce;
     m_file << ',' << g_DebugTelemetry.rearDownforce;
+    m_file << ',' << g_DebugTelemetry.frontYawTorque;
+    m_file << ',' << g_DebugTelemetry.rearYawTorque;
+    m_file << ',' << g_DebugTelemetry.totalTyreYawTorque;
+    m_file << ',' << g_DebugTelemetry.yawDampingTorque;
+    m_file << ',' << g_DebugTelemetry.localYawRate;
+    m_file << ',' << g_DebugTelemetry.lateralYawTorque;
+    m_file << ',' << g_DebugTelemetry.longitudinalYawTorque;
 
+    for (int i = 0; i < 4; ++i)
+        m_file << ',' << g_DebugTelemetry.lateralYawTorque[i];
+
+    for (int i = 0; i < 4; ++i)
+        m_file << ',' << g_DebugTelemetry.longitudinalYawTorque[i];
+
+    for (int i = 0; i < 4; ++i)
+        m_file << ',' << g_DebugTelemetry.totalTyreYawTorque[i];
+    m_file << ',' << g_DebugTelemetry.totalBodyYawTorque;
+    m_file << ',' << g_DebugTelemetry.suspensionYawTorque;
+    m_file << ',' << g_DebugTelemetry.yawTorqueBeforeTyres
+           << ',' << g_DebugTelemetry.yawTorqueAfterTyres
+           << ',' << g_DebugTelemetry.yawTorqueTyreDelta;
+    m_file << ',' << g_DebugTelemetry.yawBeforeSuspension
+           << ',' << g_DebugTelemetry.yawAfterSuspension
+           << ',' << g_DebugTelemetry.yawAfterCombined;
+
+    for (int i = 0; i < 4; i++)
+        m_file << ',' << g_DebugTelemetry.lateralTargetForce[i];
+
+    for (int i = 0; i < 4; i++)
+        m_file << ',' << g_DebugTelemetry.lateralRelaxedForce[i];
+
+    for (int i = 0; i < 4; i++)
+        m_file << ',' << g_DebugTelemetry.combinedSlip[i];
+
+    for (int i = 0; i < 4; i++)
+        m_file << ',' << g_DebugTelemetry.maxFriction[i];
+
+    for (int i = 0; i < 4; i++)
+        m_file << ',' << g_DebugTelemetry.frictionForce[i];
+
+    m_file << ',' << g_DebugTelemetry.frontMass;
+    m_file << ',' << g_DebugTelemetry.rearMass;
     m_file << '\n';
 
     m_elapsedTime += deltaTime;

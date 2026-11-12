@@ -80,8 +80,8 @@ VehicleDefinition SUPRA_JGTC2000::CreateDefinition()
     // ---------------------------------------------------------
     // 6. Steering / response
     // ---------------------------------------------------------
-    car.lowSpeedSteerAngle = 0.42f;
-    car.highSpeedSteerAngle = 0.06f;
+    car.lowSpeedSteerAngle = 0.20f;
+    car.highSpeedSteerAngle = 0.12f;
 
     car.loadResponseRate = 45.0f;
     car.slipResponseRate = 55.0f;

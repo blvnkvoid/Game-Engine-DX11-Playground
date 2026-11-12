@@ -13,6 +13,7 @@ const TyreCompoundData R1 = {1.50f, 12.0f, 30.0f, 18500.0f};
 const TyreCompoundData R2 = {1.60f, 11.0f, 32.0f, 20500.0f};
 const TyreCompoundData R3 = {1.70f, 10.0f, 34.0f, 22500.0f};
 const TyreCompoundData R4 = {1.85f, 9.0f, 36.0f, 24500.0f};
+//const TyreCompoundData R4 = {2.45f, 6.0f, 50.0f, 30000.0f};
 const TyreCompoundData R5 = {2.00f, 8.0f, 38.0f, 27000.0f};
 
 const TyreCompoundData P1 = {2.25f, 7.0f, 45.0f, 32000.0f};

@@ -10,12 +10,12 @@ VehicleDefinition SLS_Pacecar::CreateDefinition()
     car.mass = 1620.0f;
     car.frontWeightDistribution = 0.47f;
 
-    car.yawInertiaScale = 1.08f;
-    car.pitchInertiaScale = 1.03f;
-    car.rollInertiaScale = 1.02f;
+    car.yawInertiaScale = 1.0f;
+    car.pitchInertiaScale = 1.0f;
+    car.rollInertiaScale = 1.0f;
 
     // Current physics scale - old 0.92 value was from the old system.
-    car.yawDamping = 5200.0f;
+    car.yawDamping = 0.0f;
     car.bodyLength = 4.638f;
     car.Offset_X = 0.86f;
     car.Offset_Y = 0.34f;
@@ -100,14 +100,14 @@ VehicleDefinition SLS_Pacecar::CreateDefinition()
     // ---------------------------------------------------------
     // 6. Steering / response
     // ---------------------------------------------------------
-    car.lowSpeedSteerAngle = 0.55f;
-    car.highSpeedSteerAngle = 0.10f;
+    car.lowSpeedSteerAngle = 0.20f;
+    car.highSpeedSteerAngle = 0.12f;
 
     // Slower than the R10, but still responsive.
     car.loadResponseRate = 34.0f;
     car.slipResponseRate = 38.0f;
 
-    car.loadTransferStrength = 0.72f;
+    car.loadTransferStrength = 1.00f;
 
     // ---------------------------------------------------------
     // 7. Brakes
@@ -152,42 +152,27 @@ VehicleDefinition SLS_Pacecar::CreateDefinition()
     car.suspension.bumpStopRate = 100000.0f;
     car.suspension.bumpStopStart = 0.84f;
 
-    car.suspension.dampingScale = 0.72f;
+    car.suspension.dampingScale = 1.00f;
 
     // ---------------------------------------------------------
     // 9. Tyres
     // ---------------------------------------------------------
-    // Performance road tyres.
-    //
-    // IMPORTANT:
-    // The old definition used stiffness values of 1.00 / 1.03.
-    // Those belonged to the old physics scale and effectively
-    // produced almost no useful lateral tyre force in the current
-    // tyre model.
 
-    // Front tyres
-    car.frontTyres.frictionCoeff = 1.30f;
-    car.frontTyres.loadSmoothing = 14.0f;
-    car.frontTyres.relaxationRate = 26.0f;
-    car.frontTyres.stiffness = 15500.0f;
+    ApplyTyreCompound(car.frontTyres, TyreCompound::R3_RacingMedium);
+    ApplyTyreCompound(car.rearTyres, TyreCompound::R3_RacingMedium);
 
     car.frontTyres.staticCamber = -1.4f;
     car.frontTyres.camberGripStrength = 0.09f;
     car.frontTyres.CamberGain = -13.0f;
-
     car.frontTyres.wheelRadius = 0.340f;
     car.frontTyres.frontWheelInertia = 1.55f;
 
     // Rear tyres
-    car.rearTyres.frictionCoeff = 1.30f;
-    car.rearTyres.loadSmoothing = 14.0f;
-    car.rearTyres.relaxationRate = 26.0f;
-    car.rearTyres.stiffness = 15500.0f;
+
 
     car.rearTyres.staticCamber = -1.8f;
     car.rearTyres.camberGripStrength = 0.09f;
     car.rearTyres.CamberGain = -14.0f;
-
     car.rearTyres.wheelRadius = 0.340f;
     car.rearTyres.rearWheelInertia = 1.70f;
 

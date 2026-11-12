@@ -83,8 +83,8 @@ VehicleDefinition Copen::CreateDefinition()
     // ---------------------------------------------------------
     // 6. Steering / response
     // ---------------------------------------------------------
-    car.lowSpeedSteerAngle = 0.46f;
-    car.highSpeedSteerAngle = 0.075f;
+    car.lowSpeedSteerAngle = 0.20f;
+    car.highSpeedSteerAngle = 0.12f;
 
     car.loadResponseRate = 28.0f;
     car.slipResponseRate = 32.0f;
@@ -130,20 +130,15 @@ VehicleDefinition Copen::CreateDefinition()
     // ---------------------------------------------------------
     // 9. Tyres
     // ---------------------------------------------------------
-    car.frontTyres.frictionCoeff = 1.30f;
-    car.frontTyres.loadSmoothing = 14.0f;
-    car.frontTyres.relaxationRate = 26.0f;
-    car.frontTyres.stiffness = 15500.0f;
+    ApplyTyreCompound(car.frontTyres, TyreCompound::R3_RacingMedium);
+    ApplyTyreCompound(car.rearTyres, TyreCompound::R3_RacingMedium);
     car.frontTyres.staticCamber = -0.8f;
     car.frontTyres.camberGripStrength = 0.05f;
     car.frontTyres.CamberGain = -7.0f;
     car.frontTyres.wheelRadius = 0.285f;
     car.frontTyres.frontWheelInertia = 0.85f;
 
-    car.rearTyres.frictionCoeff = 1.30f;
-    car.rearTyres.loadSmoothing = 14.0f;
-    car.rearTyres.relaxationRate = 26.0f;
-    car.rearTyres.stiffness = 15500.0f;
+
     car.rearTyres.staticCamber = -0.6f;
     car.rearTyres.camberGripStrength = 0.05f;
     car.rearTyres.CamberGain = -5.0f;

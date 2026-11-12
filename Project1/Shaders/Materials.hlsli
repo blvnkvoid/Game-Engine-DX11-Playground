@@ -158,3 +158,8 @@ if (matType == MATERIAL_TREE)
 
     
 }
+
+if (matType == MATERIAL_TRANSPARENT)
+{
+    clip(texColor.a - 2.0f);
+}

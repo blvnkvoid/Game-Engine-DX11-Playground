@@ -1,4 +1,4 @@
-﻿#pragma warning(push)
+#pragma warning(push)
 #pragma warning(disable : 26451)
 #pragma warning(disable : 26495)
 #pragma warning(disable : 26812)
@@ -105,9 +105,12 @@ void PhysicsEngine::CreatePhysicsWorld()
     btCompoundShape *compound = new btCompoundShape();
     m_collisionShapes.push_back(compound);
 
+
     btTransform localTrans;
     localTrans.setIdentity();
+
     localTrans.setOrigin(btVector3(0.0f, 0.64f, 0.0f));
+
     compound->addChildShape(localTrans, box);
 
     btVector3 localInertia(0, 0, 0);
@@ -163,7 +166,6 @@ void PhysicsEngine::GetCarTransform(btTransform &outTrans)
     }
 }
 
-
 void PhysicsEngine::AddTriangleMeshCollider(
     const std::vector<SharedVertex> &vertices,
     const std::vector<UINT> &indices)
@@ -208,7 +210,7 @@ void PhysicsEngine::AddTriangleMeshCollider(
 
     part.m_numVertices =
         static_cast<int>(vertices.size());
-    
+
     part.m_vertexBase =
         reinterpret_cast<const unsigned char *>(
             &storage->vertices[0].pos);
@@ -465,8 +467,8 @@ void PhysicsEngine::StepPhysics(float fixedDt, SharedVehicleInputs inputs)
             g_DebugTelemetry.yNormal = normal.y();
             g_DebugTelemetry.groundY = rayCallback.m_hitPointWorld.y();
 
-            btVector3 wheelPointWorldOffset = tr.getBasis() * localOff;
-            btVector3 velocityWorld = m_carBody->getVelocityInLocalPoint(wheelPointWorldOffset);
+                btVector3 wheelPointWorldOffset = tr.getBasis() * localOff;
+                btVector3 velocityWorld = m_carBody->getVelocityInLocalPoint(wheelPointWorldOffset);
 
             hit.wheelVelocity.setX(velocityWorld.dot(tr.getBasis().getColumn(0)));
             hit.wheelVelocity.setY(velocityWorld.dot(tr.getBasis().getColumn(1)));
@@ -510,21 +512,123 @@ void PhysicsEngine::StepPhysics(float fixedDt, SharedVehicleInputs inputs)
 
     PhysicsAdvice combinedAdvice = m_handling->CombinedForces(inputs.steering, tr, speedKmh, m_carBody->getMass(), inputs.throttle, inputs.brake, fixedDt);
 
-    for (int i = 0; i < 4; i++)
+    static unsigned long long physicsDebugTick = 0;
+    ++physicsDebugTick;
+    const bool physicsDebug = true;
+    const btVector3 debugAngularBefore = m_carBody->getAngularVelocity();
+    btVector3 debugTyreTorqueSum(0, 0, 0);
+    btVector3 debugTyreForceSum(0, 0, 0);
+
+
+for (int i = 0; i < 4; i++)
     {
         if (combinedAdvice.friction[i].active)
         {
             btVector3 f = combinedAdvice.friction[i].force;
             btVector3 p = combinedAdvice.friction[i].offset;
 
-            if (p.length() > 500.0f)
-                p = p + carCenter;
+            //if (p.length() > 500.0f)
+              //  p = p + carCenter;
+
             if (f.length() > MAX_PHYSICS_FORCE)
                 f = f.normalized() * MAX_PHYSICS_FORCE;
 
-            m_carBody->applyForce(f, p);
+            // Linear force: unchanged.
+            m_carBody->applyCentralForce(f);
+
+            const btMatrix3x3 &basis = tr.getBasis();
+
+            const btVector3 physicalTorque = p.cross(f);
+
+            const btVector3 localOffset = basis.transpose() * p;
+            const btVector3 localForce = basis.transpose() * f;
+
+            const btScalar front = m_vehicle.Offset_Z_Front;
+            const btScalar rear = m_vehicle.Offset_Z_Back;
+
+            btScalar effectiveZ;
+
+            if (front < rear)
+            {
+                // Original yaw arms
+                effectiveZ = localOffset.z();
+            }
+            else
+            {
+                // Central yaw arms
+                  const btScalar symmetricArm = (front + rear) * 0.5f;
+                  effectiveZ = (i < 2) ? symmetricArm : -symmetricArm;
+            }
+
+            btVector3 localTorque = basis.transpose() * physicalTorque;
+
+            const btScalar effectiveYaw =
+                effectiveZ * localForce.x() -
+                localOffset.x() * localForce.z();
+
+            localTorque.setY(effectiveYaw);
+
+            const btVector3 appliedWorldTorque = basis * localTorque;
+
+            debugTyreTorqueSum += appliedWorldTorque;
+            debugTyreForceSum += f;
+
+            m_carBody->applyTorque(appliedWorldTorque);
+
+
+
+
+            if (physicsDebug)
+            {
+                const btVector3 physicalLocal =
+                    basis.transpose() * physicalTorque;
+
+                char dbg[640];
+
+                snprintf(dbg, sizeof(dbg),
+                         "[PZ][BULLET-IN][W%d] "
+                         "pLocal=(%.4f,%.4f,%.4f) "
+                         "FLocal=(%.3f,%.3f,%.3f) "
+                         "TphysLocal=(%.3f,%.3f,%.3f) "
+                         "TeffYaw=%.3f TappliedYaw=%.3f\n",
+                         i,
+                         localOffset.x(), localOffset.y(), localOffset.z(),
+                         localForce.x(), localForce.y(), localForce.z(),
+                         physicalLocal.x(), physicalLocal.y(), physicalLocal.z(),
+                         effectiveYaw, localTorque.y());
+
+                OutputDebugStringA(dbg);
+            }
+
+           
         }
     }
+
+
+    // ROLL STIFFNESS
+    // ---------------------------------------------------------
+
+    const btMatrix3x3 &rollBasis = tr.getBasis();
+
+    // World up in chassis-local coordinates.
+    const btVector3 localUp =
+        rollBasis.transpose() * btVector3(0.0f, 1.0f, 0.0f);
+
+    // Roll angle in radians.
+    const btScalar rollAngle =
+        btAtan2(localUp.x(), localUp.y());
+
+    // Restoring torque around the chassis Z axis.
+    const btScalar rollTorque =
+        m_vehicle.rollStiffness * rollAngle;
+
+    const btVector3 localRollTorque(
+        0.0f,
+        0.0f,
+        rollTorque);
+
+    m_carBody->applyTorque(rollBasis * localRollTorque);
+
 
     if (speedKmh < 1.0f && inputs.throttle < 0.1f && inputs.brake < 0.1f)
     {
@@ -559,9 +663,40 @@ void PhysicsEngine::StepPhysics(float fixedDt, SharedVehicleInputs inputs)
         g_DebugTelemetry.downforceMagnitude = frontDownforce + rearDownforce;
     }
 
+    // Sample the complete accumulated torque BEFORE Bullet integrates the step.
+    const btVector3 debugTotalTorqueBeforeStep = m_carBody->getTotalTorque();
+    const btMatrix3x3 debugBasisBefore = m_carBody->getWorldTransform().getBasis();
+    const btVector3 debugLocalOmegaBefore = debugBasisBefore.transpose() * debugAngularBefore;
+    const btVector3 debugLocalTyreTorque = debugBasisBefore.transpose() * debugTyreTorqueSum;
+    const btVector3 debugLocalTotalTorque = debugBasisBefore.transpose() * debugTotalTorqueBeforeStep;
+
     if (m_dynamicsWorld)
     {
         m_dynamicsWorld->stepSimulation(fixedDt, 0);
+    }
+
+    if (physicsDebug)
+    {
+        const btVector3 debugAngularAfter = m_carBody->getAngularVelocity();
+        const btVector3 debugLocalOmegaAfter = debugBasisBefore.transpose() * debugAngularAfter;
+        const btVector3 debugDeltaOmega = debugLocalOmegaAfter - debugLocalOmegaBefore;
+        const btVector3 debugOtherTorque = debugLocalTotalTorque - debugLocalTyreTorque;
+        const btVector3 debugInvInertiaLocal = m_carBody->getInvInertiaDiagLocal();
+        char dbg[800];
+        snprintf(dbg, sizeof(dbg),
+            "[PZ][BULLET-STEP] tick=%llu dt=%.7f speed=%.2f steer=%.6f "
+            "yawBeforeLocal=%.7f yawAfterLocal=%.7f dYaw=%.7f "
+            "tyreYawNm=%.3f totalYawNm=%.3f otherYawNm=%.3f "
+            "invIy=%.8f expectedYawDeltaSimple=%.7f "
+            "omegaBeforeLocal=(%.5f,%.5f,%.5f) "
+            "omegaAfterLocal=(%.5f,%.5f,%.5f)\n",
+            physicsDebugTick, fixedDt, speedKmh, inputs.steering,
+            debugLocalOmegaBefore.y(),debugLocalOmegaAfter.y(),debugDeltaOmega.y(),
+            debugLocalTyreTorque.y(),debugLocalTotalTorque.y(),debugOtherTorque.y(),
+            debugInvInertiaLocal.y(),debugLocalTotalTorque.y()*debugInvInertiaLocal.y()*fixedDt,
+            debugLocalOmegaBefore.x(),debugLocalOmegaBefore.y(),debugLocalOmegaBefore.z(),
+            debugLocalOmegaAfter.x(),debugLocalOmegaAfter.y(),debugLocalOmegaAfter.z());
+        OutputDebugStringA(dbg);
     }
 
     m_telemetryRecorder.Record(fixedDt, inputs);

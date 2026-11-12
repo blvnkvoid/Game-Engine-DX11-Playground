@@ -46,14 +46,14 @@
     <Filter Include="Source Files\Shaders">
       <UniqueIdentifier>{ba6eb0d6-4f0f-4505-867a-96102b0444ba}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Physics">
-      <UniqueIdentifier>{649d45d5-3e0b-4020-9881-0d9eff444487}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\DevConsole">
       <UniqueIdentifier>{9ee0060b-c0de-4f49-bd97-dad3b105982d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Sky">
       <UniqueIdentifier>{0d6183c7-dbc1-4306-87f5-1d078d438ecb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Physics">
+      <UniqueIdentifier>{649d45d5-3e0b-4020-9881-0d9eff444487}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -228,19 +228,10 @@
     <ClCompile Include="Graphics\SharedMaterialLoader.cpp">
       <Filter>Source Files\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="Physics\Handling.cpp">
-      <Filter>Source Files\Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="Physics\PhysicsEngine.cpp">
-      <Filter>Source Files\Physics</Filter>
-    </ClCompile>
     <ClCompile Include="Physics\TelemetryRecorder.cpp">
       <Filter>Source Files\Physics</Filter>
     </ClCompile>
     <ClCompile Include="Physics\TorqueManager.cpp">
-      <Filter>Source Files\Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="Physics\Tyres.cpp">
       <Filter>Source Files\Physics</Filter>
     </ClCompile>
     <ClCompile Include="Physics\VehicleTelemetry.cpp">
@@ -260,6 +251,15 @@
     </ClCompile>
     <ClCompile Include="Sky\Sun.cpp">
       <Filter>Source Files\Sky</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\Handling.cpp">
+      <Filter>Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\PhysicsEngine.cpp">
+      <Filter>Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\Tyres.cpp">
+      <Filter>Source Files\Physics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

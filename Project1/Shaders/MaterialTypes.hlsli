@@ -18,5 +18,6 @@
 #define MATERIAL_TREE            14
 #define MATERIAL_LAMP            15
 #define MATERIAL_SAFETYCAR_PAINT 16
+#define MATERIAL_TRANSPARENT 17
 
 #endif

@@ -158,6 +158,10 @@ void VehicleTelemetry::Draw(bool* p_open, Camera* cam, CarLoader* playerModel, M
                         ImGui::Text("Longitudinal G: %.2f", shownTelemetry.longitudinalG);
                         ImGui::Text("Yaw Rate: %.2f", shownTelemetry.yawRate);
                         ImGui::Text("Mass (kg): %.0f", shownTelemetry.mass);
+                        ImGui::Text("Front Mass (kg): %.0f", shownTelemetry.frontMass);
+                        ImGui::Text("Rear Mass (kg): %.0f", shownTelemetry.rearMass);
+                        ImGui::Text("Front Load (N): %.0f", shownTelemetry.frontLoad);
+                        ImGui::Text("Rear Load (N): %.0f", shownTelemetry.rearLoad);
                         if (ImGui::BeginTable("VehicleDynamicsTable", 2, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollX)) {
                             ImGui::TableSetupColumn("Wheel", ImGuiTableColumnFlags_WidthFixed, 50.0f);
                             ImGui::TableSetupColumn("Body Slip (deg)");

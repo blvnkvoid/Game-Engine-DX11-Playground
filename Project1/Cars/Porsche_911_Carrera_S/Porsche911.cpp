@@ -9,10 +9,10 @@ VehicleDefinition Porsche911::CreateDefinition()
     // ---------------------------------------------------------
     car.mass = 1500.0f;
     car.frontWeightDistribution = 0.38f;
-    car.yawInertiaScale = 1.35f;
-    car.pitchInertiaScale = 1.10f;
-    car.rollInertiaScale = 1.10f;
-    car.yawDamping = 5000.0f;
+    car.yawInertiaScale = 1.00f;
+    car.pitchInertiaScale = 1.00f;
+    car.rollInertiaScale = 1.00f;
+    car.yawDamping = 0.0f;
     car.bodyLength = 4.427f;
     car.Offset_X = 0.95f;
     car.Offset_Y = 0.15f;
@@ -80,8 +80,8 @@ VehicleDefinition Porsche911::CreateDefinition()
     // ---------------------------------------------------------
     // 6. Steering / response
     // ---------------------------------------------------------
-    car.lowSpeedSteerAngle = 0.45f;
-    car.highSpeedSteerAngle = 0.08f;
+    car.lowSpeedSteerAngle = 0.20f;
+    car.highSpeedSteerAngle = 0.12f;
 
     car.loadResponseRate = 35.0f;
     car.slipResponseRate = 40.0f;
@@ -127,20 +127,17 @@ VehicleDefinition Porsche911::CreateDefinition()
     // ---------------------------------------------------------
     // 9. Tyres
     // ---------------------------------------------------------
-    car.frontTyres.frictionCoeff = 1.30f;
-    car.frontTyres.loadSmoothing = 14.0f;
-    car.frontTyres.relaxationRate = 26.0f;
-    car.frontTyres.stiffness = 15500.0f;
+
+
+    ApplyTyreCompound(car.frontTyres, TyreCompound::R3_RacingMedium);
+    ApplyTyreCompound(car.rearTyres, TyreCompound::R3_RacingMedium);
+
     car.frontTyres.staticCamber = -1.0f;
     car.frontTyres.camberGripStrength = 0.08f;
     car.frontTyres.CamberGain = -12.0f;
     car.frontTyres.wheelRadius = 0.34f;
     car.frontTyres.frontWheelInertia = 1.76f;
 
-    car.rearTyres.frictionCoeff = 1.30f;
-    car.rearTyres.loadSmoothing = 14.0f;
-    car.rearTyres.relaxationRate = 26.0f;
-    car.rearTyres.stiffness = 15500.0f;
     car.rearTyres.staticCamber = -2.2f;
     car.rearTyres.camberGripStrength = 0.08f;
     car.rearTyres.CamberGain = -16.0f;

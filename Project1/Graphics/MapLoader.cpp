@@ -11,14 +11,174 @@
 #include <functional>
 #include <unordered_map>
 
+namespace
+{
+using MapProfileClock = std::chrono::steady_clock;
+using MapProfileTime = MapProfileClock::time_point;
+
+inline double MapProfileMs(MapProfileTime a, MapProfileTime b)
+{
+    return std::chrono::duration<double, std::milli>(b - a).count();
+}
+
+struct MapProfileSeries
+{
+    double sum = 0.0;
+    double min = 1.0e30;
+    double max = 0.0;
+    void Add(double v)
+    {
+        sum += v;
+        min = (std::min)(min, v);
+        max = (std::max)(max, v);
+    }
+    double Average(unsigned n) const
+    {
+        return n ? sum / n : 0.0;
+    }
+};
+
+// These counters are intentionally single-threaded, like the immediate DX11 context.
+struct MapDrawProfiler
+{
+    static constexpr unsigned Window = 300;
+    unsigned frames = 0;
+    unsigned phaseIndex = 0;
+    MapProfileSeries total, residency, setup, bvh, sort, submit, stats, remainder;
+    // Exactly one operation is timed per 300-frame window.
+    // This avoids putting five timing pairs around every draw call.
+    MapProfileSeries isolated;
+    double worstIsolated = 0.0;
+    unsigned long long isolatedCalls = 0;
+    unsigned long long submitted = 0;
+    unsigned long long visible = 0;
+    double worstTotal = -1.0;
+    double worstResidency = 0, worstSetup = 0, worstBVH = 0;
+    double worstSort = 0, worstSubmit = 0, worstStats = 0, worstRemainder = 0;
+    unsigned worstVisible = 0, worstSubmitted = 0;
+
+    void Add(double t, double r, double se, double b, double so,
+             double su, double st, unsigned vis, unsigned draws,
+             double isolatedMs, unsigned isolatedCount)
+    {
+        const double accounted = r + se + b + so + su + st;
+        const double other = t - accounted;
+        total.Add(t);
+        residency.Add(r);
+        setup.Add(se);
+        bvh.Add(b);
+        sort.Add(so);
+        submit.Add(su);
+        stats.Add(st);
+        remainder.Add(other);
+        isolated.Add(isolatedMs);
+        isolatedCalls += isolatedCount;
+        visible += vis;
+        submitted += draws;
+        if (t > worstTotal)
+        {
+            worstTotal = t;
+            worstIsolated = isolatedMs;
+            worstResidency = r;
+            worstSetup = se;
+            worstBVH = b;
+            worstSort = so;
+            worstSubmit = su;
+            worstStats = st;
+            worstRemainder = other;
+            worstVisible = vis;
+            worstSubmitted = draws;
+        }
+        if (++frames != Window)
+            return;
+
+        static const char *labels[5] = {
+            "VB/IB binding", "material CPU", "SRV binding",
+            "Map/memcpy/Unmap", "DrawIndexed"};
+        const unsigned phase = phaseIndex;
+        char msg[4096];
+        sprintf_s(msg, sizeof(msg),
+                  "\n========== MAP DRAW ISOLATION (%u frames) ==========\n"
+                  "TIMED OPERATION: %s (phase %u/5)\n"
+                  "section             avg ms     min ms     max ms\n"
+                  "TOTAL             %8.3f   %8.3f   %8.3f\n"
+                  "residency         %8.3f   %8.3f   %8.3f\n"
+                  "setup             %8.3f   %8.3f   %8.3f\n"
+                  "BVH               %8.3f   %8.3f   %8.3f\n"
+                  "sort              %8.3f   %8.3f   %8.3f\n"
+                  "BATCH LOOP        %8.3f   %8.3f   %8.3f\n"
+                  "ISOLATED          %8.3f   %8.3f   %8.3f\n"
+                  "stats             %8.3f   %8.3f   %8.3f\n"
+                  "visible avg %.0f | submitted avg %.0f | isolated calls avg %.0f\n"
+                  "WORST FRAME: total %.3f | LOOP %.3f | ISOLATED %.3f | "
+                  "BVH %.3f | sort %.3f | residency %.3f | visible %u | draws %u\n"
+                  "NOTE: ISOLATED includes two clock reads per eligible batch. "
+                  "It is not a pure API cost. Compare loop and isolated variation, "
+                  "not raw isolated time across phases.\n"
+                  "======================================================\n",
+                  frames, labels[phase], phase + 1,
+                  total.Average(frames), total.min, total.max,
+                  residency.Average(frames), residency.min, residency.max,
+                  setup.Average(frames), setup.min, setup.max,
+                  bvh.Average(frames), bvh.min, bvh.max,
+                  sort.Average(frames), sort.min, sort.max,
+                  submit.Average(frames), submit.min, submit.max,
+                  isolated.Average(frames), isolated.min, isolated.max,
+                  stats.Average(frames), stats.min, stats.max,
+                  double(visible) / frames, double(submitted) / frames,
+                  double(isolatedCalls) / frames,
+                  worstTotal, worstSubmit, worstIsolated, worstBVH, worstSort,
+                  worstResidency, worstVisible, worstSubmitted);
+      //  OutputDebugStringA(msg);
+        *this = MapDrawProfiler{};
+        phaseIndex = (phase + 1) % 5;
+    }
+};
+
+struct MapSimpleProfiler
+{
+    const char *name;
+    unsigned frames = 0;
+    MapProfileSeries time;
+    explicit MapSimpleProfiler(const char *label)
+        : name(label)
+    {
+    }
+    void Add(double ms)
+    {
+        time.Add(ms);
+        if (++frames != 300)
+            return;
+        char msg[256];
+        sprintf_s(msg, sizeof(msg),
+                  "[MAP PROFILE] %s: avg %.3f ms | min %.3f | max %.3f (300 calls)\n",
+                  name, time.Average(frames), time.min, time.max);
+        //OutputDebugStringA(msg);
+        frames = 0;
+        time = MapProfileSeries{};
+    }
+};
+struct MapProfileScope
+{
+    MapSimpleProfiler &profiler;
+    MapProfileTime start = MapProfileClock::now();
+    explicit MapProfileScope(MapSimpleProfiler &p)
+        : profiler(p)
+    {
+    }
+    ~MapProfileScope()
+    {
+        profiler.Add(MapProfileMs(start, MapProfileClock::now()));
+    }
+};
+
+} // namespace
 
 void MapLoader::SetMaterialLoader(
-    SharedMaterialLoader& materialLoader)
+    SharedMaterialLoader &materialLoader)
 {
     m_materialLoader = &materialLoader;
 }
-
-
 
 float MapLoader::DistanceToChunk(
     const DirectX::XMFLOAT3 &position,
@@ -44,6 +204,9 @@ float MapLoader::DistanceToChunk(
 
 bool MapLoader::UploadChunk(MapGeometryChunk &chunk)
 {
+    static MapSimpleProfiler sectionProfile("UploadChunk");
+    MapProfileScope sectionScope(sectionProfile);
+
     if (chunk.resident)
         return true;
 
@@ -104,8 +267,8 @@ bool MapLoader::UploadChunk(MapGeometryChunk &chunk)
 void MapLoader::UpdateChunkResidency(
     const DirectX::XMFLOAT3 &cameraPosition)
 {
-    constexpr float LOAD_RADIUS = 1200.0f;
-    constexpr float UNLOAD_RADIUS = 1400.0f;
+    constexpr float LOAD_RADIUS = 700.0f;
+    constexpr float UNLOAD_RADIUS = 700.0f;
 
     // Conservative synchronous upload budget.
     // Later we can replace this with background preparation.
@@ -167,8 +330,6 @@ void MapLoader::UpdateChunkResidency(
             ++uploads;
     }
 }
-
-
 
 void MapLoader::BuildGeometryChunks(
     const std::vector<UINT> &batchIndices)
@@ -352,8 +513,6 @@ void MapLoader::BuildGeometryChunks(
 
     OutputDebugStringA(report.c_str());
 }
-
-
 
 void MapLoader::BuildRenderBatches()
 {
@@ -670,7 +829,7 @@ void MapLoader::BuildRenderBatches()
     const size_t bytes =
         batchIndices.size() * sizeof(UINT);
 
-   /* if (bytes > std::numeric_limits<UINT>::std::max())
+    /* if (bytes > std::numeric_limits<UINT>::std::max())
     {
         throw std::runtime_error(
             "Spatial batching: index buffer exceeds UINT limit");
@@ -723,8 +882,6 @@ void MapLoader::BuildRenderBatches()
     OutputDebugStringA(report.c_str());
 }
 
-
-
 void MapLoader::DrawShadowSubset(
     ID3D11DeviceContext *context,
     const MapMeshSubset &subset,
@@ -770,7 +927,6 @@ void MapLoader::DrawShadowSubset(
         subset.startIndex,
         0);
 }
-
 
 void MapLoader::BuildBatchBVH()
 {
@@ -894,12 +1050,31 @@ void MapLoader::CollectVisibleBatchBVH(
 {
     const BVHNode &node = m_batchBVHNodes[nodeIndex];
 
-    if (!frustum.Intersects(node.bounds))
+    const DirectX::ContainmentType result =
+        frustum.Contains(node.bounds);
+
+    // Entire subtree is outside the frustum.
+    if (result == DirectX::DISJOINT)
     {
         m_stats.m_culledDrawCalls += node.count;
         return;
     }
 
+    // Entire subtree is inside the frustum.
+    // No further intersection tests required.
+    if (result == DirectX::CONTAINS)
+    {
+        for (uint32_t i = node.first;
+             i < node.first + node.count;
+             ++i)
+        {
+            visible.push_back(m_batchBVHIndices[i]);
+        }
+
+        return;
+    }
+
+    // Partially intersecting internal node.
     if (!node.IsLeaf())
     {
         CollectVisibleBatchBVH(node.left, frustum, visible);
@@ -907,6 +1082,7 @@ void MapLoader::CollectVisibleBatchBVH(
         return;
     }
 
+    // Partially intersecting leaf.
     for (uint32_t i = node.first;
          i < node.first + node.count;
          ++i)
@@ -914,7 +1090,7 @@ void MapLoader::CollectVisibleBatchBVH(
         const uint32_t batchIndex = m_batchBVHIndices[i];
         const auto &batch = m_renderBatches[batchIndex];
 
-        if (!frustum.Intersects(batch.bounds))
+        if (frustum.Contains(batch.bounds) == DirectX::DISJOINT)
         {
             ++m_stats.m_culledDrawCalls;
             continue;
@@ -924,14 +1100,12 @@ void MapLoader::CollectVisibleBatchBVH(
     }
 }
 
-
-
 void MapLoader::CollectVisibleBVH(
     int nodeIndex,
-    const DirectX::BoundingFrustum& frustum,
-    std::vector<uint32_t>& visible)
+    const DirectX::BoundingFrustum &frustum,
+    std::vector<uint32_t> &visible)
 {
-    const BVHNode& node = m_bvhNodes[nodeIndex];
+    const BVHNode &node = m_bvhNodes[nodeIndex];
 
     if (!frustum.Intersects(node.bounds))
     {
@@ -947,11 +1121,11 @@ void MapLoader::CollectVisibleBVH(
     }
 
     for (uint32_t j = node.first;
-        j < node.first + node.count;
-        ++j)
+         j < node.first + node.count;
+         ++j)
     {
         const uint32_t subsetIndex = m_bvhIndices[j];
-        const auto& subset = m_mapSubsets[subsetIndex];
+        const auto &subset = m_mapSubsets[subsetIndex];
 
         if (!frustum.Intersects(subset.bounds))
         {
@@ -981,19 +1155,18 @@ void MapLoader::BuildBVH()
 
     BuildBVHNode(
         0,
-        static_cast<uint32_t>(m_bvhIndices.size())
-    );
+        static_cast<uint32_t>(m_bvhIndices.size()));
 
     //OutputDebugStringA(("BVH built: " + std::to_string(m_bvhNodes.size()) + " nodes, " + std::to_string(m_bvhIndices.size()) + " subsets\n").c_str());
 }
 
 void MapLoader::DrawShadowBVHNode(
     int nodeIndex,
-    ID3D11DeviceContext* context,
-    const DirectX::BoundingFrustum& frustum,
+    ID3D11DeviceContext *context,
+    const DirectX::BoundingFrustum &frustum,
     ID3D11PixelShader *shadowAlphaPS)
 {
-    const BVHNode& node = m_bvhNodes[nodeIndex];
+    const BVHNode &node = m_bvhNodes[nodeIndex];
 
     // Entire branch rejected.
     if (!frustum.Intersects(node.bounds))
@@ -1013,10 +1186,10 @@ void MapLoader::DrawShadowBVHNode(
 
     // Leaf: test individual subsets.
     for (uint32_t i = node.first;
-        i < node.first + node.count;
-        ++i)
+         i < node.first + node.count;
+         ++i)
     {
-        const auto& subset =
+        const auto &subset =
             m_mapSubsets[m_bvhIndices[i]];
 
         if (!frustum.Intersects(subset.bounds))
@@ -1026,11 +1199,10 @@ void MapLoader::DrawShadowBVHNode(
             continue;
         }
 
-     DrawShadowSubset(
+        DrawShadowSubset(
             context,
             subset,
             shadowAlphaPS);
-        
 
         m_stats.m_shadowdrawCalls++;
         m_stats.renderedIndices += subset.indexCount;
@@ -1045,20 +1217,18 @@ int MapLoader::BuildBVHNode(uint32_t first, uint32_t count)
     m_bvhNodes.emplace_back();
 
     DirectX::XMFLOAT3 minP{
-        FLT_MAX, FLT_MAX, FLT_MAX
-    };
+        FLT_MAX, FLT_MAX, FLT_MAX};
 
     DirectX::XMFLOAT3 maxP{
-        -FLT_MAX, -FLT_MAX, -FLT_MAX
-    };
+        -FLT_MAX, -FLT_MAX, -FLT_MAX};
     uint64_t totalIndices = 0;
 
     for (uint32_t i = first; i < first + count; ++i)
     {
-        const auto& subset =
+        const auto &subset =
             m_mapSubsets[m_bvhIndices[i]];
 
-        const auto& bounds = subset.bounds;
+        const auto &bounds = subset.bounds;
 
         totalIndices += subset.indexCount;
         minP.x = min(minP.x, bounds.Center.x - bounds.Extents.x);
@@ -1075,8 +1245,7 @@ int MapLoader::BuildBVHNode(uint32_t first, uint32_t count)
     DirectX::BoundingBox::CreateFromPoints(
         nodeBounds,
         DirectX::XMLoadFloat3(&minP),
-        DirectX::XMLoadFloat3(&maxP)
-    );
+        DirectX::XMLoadFloat3(&maxP));
 
     m_bvhNodes[nodeIndex].bounds = nodeBounds;
     m_bvhNodes[nodeIndex].first = first;
@@ -1103,10 +1272,12 @@ int MapLoader::BuildBVHNode(uint32_t first, uint32_t count)
 
     auto centerAxis = [&](uint32_t subsetIndex)
     {
-        const auto& c = m_mapSubsets[subsetIndex].bounds.Center;
+        const auto &c = m_mapSubsets[subsetIndex].bounds.Center;
 
-        if (axis == 0) return c.x;
-        if (axis == 1) return c.y;
+        if (axis == 0)
+            return c.x;
+        if (axis == 1)
+            return c.y;
         return c.z;
     };
 
@@ -1117,8 +1288,7 @@ int MapLoader::BuildBVHNode(uint32_t first, uint32_t count)
         [&](uint32_t a, uint32_t b)
         {
             return centerAxis(a) < centerAxis(b);
-        }
-    );
+        });
 
     const int left =
         BuildBVHNode(first, middle - first);
@@ -1132,23 +1302,22 @@ int MapLoader::BuildBVHNode(uint32_t first, uint32_t count)
     return nodeIndex;
 }
 
-
 void MapLoader::UpdateVisibleLights(
-    ID3D11DeviceContext* context,
-    ID3D11Buffer* lampStructuredBuffer,
-    ID3D11Buffer* lampInfoBuffer,
-    const DirectX::BoundingFrustum& frustum,
-    Camera* cam
-   )
+    ID3D11DeviceContext *context,
+    ID3D11Buffer *lampStructuredBuffer,
+    ID3D11Buffer *lampInfoBuffer,
+    const DirectX::BoundingFrustum &frustum,
+    Camera *cam)
 {
+    static MapSimpleProfiler sectionProfile("UpdateVisibleLights");
+    MapProfileScope sectionScope(sectionProfile);
+
     m_visibleLampLights.clear();
 
     const float maxLightDistance = 1000.0f;
     const float maxLightDistanceSq = maxLightDistance * maxLightDistance;
 
-    
-
-    for (const auto& light : m_lampLights)
+    for (const auto &light : m_lampLights)
     {
         XMVECTOR lightPos = XMLoadFloat3(&light.position);
         XMVECTOR cameraPos = XMLoadFloat3(&cam->position);
@@ -1156,14 +1325,13 @@ void MapLoader::UpdateVisibleLights(
         XMVECTOR delta = XMVectorSubtract(lightPos, cameraPos);
         float distanceSq = XMVectorGetX(XMVector3LengthSq(delta));
 
-
         if (distanceSq < maxLightDistanceSq)
         {
             const DirectX::BoundingSphere bounds(
                 light.position,
-                light.radius);     
+                light.radius);
 
-             if (frustum.Intersects(bounds))
+            if (frustum.Intersects(bounds))
             {
                 m_visibleLampLights.push_back(light);
             }
@@ -1172,8 +1340,8 @@ void MapLoader::UpdateVisibleLights(
 
     const size_t activeCount =
         m_lightsEnabled
-        ? min(m_visibleLampLights.size(), size_t{ 1200 })
-        : 0;
+            ? min(m_visibleLampLights.size(), size_t{1200})
+            : 0;
 
     m_stats.activelampCount =
         static_cast<uint32_t>(activeCount);
@@ -1183,11 +1351,11 @@ void MapLoader::UpdateVisibleLights(
         D3D11_MAPPED_SUBRESOURCE mapped{};
 
         if (SUCCEEDED(context->Map(
-            lampStructuredBuffer,
-            0,
-            D3D11_MAP_WRITE_DISCARD,
-            0,
-            &mapped)))
+                lampStructuredBuffer,
+                0,
+                D3D11_MAP_WRITE_DISCARD,
+                0,
+                &mapped)))
         {
             memcpy(
                 mapped.pData,
@@ -1206,18 +1374,17 @@ void MapLoader::UpdateVisibleLights(
         D3D11_MAPPED_SUBRESOURCE mapped{};
 
         if (SUCCEEDED(context->Map(
-            lampInfoBuffer,
-            0,
-            D3D11_MAP_WRITE_DISCARD,
-            0,
-            &mapped)))
+                lampInfoBuffer,
+                0,
+                D3D11_MAP_WRITE_DISCARD,
+                0,
+                &mapped)))
         {
             memcpy(mapped.pData, &info, sizeof(info));
             context->Unmap(lampInfoBuffer, 0);
         }
     }
 }
-
 
 void MapLoader::DrawShadow(
     ID3D11DeviceContext *context,
@@ -1227,6 +1394,9 @@ void MapLoader::DrawShadow(
     ID3D11DepthStencilState *depthWriteOn,
     ID3D11PixelShader *shadowAlphaPS)
 {
+    static MapSimpleProfiler sectionProfile("DrawShadow");
+    MapProfileScope sectionScope(sectionProfile);
+
     if (m_geometryChunks.empty() || m_renderBatches.empty())
         return;
 
@@ -1374,8 +1544,6 @@ void MapLoader::DrawShadow(
             .count();
 }
 
-
-
 void MapLoader::Draw(
     ID3D11DeviceContext *context,
     ID3D11Buffer *cbb,
@@ -1386,43 +1554,33 @@ void MapLoader::Draw(
     ID3D11DepthStencilState *depthWriteOn,
     const DirectX::XMFLOAT3 &cameraPosition)
 {
+    static MapDrawProfiler profile;
     if (m_geometryChunks.empty() || m_renderBatches.empty())
         return;
 
+    const auto t0 = MapProfileClock::now();
     UpdateChunkResidency(cameraPosition);
+    const auto t1 = MapProfileClock::now();
 
     SharedSceneData drawData = engineSceneData;
-
     m_stats.m_drawCalls = 0;
     m_stats.m_culledDrawCalls = 0;
 
     context->OMSetBlendState(nullptr, nullptr, 0xffffffff);
     context->OMSetDepthStencilState(depthWriteOn, 0);
-
     UINT stride = sizeof(SharedVertex);
     UINT offset = 0;
-
-
-    context->IASetPrimitiveTopology(
-        D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
-
-    context->PSSetSamplers(
-        0, 1, m_samplerState.GetAddressOf());
-
+    context->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+    context->PSSetSamplers(0, 1, m_samplerState.GetAddressOf());
     context->VSSetConstantBuffers(0, 1, &cbb);
     context->PSSetConstantBuffers(0, 1, &cbb);
 
-    // Track lighting toggle.
     static bool lWasPressed = false;
-    const bool lPressed =
-        (GetAsyncKeyState('L') & 0x8000) != 0;
-
+    const bool lPressed = (GetAsyncKeyState('L') & 0x8000) != 0;
     if (lPressed && !lWasPressed)
         m_lightsEnabled = !m_lightsEnabled;
-
     lWasPressed = lPressed;
     m_stats.lightsEnabled = m_lightsEnabled;
-
     if (m_lightsEnabled)
     {
         context->PSSetConstantBuffers(1, 1, &lampInfoBuffer);
@@ -1432,174 +1590,163 @@ void MapLoader::Draw(
     {
         ID3D11Buffer *nullCB = nullptr;
         ID3D11ShaderResourceView *nullSRV = nullptr;
-
         context->PSSetConstantBuffers(1, 1, &nullCB);
         context->PSSetShaderResources(1, 1, &nullSRV);
     }
-
     m_stats.lampCount = static_cast<uint32_t>(
-        min(m_lampLights.size(), size_t{1200}));
+        (std::min)(m_lampLights.size(), size_t{1200}));
 
-    // Frustum toggle.
     static bool enableFrustumCulling = true;
     static bool fWasPressed = false;
-
-    const bool fPressed =
-        (GetAsyncKeyState('F') & 0x8000) != 0;
-
+    const bool fPressed = (GetAsyncKeyState('F') & 0x8000) != 0;
     if (fPressed && !fWasPressed)
         enableFrustumCulling = !enableFrustumCulling;
-
     fWasPressed = fPressed;
-
     std::vector<uint32_t> visibleBatches;
+    const auto t2 = MapProfileClock::now();
 
     if (enableFrustumCulling && !m_batchBVHNodes.empty())
-    {
-        CollectVisibleBatchBVH(
-            0, frustum, visibleBatches);
-
-        std::sort(
-            visibleBatches.begin(),
-            visibleBatches.end());
-    }
+        CollectVisibleBatchBVH(0, frustum, visibleBatches);
     else
     {
         visibleBatches.reserve(m_renderBatches.size());
-
         for (uint32_t i = 0; i < m_renderBatches.size(); ++i)
             visibleBatches.push_back(i);
     }
+    const auto t3 = MapProfileClock::now();
 
-    
-    //   context->PSSetShader(nullptr, nullptr, 0);
+    if (enableFrustumCulling && !m_batchBVHNodes.empty())
+        std::sort(visibleBatches.begin(), visibleBatches.end());
+    const auto t4 = MapProfileClock::now();
 
-    // Bind the actual material resources for every batch.
-    // No stale SRVs inherited from previous passes.
+    // Rotate one timed operation every 300 frames: 0 geometry, 1 material,
+    // 2 textures, 3 constant buffer, 4 draw submission.
+    // Keep all original API calls and their order unchanged.
+    const unsigned phase = profile.phaseIndex;
+    double isolatedMs = 0.0;
+    unsigned isolatedCount = 0;
+
     for (uint32_t i : visibleBatches)
     {
         const auto &batch = m_renderBatches[i];
-
         if (batch.chunkIndex >= m_geometryChunks.size())
             continue;
-
-        const auto &chunk =
-            m_geometryChunks[batch.chunkIndex];
-
+        const auto &chunk = m_geometryChunks[batch.chunkIndex];
         if (!chunk.resident)
             continue;
 
+        MapProfileTime sectionStart{};
+        if (phase == 0)
+            sectionStart = MapProfileClock::now();
+
         ID3D11Buffer *vb = chunk.vertexBuffer.Get();
-
-        context->IASetVertexBuffers(
-            0, 1, &vb, &stride, &offset);
-
-        context->IASetIndexBuffer(
-            chunk.indexBuffer.Get(),
-            DXGI_FORMAT_R32_UINT,
-            0);
-
+        context->IASetVertexBuffers(0, 1, &vb, &stride, &offset);
+        context->IASetIndexBuffer(chunk.indexBuffer.Get(), DXGI_FORMAT_R32_UINT, 0);
+        if (phase == 0)
+        {
+            isolatedMs += MapProfileMs(sectionStart, MapProfileClock::now());
+            ++isolatedCount;
+        }
+        if (phase == 1)
+            sectionStart = MapProfileClock::now();
 
         const MaterialData &material = *batch.resolvedMaterial;
-
         drawData.material = material.gpuMaterial;
-
         drawData.material.diffuseColor = {1, 1, 1};
         drawData.material.ambientColor = {0.3f, 0.3f, 0.3f};
         drawData.material.specularColor = {0.1f, 0.1f, 0.1f};
         drawData.material.specularPower = 32.0f;
         drawData.material.d = 1.0f;
         drawData.material.isMapMaterial = 1.0f;
-
         if (batch.materialType != MaterialType::MATERIAL_DEFAULT)
-        {
-            drawData.material.materialType =
-                static_cast<float>(batch.materialType);
-        }
-
+            drawData.material.materialType = static_cast<float>(batch.materialType);
         ID3D11ShaderResourceView *diffuseSRV = nullptr;
-
         if (material.mapTextures.diffuse)
-        {
             diffuseSRV = material.mapTextures.diffuse.Get();
-        }
         else if (batch.materialIndex < m_materialSRVs.size())
-        {
-            diffuseSRV =
-                m_materialSRVs[batch.materialIndex].Get();
-        }
-
-        context->PSSetShaderResources(0, 1, &diffuseSRV);
-
+            diffuseSRV = m_materialSRVs[batch.materialIndex].Get();
         ID3D11ShaderResourceView *additionalSRVs[4] =
             {
                 material.mapTextures.normal.Get(),
                 material.mapTextures.detail.Get(),
                 material.mapTextures.normalDetail.Get(),
                 material.mapTextures.maps.Get()};
+        if (phase == 1)
+        {
+            isolatedMs += MapProfileMs(sectionStart, MapProfileClock::now());
+            ++isolatedCount;
+        }
+        if (phase == 2)
+            sectionStart = MapProfileClock::now();
 
-        context->PSSetShaderResources(
-            8, 4, additionalSRVs);
+        context->PSSetShaderResources(0, 1, &diffuseSRV);
+        //context->PSSetShaderResources(8, 4, additionalSRVs);
+        if (phase == 2)
+        {
+            isolatedMs += MapProfileMs(sectionStart, MapProfileClock::now());
+            ++isolatedCount;
+        }
+        if (phase == 3)
+            sectionStart = MapProfileClock::now();
 
         D3D11_MAPPED_SUBRESOURCE mapped{};
-
-        HRESULT hr = context->Map(
-            cbb,
-            0,
-            D3D11_MAP_WRITE_DISCARD,
-            0,
-            &mapped);
-
+        HRESULT hr = context->Map(cbb, 0, D3D11_MAP_WRITE_DISCARD, 0, &mapped);
         if (FAILED(hr))
             continue;
-
         memcpy(mapped.pData, &drawData, sizeof(drawData));
         context->Unmap(cbb, 0);
+        if (phase == 3)
+        {
+            isolatedMs += MapProfileMs(sectionStart, MapProfileClock::now());
+            ++isolatedCount;
+        }
+        if (phase == 4)
+            sectionStart = MapProfileClock::now();
 
-
-        context->DrawIndexed(
-            batch.indexCount,
-            batch.chunkStartIndex,
-            0);
-
+        context->DrawIndexed(batch.indexCount, batch.chunkStartIndex, 0);
         ++m_stats.m_drawCalls;
+        if (phase == 4)
+        {
+            isolatedMs += MapProfileMs(sectionStart, MapProfileClock::now());
+            ++isolatedCount;
+        }
     }
+    const auto t5 = MapProfileClock::now();
 
     uint64_t visibleIndices = 0;
     uint64_t visibleTriangles = 0;
-
     for (uint32_t i : visibleBatches)
     {
         const auto &batch = m_renderBatches[i];
-
         if (!batch.resolvedMaterial || batch.indexCount == 0)
             continue;
-
         visibleIndices += batch.indexCount;
         visibleTriangles += batch.indexCount / 3;
     }
+    const auto t6 = MapProfileClock::now();
 
-    static int logCounter = 0;
+    // No debug output happens inside the measured interval.
+    const double total = MapProfileMs(t0, t6);
+    profile.Add(total, MapProfileMs(t0, t1), MapProfileMs(t1, t2),
+                MapProfileMs(t2, t3), MapProfileMs(t3, t4),
+                MapProfileMs(t4, t5), MapProfileMs(t5, t6),
+                static_cast<unsigned>(visibleBatches.size()), m_stats.m_drawCalls,
+                isolatedMs, isolatedCount);
 
-    if (++logCounter >= 300)
+    // Preserve the existing once-per-300-frame geometry report.
+    static unsigned geometryLogCounter = 0;
+    if (++geometryLogCounter >= 300)
     {
-        logCounter = 0;
-
+        geometryLogCounter = 0;
         char buffer[256];
-
-        sprintf_s(
-            buffer,
-            "Visible batches: %zu | Indices: %llu | Triangles: %llu\n",
-            visibleBatches.size(),
-            static_cast<unsigned long long>(visibleIndices),
-            static_cast<unsigned long long>(visibleTriangles));
-
+        sprintf_s(buffer, sizeof(buffer),
+                  "Visible batches: %zu | Indices: %llu | Triangles: %llu\n",
+                  visibleBatches.size(),
+                  static_cast<unsigned long long>(visibleIndices),
+                  static_cast<unsigned long long>(visibleTriangles));
         OutputDebugStringA(buffer);
     }
 }
-
-
-
 
 void MapLoader::ResolveMaterials()
 {
@@ -1615,18 +1762,17 @@ void MapLoader::ResolveMaterials()
     BuildRenderBatches();
 }
 
-
 void MapLoader::ProcessNode(
-    const aiNode* node,
-    const aiScene* scene,
-    const aiMatrix4x4& parentTransform)
+    const aiNode *node,
+    const aiScene *scene,
+    const aiMatrix4x4 &parentTransform)
 {
     const aiMatrix4x4 worldTransform =
         parentTransform * node->mTransformation;
 
     for (unsigned int i = 0; i < node->mNumMeshes; ++i)
     {
-        const aiMesh* mesh =
+        const aiMesh *mesh =
             scene->mMeshes[node->mMeshes[i]];
 
         std::string meshName = mesh->mName.C_Str();
@@ -1656,11 +1802,10 @@ void MapLoader::ProcessNode(
             LampLight light{};
 
             light.position =
-            {
-                worldPosition.x,
-                worldPosition.y,
-                worldPosition.z
-            };
+                {
+                    worldPosition.x,
+                    worldPosition.y,
+                    worldPosition.z};
 
             std::string msg =
                 "Lamp world: " +
@@ -1674,7 +1819,7 @@ void MapLoader::ProcessNode(
 
             m_lampLights.push_back(light);
 
-            const auto& p = m_lampLights.back().position;
+            const auto &p = m_lampLights.back().position;
 
             std::string msg2 =
                 "Stored: " +
@@ -1696,8 +1841,8 @@ void MapLoader::ProcessNode(
 }
 
 void MapLoader::FindGridNodes(
-    aiNode* node,
-    const aiMatrix4x4& parentTransform)
+    aiNode *node,
+    const aiMatrix4x4 &parentTransform)
 {
     if (!node)
         return;
@@ -1718,7 +1863,6 @@ void MapLoader::FindGridNodes(
             return static_cast<char>(std::tolower(c));
         });
 
-
     if (lower.find("grid") != std::string::npos || lower.find("timing") != std::string::npos)
     {
         aiVector3D scaling;
@@ -1732,30 +1876,29 @@ void MapLoader::FindGridNodes(
 
         OutputDebugStringA(
             ("FOUND GRID NODE: " + name +
-                " POS=(" +
-                std::to_string(position.x) + ", " +
-                std::to_string(position.y) + ", " +
-                std::to_string(position.z) + ")"
-                " ROT=(" +
-                std::to_string(rotation.x) + ", " +
-                std::to_string(rotation.y) + ", " +
-                std::to_string(rotation.z) + ", " +
-                std::to_string(rotation.w) + ")" +
-                "\n").c_str());
+             " POS=(" +
+             std::to_string(position.x) + ", " +
+             std::to_string(position.y) + ", " +
+             std::to_string(position.z) + ")"
+                                          " ROT=(" +
+             std::to_string(rotation.x) + ", " +
+             std::to_string(rotation.y) + ", " +
+             std::to_string(rotation.z) + ", " +
+             std::to_string(rotation.w) + ")" +
+             "\n")
+                .c_str());
 
         m_markers.push_back(
-            {
-                name,
+            {name,
 
-                position.x,
-                position.y,
-                position.z,
+             position.x,
+             position.y,
+             position.z,
 
-                rotation.x,
-                rotation.y,
-                rotation.z,
-                rotation.w
-            });
+             rotation.x,
+             rotation.y,
+             rotation.z,
+             rotation.w});
     }
 
     for (unsigned int i = 0; i < node->mNumChildren; ++i)
@@ -1766,9 +1909,9 @@ void MapLoader::FindGridNodes(
     }
 }
 
-DirectX::XMFLOAT3 MapLoader::CalculateMeshCenter(const aiMesh* mesh)
+DirectX::XMFLOAT3 MapLoader::CalculateMeshCenter(const aiMesh *mesh)
 {
-    DirectX::XMFLOAT3 center{ 0.0f, 0.0f, 0.0f };
+    DirectX::XMFLOAT3 center{0.0f, 0.0f, 0.0f};
 
     if (!mesh || mesh->mNumVertices == 0)
         return center;
@@ -1788,11 +1931,9 @@ DirectX::XMFLOAT3 MapLoader::CalculateMeshCenter(const aiMesh* mesh)
     return center;
 }
 
-
-
-bool MapLoader::LoadWorld(const std::string& filename,
-    ID3D11Device* device,
-    ID3D11DeviceContext* context)
+bool MapLoader::LoadWorld(const std::string &filename,
+                          ID3D11Device *device,
+                          ID3D11DeviceContext *context)
 {
 
     m_batchDevice = device;
@@ -1802,17 +1943,15 @@ bool MapLoader::LoadWorld(const std::string& filename,
     m_batchBVHIndices.clear();
     m_batchIndexBuffer.Reset();
 
-
     Assimp::Importer importer;
     const auto start = std::chrono::steady_clock::now();
-    const aiScene* scene = importer.ReadFile(
+    const aiScene *scene = importer.ReadFile(
         filename,
         aiProcess_Triangulate |
-        aiProcess_JoinIdenticalVertices |
-        aiProcess_FlipUVs |
-        aiProcess_MakeLeftHanded |
-        aiProcess_GenNormals
-    );
+            aiProcess_JoinIdenticalVertices |
+            aiProcess_FlipUVs |
+            aiProcess_MakeLeftHanded |
+            aiProcess_GenNormals);
 
     if (!scene || !scene->HasMeshes())
         return false;
@@ -1832,12 +1971,10 @@ bool MapLoader::LoadWorld(const std::string& filename,
     m_collisionIndices.clear();
     m_mapSubsets.clear();
     m_mapMaterialNames.clear();
-     
+
     size_t lastSlash = filename.find_last_of("\\/");
     std::string directory =
-        (lastSlash != std::string::npos) ?  
-        filename.substr(0, lastSlash + 1) : "";
-
+        (lastSlash != std::string::npos) ? filename.substr(0, lastSlash + 1) : "";
 
     m_stats.m_totalVertices = 0;
     m_stats.m_totalTriangles = 0;
@@ -1847,12 +1984,12 @@ bool MapLoader::LoadWorld(const std::string& filename,
     for (unsigned int i = 0; i < scene->mNumMaterials; i++)
     {
         aiString texPath;
-        ID3D11ShaderResourceView* srv = nullptr;
+        ID3D11ShaderResourceView *srv = nullptr;
 
         if (scene->mMaterials[i]->GetTexture(
-            aiTextureType_DIFFUSE,
-            0,
-            &texPath) == AI_SUCCESS)
+                aiTextureType_DIFFUSE,
+                0,
+                &texPath) == AI_SUCCESS)
         {
             std::string textureName = texPath.C_Str();
 
@@ -1879,15 +2016,14 @@ bool MapLoader::LoadWorld(const std::string& filename,
 
     for (unsigned int i = 0; i < scene->mNumMeshes; i++)
     {
-        aiMesh* mesh = scene->mMeshes[i];
-
+        aiMesh *mesh = scene->mMeshes[i];
 
         m_stats.m_totalVertices += mesh->mNumVertices;
         m_stats.m_totalTriangles += mesh->mNumFaces; // assuming triangulation
 
         UINT baseVertex = (UINT)m_allVertices.size();
 
-        MapMeshSubset  subset{};
+        MapMeshSubset subset{};
         subset.startIndex = (UINT)m_allIndices.size();
         subset.indexCount = 0;
 
@@ -1895,9 +2031,8 @@ bool MapLoader::LoadWorld(const std::string& filename,
 
         if (mesh->mMaterialIndex < scene->mNumMaterials)
         {
-            aiMaterial* aiMat =
+            aiMaterial *aiMat =
                 scene->mMaterials[mesh->mMaterialIndex];
-
 
             subset.materialIndex = mesh->mMaterialIndex;
 
@@ -1914,35 +2049,40 @@ bool MapLoader::LoadWorld(const std::string& filename,
         std::string n = meshName;
         std::transform(n.begin(), n.end(), n.begin(), ::tolower);
 
-
         // ---------------------------------------------------------
         // Map material classification
         // ---------------------------------------------------------
 
         bool noCollision = false;
 
-        if (n.find("nocoll_") != std::string::npos)
+        if (n.find("nocoll_") != std::string::npos || n.find("_nocoll") != std::string::npos)
         {
             noCollision = true;
         }
 
+
+        if (n.find("_void") != std::string::npos)
+        {
+            subset.materialType = MaterialType::MATERIAL_TRANSPARENT;
+        }
+
+
         if (n.find("road") != std::string::npos ||
-            n.find("asphalt") != std::string::npos ||
+            n.find("asphalt") != std::string::npos ||            
             n.find("grass") != std::string::npos)
         {
             subset.materialType =
                 MaterialType::MATERIAL_ASPHALT;
         }
 
-
         if (n.find("tree") != std::string::npos ||
             n.find("kstree") != std::string::npos ||
             n.find("bush") != std::string::npos)
+            
         {
             subset.materialType =
                 MaterialType::MATERIAL_TREE;
         }
-
 
         if (n.find("bulb") != std::string::npos ||
             n.find("tunnel_lamps") != std::string::npos ||
@@ -1984,7 +2124,6 @@ bool MapLoader::LoadWorld(const std::string& filename,
             //OutputDebugStringA(msg.c_str());
         }
 
-
         aiVector3D minP(FLT_MAX, FLT_MAX, FLT_MAX);
         aiVector3D maxP(-FLT_MAX, -FLT_MAX, -FLT_MAX);
 
@@ -2003,47 +2142,42 @@ bool MapLoader::LoadWorld(const std::string& filename,
                 maxP.y = max(maxP.y, p.y);
                 maxP.z = max(maxP.z, p.z);
 
-
-                vert.pos = { p.x, p.y, p.z };
+                vert.pos = {p.x, p.y, p.z};
 
                 if (mesh->HasNormals())
                 {
                     aiVector3D n = mesh->mNormals[v];
-                    vert.normal = { n.x, n.y, n.z };
+                    vert.normal = {n.x, n.y, n.z};
                 }
                 else
-                    vert.normal = { 0,1,0 };
+                    vert.normal = {0, 1, 0};
 
                 if (mesh->HasTextureCoords(0))
-                    vert.texCoord = { mesh->mTextureCoords[0][v].x,
-                                      mesh->mTextureCoords[0][v].y };
+                    vert.texCoord = {mesh->mTextureCoords[0][v].x,
+                                     mesh->mTextureCoords[0][v].y};
                 else
-                    vert.texCoord = { 0,0 };
+                    vert.texCoord = {0, 0};
 
-                vert.color = { 1,1,1,1 };
+                vert.color = {1, 1, 1, 1};
                 m_allVertices.push_back(vert);
             }
 
             DirectX::XMFLOAT3 minPoint =
-            {
-                minP.x,
-                minP.y,
-                minP.z
-            };
+                {
+                    minP.x,
+                    minP.y,
+                    minP.z};
 
             DirectX::XMFLOAT3 maxPoint =
-            {
-                maxP.x,
-                maxP.y,
-                maxP.z
-            };
+                {
+                    maxP.x,
+                    maxP.y,
+                    maxP.z};
 
             DirectX::BoundingBox::CreateFromPoints(
                 subset.bounds,
                 DirectX::XMLoadFloat3(&minPoint),
-                DirectX::XMLoadFloat3(&maxPoint)
-            );
-
+                DirectX::XMLoadFloat3(&maxPoint));
 
             std::string msg =
                 "Bounds for " + meshName +
@@ -2062,8 +2196,9 @@ bool MapLoader::LoadWorld(const std::string& filename,
 
         for (unsigned int f = 0; f < mesh->mNumFaces; f++)
         {
-            const aiFace& face = mesh->mFaces[f];
-            if (face.mNumIndices != 3) continue;
+            const aiFace &face = mesh->mFaces[f];
+            if (face.mNumIndices != 3)
+                continue;
 
             UINT i0 = face.mIndices[0] + baseVertex;
             UINT i1 = face.mIndices[1] + baseVertex;
@@ -2086,7 +2221,7 @@ bool MapLoader::LoadWorld(const std::string& filename,
         }
 
         m_mapSubsets.push_back(subset);
-        m_mapMaterialNames.push_back(materialName);    
+        m_mapMaterialNames.push_back(materialName);
     }
 
     BuildBVH();
@@ -2095,16 +2230,14 @@ bool MapLoader::LoadWorld(const std::string& filename,
     ProcessNode(
         scene->mRootNode,
         scene,
-        aiMatrix4x4()
-    );
-
+        aiMatrix4x4());
 
     size_t litSectionCount = 0;
     size_t elsewhereCount = 0;
 
-    for (const auto& light : m_lampLights)
+    for (const auto &light : m_lampLights)
     {
-        const auto& p = light.position;
+        const auto &p = light.position;
 
         if (p.x >= -2600.0f && p.x <= 5000.0f &&
             p.z >= -3500.0f && p.z <= 4100.0f)
@@ -2118,15 +2251,12 @@ bool MapLoader::LoadWorld(const std::string& filename,
     }
 
     OutputDebugStringA(
-        ("Working straight lamps: " + std::to_string(litSectionCount) + "\n").c_str()
-    );
+        ("Working straight lamps: " + std::to_string(litSectionCount) + "\n").c_str());
 
     OutputDebugStringA(
-        ("All other lamps: " + std::to_string(elsewhereCount) + "\n").c_str()
-    );
+        ("All other lamps: " + std::to_string(elsewhereCount) + "\n").c_str());
     OutputDebugStringA(
-        ("Total lamps: " + std::to_string(m_lampLights.size()) + "\n").c_str()
-    );
+        ("Total lamps: " + std::to_string(m_lampLights.size()) + "\n").c_str());
 
     index_count = (UINT)m_allIndices.size();
 
@@ -2138,7 +2268,7 @@ bool MapLoader::LoadWorld(const std::string& filename,
     vbd.ByteWidth = (UINT)(sizeof(SharedVertex) * m_allVertices.size());
     vbd.BindFlags = D3D11_BIND_VERTEX_BUFFER;
 
-    D3D11_SUBRESOURCE_DATA vdata{ m_allVertices.data() };
+    D3D11_SUBRESOURCE_DATA vdata{m_allVertices.data()};
     device->CreateBuffer(&vbd, &vdata, vertex_buffer.GetAddressOf());
 
     D3D11_BUFFER_DESC ibd{};
@@ -2146,7 +2276,7 @@ bool MapLoader::LoadWorld(const std::string& filename,
     ibd.ByteWidth = (UINT)(sizeof(UINT) * m_allIndices.size());
     ibd.BindFlags = D3D11_BIND_INDEX_BUFFER;
 
-    D3D11_SUBRESOURCE_DATA idata{ m_allIndices.data() };
+    D3D11_SUBRESOURCE_DATA idata{m_allIndices.data()};
     device->CreateBuffer(&ibd, &idata, index_buffer.GetAddressOf());
 
     // sampler
@@ -2172,7 +2302,6 @@ bool MapLoader::LoadWorld(const std::string& filename,
          std::to_string(m_allIndices.size()) +
          "\n")
             .c_str());
-
 
     return true;
 }

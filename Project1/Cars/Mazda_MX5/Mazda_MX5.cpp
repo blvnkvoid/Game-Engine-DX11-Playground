@@ -91,8 +91,8 @@ VehicleDefinition Mx5::CreateDefinition()
     // ---------------------------------------------------------
     // 6. Steering / response
     // ---------------------------------------------------------
-    car.lowSpeedSteerAngle = 0.50f;
-    car.highSpeedSteerAngle = 0.10f;
+    car.lowSpeedSteerAngle = 0.20f;
+    car.highSpeedSteerAngle = 0.12f;
     car.loadResponseRate = 28.0f;
     car.slipResponseRate = 32.0f;
     car.loadTransferStrength = 0.85f;
@@ -135,20 +135,16 @@ VehicleDefinition Mx5::CreateDefinition()
     // ---------------------------------------------------------
     // 9. Tyres - preserve known-working model behavior
     // ---------------------------------------------------------
-    car.frontTyres.frictionCoeff = 1.30f;
-    car.frontTyres.loadSmoothing = 14.0f;
-    car.frontTyres.relaxationRate = 26.0f;
-    car.frontTyres.stiffness = 15500.0f;
+
+    ApplyTyreCompound(car.frontTyres, TyreCompound::R3_RacingMedium);
+    ApplyTyreCompound(car.rearTyres, TyreCompound::R3_RacingMedium);
     car.frontTyres.staticCamber = -1.1f;
     car.frontTyres.camberGripStrength = 0.06f;
     car.frontTyres.CamberGain = -8.0f;
     car.frontTyres.wheelRadius = 0.302f;
     car.frontTyres.frontWheelInertia = 1.10f;
 
-    car.rearTyres.frictionCoeff = 1.30f;
-    car.rearTyres.loadSmoothing = 14.0f;
-    car.rearTyres.relaxationRate = 26.0f;
-    car.rearTyres.stiffness = 15500.0f;
+
     car.rearTyres.staticCamber = -1.4f;
     car.rearTyres.camberGripStrength = 0.06f;
     car.rearTyres.CamberGain = -10.0f;

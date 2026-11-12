@@ -40,7 +40,7 @@ VehicleDefinition R8::CreateDefinition()
     car.engine.redlineRPM = 8500.0f;
     car.engine.limiterRPM = 8600.0f;
 
-    car.engine.maxTorque = 350.0f;
+    car.engine.maxTorque = 750.0f;
     car.engineBrakeTorque = 100.0f;
 
     car.engine.torqueCurveCount = 6;
@@ -81,8 +81,8 @@ VehicleDefinition R8::CreateDefinition()
     // ---------------------------------------------------------
     // 6. Steering / response
     // ---------------------------------------------------------
-    car.lowSpeedSteerAngle = 0.50f;
-    car.highSpeedSteerAngle = 0.25f;
+    car.lowSpeedSteerAngle = 0.20f;
+    car.highSpeedSteerAngle = 0.12f;
 
     car.loadResponseRate = 50.0f;
     car.slipResponseRate = 55.0f;

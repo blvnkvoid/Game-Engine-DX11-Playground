@@ -4,36 +4,46 @@
 #include "Tyres.h"
 #include <bullet/btBulletDynamicsCommon.h>
 
+class Handling
+{
+  public:
+    Handling();
+    ~Handling()
+    {
+        Cleanup();
+    }
+    void Cleanup();
+    void SetPhysicsPointers(btRigidBody *body)
+    {
+        m_carBody = body;
+    }
+    void ProcessSuspensionData(int wheelIdx, WheelRayHit hitData);
+    bool CheckResetRequested();
+    SuspensionResults CalculateSuspension(float deltaTime);
+    btVector3 GetWheelLocalOffset(int i) const
+    {
+        return m_wheels[i].localOffset;
+    }
+    PhysicsAdvice CalculateFriction(float steeringInput, const btTransform &tr, float currentSpeed, float carMass, float throttle, float brake, float deltaTime);
+    PhysicsAdvice CalculateDrivingForces(float throttle, float brake, const btTransform &tr, float currentSpeed, float deltaTime);
+    PhysicsAdvice CombinedForces(float steeringInput, const btTransform &tr, float currentSpeed, float carMass, float throttle, float brake, float deltaTime);
+    float CalculateLoadSensitiveMu(float normalLoad, float baseMu);
+    void SetVehicleDefinition(const VehicleDefinition &definition);
+    void ApplyRearLimitedSlipDifferential(float &rearLeftTorque, float &rearRightTorque, float deltaTime);
+    void ApplyFrontLimitedSlipDifferential(float &frontLeftTorque, float &frontRightTorque, float deltaTime);
+    void ApplyYawDamping();
 
-class Handling {
-public:
-	Handling();
-	~Handling() { Cleanup(); }
-	void Cleanup();
-	void SetPhysicsPointers(btRigidBody* body) {m_carBody = body;}
-	void ProcessSuspensionData(int wheelIdx, WheelRayHit hitData);
-	bool CheckResetRequested();
-	SuspensionResults CalculateSuspension(float deltaTime);
-	btVector3 GetWheelLocalOffset(int i) const { return m_wheels[i].localOffset; }
-	PhysicsAdvice CalculateFriction(float steeringInput, const btTransform& tr, float currentSpeed, float carMass, float throttle, float brake, float deltaTime);
-	PhysicsAdvice CalculateDrivingForces(float throttle, float brake, const btTransform& tr, float currentSpeed, float deltaTime);
-	PhysicsAdvice CombinedForces(float steeringInput, const btTransform& tr, float currentSpeed, float carMass,	float throttle,	float brake, float deltaTime);
-	float CalculateLoadSensitiveMu(float normalLoad, float baseMu);
-	void SetVehicleDefinition(const VehicleDefinition& definition);
-	void ApplyRearLimitedSlipDifferential(float& rearLeftTorque, float& rearRightTorque, float deltaTime);		
-	void ApplyFrontLimitedSlipDifferential(float& frontLeftTorque, float& frontRightTorque, float deltaTime);
-	void ApplyYawDamping();
-
-private:
-	float smoothedSteering = 0.0f;
-	float m_currentFrontLockTorque = 0.0f;
-	float m_currentRearLockTorque = 0.0f;
-	bool rWasPressed = false;
-	btVector3 m_lastVelocity = btVector3(0, 0, 0);
-	float wheelDriveTorque[4];
-	WheelInfo m_wheels[4];
-	btRigidBody* m_carBody;
-	TorqueManager m_torqueManager;
-	Tire m_tyres[4];
-	VehicleDefinition m_vehicle;
+  private:
+    float m_yawStabilityStrength = 1000.0f; // Nm/rad
+    float smoothedSteering = 0.0f;
+    float m_currentFrontLockTorque = 0.0f;
+    float m_currentRearLockTorque = 0.0f;
+    bool rWasPressed = false;
+    btVector3 m_lastVelocity = btVector3(0, 0, 0);
+    float wheelDriveTorque[4];
+    WheelInfo m_wheels[4];
+    btRigidBody *m_carBody;
+    TorqueManager m_torqueManager;
+    Tire m_tyres[4];
+    VehicleDefinition m_vehicle;
 };

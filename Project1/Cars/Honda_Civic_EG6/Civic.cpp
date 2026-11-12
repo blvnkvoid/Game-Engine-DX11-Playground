@@ -9,10 +9,11 @@ VehicleDefinition Civic::CreateDefinition()
 // ---------------------------------------------------------
     car.mass = 1090.0f;
     car.frontWeightDistribution = 0.60f;
-    car.yawInertiaScale = 1.1f;
-    car.pitchInertiaScale = 1.10f;
-    car.rollInertiaScale = 1.10f;
-    car.yawDamping = 3000.0f;
+    car.yawInertiaScale = 1.0f;
+    car.pitchInertiaScale = 1.0f;
+    car.rollInertiaScale = 1.0f;
+    car.yawDamping = 0.0f;
+    car.rollStiffness = 0.0f;
     car.bodyLength = 4.070f;
     car.Offset_X = 0.7375f;
     car.Offset_Y = 0.14f;
@@ -82,12 +83,12 @@ VehicleDefinition Civic::CreateDefinition()
     // ---------------------------------------------------------
     // 6. Steering / response
     // ---------------------------------------------------------
-    car.lowSpeedSteerAngle = 0.50f;
-    car.highSpeedSteerAngle = 0.10f;
+    car.lowSpeedSteerAngle = 0.20f;
+    car.highSpeedSteerAngle = 0.12f;
 
     car.loadResponseRate = 35.0f;
     car.slipResponseRate = 40.0f;
-    car.loadTransferStrength = 0.75f;
+    car.loadTransferStrength = 1.0f;
 
     // ---------------------------------------------------------
     // 7. Brakes
@@ -124,25 +125,20 @@ VehicleDefinition Civic::CreateDefinition()
 
     car.suspension.bumpStopRate = 40000.0f;
     car.suspension.bumpStopStart = 0.78f;
-    car.suspension.dampingScale = 0.75f;
+    car.suspension.dampingScale = 1.00f;
 
     // ---------------------------------------------------------
     // 9. Tyres
     // ---------------------------------------------------------
-    car.frontTyres.frictionCoeff = 1.30f;
-    car.frontTyres.loadSmoothing = 14.0f;
-    car.frontTyres.relaxationRate = 26.0f;
-    car.frontTyres.stiffness = 15500.0f;
+    ApplyTyreCompound(car.frontTyres, TyreCompound::R3_RacingMedium);
+    ApplyTyreCompound(car.rearTyres, TyreCompound::R3_RacingMedium);
     car.frontTyres.staticCamber = -1.6f;
     car.frontTyres.camberGripStrength = 0.07f;
     car.frontTyres.CamberGain = -10.0f;
     car.frontTyres.wheelRadius = 0.308f;
     car.frontTyres.frontWheelInertia = 1.59f;
 
-    car.rearTyres.frictionCoeff = 1.30f;
-    car.rearTyres.loadSmoothing = 14.0f;
-    car.rearTyres.relaxationRate = 26.0f;
-    car.rearTyres.stiffness = 15500.0f;
+
     car.rearTyres.staticCamber = -1.2f;
     car.rearTyres.camberGripStrength = 0.07f;
     car.rearTyres.CamberGain = -8.0f;

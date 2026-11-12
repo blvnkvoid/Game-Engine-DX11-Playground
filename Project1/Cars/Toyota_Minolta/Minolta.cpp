@@ -9,10 +9,10 @@ VehicleDefinition Minolta::CreateDefinition()
 // ---------------------------------------------------------
 car.mass = 850.0f;
 car.frontWeightDistribution = 0.49f;
-car.yawInertiaScale = 1.20f;
-car.pitchInertiaScale = 1.20f;
-car.rollInertiaScale = 1.20f;
-car.yawDamping = 5500.0f;
+car.yawInertiaScale = 1.0f;
+car.pitchInertiaScale = 1.0f;
+car.rollInertiaScale = 1.0f;
+car.yawDamping = 100.0f;
 car.bodyLength = 4.80f;
 car.Offset_X = 0.775f;
 car.Offset_Y = 0.12f;
@@ -83,8 +83,8 @@ car.diffMaxLoadBiasTorque = 450.0f;// from 600
 // 6. Steering / response
 // ---------------------------------------------------------
 //car.lowSpeedSteerAngle = 0.38f;
-car.lowSpeedSteerAngle = 0.45f;
-car.highSpeedSteerAngle = 0.075f;
+car.lowSpeedSteerAngle = 0.20f;
+car.highSpeedSteerAngle = 0.12f;
 
 car.loadResponseRate = 45.0f;
 car.slipResponseRate = 45.0f;
