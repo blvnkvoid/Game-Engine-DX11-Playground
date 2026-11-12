@@ -51,10 +51,25 @@ float Tire::Update(float verticalLoad, float slipAngle, float speed_kmh, float l
         return 0.0f;
     }
 
-    float effectiveStiffness = m_tyre.stiffness;
-    float referenceLoad = 3000.0f;
-    float loadRatio = clamp(Fz / referenceLoad, 0.35f, 2.5f);
-    float loadSensitivity = 0.16f;
+// Reference normal load for tyre characteristics
+    const float referenceLoad = 3000.0f;
+
+    // Existing load ratio used by friction sensitivity
+    const float loadRatio =
+        clamp(Fz / referenceLoad, 0.35f, 2.5f);
+
+    // Load-dependent cornering stiffness
+    const float stiffnessLoadRatio =
+        max(Fz / referenceLoad, 0.0f);
+
+    const float stiffnessLoadExponent = 0.80f;
+
+    const float effectiveStiffness =
+        m_tyre.stiffness *
+        powf(stiffnessLoadRatio, stiffnessLoadExponent);
+
+    // Existing friction load sensitivity
+    const float loadSensitivity = 0.16f;
 
     float loadSensitiveMu = mu * (1.0f - loadSensitivity * (loadRatio - 1.0f));
     loadSensitiveMu = clamp(loadSensitiveMu, mu * 0.72f, mu * 1.08f);
