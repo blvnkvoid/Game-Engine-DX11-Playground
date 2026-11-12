@@ -275,6 +275,7 @@
     <ClInclude Include="Physics\PhysicsEngine.h" />
     <ClInclude Include="Physics\TelemetryRecorder.h" />
     <ClInclude Include="Physics\TorqueManager.h" />
+    <ClInclude Include="Physics\TyreCurveGraph.h" />
     <ClInclude Include="Physics\Tyres.h" />
     <ClInclude Include="Physics\VehicleTelemetry.h" />
     <ClInclude Include="Scene\Camera.h" />

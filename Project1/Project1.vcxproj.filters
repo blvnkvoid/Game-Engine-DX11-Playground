@@ -497,6 +497,9 @@
     <ClInclude Include="Sky\Sun.h">
       <Filter>Source Files\Sky</Filter>
     </ClInclude>
+    <ClInclude Include="Physics\TyreCurveGraph.h">
+      <Filter>Source Files\Physics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

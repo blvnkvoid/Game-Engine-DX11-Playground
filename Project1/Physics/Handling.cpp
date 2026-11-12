@@ -599,7 +599,7 @@ void Handling::ApplyYawDamping()
 
 PhysicsAdvice Handling::CombinedForces(float steeringInput, const btTransform &tr, float currentSpeed, float carMass, float throttle, float brake, float deltaTime)
 {
-    ApplyYawDamping();
+    //ApplyYawDamping();
 
     PhysicsAdvice lateralAdvice = CalculateFriction(steeringInput, tr, currentSpeed, carMass, throttle, brake, deltaTime);
     PhysicsAdvice driveAdvice = CalculateDrivingForces(throttle, brake, tr, currentSpeed, deltaTime);
@@ -629,12 +629,6 @@ PhysicsAdvice Handling::CombinedForces(float steeringInput, const btTransform &t
         float latMag = lateralForce.length();
         float longMag = longForce.length();
         float total = sqrt(latMag * latMag + longMag * longMag);
-
-        /*if(total > maxGrip && total > 0.0001f )
-        {
-            float scale = maxGrip / total;
-            combinedForce *= scale;
-        }*/
 
         combinedAdvice.friction[i].force = combinedForce;
         combinedAdvice.friction[i].offset = lateralAdvice.friction[i].active ? lateralAdvice.friction[i].offset : driveAdvice.friction[i].offset;

@@ -548,17 +548,8 @@ for (int i = 0; i < 4; i++)
 
             btScalar effectiveZ;
 
-            //if (front < rear)
-            //{
-                // Original yaw arms
                 effectiveZ = localOffset.z();
-            //}
-            //else
-            //{
-                // Central yaw arms
-                //  const btScalar symmetricArm = (front + rear) * 0.5f;
-              //    effectiveZ = (i < 2) ? symmetricArm : -symmetricArm;
-            //}
+
 
             btVector3 localTorque = basis.transpose() * physicalTorque;
 

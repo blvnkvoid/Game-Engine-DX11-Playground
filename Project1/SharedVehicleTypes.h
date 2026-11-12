@@ -140,6 +140,12 @@ struct TelemetryData {
     float lateralYawTorque[4] = {};
     float longitudinalYawTorque[4] = {};
     float totalTyreYawTorque[4] = {};
+
+    float tyreSlipAngle[4] = {};        // radians, signed
+    float tyrePeakSlipAngle[4] = {};    // radians, effective peak
+    float tyreFreeLateralForce[4] = {}; // N, pre-combined-slip
+    int tyreCompoundId[4] = {};         // TyreCompound enum integer
+    int tyreCurveValid[4] = {};         // 1 when tyre contact was evaluated
 };
 
 extern TelemetryData g_DebugTelemetry;

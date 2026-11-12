@@ -131,14 +131,14 @@ car.suspension.dampingScale = 0.85f;
 // 9. Tyres
 // ---------------------------------------------------------
 
-ApplyTyreCompound(car.frontTyres, TyreCompound::R3_RacingMedium);
+ApplyTyreCompound(car.frontTyres, TyreCompound::R1_RacingSuperHard);
 car.frontTyres.staticCamber = -2.8f;
 car.frontTyres.camberGripStrength = 0.06f;
 car.frontTyres.CamberGain = -14.0f;
 car.frontTyres.wheelRadius = 0.335f;
 car.frontTyres.frontWheelInertia = 1.85f;
 
-ApplyTyreCompound(car.rearTyres, TyreCompound::R3_RacingMedium);
+ApplyTyreCompound(car.rearTyres, TyreCompound::R1_RacingSuperHard);
 car.rearTyres.staticCamber = -2.2f;
 car.rearTyres.camberGripStrength = 0.06f;
 car.rearTyres.CamberGain = -10.0f;
