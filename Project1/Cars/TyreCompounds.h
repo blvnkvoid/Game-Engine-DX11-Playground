@@ -12,13 +12,21 @@ struct TyreCurveData
     float postPeakGrip;
 };
 
+struct TyreLongitudinalCurveData
+{
+    float peakSlip;
+    float postPeakGrip;
+};
+
 struct TyreCompoundData
 {
     float frictionCoeff;
     float loadSmoothing;
-    float relaxationRate;
+    float lateralRelaxationRate;
+    float longitudinalRelaxationRate;
     float stiffness;
     TyreCurveData lateralCurve;
+    TyreLongitudinalCurveData longitudinalCurve;
 };
 
 const TyreCompoundData &GetTyreCompoundData(TyreCompound compound);

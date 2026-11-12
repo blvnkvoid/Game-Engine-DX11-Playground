@@ -306,6 +306,8 @@ PhysicsAdvice Handling::CalculateFriction(float steeringInput, const btTransform
         float telemetryVy = 0.0f;
 
         float frictionForceScalar = m_tyres[i].Update(tyreLoad, slipAngle, speedKMH, currentVx, currentVy, currentWheelTheta, currentWheelMu, telemetryVx, telemetryVy, camberDeg, i, slipRatio, deltaTime);
+
+
         m_wheels[i].lateralForce = frictionForceScalar;
 
         btVector3 wheelRightDir = carRight;

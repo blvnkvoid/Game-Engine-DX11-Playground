@@ -5,8 +5,8 @@
 #include <cstdio>
 #include <Windows.h>
 
-// Tyres XI: exact Tyres 3.0 lateral equation with per-compound constants.
-// Longitudinal, combined-slip, load and relaxation pipeline unchanged.
+// Tyres 6.0: original force curves and combined-slip pipeline;
+// independent lateral and longitudinal relaxation rates.
 namespace
 {
 constexpr float kReferenceLoad = 3000.0f;
@@ -33,10 +33,6 @@ inline float Approach(float state, float target, float rate, float dt)
     return state + (target - state) * alpha;
 }
 
-// Tyres 3.0 lateral-force evaluator, with compound-specific constants.
-// peakScale = 1, falloff = 0.45, postPeakGrip = 0.68 reproduces
-// the original Tyres 3.0 curve (including its hard sliding-grip floor).
-// Note: peakScale != 1 changes the initial cornering stiffness too.
 inline float EvaluateLateralCurve(float absAngle, float maxFriction,
                                   float effectiveStiffness,
                                   const TyreCurveData &curve,
@@ -131,14 +127,33 @@ float Tire::Update(float verticalLoad, float slipAngle, float speed_kmh,
         std::fabs(slipAngle), maxFriction, effectiveStiffness, curve, theta);
     const float freeLateral = slipAngle > 0.0f ? -lateralMagnitude : lateralMagnitude;
 
+    const TyreLongitudinalCurveData &longCurve =
+        GetTyreCompoundData(m_tyre.tyreCompound).longitudinalCurve;
+
     const float absSlip = std::fabs(slipRatio);
-    const float peakSlip = 0.25f;
-    const float postPeakGrip = 0.58f;
-    const float longitudinalGrip = absSlip < peakSlip
-                                       ? absSlip / peakSlip
-                                       : postPeakGrip + (1.0f - postPeakGrip) *
-                                                            std::exp(-(absSlip - peakSlip) / peakSlip);
-    const float freeLongitudinal = std::copysign(longitudinalGrip * maxFriction, slipRatio);
+    const float peakSlip = (std::max)(longCurve.peakSlip, 0.001f);
+    const float postPeakGrip = Clamp(longCurve.postPeakGrip, 0.0f, 1.0f);
+
+    float longitudinalGrip = 0.0f;
+
+    if (absSlip < peakSlip)
+    {
+        const float t = absSlip / peakSlip;
+        // Smooth rise: zero slope at the peak.
+        longitudinalGrip = t * (2.0f - t);
+    }
+    else
+    {
+        // Smooth decay: zero slope at the peak.
+        const float t = (absSlip - peakSlip) / peakSlip;
+        longitudinalGrip =
+            postPeakGrip +
+            (1.0f - postPeakGrip) *
+                std::exp(-t * t);
+    }
+
+    const float freeLongitudinal =
+        std::copysign(longitudinalGrip * maxFriction, slipRatio);
 
     const float freeMagnitude = std::hypot(freeLateral, freeLongitudinal);
     const float utilization = freeMagnitude / (std::max)(maxFriction, 1.0f);
@@ -167,13 +182,33 @@ float Tire::Update(float verticalLoad, float slipAngle, float speed_kmh,
     const float rollingSpeed = std::fabs(localVx);
     const float speedScale = (std::max)(rollingSpeed, kMinimumRollingSpeed) /
                              kReferenceRollingSpeed;
-    const float relaxationRate = Clamp(
-        m_tyre.relaxationRate * speedScale,
+    const float lateralRate = Clamp(
+        m_tyre.lateralRelaxationRate * speedScale,
+        kMinimumRelaxationRate, kMaximumRelaxationRate);
+    const float longitudinalRate = Clamp(
+        m_tyre.longitudinalRelaxationRate * speedScale,
         kMinimumRelaxationRate, kMaximumRelaxationRate);
     const float dt = (std::max)(deltaTime, 0.0f);
 
-    m_latForceBuffer = Approach(m_latForceBuffer, targetLateral, relaxationRate, dt);
-    m_longitudinalForce = Approach(m_longitudinalForce, targetLongitudinal, relaxationRate, dt);
+    const float relaxedLateral =
+        Approach(m_latForceBuffer, targetLateral, lateralRate, dt);
+
+    if (m_tyre.lateralForceRateLimit > 0.0f)
+    {
+        const float maxDelta = m_tyre.lateralForceRateLimit * dt;
+
+        const float delta = Clamp(
+            relaxedLateral - m_latForceBuffer,
+            -maxDelta,
+            maxDelta);
+
+        m_latForceBuffer += delta;
+    }
+    else
+    {
+        m_latForceBuffer = relaxedLateral;
+    }
+    m_longitudinalForce = Approach(m_longitudinalForce, targetLongitudinal, longitudinalRate, dt);
 
     float lateralForce = m_latForceBuffer;
     float longitudinalForce = m_longitudinalForce;
@@ -210,12 +245,12 @@ float Tire::Update(float verticalLoad, float slipAngle, float speed_kmh,
                  "slipA=%.7f slipR=%.5f peakX=%.5f freeLat=%.2f freeLong=%.2f "
                  "util=%.3f blend=%.3f targetLat=%.2f targetLong=%.2f "
                  "latState=%.2f longState=%.2f latOUT=%.2f longOUT=%.2f "
-                 "outputScale=%.4f rate=%.3f\n",
+                 "outputScale=%.4f latRate=%.3f longRate=%.3f\n",
                  wheelIndex, speed_kmh, Fz, loadSensitiveMu, maxFriction,
                  slipAngle, slipRatio, theta, freeLateral, freeLongitudinal,
                  utilization, blend, targetLateral, targetLongitudinal,
                  m_latForceBuffer, m_longitudinalForce,
-                 lateralForce, longitudinalForce, outputScale, relaxationRate);
+                 lateralForce, longitudinalForce, outputScale, lateralRate, longitudinalRate);
         OutputDebugStringA(dbg);
     }
     return lateralForce;

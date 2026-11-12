@@ -251,7 +251,9 @@ struct TyreDefinition
     float frictionCoeff = 0.0f;
     float stiffness = 0.0f;
     float loadSmoothing = 0.0f;
-    float relaxationRate = 0.0f;
+    float lateralRelaxationRate = 0.0f;
+    float longitudinalRelaxationRate = 0.0f;
+    float lateralForceRateLimit = 0.0f; // N/s per tyre; 0 = disabled
     float staticCamber = 0.0f;
     float camberGripStrength = 0.0f;
     float CamberGain = 0.0f;
@@ -384,6 +386,8 @@ struct VehicleDefinition
     float Offset_Z = 0.0f;
 
     float bodyLength = 0.0f;
+
+    float tyreLateralForceRateLimit = 0.0f;
 
 
     EngineDefinition engine;

@@ -175,7 +175,6 @@ VehicleDefinition Chiron::CreateDefinition()
     // Front
     car.frontTyres.frictionCoeff = 1.42f;
     car.frontTyres.loadSmoothing = 10.0f;
-    car.frontTyres.relaxationRate = 30.0f;
     car.frontTyres.stiffness = 20500.0f;
 
     car.frontTyres.staticCamber = -1.4f;
@@ -188,7 +187,6 @@ VehicleDefinition Chiron::CreateDefinition()
     // Rear
     car.rearTyres.frictionCoeff = 1.46f;
     car.rearTyres.loadSmoothing = 10.0f;
-    car.rearTyres.relaxationRate = 28.0f;
     car.rearTyres.stiffness = 22000.0f;
 
     car.rearTyres.staticCamber = -1.6f;

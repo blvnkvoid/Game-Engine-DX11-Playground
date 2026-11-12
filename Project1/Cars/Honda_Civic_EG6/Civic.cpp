@@ -130,8 +130,8 @@ VehicleDefinition Civic::CreateDefinition()
     // ---------------------------------------------------------
     // 9. Tyres
     // ---------------------------------------------------------
-    ApplyTyreCompound(car.frontTyres, TyreCompound::R3_RacingMedium);
-    ApplyTyreCompound(car.rearTyres, TyreCompound::R3_RacingMedium);
+    ApplyTyreCompound(car.frontTyres, TyreCompound::P2_Prototype2);
+    ApplyTyreCompound(car.rearTyres, TyreCompound::P2_Prototype2);
     car.frontTyres.staticCamber = -1.6f;
     car.frontTyres.camberGripStrength = 0.07f;
     car.frontTyres.CamberGain = -10.0f;
@@ -144,6 +144,9 @@ VehicleDefinition Civic::CreateDefinition()
     car.rearTyres.CamberGain = -8.0f;
     car.rearTyres.wheelRadius = 0.308f;
     car.rearTyres.rearWheelInertia = 1.59f;
+
+    car.frontTyres.lateralForceRateLimit = 0.0f;
+    car.rearTyres.lateralForceRateLimit = 0.0f;
 
     car.audio.basePath = "C:\\Users\\Void\\Documents\\GitHub\\Game-Engine-DX11-Playground\\Project1\\Cars\\Honda_Civic_EG6\\sounds\\";
 
